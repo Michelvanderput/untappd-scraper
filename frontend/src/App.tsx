@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star } from 'lucide-react';
+import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface BeerData {
   name: string;
@@ -30,6 +30,8 @@ function App() {
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [beersPerPage, setBeersPerPage] = useState(24);
 
   // Fetch beers from API
   useEffect(() => {
@@ -71,6 +73,7 @@ function App() {
     }
 
     setFilteredBeers(filtered);
+    setCurrentPage(1); // Reset to first page when filters change
   }, [searchTerm, selectedCategory, selectedSubcategory, beers]);
 
   // Get unique categories and subcategories
@@ -311,56 +314,144 @@ function App() {
           </div>
         )}
 
+        {/* Pagination Controls - Top */}
+        {filteredBeers.length > 0 && (
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+            <div className="flex items-center gap-4">
+              <label className="text-sm text-gray-700">
+                Bieren per pagina:
+              </label>
+              <select
+                value={beersPerPage}
+                onChange={(e) => {
+                  setBeersPerPage(Number(e.target.value));
+                  setCurrentPage(1);
+                }}
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+              >
+                <option value={12}>12</option>
+                <option value={24}>24</option>
+                <option value={48}>48</option>
+                <option value={96}>96</option>
+              </select>
+            </div>
+            
+            <div className="text-sm text-gray-600">
+              Toon {((currentPage - 1) * beersPerPage) + 1} - {Math.min(currentPage * beersPerPage, filteredBeers.length)} van {filteredBeers.length} bieren
+            </div>
+          </div>
+        )}
+
         {/* Beer Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredBeers.slice(0, 12).map((beer) => (
-            <div
-              key={beer.beer_url}
-              onClick={() => setCurrentBeer(beer)}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer p-6 hover:scale-105"
-            >
-              <div className="flex gap-4">
-                {beer.image_url ? (
-                  <img
-                    src={beer.image_url}
-                    alt={beer.name}
-                    className="w-20 h-20 object-contain"
-                  />
-                ) : (
-                  <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Beer className="w-10 h-10 text-gray-400" />
-                  </div>
-                )}
-                
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-gray-800 mb-1 truncate">
-                    {beer.name}
-                  </h3>
-                  {beer.brewery && (
-                    <p className="text-sm text-gray-600 mb-2 truncate">
-                      {beer.brewery}
-                    </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {filteredBeers
+            .slice((currentPage - 1) * beersPerPage, currentPage * beersPerPage)
+            .map((beer) => (
+              <div
+                key={beer.beer_url}
+                onClick={() => setCurrentBeer(beer)}
+                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer p-6 hover:scale-105"
+              >
+                <div className="flex gap-4">
+                  {beer.image_url ? (
+                    <img
+                      src={beer.image_url}
+                      alt={beer.name}
+                      className="w-20 h-20 object-contain"
+                    />
+                  ) : (
+                    <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Beer className="w-10 h-10 text-gray-400" />
+                    </div>
                   )}
-                  <div className="flex items-center gap-2 text-sm">
-                    {beer.abv !== null && (
-                      <span className="text-gray-700 font-medium">
-                        {beer.abv}%
-                      </span>
+                  
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold text-gray-800 mb-1 truncate">
+                      {beer.name}
+                    </h3>
+                    {beer.brewery && (
+                      <p className="text-sm text-gray-600 mb-2 truncate">
+                        {beer.brewery}
+                      </p>
                     )}
-                    {beer.rating !== null && (
-                      <div className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                        <span className="text-gray-700">
-                          {beer.rating.toFixed(1)}
+                    <div className="flex items-center gap-2 text-sm">
+                      {beer.abv !== null && (
+                        <span className="text-gray-700 font-medium">
+                          {beer.abv}%
                         </span>
-                      </div>
-                    )}
+                      )}
+                      {beer.rating !== null && (
+                        <div className="flex items-center gap-1">
+                          <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                          <span className="text-gray-700">
+                            {beer.rating.toFixed(1)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
+
+        {/* Pagination Controls - Bottom */}
+        {filteredBeers.length > beersPerPage && (
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <button
+              onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+              disabled={currentPage === 1}
+              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Vorige
+            </button>
+            
+            <div className="flex gap-1">
+              {Array.from({ length: Math.ceil(filteredBeers.length / beersPerPage) }, (_, i) => i + 1)
+                .filter(page => {
+                  // Show first, last, current, and pages around current
+                  const totalPages = Math.ceil(filteredBeers.length / beersPerPage);
+                  return (
+                    page === 1 ||
+                    page === totalPages ||
+                    (page >= currentPage - 1 && page <= currentPage + 1)
+                  );
+                })
+                .map((page, index, array) => {
+                  // Add ellipsis
+                  const showEllipsisBefore = index > 0 && page - array[index - 1] > 1;
+                  
+                  return (
+                    <div key={page} className="flex items-center gap-1">
+                      {showEllipsisBefore && (
+                        <span className="px-2 text-gray-500">...</span>
+                      )}
+                      <button
+                        onClick={() => setCurrentPage(page)}
+                        className={`px-4 py-2 rounded-lg transition-colors ${
+                          currentPage === page
+                            ? 'bg-amber-600 text-white'
+                            : 'bg-white border border-gray-300 hover:bg-gray-50'
+                        }`}
+                      >
+                        {page}
+                      </button>
+                    </div>
+                  );
+                })}
+            </div>
+            
+            <button
+              onClick={() => setCurrentPage(prev => Math.min(Math.ceil(filteredBeers.length / beersPerPage), prev + 1))}
+              disabled={currentPage === Math.ceil(filteredBeers.length / beersPerPage)}
+              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              Volgende
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
 
         {filteredBeers.length === 0 && (
           <div className="text-center py-12">
