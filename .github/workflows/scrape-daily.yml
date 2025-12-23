@@ -1,0 +1,50 @@
+name: Daily Beer Menu Scraper
+
+on:
+  schedule:
+    # Draait elke dag om 06:00 UTC (07:00 CET / 08:00 CEST)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Handmatig kunnen triggeren
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Backup old beers.json
+        run: |
+          if [ -f beers.json ]; then
+            cp beers.json beers.old.json
+          fi
+      
+      - name: Run scraper
+        run: node scrape.js
+      
+      - name: Detect changes and create changelog
+        run: node detect-changes.js
+      
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add beers.json changelog.json
+          
+          if git diff --staged --quiet; then
+            echo "No changes detected"
+          else
+            git commit -m "🍺 Update beer menu - $(date +'%Y-%m-%d %H:%M')"
+            git push
+          fi
