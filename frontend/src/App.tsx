@@ -51,9 +51,59 @@ function App() {
     fetchBeers();
   }, []);
 
+  // Deduplicate beers helper
+  const deduplicateBeers = (beerList: BeerData[]) => {
+    const seen = new Map<string, BeerData>();
+    
+    beerList.forEach(beer => {
+      // Create unique key based on name + brewery
+      const key = `${beer.name.toLowerCase().trim()}-${(beer.brewery || '').toLowerCase().trim()}`;
+      
+      // Keep the first occurrence or the one with more complete data
+      if (!seen.has(key)) {
+        seen.set(key, beer);
+      } else {
+        const existing = seen.get(key)!;
+        // Prefer beer with more complete data (has rating, image, etc.)
+        const newScore = (beer.rating ? 1 : 0) + (beer.image_url ? 1 : 0) + (beer.ibu ? 1 : 0);
+        const existingScore = (existing.rating ? 1 : 0) + (existing.image_url ? 1 : 0) + (existing.ibu ? 1 : 0);
+        
+        if (newScore > existingScore) {
+          seen.set(key, beer);
+        }
+      }
+    });
+    
+    return Array.from(seen.values());
+  };
+
+  // Optimized search helper
+  const searchBeers = (beerList: BeerData[], term: string) => {
+    const searchTerms = term.toLowerCase().trim().split(/\s+/);
+    
+    return beerList.filter(beer => {
+      const searchableText = [
+        beer.name,
+        beer.brewery,
+        beer.style,
+        beer.category,
+        beer.subcategory
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase();
+      
+      // All search terms must match somewhere in the beer data
+      return searchTerms.every(term => searchableText.includes(term));
+    });
+  };
+
   // Filter beers
   useEffect(() => {
     let filtered = beers;
+
+    // Remove duplicates first
+    filtered = deduplicateBeers(filtered);
 
     if (selectedCategory) {
       filtered = filtered.filter(b => b.category === selectedCategory);
@@ -64,12 +114,7 @@ function App() {
     }
 
     if (searchTerm) {
-      const searchLower = searchTerm.toLowerCase();
-      filtered = filtered.filter(b =>
-        b.name.toLowerCase().includes(searchLower) ||
-        (b.brewery && b.brewery.toLowerCase().includes(searchLower)) ||
-        (b.style && b.style.toLowerCase().includes(searchLower))
-      );
+      filtered = searchBeers(filtered, searchTerm);
     }
 
     setFilteredBeers(filtered);
@@ -122,7 +167,12 @@ function App() {
             </h1>
           </div>
           <p className="text-gray-600 text-lg">
-            {filteredBeers.length} bieren beschikbaar
+            {filteredBeers.length} unieke bieren beschikbaar
+            {beers.length !== deduplicateBeers(beers).length && (
+              <span className="text-sm text-gray-500 ml-2">
+                ({beers.length - deduplicateBeers(beers).length} duplicaten verwijderd)
+              </span>
+            )}
           </p>
         </div>
 
