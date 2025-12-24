@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['"Right Gothic"', 'sans-serif'],
-        'sans': ['Cirka', 'system-ui', 'sans-serif'],
+        'heading': ['Migra', 'serif'],
+        'sans': ['"Neue Montreal"', 'system-ui', 'sans-serif'],
       },
     },
   },

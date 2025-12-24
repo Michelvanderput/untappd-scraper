@@ -2,57 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Right Gothic Font Family */
+/* Migra Font Family - For Headings */
 @font-face {
-  font-family: 'Right Gothic';
-  src: url('./assets/Right Gothic/PPRightGothic-Bold.woff2') format('woff2'),
-       url('./assets/Right Gothic/PPRightGothic-Bold.woff') format('woff');
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-Extrabold.woff2') format('woff2'),
+       url('./assets/Migra/PPMigra-Extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-Regular.woff2') format('woff2'),
+       url('./assets/Migra/PPMigra-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-Light.woff2') format('woff2'),
+       url('./assets/Migra/PPMigra-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Neue Montreal Font Family - For Body Text */
+@font-face {
+  font-family: 'Neue Montreal';
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Bold.woff2') format('woff2'),
+       url('./assets/Neue Montreal/PPNeueMontreal-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Right Gothic';
-  src: url('./assets/Right Gothic/PPRightGothic-Medium.woff2') format('woff2'),
-       url('./assets/Right Gothic/PPRightGothic-Medium.woff') format('woff');
+  font-family: 'Neue Montreal';
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Medium.woff2') format('woff2'),
+       url('./assets/Neue Montreal/PPNeueMontreal-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Right Gothic';
-  src: url('./assets/Right Gothic/PPRightGothic-SpatialRegular.woff2') format('woff2'),
-       url('./assets/Right Gothic/PPRightGothic-SpatialRegular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Cirka Font Family */
-@font-face {
-  font-family: 'Cirka';
-  src: url('./assets/Cirka/PPCirka-Bold.woff2') format('woff2'),
-       url('./assets/Cirka/PPCirka-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Cirka';
-  src: url('./assets/Cirka/PPCirka-Regular.woff2') format('woff2'),
-       url('./assets/Cirka/PPCirka-Regular.woff') format('woff');
+  font-family: 'Neue Montreal';
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Regular.woff2') format('woff2'),
+       url('./assets/Neue Montreal/PPNeueMontreal-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Cirka';
-  src: url('./assets/Cirka/PPCirka-Light.woff2') format('woff2'),
-       url('./assets/Cirka/PPCirka-Light.woff') format('woff');
+  font-family: 'Neue Montreal';
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Light.woff2') format('woff2'),
+       url('./assets/Neue Montreal/PPNeueMontreal-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
