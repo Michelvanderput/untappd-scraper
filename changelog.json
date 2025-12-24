@@ -1,6 +1,1701 @@
 {
   "changes": [
     {
+      "date": "2025-12-24T06:08:48.722Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 165,
+        "total_beers": 396
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Blueprints: Camera",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
+          "changes": {
+            "rating": {
+              "old": 3.75678,
+              "new": 3.7574
+            },
+            "category": {
+              "old": "Op=Op kaart",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Daddy Cool",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-daddy-cool/5828338",
+          "changes": {
+            "rating": {
+              "old": 3.46856,
+              "new": 3.46881
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Grand Cru",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-grand-cru/352",
+          "changes": {
+            "rating": {
+              "old": 3.77737,
+              "new": 3.77733
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "rating": {
+              "old": 3.45816,
+              "new": 3.45817
+            },
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Circus Winter Ale",
+          "beer_url": "https://untappd.com/b/circus-brouwerij-circus-winter-ale/5629064",
+          "changes": {
+            "rating": {
+              "old": 3.50215,
+              "new": 3.50164
+            }
+          }
+        },
+        {
+          "name": "Kasteel Cuvée",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
+          "changes": {
+            "rating": {
+              "old": 3.80366,
+              "new": 3.80364
+            },
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "rating": {
+              "old": 3.71734,
+              "new": 3.71735
+            },
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Gouden Carolus Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
+          "changes": {
+            "rating": {
+              "old": 3.81622,
+              "new": 3.81625
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Tripel",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Gilda",
+          "beer_url": "https://untappd.com/b/basqueland-brewing-gilda/5682014",
+          "changes": {
+            "rating": {
+              "old": 3.7609,
+              "new": 3.75998
+            }
+          }
+        },
+        {
+          "name": "Viven Master IPA",
+          "beer_url": "https://untappd.com/b/beerdevelopment-viven-viven-master-ipa/946254",
+          "changes": {
+            "rating": {
+              "old": 3.60609,
+              "new": 3.60611
+            }
+          }
+        },
+        {
+          "name": "Bleuette",
+          "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-bluette/5812650",
+          "changes": {
+            "rating": {
+              "old": 3.26903,
+              "new": 3.26863
+            }
+          }
+        },
+        {
+          "name": "Night Knocker",
+          "beer_url": "https://untappd.com/b/brewski-night-knocker/6472612",
+          "changes": {
+            "rating": {
+              "old": 3.66343,
+              "new": 3.66267
+            }
+          }
+        },
+        {
+          "name": "Triple Berry Pie (4%)",
+          "beer_url": "https://untappd.com/b/brewski-triple-berry-pie-4/3459674",
+          "changes": {
+            "rating": {
+              "old": 3.75399,
+              "new": 3.75391
+            }
+          }
+        },
+        {
+          "name": "Camaraderie",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
+          "changes": {
+            "rating": {
+              "old": 3.46581,
+              "new": 3.45105
+            }
+          }
+        },
+        {
+          "name": "Gingerbread Man",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
+          "changes": {
+            "rating": {
+              "old": 3.95513,
+              "new": 3.96512
+            }
+          }
+        },
+        {
+          "name": "ADONIS",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-adonis/6225058",
+          "changes": {
+            "rating": {
+              "old": 4.14091,
+              "new": 4.14344
+            }
+          }
+        },
+        {
+          "name": "DUBAI CHOCO",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-dubai-choco/6225050",
+          "changes": {
+            "rating": {
+              "old": 3.83421,
+              "new": 3.83662
+            }
+          }
+        },
+        {
+          "name": "Bon Appetit Amelié - Dubai Chocolate Bar",
+          "beer_url": "https://untappd.com/b/dutch-bargain-dutch-bargain-bon-appetit-amelie-dubai-chocolate-bar/6433478",
+          "changes": {
+            "rating": {
+              "old": 3.36097,
+              "new": 3.35197
+            }
+          }
+        },
+        {
+          "name": "Fire In the Beehive",
+          "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
+          "changes": {
+            "rating": {
+              "old": 3.46185,
+              "new": 3.45489
+            }
+          }
+        },
+        {
+          "name": "Get Pitted",
+          "beer_url": "https://untappd.com/b/dutch-bargain-get-pitted/6481752",
+          "changes": {
+            "rating": {
+              "old": 3.65596,
+              "new": 3.65993
+            }
+          }
+        },
+        {
+          "name": "Piece of Cake: Blueberry Vanilla Chocolate Muffin",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-blueberry-vanilla-chocolate-muffin/6441586",
+          "changes": {
+            "rating": {
+              "old": 3.84904,
+              "new": 3.85009
+            }
+          }
+        },
+        {
+          "name": "Prince of Dankness",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-prince-of-dankness/6422360",
+          "changes": {
+            "rating": {
+              "old": 3.86508,
+              "new": 3.8649
+            }
+          }
+        },
+        {
+          "name": "Crimson Curse",
+          "beer_url": "https://untappd.com/b/holy-goat-brewing-crimson-curse/6216832",
+          "changes": {
+            "rating": {
+              "old": 3.78423,
+              "new": 3.78489
+            }
+          }
+        },
+        {
+          "name": "Yvler the Creator",
+          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
+          "changes": {
+            "rating": {
+              "old": 3.74365,
+              "new": 3.74783
+            }
+          }
+        },
+        {
+          "name": "Blueprints: Camera",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
+          "changes": {
+            "rating": {
+              "old": 3.75678,
+              "new": 3.7574
+            }
+          }
+        },
+        {
+          "name": "Mannenliefde",
+          "beer_url": "https://untappd.com/b/oedipus-brewing-mannenliefde/223444",
+          "changes": {
+            "rating": {
+              "old": 3.45828,
+              "new": 3.45829
+            }
+          }
+        },
+        {
+          "name": "País Tropical",
+          "beer_url": "https://untappd.com/b/oedipus-brewing-pais-tropical/3692528",
+          "changes": {
+            "rating": {
+              "old": 3.51179,
+              "new": 3.51184
+            }
+          }
+        },
+        {
+          "name": "Mosaic Dream",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-mosaic-dream/2466988",
+          "changes": {
+            "rating": {
+              "old": 4.14237,
+              "new": 4.14238
+            }
+          }
+        },
+        {
+          "name": "Southernhopalistic",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-southernhopalistic/2017642",
+          "changes": {
+            "rating": {
+              "old": 4.12658,
+              "new": 4.12652
+            }
+          }
+        },
+        {
+          "name": "Island Fever",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-island-fever/6457962",
+          "changes": {
+            "rating": {
+              "old": 3.13924,
+              "new": 3.13941
+            }
+          }
+        },
+        {
+          "name": "Rondje Pop",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-rondje-pop/6318858",
+          "changes": {
+            "rating": {
+              "old": 3.46287,
+              "new": 3.46257
+            }
+          }
+        },
+        {
+          "name": "Toffee Nut Latte",
+          "beer_url": "https://untappd.com/b/vault-city-brewing-toffee-nut-latte/6426812",
+          "changes": {
+            "rating": {
+              "old": 4.12587,
+              "new": 4.12702
+            }
+          }
+        },
+        {
+          "name": "Triple Meltdown",
+          "beer_url": "https://untappd.com/b/zuyd-craft-triple-meltdown/6474310",
+          "changes": {
+            "rating": {
+              "old": 4.1162,
+              "new": 4.11587
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "rating": {
+              "old": 3.80323,
+              "new": 3.80325
+            }
+          }
+        },
+        {
+          "name": "Phi Rabarber / Rhubarb",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
+          "changes": {
+            "rating": {
+              "old": 3.83329,
+              "new": 3.83335
+            }
+          }
+        },
+        {
+          "name": "Straight & Vanilla",
+          "beer_url": "https://untappd.com/b/brouwerij-de-molen-straight-and-vanilla/6246828",
+          "changes": {
+            "rating": {
+              "old": 4.14068,
+              "new": 4.13981
+            }
+          }
+        },
+        {
+          "name": "Barrel Project 2025 Quadrupel Aged In Anker Barrels",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-quadrupel-aged-in-anker-barrels/6280870",
+          "changes": {
+            "rating": {
+              "old": 4.11203,
+              "new": 4.11209
+            }
+          }
+        },
+        {
+          "name": "Ex-Girlfriend BA Tawny Port",
+          "beer_url": "https://untappd.com/b/jopen-ex-girlfriend-ba-tawny-port/6513024",
+          "changes": {
+            "rating": {
+              "old": 3.90282,
+              "new": 3.89521
+            }
+          }
+        },
+        {
+          "name": "Meesterstuk 2024 Barrel Aged Dru Whiskey Barrels",
+          "beer_url": "https://untappd.com/b/jopen-meesterstuk-2024-barrel-aged-dru-whiskey-barrels/6513292",
+          "changes": {
+            "rating": {
+              "old": 4.10777,
+              "new": 4.10915
+            }
+          }
+        },
+        {
+          "name": "Barcode: Turquoise Off-White",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-turquoise-off-white/6493638",
+          "changes": {
+            "rating": {
+              "old": 4.39239,
+              "new": 4.39203
+            }
+          }
+        },
+        {
+          "name": "‘T Gouverneurke",
+          "beer_url": "https://untappd.com/b/zuyd-craft-t-gouverneurke/3210976",
+          "changes": {
+            "rating": {
+              "old": 3.6899,
+              "new": 3.68966
+            }
+          }
+        },
+        {
+          "name": "Château Neubourg",
+          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-chateau-neubourg/71298",
+          "changes": {
+            "rating": {
+              "old": 3.25108,
+              "new": 3.25115
+            }
+          }
+        },
+        {
+          "name": "Gerardus Dubbel",
+          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gerardus-dubbel/41818",
+          "changes": {
+            "rating": {
+              "old": 3.3053,
+              "new": 3.30529
+            }
+          }
+        },
+        {
+          "name": "Stella Artois (Cask)",
+          "beer_url": "https://untappd.com/b/stella-artois-stella-artois/4010",
+          "changes": {
+            "rating": {
+              "old": 3.28143,
+              "new": 3.28147
+            }
+          }
+        },
+        {
+          "name": "Blanche de Namur",
+          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
+          "changes": {
+            "rating": {
+              "old": 3.39711,
+              "new": 3.3971
+            }
+          }
+        },
+        {
+          "name": "Brugs Tarwebier / Blanche de Bruges",
+          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-des-bruges/3106414",
+          "changes": {
+            "rating": {
+              "old": 3.39844,
+              "new": 3.39845
+            }
+          }
+        },
+        {
+          "name": "Franziskaner Premium Weissbier Naturtrüb",
+          "beer_url": "https://untappd.com/b/spaten-franziskaner-lowenbrau-gruppe-franziskaner-premium-weissbier/14564",
+          "changes": {
+            "rating": {
+              "old": 3.69197,
+              "new": 3.69198
+            }
+          }
+        },
+        {
+          "name": "Hoegaarden Wit / Blanche",
+          "beer_url": "https://untappd.com/b/brouwerij-hoegaarden-hoegaarden-wit-blanche/6422",
+          "changes": {
+            "rating": {
+              "old": 3.54504,
+              "new": 3.54503
+            }
+          }
+        },
+        {
+          "name": "Original (TAP07)",
+          "beer_url": "https://untappd.com/b/schneider-weisse-g-schneider-and-sohn-original-tap07/11982",
+          "changes": {
+            "rating": {
+              "old": 3.65172,
+              "new": 3.65167
+            }
+          }
+        },
+        {
+          "name": "Skuumkoppe",
+          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skuumkoppe/51276",
+          "changes": {
+            "rating": {
+              "old": 3.62163,
+              "new": 3.62166
+            }
+          }
+        },
+        {
+          "name": "La Trappe Witte Trappist",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-witte-trappist/17860",
+          "changes": {
+            "rating": {
+              "old": 3.60007,
+              "new": 3.60005
+            }
+          }
+        },
+        {
+          "name": "Polyamorie",
+          "beer_url": "https://untappd.com/b/oedipus-brewing-polyamorie/1627564",
+          "changes": {
+            "rating": {
+              "old": 3.40253,
+              "new": 3.40259
+            }
+          }
+        },
+        {
+          "name": "Oude Geuze Boon",
+          "beer_url": "https://untappd.com/b/brouwerij-boon-oude-geuze-boon/15036",
+          "changes": {
+            "rating": {
+              "old": 3.34958,
+              "new": 3.34952
+            }
+          }
+        },
+        {
+          "name": "Oude Gueuze",
+          "beer_url": "https://untappd.com/b/hanssens-artisanaal-oude-gueuze/1804",
+          "changes": {
+            "rating": {
+              "old": 3.97322,
+              "new": 3.97323
+            }
+          }
+        },
+        {
+          "name": "Timmermans Faro Lambicus",
+          "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-timmermans-faro-lambicus/5414",
+          "changes": {
+            "rating": {
+              "old": 3.45288,
+              "new": 3.45297
+            }
+          }
+        },
+        {
+          "name": "Kriek Brut",
+          "beer_url": "https://untappd.com/b/brouwerij-liefmans-kriek-brut/8472",
+          "changes": {
+            "rating": {
+              "old": 3.6761,
+              "new": 3.67605
+            }
+          }
+        },
+        {
+          "name": "Floris Cactus",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-cactus/83654",
+          "changes": {
+            "rating": {
+              "old": 3.17508,
+              "new": 3.17485
+            }
+          }
+        },
+        {
+          "name": "Floris Passion",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-passion/70362",
+          "changes": {
+            "rating": {
+              "old": 3.45142,
+              "new": 3.45143
+            }
+          }
+        },
+        {
+          "name": "Fram Bush",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-fram-bush/4697132",
+          "changes": {
+            "rating": {
+              "old": 3.32535,
+              "new": 3.32505
+            }
+          }
+        },
+        {
+          "name": "Kasteel Rubus Framboise",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-rubus-framboise/5319300",
+          "changes": {
+            "rating": {
+              "old": 3.58409,
+              "new": 3.58404
+            }
+          }
+        },
+        {
+          "name": "Apple / Pomme",
+          "beer_url": "https://untappd.com/b/brouwerij-lindemans-apple-pomme/7896",
+          "changes": {
+            "rating": {
+              "old": 3.49227,
+              "new": 3.4923
+            }
+          }
+        },
+        {
+          "name": "Mongozo Coconut",
+          "beer_url": "https://untappd.com/b/mongozo-mongozo-coconut/30042",
+          "changes": {
+            "rating": {
+              "old": 3.11269,
+              "new": 3.11273
+            }
+          }
+        },
+        {
+          "name": "Pêche Mel Bush",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
+          "changes": {
+            "rating": {
+              "old": 3.42509,
+              "new": 3.42504
+            }
+          }
+        },
+        {
+          "name": "Petrus Red",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-red/311764",
+          "changes": {
+            "rating": {
+              "old": 3.59978,
+              "new": 3.59972
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Kriek",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-kriek/115176",
+          "changes": {
+            "rating": {
+              "old": 3.49643,
+              "new": 3.49684
+            }
+          }
+        },
+        {
+          "name": "Timmermans Lambicus Framboise Hibiscus",
+          "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-timmermans-lambicus-framboise-hibiscus/5353928",
+          "changes": {
+            "rating": {
+              "old": 3.59215,
+              "new": 3.59305
+            }
+          }
+        },
+        {
+          "name": "Duchesse de Bourgogne",
+          "beer_url": "https://untappd.com/b/brouwerij-verhaeghe-duchesse-de-bourgogne/3954",
+          "changes": {
+            "rating": {
+              "old": 3.65002,
+              "new": 3.64999
+            }
+          }
+        },
+        {
+          "name": "Goudenband",
+          "beer_url": "https://untappd.com/b/brouwerij-liefmans-goudenband/47816",
+          "changes": {
+            "rating": {
+              "old": 3.67443,
+              "new": 3.67445
+            }
+          }
+        },
+        {
+          "name": "Rodenbach Classic",
+          "beer_url": "https://untappd.com/b/brouwerij-rodenbach-rodenbach-classic/9198",
+          "changes": {
+            "rating": {
+              "old": 3.44226,
+              "new": 3.44229
+            }
+          }
+        },
+        {
+          "name": "Rodenbach Vintage",
+          "beer_url": "https://untappd.com/b/brouwerij-rodenbach-rodenbach-vintage/1226276",
+          "changes": {
+            "rating": {
+              "old": 3.82107,
+              "new": 3.82106
+            }
+          }
+        },
+        {
+          "name": "VanderGhinste Roodbruin",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-vanderghinste-roodbruin/169434",
+          "changes": {
+            "rating": {
+              "old": 3.64461,
+              "new": 3.64459
+            }
+          }
+        },
+        {
+          "name": "Bootjes Bier",
+          "beer_url": "https://untappd.com/b/antwerpse-brouw-compagnie-bootjes-bier/1077246",
+          "changes": {
+            "rating": {
+              "old": 3.50301,
+              "new": 3.50302
+            }
+          }
+        },
+        {
+          "name": "Bush Caractère",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-bush-caractere/3335378",
+          "changes": {
+            "rating": {
+              "old": 3.61121,
+              "new": 3.6112
+            }
+          }
+        },
+        {
+          "name": "Jolly Poupée",
+          "beer_url": "https://untappd.com/b/brasserie-lupulus-jolly-poupee/3318076",
+          "changes": {
+            "rating": {
+              "old": 3.3087,
+              "new": 3.30882
+            }
+          }
+        },
+        {
+          "name": "Pauwel Kwak",
+          "beer_url": "https://untappd.com/b/brouwerij-bosteels-pauwel-kwak/358",
+          "changes": {
+            "rating": {
+              "old": 3.7562,
+              "new": 3.75619
+            }
+          }
+        },
+        {
+          "name": "Tempelier Strong Amber",
+          "beer_url": "https://untappd.com/b/brouwerij-corsendonk-tempelier-strong-amber/5211960",
+          "changes": {
+            "rating": {
+              "old": 3.50329,
+              "new": 3.50328
+            }
+          }
+        },
+        {
+          "name": "Avec Les Bons Vœux",
+          "beer_url": "https://untappd.com/b/brasserie-dupont-avec-les-bons-voeux/882",
+          "changes": {
+            "rating": {
+              "old": 3.79559,
+              "new": 3.79551
+            }
+          }
+        },
+        {
+          "name": "Saison Dupont Cuvée Dry Hopping",
+          "beer_url": "https://untappd.com/b/brasserie-dupont-saison-dupont-cuvee-dry-hopping/1889142",
+          "changes": {
+            "rating": {
+              "old": 3.66776,
+              "new": 3.66778
+            }
+          }
+        },
+        {
+          "name": "Saison de Dottignies",
+          "beer_url": "https://untappd.com/b/brouwerij-de-ranke-saison-de-dottignies/10626",
+          "changes": {
+            "rating": {
+              "old": 3.41606,
+              "new": 3.41603
+            }
+          }
+        },
+        {
+          "name": "Zundert 10",
+          "beer_url": "https://untappd.com/b/trappistenbrouwerij-de-kievit-b-v-zundert-10/2810072",
+          "changes": {
+            "rating": {
+              "old": 3.74689,
+              "new": 3.74686
+            }
+          }
+        },
+        {
+          "name": "Zundert 8",
+          "beer_url": "https://untappd.com/b/trappistenbrouwerij-de-kievit-b-v-zundert-8/503520",
+          "changes": {
+            "rating": {
+              "old": 3.65228,
+              "new": 3.65225
+            }
+          }
+        },
+        {
+          "name": "Achel Tripel",
+          "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-tripel/1428",
+          "changes": {
+            "rating": {
+              "old": 3.66794,
+              "new": 3.66792
+            }
+          }
+        },
+        {
+          "name": "Adelardus Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-kerkom-adelardus-tripel/52904",
+          "changes": {
+            "rating": {
+              "old": 3.5113,
+              "new": 3.51134
+            }
+          }
+        },
+        {
+          "name": "Floreffe Double / Dubbel",
+          "beer_url": "https://untappd.com/b/brasserie-lefebvre-floreffe-double-dubbel/2614",
+          "changes": {
+            "rating": {
+              "old": 3.23175,
+              "new": 3.23184
+            }
+          }
+        },
+        {
+          "name": "Grimbergen Blonde",
+          "beer_url": "https://untappd.com/b/brouwerij-alken-maes-grimbergen-blonde/2",
+          "changes": {
+            "rating": {
+              "old": 3.48952,
+              "new": 3.48951
+            }
+          }
+        },
+        {
+          "name": "Grimbergen Dubbel",
+          "beer_url": "https://untappd.com/b/brouwerij-alken-maes-grimbergen-dubbel/7364",
+          "changes": {
+            "rating": {
+              "old": 3.57612,
+              "new": 3.57613
+            }
+          }
+        },
+        {
+          "name": "Maredsous Brune / Bruin",
+          "beer_url": "https://untappd.com/b/abbaye-de-maredsous-maredsous-brune-bruin/9652",
+          "changes": {
+            "rating": {
+              "old": 3.60417,
+              "new": 3.60416
+            }
+          }
+        },
+        {
+          "name": "Maredsous Triple / Tripel",
+          "beer_url": "https://untappd.com/b/abbaye-de-maredsous-maredsous-triple-tripel/7768",
+          "changes": {
+            "rating": {
+              "old": 3.71497,
+              "new": 3.7149
+            }
+          }
+        },
+        {
+          "name": "Leffe Blonde / Blond",
+          "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
+          "changes": {
+            "rating": {
+              "old": 3.58388,
+              "new": 3.58387
+            }
+          }
+        },
+        {
+          "name": "Paix Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-caulier-paix-dieu-triple/61070",
+          "changes": {
+            "rating": {
+              "old": 3.77401,
+              "new": 3.77402
+            }
+          }
+        },
+        {
+          "name": "Sint Gummarus Dubbel",
+          "beer_url": "https://untappd.com/b/brouwerij-cornelissen-sint-gummarus-dubbel/93318",
+          "changes": {
+            "rating": {
+              "old": 3.42261,
+              "new": 3.42247
+            }
+          }
+        },
+        {
+          "name": "Abt 12",
+          "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
+          "changes": {
+            "rating": {
+              "old": 3.99222,
+              "new": 3.99221
+            }
+          }
+        },
+        {
+          "name": "1125 Vlierbeek Grand Cru",
+          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
+          "changes": {
+            "rating": {
+              "old": 3.5826,
+              "new": 3.58253
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "rating": {
+              "old": 3.45816,
+              "new": 3.45817
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+          "changes": {
+            "rating": {
+              "old": 3.67298,
+              "new": 3.67294
+            }
+          }
+        },
+        {
+          "name": "Chimay Dorée (Gold)",
+          "beer_url": "https://untappd.com/b/bieres-de-chimay-chimay-doree-gold/4702",
+          "changes": {
+            "rating": {
+              "old": 3.55397,
+              "new": 3.55396
+            }
+          }
+        },
+        {
+          "name": "La Trappe Blond",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
+          "changes": {
+            "rating": {
+              "old": 3.67135,
+              "new": 3.67136
+            }
+          }
+        },
+        {
+          "name": "La Trappe Dubbel",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-dubbel/368",
+          "changes": {
+            "rating": {
+              "old": 3.62438,
+              "new": 3.62429
+            }
+          }
+        },
+        {
+          "name": "La Trappe Quadrupel",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-quadrupel/1830",
+          "changes": {
+            "rating": {
+              "old": 3.90448,
+              "new": 3.90445
+            }
+          }
+        },
+        {
+          "name": "La Trappe Isid'or",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
+          "changes": {
+            "rating": {
+              "old": 3.74316,
+              "new": 3.74315
+            }
+          }
+        },
+        {
+          "name": "Trappistes Rochefort Triple Extra",
+          "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-triple-extra/3986134",
+          "changes": {
+            "rating": {
+              "old": 3.76327,
+              "new": 3.76326
+            }
+          }
+        },
+        {
+          "name": "Trappistes Rochefort 6",
+          "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-6/10722",
+          "changes": {
+            "rating": {
+              "old": 3.71014,
+              "new": 3.71012
+            }
+          }
+        },
+        {
+          "name": "Trappistes Rochefort 10",
+          "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-10/6766",
+          "changes": {
+            "rating": {
+              "old": 4.04859,
+              "new": 4.04854
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow/2718730",
+          "changes": {
+            "rating": {
+              "old": 3.64917,
+              "new": 3.64915
+            }
+          }
+        },
+        {
+          "name": "Westmalle Trappist Dubbel",
+          "beer_url": "https://untappd.com/b/brouwerij-der-trappisten-van-westmalle-westmalle-trappist-dubbel/4168",
+          "changes": {
+            "rating": {
+              "old": 3.68759,
+              "new": 3.6876
+            }
+          }
+        },
+        {
+          "name": "Trappist Westvleteren 12",
+          "beer_url": "https://untappd.com/b/brouwerij-de-sint-sixtusabdij-van-westvleteren-trappist-westvleteren-12/4680",
+          "changes": {
+            "rating": {
+              "old": 4.46344,
+              "new": 4.46341
+            }
+          }
+        },
+        {
+          "name": "Blond",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
+          "changes": {
+            "rating": {
+              "old": 3.56213,
+              "new": 3.56195
+            }
+          }
+        },
+        {
+          "name": "Arend Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-de-ryck-arend-tripel/12498",
+          "changes": {
+            "rating": {
+              "old": 3.59748,
+              "new": 3.59754
+            }
+          }
+        },
+        {
+          "name": "Brice",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
+          "changes": {
+            "rating": {
+              "old": 3.41102,
+              "new": 3.41125
+            }
+          }
+        },
+        {
+          "name": "Coccinelle",
+          "beer_url": "https://untappd.com/b/belgian-craft-beer-company-coccinelle/304936",
+          "changes": {
+            "rating": {
+              "old": 3.4988,
+              "new": 3.49883
+            }
+          }
+        },
+        {
+          "name": "Corsendonk Agnus Tripel / Abbey Pale Ale",
+          "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-agnus-tripel-abbey-pale-ale/30450",
+          "changes": {
+            "rating": {
+              "old": 3.62681,
+              "new": 3.62683
+            }
+          }
+        },
+        {
+          "name": "Deugniet",
+          "beer_url": "https://untappd.com/b/brasserie-du-bocq-deugniet/21228",
+          "changes": {
+            "rating": {
+              "old": 3.53303,
+              "new": 3.53305
+            }
+          }
+        },
+        {
+          "name": "Dragora",
+          "beer_url": "https://untappd.com/b/enigma-belgian-brewery-dragora/1929418",
+          "changes": {
+            "rating": {
+              "old": 3.58222,
+              "new": 3.58211
+            }
+          }
+        },
+        {
+          "name": "Dulle Teve",
+          "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-dulle-teve/354",
+          "changes": {
+            "rating": {
+              "old": 3.74667,
+              "new": 3.74661
+            }
+          }
+        },
+        {
+          "name": "Duvel",
+          "beer_url": "https://untappd.com/b/duvel-moortgat-duvel/6868",
+          "changes": {
+            "rating": {
+              "old": 3.71422,
+              "new": 3.71421
+            }
+          }
+        },
+        {
+          "name": "Duvel 6,66%",
+          "beer_url": "https://untappd.com/b/duvel-moortgat-duvel-6-66/4119904",
+          "changes": {
+            "rating": {
+              "old": 3.61266,
+              "new": 3.61264
+            }
+          }
+        },
+        {
+          "name": "Filou",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-filou/850530",
+          "changes": {
+            "rating": {
+              "old": 3.53488,
+              "new": 3.53491
+            }
+          }
+        },
+        {
+          "name": "Gageleer Original",
+          "beer_url": "https://untappd.com/b/beers-for-nature-gageleer-original/109194",
+          "changes": {
+            "rating": {
+              "old": 3.4096,
+              "new": 3.40957
+            }
+          }
+        },
+        {
+          "name": "Goliath Triple",
+          "beer_url": "https://untappd.com/b/brasserie-des-legendes-goliath-triple/268034",
+          "changes": {
+            "rating": {
+              "old": 3.52627,
+              "new": 3.52624
+            }
+          }
+        },
+        {
+          "name": "Kapittel Tripel Abt",
+          "beer_url": "https://untappd.com/b/leroy-breweries-kapittel-tripel-abt/1824",
+          "changes": {
+            "rating": {
+              "old": 3.5271,
+              "new": 3.52715
+            }
+          }
+        },
+        {
+          "name": "Kasteel Tripel",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tripel/8782",
+          "changes": {
+            "rating": {
+              "old": 3.62892,
+              "new": 3.6289
+            }
+          }
+        },
+        {
+          "name": "Kwaremont",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
+          "changes": {
+            "rating": {
+              "old": 3.49665,
+              "new": 3.49664
+            }
+          }
+        },
+        {
+          "name": "Lamme Goedzak",
+          "beer_url": "https://untappd.com/b/scheldebrouwerij-lamme-goedzak/68958",
+          "changes": {
+            "rating": {
+              "old": 3.55055,
+              "new": 3.55057
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "rating": {
+              "old": 3.71734,
+              "new": 3.71735
+            }
+          }
+        },
+        {
+          "name": "Kompel L'or Noir",
+          "beer_url": "https://untappd.com/b/brouwerij-kompel-kompel-l-or-noir/3537744",
+          "changes": {
+            "rating": {
+              "old": 3.60303,
+              "new": 3.60308
+            }
+          }
+        },
+        {
+          "name": "Moeder Overste",
+          "beer_url": "https://untappd.com/b/brasserie-lefebvre-moeder-overste/26528",
+          "changes": {
+            "rating": {
+              "old": 3.48246,
+              "new": 3.48248
+            }
+          }
+        },
+        {
+          "name": "Mestreechs Bloond",
+          "beer_url": "https://untappd.com/b/brouwerij-klinker-mestreechs-bloond/4744344",
+          "changes": {
+            "rating": {
+              "old": 3.39642,
+              "new": 3.39551
+            }
+          }
+        },
+        {
+          "name": "Petrus Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-tripel/76",
+          "changes": {
+            "rating": {
+              "old": 3.46844,
+              "new": 3.46853
+            }
+          }
+        },
+        {
+          "name": "Satan Gold",
+          "beer_url": "https://untappd.com/b/brouwerij-de-block-satan-gold/1336",
+          "changes": {
+            "rating": {
+              "old": 3.41802,
+              "new": 3.41798
+            }
+          }
+        },
+        {
+          "name": "SchuppenBoer Grand Cru",
+          "beer_url": "https://untappd.com/b/brouwerij-het-nest-schuppenboer-grand-cru/1344664",
+          "changes": {
+            "rating": {
+              "old": 3.65691,
+              "new": 3.65695
+            }
+          }
+        },
+        {
+          "name": "Seef Bier",
+          "beer_url": "https://untappd.com/b/antwerpse-brouw-compagnie-seef-bier/145760",
+          "changes": {
+            "rating": {
+              "old": 3.52748,
+              "new": 3.52745
+            }
+          }
+        },
+        {
+          "name": "St-Barbara Salvatoris",
+          "beer_url": "https://untappd.com/b/brouwerij-kompel-st-barbara-salvatoris/5555686",
+          "changes": {
+            "rating": {
+              "old": 3.58467,
+              "new": 3.58471
+            }
+          }
+        },
+        {
+          "name": "Sint Canarus Tripel",
+          "beer_url": "https://untappd.com/b/huisbrouwerij-sint-canarus-sint-canarus-tripel/19872",
+          "changes": {
+            "rating": {
+              "old": 3.40426,
+              "new": 3.40441
+            }
+          }
+        },
+        {
+          "name": "Sloeber",
+          "beer_url": "https://untappd.com/b/brouwerij-roman-sloeber/20086",
+          "changes": {
+            "rating": {
+              "old": 3.41627,
+              "new": 3.41629
+            }
+          }
+        },
+        {
+          "name": "Tripel d'Anvers",
+          "beer_url": "https://untappd.com/b/brouwerij-de-koninck-tripel-d-anvers/67064",
+          "changes": {
+            "rating": {
+              "old": 3.64774,
+              "new": 3.64778
+            }
+          }
+        },
+        {
+          "name": "Troubadour Blond",
+          "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-troubadour-blond/24266",
+          "changes": {
+            "rating": {
+              "old": 3.47868,
+              "new": 3.47867
+            }
+          }
+        },
+        {
+          "name": "Witkap Pater Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-slaghmuylder-witkap-pater-tripel/36",
+          "changes": {
+            "rating": {
+              "old": 3.48026,
+              "new": 3.48028
+            }
+          }
+        },
+        {
+          "name": "Wolf 7",
+          "beer_url": "https://untappd.com/b/brouwerij-wolf-wolf-7/105700",
+          "changes": {
+            "rating": {
+              "old": 3.52846,
+              "new": 3.52844
+            }
+          }
+        },
+        {
+          "name": "Barbãr Bok",
+          "beer_url": "https://untappd.com/b/brasserie-lefebvre-barbar-bok/12876",
+          "changes": {
+            "rating": {
+              "old": 3.48592,
+              "new": 3.48595
+            }
+          }
+        },
+        {
+          "name": "Double Espresso",
+          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-espresso/249538",
+          "changes": {
+            "rating": {
+              "old": 3.36368,
+              "new": 3.36382
+            }
+          }
+        },
+        {
+          "name": "Delirium Nocturnum",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-nocturnum/4486",
+          "changes": {
+            "rating": {
+              "old": 3.76009,
+              "new": 3.76008
+            }
+          }
+        },
+        {
+          "name": "Kasteel Cuvée",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
+          "changes": {
+            "rating": {
+              "old": 3.80366,
+              "new": 3.80364
+            }
+          }
+        },
+        {
+          "name": "LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
+          "changes": {
+            "rating": {
+              "old": 3.6186,
+              "new": 3.61865
+            }
+          }
+        },
+        {
+          "name": "Aventinus Eisbock (TAP09)",
+          "beer_url": "https://untappd.com/b/schneider-weisse-g-schneider-and-sohn-aventinus-eisbock-tap09/67996",
+          "changes": {
+            "rating": {
+              "old": 3.78568,
+              "new": 3.78569
+            }
+          }
+        },
+        {
+          "name": "Bird of Prey",
+          "beer_url": "https://untappd.com/b/uiltje-brewing-company-bird-of-prey/1814558",
+          "changes": {
+            "rating": {
+              "old": 3.5961,
+              "new": 3.59609
+            }
+          }
+        },
+        {
+          "name": "Dr. Raptor",
+          "beer_url": "https://untappd.com/b/het-uiltje-dr-raptor/1875508",
+          "changes": {
+            "rating": {
+              "old": 3.65908,
+              "new": 3.65909
+            }
+          }
+        },
+        {
+          "name": "Duvel Tripel Hop Citra",
+          "beer_url": "https://untappd.com/b/duvel-moortgat-duvel-tripel-hop-citra/1948530",
+          "changes": {
+            "rating": {
+              "old": 3.67894,
+              "new": 3.6789
+            }
+          }
+        },
+        {
+          "name": "Second Date",
+          "beer_url": "https://untappd.com/b/rock-city-brewing-second-date/5696592",
+          "changes": {
+            "rating": {
+              "old": 3.68416,
+              "new": 3.68413
+            }
+          }
+        },
+        {
+          "name": "Hop Zij Met Ons",
+          "beer_url": "https://untappd.com/b/jopen-hop-zij-met-ons/1176696",
+          "changes": {
+            "rating": {
+              "old": 3.51716,
+              "new": 3.51717
+            }
+          }
+        },
+        {
+          "name": "Poperings Hommelbier",
+          "beer_url": "https://untappd.com/b/leroy-breweries-poperings-hommelbier/836",
+          "changes": {
+            "rating": {
+              "old": 3.44376,
+              "new": 3.44378
+            }
+          }
+        },
+        {
+          "name": "Juice Punch",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-juice-punch/4330482",
+          "changes": {
+            "rating": {
+              "old": 3.67306,
+              "new": 3.67298
+            }
+          }
+        },
+        {
+          "name": "Orchestra of Angels",
+          "beer_url": "https://untappd.com/b/100-watt-brewery-orchestra-of-angels/2417920",
+          "changes": {
+            "rating": {
+              "old": 3.65366,
+              "new": 3.65364
+            }
+          }
+        },
+        {
+          "name": "Troubadour Magma",
+          "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-troubadour-magma/23292",
+          "changes": {
+            "rating": {
+              "old": 3.67501,
+              "new": 3.67503
+            }
+          }
+        },
+        {
+          "name": "Curtius Black",
+          "beer_url": "https://untappd.com/b/brasserie-c-curtius-black/899746",
+          "changes": {
+            "rating": {
+              "old": 3.50592,
+              "new": 3.50594
+            }
+          }
+        },
+        {
+          "name": "Special Extra Export Stout",
+          "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-special-extra-export-stout/1022",
+          "changes": {
+            "rating": {
+              "old": 3.59498,
+              "new": 3.59499
+            }
+          }
+        },
+        {
+          "name": "Guinness Draught 0.0",
+          "beer_url": "https://untappd.com/b/guinness-guinness-draught-0-0/4018564",
+          "changes": {
+            "rating": {
+              "old": 3.228,
+              "new": 3.2281
+            }
+          }
+        },
+        {
+          "name": "Hazy NON(netje)",
+          "beer_url": "https://untappd.com/b/jopen-hazy-non-netje/5296212",
+          "changes": {
+            "rating": {
+              "old": 3.16903,
+              "new": 3.16908
+            }
+          }
+        },
+        {
+          "name": "La Trappe Nillis 0.0%",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-nillis-0-0/4467678",
+          "changes": {
+            "rating": {
+              "old": 3.05361,
+              "new": 3.05362
+            }
+          }
+        },
+        {
+          "name": "Chouffe 0.4",
+          "beer_url": "https://untappd.com/b/brasserie-d-achouffe-chouffe-0-4/5127446",
+          "changes": {
+            "rating": {
+              "old": 2.77261,
+              "new": 2.77272
+            }
+          }
+        },
+        {
+          "name": "Leffe Blonde / Blond 0,0%",
+          "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond-0-0/2948556",
+          "changes": {
+            "rating": {
+              "old": 2.75967,
+              "new": 2.75965
+            }
+          }
+        },
+        {
+          "name": "Fruitesse 0.0",
+          "beer_url": "https://untappd.com/b/brouwerij-liefmans-fruitesse-0-0/3322220",
+          "changes": {
+            "rating": {
+              "old": 3.13297,
+              "new": 3.13324
+            }
+          }
+        },
+        {
+          "name": "Kasteel Tropical 0.0",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-0-0/6249320",
+          "changes": {
+            "rating": {
+              "old": 3.31279,
+              "new": 3.31368
+            }
+          }
+        },
+        {
+          "name": "Paulaner Hefe-Weißbier Alkoholfrei / Weissbier Non-Alcoholic",
+          "beer_url": "https://untappd.com/b/paulaner-brauerei-paulaner-hefe-weissbier-alkoholfrei-weissbier-non-alcoholic/87078",
+          "changes": {
+            "rating": {
+              "old": 2.81495,
+              "new": 2.81496
+            }
+          }
+        },
+        {
+          "name": "Straffe Hendrik Heritage",
+          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-straffe-hendrik-heritage/1084404",
+          "changes": {
+            "rating": {
+              "old": 4.03064,
+              "new": 4.03058
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2025-12-23T13:09:00.716Z",
       "summary": {
         "added": 0,
