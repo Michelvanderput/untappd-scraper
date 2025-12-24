@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Navigation from '../components/Navigation';
 
 interface BeerData {
   name: string;
@@ -25,7 +23,6 @@ interface ApiResponse {
 }
 
 export default function BeersPage() {
-  const [searchParams] = useSearchParams();
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<BeerData[]>([]);
   const [currentBeer, setCurrentBeer] = useState<BeerData | null>(null);
@@ -46,19 +43,6 @@ export default function BeersPage() {
         setBeers(data.beers);
         setFilteredBeers(data.beers);
         setLoading(false);
-        
-        // Handle URL parameters
-        const categoryParam = searchParams.get('category');
-        const randomParam = searchParams.get('random');
-        
-        if (categoryParam) {
-          setSelectedCategory(decodeURIComponent(categoryParam));
-        }
-        
-        if (randomParam === 'true' && data.beers.length > 0) {
-          const randomIndex = Math.floor(Math.random() * data.beers.length);
-          setCurrentBeer(data.beers[randomIndex]);
-        }
       } catch (error) {
         console.error('Failed to fetch beers:', error);
         setLoading(false);
@@ -66,7 +50,7 @@ export default function BeersPage() {
     };
 
     fetchBeers();
-  }, [searchParams]);
+  }, []);
 
   // Deduplicate beers helper
   const deduplicateBeers = (beerList: BeerData[]) => {
@@ -174,8 +158,7 @@ export default function BeersPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100">
-      <Navigation />
-      <div className="container mx-auto px-4 py-8 max-w-6xl pt-28">
+      <div className="container mx-auto px-4 py-8 max-w-6xl pt-8">
 
         {/* Header */}
         <motion.div
