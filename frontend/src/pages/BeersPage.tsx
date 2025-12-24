@@ -140,9 +140,9 @@ export default function BeersPage() {
     
     setIsRandomizing(true);
     
-    // Get random beers for slot machine effect
+    // Get more random beers for longer, more suspenseful effect
     const shuffledBeers: BeerData[] = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       const randomIndex = Math.floor(Math.random() * beers.length);
       shuffledBeers.push(beers[randomIndex]);
     }
@@ -160,31 +160,36 @@ export default function BeersPage() {
         }
       });
       
-      // Scale up and shake
+      // Subtle pulse at start
       tl.to(randomBeerRef.current, {
-        scale: 1.1,
-        duration: 0.1,
+        scale: 1.02,
+        duration: 0.2,
         ease: 'power2.out'
       });
       
-      // Rapid cycling through beers
-      shuffledBeers.forEach((beer, index) => {
-        tl.call(() => setCurrentBeer(beer), [], index * 0.08);
-      });
+      // Fast cycling at start (builds excitement)
+      for (let i = 0; i < 15; i++) {
+        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], i * 0.06);
+      }
       
-      // Slow down effect
-      tl.to(randomBeerRef.current, {
-        rotation: 360,
-        duration: 0.5,
-        ease: 'power2.inOut'
-      });
+      // Medium speed (building suspense)
+      for (let i = 15; i < 25; i++) {
+        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 0.9 + (i - 15) * 0.12);
+      }
       
-      // Final reveal with bounce
+      // Slow down dramatically (maximum suspense)
+      for (let i = 25; i < 30; i++) {
+        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 2.1 + (i - 25) * 0.25);
+      }
+      
+      // Pause for dramatic effect
+      tl.to({}, { duration: 0.3 });
+      
+      // Final reveal with satisfying bounce
       tl.to(randomBeerRef.current, {
         scale: 1,
-        rotation: 0,
-        duration: 0.6,
-        ease: 'elastic.out(1, 0.5)'
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.3)'
       });
     } else {
       // Fallback if ref not available
