@@ -58,13 +58,13 @@ export default function HomePage() {
               className="mb-8"
             >
               <Beer className="w-24 h-24 text-amber-200 mx-auto mb-6 floating-beer" />
-              <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
-                Biertaverne<br />
-                <span className="text-amber-200">De Gouverneur</span>
+              <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight font-heading">
+                Brouwerij<br />
+                <span className="text-amber-200">Zoeplap</span>
               </h1>
               <p className="text-xl md:text-2xl text-amber-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Welkom in het hart van de bierliefhebber. Ontdek meer dan 300 unieke bieren 
-                in een authentieke sfeer waar traditie en passie samenkomen.
+                Opgericht door 4 boys met een passie voor bier. Ontdek meer dan 300 unieke craft bieren 
+                in een authentieke sfeer waar vriendschap en brouwkunst samenkomen.
               </p>
             </motion.div>
 
@@ -141,13 +141,13 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Over <span className="text-amber-600">De Gouverneur</span>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-heading">
+              Over <span className="text-amber-600">Brouwerij Zoeplap</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-8" />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Sinds 2010 zijn wij dé bestemming voor bierliefhebbers in de regio. 
-              Met passie en kennis cureren wij een unieke collectie van lokale en internationale bieren.
+              Opgericht door 4 vrienden met een gedeelde droom: de beste craft bieren naar Nederland brengen. 
+              Wat begon als een hobby is uitgegroeid tot een passie voor het cureren van unieke bieren uit de hele wereld.
             </p>
           </motion.div>
 
@@ -179,7 +179,7 @@ export default function HomePage() {
                 <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <item.icon className="w-10 h-10 text-amber-600" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 font-heading">{item.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
@@ -197,7 +197,7 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <ShoppingBag className="w-16 h-16 text-amber-600 mx-auto mb-6" />
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 font-heading">
               Onze <span className="text-amber-600">Collectie</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-8" />
@@ -258,12 +258,12 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 font-heading">
               Bezoek <span className="text-amber-200">Ons</span>
             </h2>
             <div className="w-24 h-1 bg-amber-200 mx-auto mb-8" />
             <p className="text-xl text-amber-100 max-w-3xl mx-auto">
-              Kom langs en ervaar de unieke sfeer van De Gouverneur
+              Kom langs en ervaar de unieke sfeer van Brouwerij Zoeplap
             </p>
           </motion.div>
 
@@ -279,7 +279,7 @@ export default function HomePage() {
                   <MapPin className="w-6 h-6 text-amber-900" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Adres</h3>
+                  <h3 className="text-xl font-bold mb-2 font-heading">Adres</h3>
                   <p className="text-amber-100">
                     Voorstraat 123<br />
                     1234 AB Bierdorp<br />
@@ -293,7 +293,7 @@ export default function HomePage() {
                   <Phone className="w-6 h-6 text-amber-900" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Telefoon</h3>
+                  <h3 className="text-xl font-bold mb-2 font-heading">Telefoon</h3>
                   <p className="text-amber-100">+31 (0)12 345 6789</p>
                 </div>
               </div>
@@ -303,8 +303,8 @@ export default function HomePage() {
                   <Mail className="w-6 h-6 text-amber-900" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Email</h3>
-                  <p className="text-amber-100">info@degouverneur.nl</p>
+                  <h3 className="text-xl font-bold mb-2 font-heading">Email</h3>
+                  <p className="text-amber-100">info@brouwerijzoeplap.nl</p>
                 </div>
               </div>
 
@@ -313,7 +313,7 @@ export default function HomePage() {
                   <Clock className="w-6 h-6 text-amber-900" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Openingstijden</h3>
+                  <h3 className="text-xl font-bold mb-2 font-heading">Openingstijden</h3>
                   <div className="text-amber-100 space-y-1">
                     <p>Ma - Do: 16:00 - 00:00</p>
                     <p>Vr - Za: 14:00 - 02:00</p>
@@ -329,7 +329,7 @@ export default function HomePage() {
               transition={{ duration: 0.8 }}
               className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
             >
-              <h3 className="text-2xl font-bold mb-6">Stuur ons een bericht</h3>
+              <h3 className="text-2xl font-bold mb-6 font-heading">Stuur ons een bericht</h3>
               <form className="space-y-4">
                 <input
                   type="text"
@@ -363,7 +363,7 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <Beer className="w-12 h-12 mx-auto mb-4 opacity-50" />
           <p className="text-sm">
-            2024 Biertaverne De Gouverneur. Alle rechten voorbehouden.
+            2024 Brouwerij Zoeplap. Alle rechten voorbehouden.
           </p>
           <p className="text-xs mt-2 opacity-75">
             Data van Untappd • Automatisch bijgewerkt elke dag om 06:00

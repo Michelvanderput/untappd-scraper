@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'heading': ['"Right Gothic"', 'sans-serif'],
+        'sans': ['Cirka', 'system-ui', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

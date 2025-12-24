@@ -184,7 +184,7 @@ export default function BeersPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 font-heading">
             Ons <span className="text-amber-600">Bier Menu</span>
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-6" />

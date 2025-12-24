@@ -33,10 +33,10 @@ export default function Navigation() {
               <Beer className="w-10 h-10 text-amber-200" />
             </motion.div>
             <div>
-              <h1 className="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors">
-                De Gouverneur
+              <h1 className="text-2xl font-bold text-white group-hover:text-amber-200 transition-colors font-heading">
+                Brouwerij Zoeplap
               </h1>
-              <p className="text-xs text-amber-200">Biertaverne</p>
+              <p className="text-xs text-amber-200">Craft Beer</p>
             </div>
           </Link>
 
