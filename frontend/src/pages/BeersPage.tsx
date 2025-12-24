@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
 
 interface BeerData {
   name: string;
@@ -33,6 +34,8 @@ export default function BeersPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [beersPerPage, setBeersPerPage] = useState(24);
+  const [isRandomizing, setIsRandomizing] = useState(false);
+  const randomBeerRef = useRef<HTMLDivElement>(null);
 
   // Fetch beers from API
   useEffect(() => {
@@ -131,11 +134,63 @@ export default function BeersPage() {
       .filter(Boolean)
   )) as string[];
 
-  // Randomize beer
+  // Exciting randomizer with GSAP slot machine effect - always from ALL beers
   const randomizeBeer = () => {
-    if (filteredBeers.length === 0) return;
-    const randomIndex = Math.floor(Math.random() * filteredBeers.length);
-    setCurrentBeer(filteredBeers[randomIndex]);
+    if (beers.length === 0 || isRandomizing) return;
+    
+    setIsRandomizing(true);
+    
+    // Get random beers for slot machine effect
+    const shuffledBeers: BeerData[] = [];
+    for (let i = 0; i < 20; i++) {
+      const randomIndex = Math.floor(Math.random() * beers.length);
+      shuffledBeers.push(beers[randomIndex]);
+    }
+    
+    // Final beer (always from ALL beers, not filtered)
+    const finalIndex = Math.floor(Math.random() * beers.length);
+    const finalBeer = beers[finalIndex];
+    
+    // Animate slot machine effect
+    if (randomBeerRef.current) {
+      const tl = gsap.timeline({
+        onComplete: () => {
+          setCurrentBeer(finalBeer);
+          setIsRandomizing(false);
+        }
+      });
+      
+      // Scale up and shake
+      tl.to(randomBeerRef.current, {
+        scale: 1.1,
+        duration: 0.1,
+        ease: 'power2.out'
+      });
+      
+      // Rapid cycling through beers
+      shuffledBeers.forEach((beer, index) => {
+        tl.call(() => setCurrentBeer(beer), [], index * 0.08);
+      });
+      
+      // Slow down effect
+      tl.to(randomBeerRef.current, {
+        rotation: 360,
+        duration: 0.5,
+        ease: 'power2.inOut'
+      });
+      
+      // Final reveal with bounce
+      tl.to(randomBeerRef.current, {
+        scale: 1,
+        rotation: 0,
+        duration: 0.6,
+        ease: 'elastic.out(1, 0.5)'
+      });
+    } else {
+      // Fallback if ref not available
+      setCurrentBeer(finalBeer);
+      setIsRandomizing(false);
+    }
   };
 
   // Clear filters
@@ -212,13 +267,18 @@ export default function BeersPage() {
 
             {/* Randomize Button */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: isRandomizing ? 1 : 1.05 }}
+              whileTap={{ scale: isRandomizing ? 1 : 0.95 }}
               onClick={randomizeBeer}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl"
+              disabled={isRandomizing}
+              className={`flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg transition-all shadow-lg ${
+                isRandomizing 
+                  ? 'opacity-75 cursor-not-allowed' 
+                  : 'hover:from-amber-700 hover:to-orange-700 hover:shadow-xl'
+              }`}
             >
-              <Shuffle className="w-5 h-5" />
-              Random Bier
+              <Shuffle className={`w-5 h-5 ${isRandomizing ? 'animate-spin' : ''}`} />
+              {isRandomizing ? 'Randomizing...' : 'Random Bier'}
             </motion.button>
           </div>
 
@@ -278,7 +338,7 @@ export default function BeersPage() {
 
         {/* Current Random Beer */}
         {currentBeer && (
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-4 border-amber-400">
+          <div ref={randomBeerRef} className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-4 border-amber-400">
             <div className="flex flex-col md:flex-row gap-8">
               {/* Beer Image */}
               <div className="flex-shrink-0">
