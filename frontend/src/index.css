@@ -2,30 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Migra Font Family - For Headings */
+/* Distortion Font Family - For Headings */
 @font-face {
-  font-family: 'Migra';
-  src: url('./assets/Migra/PPMigra-Extrabold.woff2') format('woff2'),
-       url('./assets/Migra/PPMigra-Extrabold.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Migra';
-  src: url('./assets/Migra/PPMigra-Regular.woff2') format('woff2'),
-       url('./assets/Migra/PPMigra-Regular.woff') format('woff');
+  font-family: 'Distortion';
+  src: url('./assets/Distortion-ALmog.ttf') format('truetype');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Migra';
-  src: url('./assets/Migra/PPMigra-Light.woff2') format('woff2'),
-       url('./assets/Migra/PPMigra-Light.woff') format('woff');
-  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }

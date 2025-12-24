@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['Migra', 'serif'],
+        'heading': ['Distortion', 'serif'],
         'sans': ['"Neue Montreal"', 'system-ui', 'sans-serif'],
       },
     },
