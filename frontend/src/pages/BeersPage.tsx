@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight, Home } from 'lucide-react';
+import { useSearchParams } from 'react-router-dom';
+import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import Navigation from '../components/Navigation';
 
 interface BeerData {
   name: string;
@@ -171,28 +173,22 @@ export default function BeersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100">
-      <div className="container mx-auto px-4 py-8 max-w-6xl">
-        {/* Home Button */}
-        <div className="mb-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-lg hover:bg-gray-50 transition-colors shadow-md"
-          >
-            <Home className="w-5 h-5" />
-            Terug naar Home
-          </Link>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100">
+      <Navigation />
+      <div className="container mx-auto px-4 py-8 max-w-6xl pt-28">
 
         {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Beer className="w-12 h-12 text-amber-600" />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
-              Biertaverne De Gouverneur
-            </h1>
-          </div>
-          <p className="text-gray-600 text-lg">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            Ons <span className="text-amber-600">Bier Menu</span>
+          </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-6" />
+          <p className="text-xl text-gray-600">
             {filteredBeers.length} unieke bieren beschikbaar
             {beers.length !== deduplicateBeers(beers).length && (
               <span className="text-sm text-gray-500 ml-2">
@@ -200,10 +196,15 @@ export default function BeersPage() {
               </span>
             )}
           </p>
-        </div>
+        </motion.div>
 
         {/* Search and Filters */}
-        <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-amber-100"
+        >
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
             <div className="flex-1 relative">
@@ -227,13 +228,15 @@ export default function BeersPage() {
             </button>
 
             {/* Randomize Button */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={randomizeBeer}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-lg hover:from-orange-600 hover:to-amber-700 transition-all shadow-md hover:shadow-lg"
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg hover:from-amber-700 hover:to-orange-700 transition-all shadow-lg hover:shadow-xl"
             >
               <Shuffle className="w-5 h-5" />
               Random Bier
-            </button>
+            </motion.button>
           </div>
 
           {/* Filters */}
@@ -288,7 +291,7 @@ export default function BeersPage() {
               )}
             </div>
           )}
-        </div>
+        </motion.div>
 
         {/* Current Random Beer */}
         {currentBeer && (
