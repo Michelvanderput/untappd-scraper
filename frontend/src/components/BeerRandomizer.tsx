@@ -257,28 +257,28 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
               <div className="flex-1">
                 <AnimatePresence mode="wait">
                   {revealedSteps.has('name') ? (
-                    <motion.h2
+                    <motion.div
                       key={`name-${currentBeer.beer_url}`}
                       initial={{ x: -20, opacity: 0, scale: 0.9 }}
                       animate={{ x: 0, opacity: 1, scale: 1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
-                      className="text-4xl font-bold text-gray-800 mb-2 font-heading"
                     >
-                      {currentBeer.name}
-                    </motion.h2>
+                      <h2 className="text-4xl font-bold text-gray-800 mb-2 font-heading">
+                        {currentBeer.name}
+                      </h2>
+                      {currentBeer.brewery && (
+                        <p className="text-xl text-gray-600 mb-6">
+                          {currentBeer.brewery}
+                        </p>
+                      )}
+                    </motion.div>
                   ) : (
-                    <div
-                      key={`name-hidden-${currentBeer.beer_url}`}
-                      className="h-12 bg-gray-200 rounded-lg mb-2 animate-pulse"
-                    />
+                    <div key={`name-hidden-${currentBeer.beer_url}`}>
+                      <div className="h-12 bg-gray-200 rounded-lg mb-2 animate-pulse" />
+                      <div className="h-7 bg-gray-200 rounded-lg mb-6 animate-pulse w-3/4" />
+                    </div>
                   )}
                 </AnimatePresence>
-                
-                {currentBeer.brewery && (
-                  <p className="text-xl text-gray-600 mb-6">
-                    {currentBeer.brewery}
-                  </p>
-                )}
 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                   {/* Style */}
