@@ -89,18 +89,20 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     const finalIndex = Math.floor(Math.random() * filteredBeers.length);
     const finalBeer = filteredBeers[finalIndex];
     
+    const completeRandomization = () => {
+      setCurrentBeer(finalBeer);
+      setHistory(prev => [finalBeer, ...prev.slice(0, 4)]);
+      setIsRandomizing(false);
+      setShowConfetti(true);
+      createConfetti();
+      if (onBeerSelect) onBeerSelect(finalBeer);
+      
+      setTimeout(() => setShowConfetti(false), 3000);
+    };
+    
     if (randomBeerRef.current) {
       const tl = gsap.timeline({
-        onComplete: () => {
-          setCurrentBeer(finalBeer);
-          setHistory(prev => [finalBeer, ...prev.slice(0, 4)]);
-          setIsRandomizing(false);
-          setShowConfetti(true);
-          createConfetti();
-          if (onBeerSelect) onBeerSelect(finalBeer);
-          
-          setTimeout(() => setShowConfetti(false), 3000);
-        }
+        onComplete: completeRandomization
       });
       
       tl.to(randomBeerRef.current, {
@@ -128,6 +130,9 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         duration: 0.8,
         ease: 'elastic.out(1, 0.3)'
       });
+    } else {
+      // Fallback without animation if ref not available
+      completeRandomization();
     }
   };
 

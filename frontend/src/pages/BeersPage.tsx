@@ -32,14 +32,24 @@ export default function BeersPage() {
     localStorage.setItem('beerFavorites', JSON.stringify(Array.from(favorites)));
   }, [favorites]);
 
-  // Fetch beers from API
+  // Fetch beers from API or local JSON
   useEffect(() => {
     const fetchBeers = async () => {
       try {
-        const response = await fetch('/api/beers');
-        const data: ApiResponse = await response.json();
-        setBeers(data.beers);
-        setFilteredBeers(data.beers);
+        // Try API first, fallback to local JSON for development
+        let response;
+        try {
+          response = await fetch('/api/beers');
+        } catch {
+          response = await fetch('/beers.json');
+        }
+        
+        const data = await response.json();
+        
+        // Handle both API response format and direct JSON format
+        const beersList = data.beers || [];
+        setBeers(beersList);
+        setFilteredBeers(beersList);
         setLoading(false);
       } catch (error) {
         console.error('Failed to fetch beers:', error);
