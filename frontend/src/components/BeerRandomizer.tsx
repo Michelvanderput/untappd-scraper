@@ -9,6 +9,10 @@ interface BeerRandomizerProps {
   onBeerSelect?: (beer: BeerData) => void;
 }
 
+type RevealStep = 'style' | 'abv' | 'ibu' | 'rating' | 'category' | 'image' | 'name';
+
+const REVEAL_STEPS: RevealStep[] = ['style', 'abv', 'ibu', 'rating', 'category', 'image', 'name'];
+
 const MODES = [
   { id: 'all' as RandomizerMode, label: 'Alles', icon: Shuffle, color: 'from-amber-500 to-orange-500' },
   { id: 'top-rated' as RandomizerMode, label: 'Top Rated', icon: Star, color: 'from-yellow-500 to-amber-500' },
@@ -19,10 +23,11 @@ const MODES = [
 
 export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerProps) {
   const [currentBeer, setCurrentBeer] = useState<BeerData | null>(null);
-  const [isRandomizing, setIsRandomizing] = useState(false);
-  const [mode, setMode] = useState<RandomizerMode>('all');
-  const [showConfetti, setShowConfetti] = useState(false);
   const [history, setHistory] = useState<BeerData[]>([]);
+  const [mode, setMode] = useState<RandomizerMode>('all');
+  const [isRandomizing, setIsRandomizing] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [revealedSteps, setRevealedSteps] = useState<Set<RevealStep>>(new Set());
   const randomBeerRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
 
@@ -79,19 +84,20 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     
     setIsRandomizing(true);
     setShowConfetti(false);
-    
-    const shuffledBeers: BeerData[] = [];
-    for (let i = 0; i < 30; i++) {
-      const randomIndex = Math.floor(Math.random() * filteredBeers.length);
-      shuffledBeers.push(filteredBeers[randomIndex]);
-    }
+    setRevealedSteps(new Set());
     
     const finalIndex = Math.floor(Math.random() * filteredBeers.length);
     const finalBeer = filteredBeers[finalIndex];
     
+    // Set the beer immediately but hide all properties
+    setCurrentBeer(finalBeer);
+    
     const completeRandomization = () => {
-      setCurrentBeer(finalBeer);
-      setHistory(prev => [finalBeer, ...prev.slice(0, 4)]);
+      setHistory(prev => {
+        // Ensure we add the correct final beer to history
+        const newHistory = [finalBeer, ...prev.filter(b => b.beer_url !== finalBeer.beer_url).slice(0, 4)];
+        return newHistory;
+      });
       setIsRandomizing(false);
       setShowConfetti(true);
       createConfetti();
@@ -105,33 +111,29 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         onComplete: completeRandomization
       });
       
+      // Scale up animation at start
       tl.to(randomBeerRef.current, {
-        scale: 1.02,
-        duration: 0.2,
+        scale: 1.05,
+        duration: 0.3,
         ease: 'power2.out'
       });
       
-      for (let i = 0; i < 15; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], i * 0.06);
-      }
+      // Reveal each step sequentially
+      REVEAL_STEPS.forEach((step, index) => {
+        tl.call(() => {
+          setRevealedSteps(prev => new Set([...prev, step]));
+        }, [], 0.5 + index * 0.4);
+      });
       
-      for (let i = 15; i < 25; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 0.9 + (i - 15) * 0.12);
-      }
-      
-      for (let i = 25; i < 30; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 2.1 + (i - 25) * 0.25);
-      }
-      
-      tl.to({}, { duration: 0.3 });
-      
+      // Final bounce
       tl.to(randomBeerRef.current, {
         scale: 1,
-        duration: 0.8,
+        duration: 0.6,
         ease: 'elastic.out(1, 0.3)'
-      });
+      }, '+=0.2');
     } else {
-      // Fallback without animation if ref not available
+      // Fallback without animation
+      setRevealedSteps(new Set(REVEAL_STEPS));
       completeRandomization();
     }
   };
@@ -210,95 +212,203 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
             <div className="relative flex flex-col md:flex-row gap-8">
               {/* Beer Image */}
               <div className="flex-shrink-0 mx-auto md:mx-0">
-                {currentBeer.image_url ? (
-                  <motion.img
-                    initial={{ rotate: -10, scale: 0.8 }}
-                    animate={{ rotate: 0, scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200 }}
-                    src={currentBeer.image_url}
-                    alt={currentBeer.name}
-                    className="w-48 h-48 object-contain rounded-lg"
-                  />
-                ) : (
-                  <div className="w-48 h-48 bg-gradient-to-br from-amber-200 to-orange-200 rounded-lg flex items-center justify-center">
-                    <BeerIcon className="w-24 h-24 text-amber-600" />
-                  </div>
-                )}
+                <AnimatePresence mode="wait">
+                  {revealedSteps.has('image') ? (
+                    currentBeer.image_url ? (
+                      <motion.img
+                        key="image"
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                        src={currentBeer.image_url}
+                        alt={currentBeer.name}
+                        className="w-48 h-48 object-contain rounded-lg"
+                      />
+                    ) : (
+                      <motion.div
+                        key="placeholder"
+                        initial={{ scale: 0, rotate: -180 }}
+                        animate={{ scale: 1, rotate: 0 }}
+                        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                        className="w-48 h-48 bg-gradient-to-br from-amber-200 to-orange-200 rounded-lg flex items-center justify-center"
+                      >
+                        <BeerIcon className="w-24 h-24 text-amber-600" />
+                      </motion.div>
+                    )
+                  ) : (
+                    <motion.div
+                      key="hidden"
+                      className="w-48 h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center"
+                    >
+                      <div className="text-6xl">❓</div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Beer Info */}
               <div className="flex-1">
-                <motion.h2
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                  className="text-4xl font-bold text-gray-800 mb-2 font-heading"
-                >
-                  {currentBeer.name}
-                </motion.h2>
+                <AnimatePresence mode="wait">
+                  {revealedSteps.has('name') ? (
+                    <motion.h2
+                      key="name"
+                      initial={{ x: -20, opacity: 0, scale: 0.9 }}
+                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                      className="text-4xl font-bold text-gray-800 mb-2 font-heading"
+                    >
+                      {currentBeer.name}
+                    </motion.h2>
+                  ) : (
+                    <motion.div
+                      key="name-hidden"
+                      className="h-12 bg-gray-200 rounded-lg mb-2 animate-pulse"
+                    />
+                  )}
+                </AnimatePresence>
                 
                 {currentBeer.brewery && (
-                  <motion.p
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="text-xl text-gray-600 mb-6"
-                  >
+                  <p className="text-xl text-gray-600 mb-6">
                     {currentBeer.brewery}
-                  </motion.p>
+                  </p>
                 )}
 
-                <motion.div
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.4 }}
-                  className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6"
-                >
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                  {/* Style */}
                   {currentBeer.style && (
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100">
-                      <p className="text-xs text-gray-500 mb-1">Stijl</p>
-                      <p className="font-semibold text-gray-800 text-sm">{currentBeer.style}</p>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {revealedSteps.has('style') ? (
+                        <motion.div
+                          key="style"
+                          initial={{ scale: 0, rotate: -10 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100"
+                        >
+                          <p className="text-xs text-gray-500 mb-1">Stijl</p>
+                          <p className="font-semibold text-gray-800 text-sm">{currentBeer.style}</p>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="style-hidden"
+                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                        >
+                          <p className="text-xs text-gray-400 mb-1">Stijl</p>
+                          <div className="h-5 bg-gray-300 rounded" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                   
+                  {/* ABV */}
                   {currentBeer.abv !== null && (
-                    <div className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl p-3 border border-amber-200">
-                      <p className="text-xs text-amber-700 mb-1">ABV</p>
-                      <p className="font-bold text-amber-900 text-lg">{currentBeer.abv}%</p>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {revealedSteps.has('abv') ? (
+                        <motion.div
+                          key="abv"
+                          initial={{ scale: 0, rotate: -10 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl p-3 border border-amber-200"
+                        >
+                          <p className="text-xs text-amber-700 mb-1">ABV</p>
+                          <p className="font-bold text-amber-900 text-lg">{currentBeer.abv}%</p>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="abv-hidden"
+                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                        >
+                          <p className="text-xs text-gray-400 mb-1">ABV</p>
+                          <div className="h-7 bg-gray-300 rounded" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                   
+                  {/* IBU */}
                   {currentBeer.ibu !== null && (
-                    <div className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl p-3 border border-green-200">
-                      <p className="text-xs text-green-700 mb-1">IBU</p>
-                      <p className="font-bold text-green-900 text-lg">{currentBeer.ibu}</p>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {revealedSteps.has('ibu') ? (
+                        <motion.div
+                          key="ibu"
+                          initial={{ scale: 0, rotate: -10 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl p-3 border border-green-200"
+                        >
+                          <p className="text-xs text-green-700 mb-1">IBU</p>
+                          <p className="font-bold text-green-900 text-lg">{currentBeer.ibu}</p>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="ibu-hidden"
+                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                        >
+                          <p className="text-xs text-gray-400 mb-1">IBU</p>
+                          <div className="h-7 bg-gray-300 rounded" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                   
+                  {/* Rating */}
                   {currentBeer.rating !== null && (
-                    <div className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl p-3 border border-yellow-200">
-                      <p className="text-xs text-yellow-700 mb-1">Rating</p>
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-600 fill-yellow-600" />
-                        <p className="font-bold text-yellow-900 text-lg">
-                          {currentBeer.rating.toFixed(2)}
-                        </p>
-                      </div>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {revealedSteps.has('rating') ? (
+                        <motion.div
+                          key="rating"
+                          initial={{ scale: 0, rotate: -10 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl p-3 border border-yellow-200"
+                        >
+                          <p className="text-xs text-yellow-700 mb-1">Rating</p>
+                          <div className="flex items-center gap-1">
+                            <Star className="w-4 h-4 text-yellow-600 fill-yellow-600" />
+                            <p className="font-bold text-yellow-900 text-lg">
+                              {currentBeer.rating.toFixed(2)}
+                            </p>
+                          </div>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="rating-hidden"
+                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                        >
+                          <p className="text-xs text-gray-400 mb-1">Rating</p>
+                          <div className="h-7 bg-gray-300 rounded" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
                   
-                  {currentBeer.container && (
-                    <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100">
-                      <p className="text-xs text-gray-500 mb-1">Verpakking</p>
-                      <p className="font-semibold text-gray-800 text-sm">{currentBeer.container}</p>
-                    </div>
+                  {/* Category */}
+                  {currentBeer.category && (
+                    <AnimatePresence mode="wait">
+                      {revealedSteps.has('category') ? (
+                        <motion.div
+                          key="category"
+                          initial={{ scale: 0, rotate: -10 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                          className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-3 border border-purple-200"
+                        >
+                          <p className="text-xs text-purple-700 mb-1">Categorie</p>
+                          <p className="font-bold text-purple-900 text-sm">{currentBeer.category}</p>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          key="category-hidden"
+                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                        >
+                          <p className="text-xs text-gray-400 mb-1">Categorie</p>
+                          <div className="h-5 bg-gray-300 rounded" />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   )}
-                  
-                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100">
-                    <p className="text-xs text-gray-500 mb-1">Categorie</p>
-                    <p className="font-semibold text-gray-800 text-sm">{currentBeer.category}</p>
-                  </div>
-                </motion.div>
+                </div>
 
                 {currentBeer.subcategory && (
                   <motion.div
