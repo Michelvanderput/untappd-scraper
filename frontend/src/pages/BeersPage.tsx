@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Heart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import type { BeerData, ApiResponse } from '../types/beer';
+import type { BeerData } from '../types/beer';
 import BeerRandomizer from '../components/BeerRandomizer';
 import BeerCard from '../components/BeerCard';
 
