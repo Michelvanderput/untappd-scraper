@@ -1,27 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { Beer, Shuffle, Search, Filter, X, ExternalLink, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Heart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-
-interface BeerData {
-  name: string;
-  beer_url: string;
-  image_url: string | null;
-  style: string | null;
-  brewery: string | null;
-  brewery_url: string | null;
-  category: string;
-  subcategory: string | null;
-  abv: number | null;
-  ibu: number | null;
-  rating: number | null;
-  container: string | null;
-}
-
-interface ApiResponse {
-  beers: BeerData[];
-  count: number;
-}
+import type { BeerData, ApiResponse } from '../types/beer';
+import BeerRandomizer from '../components/BeerRandomizer';
+import BeerCard from '../components/BeerCard';
 
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
@@ -34,8 +16,21 @@ export default function BeersPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [beersPerPage, setBeersPerPage] = useState(24);
-  const [isRandomizing, setIsRandomizing] = useState(false);
-  const randomBeerRef = useRef<HTMLDivElement>(null);
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
+  // Load favorites from localStorage
+  useEffect(() => {
+    const savedFavorites = localStorage.getItem('beerFavorites');
+    if (savedFavorites) {
+      setFavorites(new Set(JSON.parse(savedFavorites)));
+    }
+  }, []);
+
+  // Save favorites to localStorage
+  useEffect(() => {
+    localStorage.setItem('beerFavorites', JSON.stringify(Array.from(favorites)));
+  }, [favorites]);
 
   // Fetch beers from API
   useEffect(() => {
@@ -109,6 +104,10 @@ export default function BeersPage() {
     // Remove duplicates first
     filtered = deduplicateBeers(filtered);
 
+    if (showFavoritesOnly) {
+      filtered = filtered.filter(b => favorites.has(b.beer_url));
+    }
+
     if (selectedCategory) {
       filtered = filtered.filter(b => b.category === selectedCategory);
     }
@@ -122,8 +121,8 @@ export default function BeersPage() {
     }
 
     setFilteredBeers(filtered);
-    setCurrentPage(1); // Reset to first page when filters change
-  }, [searchTerm, selectedCategory, selectedSubcategory, beers]);
+    setCurrentPage(1);
+  }, [searchTerm, selectedCategory, selectedSubcategory, beers, showFavoritesOnly, favorites]);
 
   // Get unique categories and subcategories
   const categories = Array.from(new Set(beers.map(b => b.category)));
@@ -134,75 +133,23 @@ export default function BeersPage() {
       .filter(Boolean)
   )) as string[];
 
-  // Exciting randomizer with GSAP slot machine effect - always from ALL beers
-  const randomizeBeer = () => {
-    if (beers.length === 0 || isRandomizing) return;
-    
-    setIsRandomizing(true);
-    
-    // Get more random beers for longer, more suspenseful effect
-    const shuffledBeers: BeerData[] = [];
-    for (let i = 0; i < 30; i++) {
-      const randomIndex = Math.floor(Math.random() * beers.length);
-      shuffledBeers.push(beers[randomIndex]);
-    }
-    
-    // Final beer (always from ALL beers, not filtered)
-    const finalIndex = Math.floor(Math.random() * beers.length);
-    const finalBeer = beers[finalIndex];
-    
-    // Animate slot machine effect
-    if (randomBeerRef.current) {
-      const tl = gsap.timeline({
-        onComplete: () => {
-          setCurrentBeer(finalBeer);
-          setIsRandomizing(false);
-        }
-      });
-      
-      // Subtle pulse at start
-      tl.to(randomBeerRef.current, {
-        scale: 1.02,
-        duration: 0.2,
-        ease: 'power2.out'
-      });
-      
-      // Fast cycling at start (builds excitement)
-      for (let i = 0; i < 15; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], i * 0.06);
+  const toggleFavorite = (beerUrl: string) => {
+    setFavorites(prev => {
+      const newFavorites = new Set(prev);
+      if (newFavorites.has(beerUrl)) {
+        newFavorites.delete(beerUrl);
+      } else {
+        newFavorites.add(beerUrl);
       }
-      
-      // Medium speed (building suspense)
-      for (let i = 15; i < 25; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 0.9 + (i - 15) * 0.12);
-      }
-      
-      // Slow down dramatically (maximum suspense)
-      for (let i = 25; i < 30; i++) {
-        tl.call(() => setCurrentBeer(shuffledBeers[i]), [], 2.1 + (i - 25) * 0.25);
-      }
-      
-      // Pause for dramatic effect
-      tl.to({}, { duration: 0.3 });
-      
-      // Final reveal with satisfying bounce
-      tl.to(randomBeerRef.current, {
-        scale: 1,
-        duration: 0.8,
-        ease: 'elastic.out(1, 0.3)'
-      });
-    } else {
-      // Fallback if ref not available
-      setCurrentBeer(finalBeer);
-      setIsRandomizing(false);
-    }
+      return newFavorites;
+    });
   };
 
-  // Clear filters
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
+    setShowFavoritesOnly(false);
   };
 
   if (loading) {
@@ -217,36 +164,47 @@ export default function BeersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-orange-50 to-amber-100">
-      <div className="container mx-auto px-4 py-8 max-w-6xl pt-8">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4 font-heading">
-            Ons <span className="text-amber-600">Bier Menu</span>
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 font-heading">
+            Bier <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Menu</span>
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-6" />
-          <p className="text-xl text-gray-600">
+          <div className="w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" />
+          <p className="text-2xl text-gray-600 font-medium">
             {filteredBeers.length} unieke bieren beschikbaar
-            {beers.length !== deduplicateBeers(beers).length && (
-              <span className="text-sm text-gray-500 ml-2">
-                ({beers.length - deduplicateBeers(beers).length} duplicaten verwijderd)
-              </span>
-            )}
           </p>
+          {favorites.size > 0 && (
+            <p className="text-lg text-amber-600 mt-2 flex items-center justify-center gap-2">
+              <Heart className="w-5 h-5 fill-amber-600" />
+              {favorites.size} favorieten
+            </p>
+          )}
+        </motion.div>
+
+        {/* Randomizer Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-12"
+        >
+          <BeerRandomizer beers={deduplicateBeers(beers)} onBeerSelect={setCurrentBeer} />
         </motion.div>
 
         {/* Search and Filters */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl p-6 mb-8 border border-amber-100"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 border border-amber-100"
         >
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
@@ -257,39 +215,43 @@ export default function BeersPage() {
                 placeholder="Zoek op naam, brouwerij of stijl..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
               />
             </div>
+
+            {/* Favorites Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all font-medium ${
+                showFavoritesOnly
+                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg'
+                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
+              }`}
+            >
+              <Heart className={`w-5 h-5 ${showFavoritesOnly ? 'fill-white' : ''}`} />
+              Favorieten {favorites.size > 0 && `(${favorites.size})`}
+            </motion.button>
 
             {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
+              className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition-colors shadow-md"
             >
               <Filter className="w-5 h-5" />
               Filters
             </button>
-
-            {/* Randomize Button */}
-            <motion.button
-              whileHover={{ scale: isRandomizing ? 1 : 1.05 }}
-              whileTap={{ scale: isRandomizing ? 1 : 0.95 }}
-              onClick={randomizeBeer}
-              disabled={isRandomizing}
-              className={`flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-lg transition-all shadow-lg ${
-                isRandomizing 
-                  ? 'opacity-75 cursor-not-allowed' 
-                  : 'hover:from-amber-700 hover:to-orange-700 hover:shadow-xl'
-              }`}
-            >
-              <Shuffle className={`w-5 h-5 ${isRandomizing ? 'animate-spin' : ''}`} />
-              {isRandomizing ? 'Randomizing...' : 'Random Bier'}
-            </motion.button>
           </div>
 
           {/* Filters */}
           {showFilters && (
-            <div className="grid md:grid-cols-2 gap-4 pt-4 border-t">
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="grid md:grid-cols-2 gap-4 pt-4 border-t border-amber-100"
+            >
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Categorie
@@ -300,7 +262,7 @@ export default function BeersPage() {
                     setSelectedCategory(e.target.value);
                     setSelectedSubcategory('');
                   }}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
                 >
                   <option value="">Alle categorieën</option>
                   {categories.map(cat => (
@@ -316,7 +278,7 @@ export default function BeersPage() {
                 <select
                   value={selectedSubcategory}
                   onChange={(e) => setSelectedSubcategory(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
                   disabled={!selectedCategory}
                 >
                   <option value="">Alle subcategorieën</option>
@@ -326,24 +288,41 @@ export default function BeersPage() {
                 </select>
               </div>
 
-              {(searchTerm || selectedCategory || selectedSubcategory) && (
+              {(searchTerm || selectedCategory || selectedSubcategory || showFavoritesOnly) && (
                 <div className="md:col-span-2">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-2 text-gray-600 hover:text-gray-800"
+                    className="flex items-center gap-2 text-gray-600 hover:text-gray-800 font-medium"
                   >
                     <X className="w-4 h-4" />
-                    Filters wissen
+                    Alle filters wissen
                   </button>
                 </div>
               )}
-            </div>
+            </motion.div>
           )}
         </motion.div>
 
-        {/* Current Random Beer */}
+        {/* Current Selected Beer */}
         {currentBeer && (
-          <div ref={randomBeerRef} className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-4 border-amber-400">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 relative">
+            {/* Favorite Button */}
+            <button
+              onClick={() => toggleFavorite(currentBeer.beer_url)}
+              className="absolute top-4 right-4 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all z-10"
+            >
+              <Heart
+                className={`w-6 h-6 transition-colors ${
+                  favorites.has(currentBeer.beer_url)
+                    ? 'text-pink-500 fill-pink-500'
+                    : 'text-gray-400'
+                }`}
+              />
+            </button>
+
             <div className="flex flex-col md:flex-row gap-8">
               {/* Beer Image */}
               <div className="flex-shrink-0">
@@ -354,8 +333,8 @@ export default function BeersPage() {
                     className="w-48 h-48 object-contain mx-auto rounded-lg"
                   />
                 ) : (
-                  <div className="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <Beer className="w-24 h-24 text-gray-400" />
+                  <div className="w-48 h-48 bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg flex items-center justify-center">
+                    <Beer className="w-24 h-24 text-amber-600" />
                   </div>
                 )}
               </div>
@@ -427,18 +406,9 @@ export default function BeersPage() {
                   </div>
                 )}
 
-                <a
-                  href={currentBeer.beer_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
-                >
-                  Bekijk op Untappd
-                  <ExternalLink className="w-4 h-4" />
-                </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {/* Pagination Controls - Top */}
@@ -454,7 +424,7 @@ export default function BeersPage() {
                   setBeersPerPage(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+                className="px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
               >
                 <option value={12}>12</option>
                 <option value={24}>24</option>
@@ -470,57 +440,30 @@ export default function BeersPage() {
         )}
 
         {/* Beer Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
+        >
           {filteredBeers
             .slice((currentPage - 1) * beersPerPage, currentPage * beersPerPage)
-            .map((beer) => (
-              <div
+            .map((beer, index) => (
+              <motion.div
                 key={beer.beer_url}
-                onClick={() => setCurrentBeer(beer)}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer p-6 hover:scale-105"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.02 }}
               >
-                <div className="flex gap-4">
-                  {beer.image_url ? (
-                    <img
-                      src={beer.image_url}
-                      alt={beer.name}
-                      className="w-20 h-20 object-contain"
-                    />
-                  ) : (
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Beer className="w-10 h-10 text-gray-400" />
-                    </div>
-                  )}
-                  
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-gray-800 mb-1 truncate">
-                      {beer.name}
-                    </h3>
-                    {beer.brewery && (
-                      <p className="text-sm text-gray-600 mb-2 truncate">
-                        {beer.brewery}
-                      </p>
-                    )}
-                    <div className="flex items-center gap-2 text-sm">
-                      {beer.abv !== null && (
-                        <span className="text-gray-700 font-medium">
-                          {beer.abv}%
-                        </span>
-                      )}
-                      {beer.rating !== null && (
-                        <div className="flex items-center gap-1">
-                          <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                          <span className="text-gray-700">
-                            {beer.rating.toFixed(1)}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <BeerCard
+                  beer={beer}
+                  onClick={() => setCurrentBeer(beer)}
+                  isFavorite={favorites.has(beer.beer_url)}
+                  onToggleFavorite={() => toggleFavorite(beer.beer_url)}
+                />
+              </motion.div>
             ))}
-        </div>
+        </motion.div>
 
         {/* Pagination Controls - Bottom */}
         {filteredBeers.length > beersPerPage && (
@@ -528,7 +471,7 @@ export default function BeersPage() {
             <button
               onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
               disabled={currentPage === 1}
-              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
             >
               <ChevronLeft className="w-4 h-4" />
               Vorige
@@ -556,9 +499,9 @@ export default function BeersPage() {
                       )}
                       <button
                         onClick={() => setCurrentPage(page)}
-                        className={`px-4 py-2 rounded-lg transition-colors ${
+                        className={`px-4 py-2 rounded-xl transition-colors shadow-sm ${
                           currentPage === page
-                            ? 'bg-amber-600 text-white'
+                            ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-md'
                             : 'bg-white border border-gray-300 hover:bg-gray-50'
                         }`}
                       >
