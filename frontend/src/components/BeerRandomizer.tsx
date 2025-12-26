@@ -17,7 +17,7 @@ const MODES = [
   { id: 'all' as RandomizerMode, label: 'Alles', icon: Shuffle, color: 'from-amber-500 to-orange-500' },
   { id: 'top-rated' as RandomizerMode, label: 'Top Rated', icon: Star, color: 'from-yellow-500 to-amber-500' },
   { id: 'high-abv' as RandomizerMode, label: 'High ABV', icon: Flame, color: 'from-red-500 to-orange-500' },
-  { id: 'low-abv' as RandomizerMode, label: 'Session', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
+  { id: 'low-abv' as RandomizerMode, label: 'Pussy', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
   { id: 'high-ibu' as RandomizerMode, label: 'Bitter', icon: Zap, color: 'from-green-500 to-emerald-500' },
 ];
 
