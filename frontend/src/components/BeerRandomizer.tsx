@@ -82,15 +82,17 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     
     if (filteredBeers.length === 0 || isRandomizing) return;
     
-    setIsRandomizing(true);
-    setShowConfetti(false);
-    setRevealedSteps(new Set());
-    
     const finalIndex = Math.floor(Math.random() * filteredBeers.length);
     const finalBeer = filteredBeers[finalIndex];
     
-    // Set the beer immediately but hide all properties
+    // Reset state and set beer FIRST
+    setRevealedSteps(new Set());
     setCurrentBeer(finalBeer);
+    
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      setIsRandomizing(true);
+      setShowConfetti(false);
     
     const completeRandomization = () => {
       setHistory(prev => {
@@ -118,24 +120,28 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         ease: 'power2.out'
       });
       
-      // Reveal each step sequentially with more suspense
+      // Reveal each step sequentially with MAXIMUM suspense
       REVEAL_STEPS.forEach((step, index) => {
         tl.call(() => {
           setRevealedSteps(prev => new Set([...prev, step]));
-        }, [], 0.8 + index * 0.6);
+        }, [], 1.0 + index * 0.8);
       });
+      
+      // Dramatic pause before final bounce
+      tl.to({}, { duration: 0.5 });
       
       // Final bounce
       tl.to(randomBeerRef.current, {
         scale: 1,
-        duration: 0.6,
+        duration: 0.8,
         ease: 'elastic.out(1, 0.3)'
-      }, '+=0.4');
+      });
     } else {
       // Fallback without animation
       setRevealedSteps(new Set(REVEAL_STEPS));
       completeRandomization();
     }
+    }, 50);
   };
 
   return (
@@ -173,19 +179,20 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
           disabled={isRandomizing}
           className={`relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl font-bold text-lg transition-all shadow-2xl ${
             isRandomizing 
-              ? 'opacity-75 cursor-not-allowed' 
+              ? 'opacity-75 cursor-not-allowed animate-pulse' 
               : 'hover:shadow-amber-500/50 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700'
           }`}
         >
           <Shuffle className={`w-6 h-6 ${isRandomizing ? 'animate-spin' : ''}`} />
-          {isRandomizing ? 'Aan het randomizen...' : 'Verras Me!'}
+          {isRandomizing ? '🎲 Aan het randomizen...' : '🎰 Verras Me!'}
           {showConfetti && (
             <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 300 }}
               className="absolute -top-2 -right-2"
             >
-              <Sparkles className="w-6 h-6 text-yellow-300" />
+              <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
             </motion.div>
           )}
         </motion.button>
