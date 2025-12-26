@@ -198,7 +198,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       <AnimatePresence mode="wait">
         {currentBeer && (
           <motion.div
-            key={`${currentBeer.beer_url}-${revealedSteps.size}`}
+            key={currentBeer.beer_url}
             ref={randomBeerRef}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -216,7 +216,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   {revealedSteps.has('image') ? (
                     currentBeer.image_url ? (
                       <motion.img
-                        key="image"
+                        key={`image-${currentBeer.beer_url}`}
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -226,7 +226,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       />
                     ) : (
                       <motion.div
-                        key="placeholder"
+                        key={`placeholder-${currentBeer.beer_url}`}
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -236,12 +236,12 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       </motion.div>
                     )
                   ) : (
-                    <motion.div
-                      key="hidden"
+                    <div
+                      key={`hidden-${currentBeer.beer_url}`}
                       className="w-48 h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center"
                     >
                       <div className="text-6xl">❓</div>
-                    </motion.div>
+                    </div>
                   )}
                 </AnimatePresence>
               </div>
@@ -251,7 +251,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 <AnimatePresence mode="wait">
                   {revealedSteps.has('name') ? (
                     <motion.h2
-                      key="name"
+                      key={`name-${currentBeer.beer_url}`}
                       initial={{ x: -20, opacity: 0, scale: 0.9 }}
                       animate={{ x: 0, opacity: 1, scale: 1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
@@ -260,8 +260,8 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       {currentBeer.name}
                     </motion.h2>
                   ) : (
-                    <motion.div
-                      key="name-hidden"
+                    <div
+                      key={`name-hidden-${currentBeer.beer_url}`}
                       className="h-12 bg-gray-200 rounded-lg mb-2 animate-pulse"
                     />
                   )}
@@ -279,7 +279,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <AnimatePresence mode="wait">
                       {revealedSteps.has('style') ? (
                         <motion.div
-                          key="style"
+                          key={`style-${currentBeer.beer_url}`}
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -289,13 +289,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           <p className="font-semibold text-gray-800 text-sm">{currentBeer.style}</p>
                         </motion.div>
                       ) : (
-                        <motion.div
-                          key="style-hidden"
+                        <div
+                          key={`style-hidden-${currentBeer.beer_url}`}
                           className="bg-gray-200 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 mb-1">Stijl</p>
                           <div className="h-5 bg-gray-300 rounded" />
-                        </motion.div>
+                        </div>
                       )}
                     </AnimatePresence>
                   )}
@@ -305,7 +305,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <AnimatePresence mode="wait">
                       {revealedSteps.has('abv') ? (
                         <motion.div
-                          key="abv"
+                          key={`abv-${currentBeer.beer_url}`}
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -315,13 +315,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           <p className="font-bold text-amber-900 text-lg">{currentBeer.abv}%</p>
                         </motion.div>
                       ) : (
-                        <motion.div
-                          key="abv-hidden"
+                        <div
+                          key={`abv-hidden-${currentBeer.beer_url}`}
                           className="bg-gray-200 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 mb-1">ABV</p>
                           <div className="h-7 bg-gray-300 rounded" />
-                        </motion.div>
+                        </div>
                       )}
                     </AnimatePresence>
                   )}
@@ -331,7 +331,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <AnimatePresence mode="wait">
                       {revealedSteps.has('ibu') ? (
                         <motion.div
-                          key="ibu"
+                          key={`ibu-${currentBeer.beer_url}`}
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -341,13 +341,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           <p className="font-bold text-green-900 text-lg">{currentBeer.ibu}</p>
                         </motion.div>
                       ) : (
-                        <motion.div
-                          key="ibu-hidden"
+                        <div
+                          key={`ibu-hidden-${currentBeer.beer_url}`}
                           className="bg-gray-200 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 mb-1">IBU</p>
                           <div className="h-7 bg-gray-300 rounded" />
-                        </motion.div>
+                        </div>
                       )}
                     </AnimatePresence>
                   )}
@@ -357,7 +357,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <AnimatePresence mode="wait">
                       {revealedSteps.has('rating') ? (
                         <motion.div
-                          key="rating"
+                          key={`rating-${currentBeer.beer_url}`}
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -372,13 +372,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           </div>
                         </motion.div>
                       ) : (
-                        <motion.div
-                          key="rating-hidden"
+                        <div
+                          key={`rating-hidden-${currentBeer.beer_url}`}
                           className="bg-gray-200 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 mb-1">Rating</p>
                           <div className="h-7 bg-gray-300 rounded" />
-                        </motion.div>
+                        </div>
                       )}
                     </AnimatePresence>
                   )}
@@ -388,7 +388,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <AnimatePresence mode="wait">
                       {revealedSteps.has('category') ? (
                         <motion.div
-                          key="category"
+                          key={`category-${currentBeer.beer_url}`}
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
@@ -398,13 +398,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           <p className="font-bold text-purple-900 text-sm">{currentBeer.category}</p>
                         </motion.div>
                       ) : (
-                        <motion.div
-                          key="category-hidden"
+                        <div
+                          key={`category-hidden-${currentBeer.beer_url}`}
                           className="bg-gray-200 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 mb-1">Categorie</p>
                           <div className="h-5 bg-gray-300 rounded" />
-                        </motion.div>
+                        </div>
                       )}
                     </AnimatePresence>
                   )}
