@@ -118,11 +118,11 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         ease: 'power2.out'
       });
       
-      // Reveal each step sequentially
+      // Reveal each step sequentially with more suspense
       REVEAL_STEPS.forEach((step, index) => {
         tl.call(() => {
           setRevealedSteps(prev => new Set([...prev, step]));
-        }, [], 0.5 + index * 0.4);
+        }, [], 0.8 + index * 0.6);
       });
       
       // Final bounce
@@ -130,7 +130,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         scale: 1,
         duration: 0.6,
         ease: 'elastic.out(1, 0.3)'
-      }, '+=0.2');
+      }, '+=0.4');
     } else {
       // Fallback without animation
       setRevealedSteps(new Set(REVEAL_STEPS));
@@ -198,7 +198,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       <AnimatePresence mode="wait">
         {currentBeer && (
           <motion.div
-            key={currentBeer.beer_url}
+            key={`${currentBeer.beer_url}-${revealedSteps.size}`}
             ref={randomBeerRef}
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
