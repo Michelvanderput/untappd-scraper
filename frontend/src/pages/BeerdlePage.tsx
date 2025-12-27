@@ -22,12 +22,6 @@ export default function BeerdlePage() {
   const [showHelp, setShowHelp] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
-  // Reset game (for testing)
-  const resetGame = () => {
-    localStorage.removeItem('beerdle_state');
-    window.location.reload();
-  };
-
   // Load beers and game state
   useEffect(() => {
     const fetchBeers = async () => {
@@ -232,22 +226,13 @@ export default function BeerdlePage() {
             <h1 className="text-6xl font-bold text-gray-900 font-heading">
               Beer<span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">dle</span>
             </h1>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setShowHelp(true)}
-                className="p-2 hover:bg-white/50 rounded-full transition-colors"
-                title="Help"
-              >
-                <HelpCircle className="w-6 h-6 text-gray-600" />
-              </button>
-              <button
-                onClick={resetGame}
-                className="px-3 py-1 text-xs bg-red-100 hover:bg-red-200 text-red-700 rounded-full transition-colors font-semibold"
-                title="Reset spel (voor testen)"
-              >
-                Reset
-              </button>
-            </div>
+            <button
+              onClick={() => setShowHelp(true)}
+              className="p-2 hover:bg-white/50 rounded-full transition-colors"
+              title="Help"
+            >
+              <HelpCircle className="w-6 h-6 text-gray-600" />
+            </button>
           </div>
           <p className="text-lg text-gray-600">
             Raad het dagelijkse bier in 6 pogingen!
