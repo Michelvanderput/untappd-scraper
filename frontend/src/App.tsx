@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2 } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle } from 'lucide-react';
 import BeersPage from './pages/BeersPage';
 import TrendsPage from './pages/TrendsPage';
 import MenuBuilderPage from './pages/MenuBuilderPage';
 import BeerdlePage from './pages/BeerdlePage';
+import SurprisePage from './pages/SurprisePage';
 import './App.css';
 
 function Navigation() {
@@ -48,6 +49,17 @@ function Navigation() {
             Menu Builder
           </Link>
           <Link
+            to="/surprise"
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              isActive('/surprise')
+                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                : 'text-gray-700 hover:bg-gray-100'
+            }`}
+          >
+            <Shuffle className="w-5 h-5" />
+            Surprise
+          </Link>
+          <Link
             to="/beerdle"
             className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
               isActive('/beerdle')
@@ -74,6 +86,7 @@ function App() {
           <Route path="/" element={<BeersPage />} />
           <Route path="/trends" element={<TrendsPage />} />
           <Route path="/menu-builder" element={<MenuBuilderPage />} />
+          <Route path="/surprise" element={<SurprisePage />} />
           <Route path="/beerdle" element={<BeerdlePage />} />
         </Routes>
       </div>

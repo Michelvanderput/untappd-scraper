@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
-import BeerRandomizer from '../components/BeerRandomizer';
 import BeerCard from '../components/BeerCard';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
@@ -193,16 +192,6 @@ export default function BeersPage() {
           <p className="text-2xl text-gray-600 font-medium">
             {filteredBeers.length} unieke bieren beschikbaar
           </p>
-        </motion.div>
-
-        {/* Randomizer Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12"
-        >
-          <BeerRandomizer beers={deduplicateBeers(beers)} onBeerSelect={setCurrentBeer} />
         </motion.div>
 
         {/* Search and Filters */}
