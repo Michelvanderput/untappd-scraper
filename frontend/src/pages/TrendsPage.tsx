@@ -193,30 +193,55 @@ export default function TrendsPage() {
               <p className="text-gray-500 text-center py-8">Geen stijgers gevonden</p>
             ) : (
               <div className="space-y-3">
-                {risers.map((beer, index) => (
-                  <motion.a
-                    key={beer.beer_url}
-                    href={beer.beer_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="block p-3 bg-green-50 hover:bg-green-100 rounded-xl transition-colors group"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-800 truncate group-hover:text-green-700">
-                          {beer.name}
-                        </p>
+                {risers.map((beer, index) => {
+                  const maxChange = Math.max(...risers.map(b => b.change));
+                  const percentage = (beer.change / maxChange) * 100;
+                  const changePercent = ((beer.change / 5) * 100).toFixed(1); // Out of 5 stars
+                  
+                  return (
+                    <motion.a
+                      key={beer.beer_url}
+                      href={beer.beer_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="block p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors group relative overflow-hidden"
+                    >
+                      {/* Background bar */}
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-r from-green-200/40 to-transparent transition-all"
+                        style={{ width: `${percentage}%` }}
+                      />
+                      
+                      <div className="relative">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-gray-800 truncate group-hover:text-green-700">
+                              {beer.name}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2 ml-2">
+                            <span className="px-2 py-1 bg-green-600 text-white text-xs font-bold rounded-full">
+                              #{index + 1}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-1 text-green-600 font-bold">
+                            <TrendingUp className="w-4 h-4" />
+                            <span className="text-lg">+{changePercent}%</span>
+                          </div>
+                          <span className="text-xs text-gray-600">
+                            (+{beer.change.toFixed(3)} sterren)
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1 text-green-600 font-bold ml-2">
-                        <TrendingUp className="w-4 h-4" />
-                        +{beer.change.toFixed(3)}
-                      </div>
-                    </div>
-                  </motion.a>
-                ))}
+                    </motion.a>
+                  );
+                })}
               </div>
             )}
           </motion.div>
@@ -242,30 +267,55 @@ export default function TrendsPage() {
               <p className="text-gray-500 text-center py-8">Geen dalers gevonden</p>
             ) : (
               <div className="space-y-3">
-                {fallers.map((beer, index) => (
-                  <motion.a
-                    key={beer.beer_url}
-                    href={beer.beer_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="block p-3 bg-red-50 hover:bg-red-100 rounded-xl transition-colors group"
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-800 truncate group-hover:text-red-700">
-                          {beer.name}
-                        </p>
+                {fallers.map((beer, index) => {
+                  const maxChange = Math.max(...fallers.map(b => Math.abs(b.change)));
+                  const percentage = (Math.abs(beer.change) / maxChange) * 100;
+                  const changePercent = ((Math.abs(beer.change) / 5) * 100).toFixed(1);
+                  
+                  return (
+                    <motion.a
+                      key={beer.beer_url}
+                      href={beer.beer_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="block p-4 bg-red-50 hover:bg-red-100 rounded-xl transition-colors group relative overflow-hidden"
+                    >
+                      {/* Background bar */}
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-r from-red-200/40 to-transparent transition-all"
+                        style={{ width: `${percentage}%` }}
+                      />
+                      
+                      <div className="relative">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex-1 min-w-0">
+                            <p className="font-semibold text-gray-800 truncate group-hover:text-red-700">
+                              {beer.name}
+                            </p>
+                          </div>
+                          <div className="flex items-center gap-2 ml-2">
+                            <span className="px-2 py-1 bg-red-600 text-white text-xs font-bold rounded-full">
+                              #{index + 1}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center gap-3">
+                          <div className="flex items-center gap-1 text-red-600 font-bold">
+                            <TrendingDown className="w-4 h-4" />
+                            <span className="text-lg">-{changePercent}%</span>
+                          </div>
+                          <span className="text-xs text-gray-600">
+                            ({beer.change.toFixed(3)} sterren)
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-1 text-red-600 font-bold ml-2">
-                        <TrendingDown className="w-4 h-4" />
-                        {beer.change.toFixed(3)}
-                      </div>
-                    </div>
-                  </motion.a>
-                ))}
+                    </motion.a>
+                  );
+                })}
               </div>
             )}
           </motion.div>

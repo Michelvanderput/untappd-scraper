@@ -5,8 +5,6 @@ import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
 
-const MENU_SIZES = [4, 6, 8, 12];
-
 const GENERATION_MODES = [
   { 
     id: 'random' as const, 
@@ -182,23 +180,26 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
           transition={{ delay: 0.1 }}
           className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-amber-100"
         >
-          {/* Menu Size */}
+          {/* Menu Size Slider */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Aantal Bieren</h3>
-            <div className="flex gap-3 flex-wrap">
-              {MENU_SIZES.map(size => (
-                <button
-                  key={size}
-                  onClick={() => setMenuSize(size)}
-                  className={`px-6 py-3 rounded-xl font-semibold transition-all ${
-                    menuSize === size
-                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg scale-105'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {size} bieren
-                </button>
-              ))}
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-lg font-semibold text-gray-800">Aantal Bieren</h3>
+              <span className="text-3xl font-bold text-amber-600">{menuSize}</span>
+            </div>
+            <input
+              type="range"
+              min="3"
+              max="12"
+              value={menuSize}
+              onChange={(e) => setMenuSize(parseInt(e.target.value))}
+              className="w-full h-3 bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg appearance-none cursor-pointer slider"
+              style={{
+                background: `linear-gradient(to right, rgb(245 158 11) 0%, rgb(249 115 22) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) 100%)`
+              }}
+            />
+            <div className="flex justify-between text-sm text-gray-600 mt-2">
+              <span>3 bieren</span>
+              <span>12 bieren</span>
             </div>
           </div>
 
