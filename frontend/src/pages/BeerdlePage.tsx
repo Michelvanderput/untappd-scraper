@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { Beer, TrendingUp, TrendingDown, Check, X, Share2, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
+import { beerCache } from '../utils/cache';
 import { 
   getDailyBeer, 
   getTodayString, 
@@ -25,17 +26,37 @@ export default function BeerdlePage() {
   useEffect(() => {
     const fetchBeers = async () => {
       try {
-        const response = await fetch('/api/beers');
-        if (!response.ok) {
-          throw new Error('Failed to fetch beers');
+        // Try cache first for faster loading
+        const cached = await beerCache.get<BeerData[]>('beers');
+        let data: BeerData[] = [];
+        
+        if (cached) {
+          data = cached;
+          setBeers(cached);
         }
-        const data = await response.json();
+        
+        // Fetch fresh data
+        try {
+          const response = await fetch('/api/beers');
+          if (response.ok) {
+            const freshData = await response.json();
+            if (freshData && freshData.length > 0) {
+              data = freshData;
+              setBeers(freshData);
+              await beerCache.set('beers', freshData);
+            }
+          }
+        } catch (fetchError) {
+          console.warn('API fetch failed, using cached data:', fetchError);
+          // If we have cached data, continue with that
+          if (!cached) {
+            throw new Error('No beers available');
+          }
+        }
         
         if (!data || data.length === 0) {
           throw new Error('No beers available');
         }
-        
-        setBeers(data);
 
         // Load or initialize game state
         const saved = loadGameState();
