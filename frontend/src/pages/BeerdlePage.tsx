@@ -330,80 +330,100 @@ export default function BeerdlePage() {
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-xl shadow-lg p-4"
             >
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="font-bold text-gray-800">{guess.beer.name}</p>
-                  <p className="text-sm text-gray-600">{guess.beer.brewery}</p>
+              <div className="flex items-start gap-4 mb-3">
+                {/* Beer Image */}
+                <div className="flex-shrink-0">
+                  {guess.beer.image_url ? (
+                    <img
+                      src={guess.beer.image_url}
+                      alt={guess.beer.name}
+                      className="w-16 h-16 object-contain rounded-lg"
+                    />
+                  ) : (
+                    <div className="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center">
+                      <Beer className="w-8 h-8 text-amber-600" />
+                    </div>
+                  )}
                 </div>
+
+                {/* Beer Info */}
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-gray-800 text-lg">{guess.beer.name}</p>
+                  <p className="text-sm text-gray-600">{guess.beer.brewery}</p>
+                  {guess.beer.category && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      <span className="inline-block px-2 py-1 bg-gray-100 rounded-full">
+                        {guess.beer.category}
+                      </span>
+                    </p>
+                  )}
+                </div>
+
                 <span className="text-2xl font-bold text-amber-600">#{index + 1}</span>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {/* ABV */}
-                <div className={`p-3 rounded-lg text-center ${
-                  guess.abvMatch === 'correct' ? 'bg-green-100' : 'bg-gray-100'
+                <div className={`p-4 rounded-lg ${
+                  guess.abvMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
                 }`}>
-                  <p className="text-xs text-gray-600 mb-1">ABV</p>
-                  <div className="flex items-center justify-center gap-1">
-                    <p className="font-bold">{guess.beer.abv?.toFixed(1)}%</p>
-                    {guess.abvMatch === 'higher' && <TrendingUp className="w-4 h-4 text-blue-600" />}
-                    {guess.abvMatch === 'lower' && <TrendingDown className="w-4 h-4 text-red-600" />}
-                    {guess.abvMatch === 'correct' && <Check className="w-4 h-4 text-green-600" />}
+                  <p className="text-xs font-semibold text-gray-600 mb-1">ABV</p>
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-lg">{guess.beer.abv?.toFixed(1)}%</p>
+                    {guess.abvMatch === 'higher' && (
+                      <div className="flex items-center gap-1 text-blue-600">
+                        <TrendingUp className="w-5 h-5" />
+                        <span className="text-xs font-semibold">Hoger</span>
+                      </div>
+                    )}
+                    {guess.abvMatch === 'lower' && (
+                      <div className="flex items-center gap-1 text-red-600">
+                        <TrendingDown className="w-5 h-5" />
+                        <span className="text-xs font-semibold">Lager</span>
+                      </div>
+                    )}
+                    {guess.abvMatch === 'correct' && (
+                      <Check className="w-6 h-6 text-green-600" />
+                    )}
                   </div>
                 </div>
 
                 {/* Rating */}
-                <div className={`p-3 rounded-lg text-center ${
-                  guess.ratingMatch === 'correct' ? 'bg-green-100' : 'bg-gray-100'
+                <div className={`p-4 rounded-lg ${
+                  guess.ratingMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
                 }`}>
-                  <p className="text-xs text-gray-600 mb-1">Rating</p>
-                  <div className="flex items-center justify-center gap-1">
-                    <p className="font-bold">{guess.beer.rating?.toFixed(2)}</p>
-                    {guess.ratingMatch === 'higher' && <TrendingUp className="w-4 h-4 text-blue-600" />}
-                    {guess.ratingMatch === 'lower' && <TrendingDown className="w-4 h-4 text-red-600" />}
-                    {guess.ratingMatch === 'correct' && <Check className="w-4 h-4 text-green-600" />}
+                  <p className="text-xs font-semibold text-gray-600 mb-1">Rating</p>
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-lg">{guess.beer.rating?.toFixed(2)}</p>
+                    {guess.ratingMatch === 'higher' && (
+                      <div className="flex items-center gap-1 text-blue-600">
+                        <TrendingUp className="w-5 h-5" />
+                        <span className="text-xs font-semibold">Hoger</span>
+                      </div>
+                    )}
+                    {guess.ratingMatch === 'lower' && (
+                      <div className="flex items-center gap-1 text-red-600">
+                        <TrendingDown className="w-5 h-5" />
+                        <span className="text-xs font-semibold">Lager</span>
+                      </div>
+                    )}
+                    {guess.ratingMatch === 'correct' && (
+                      <Check className="w-6 h-6 text-green-600" />
+                    )}
                   </div>
                 </div>
 
                 {/* Style */}
-                <div className={`p-3 rounded-lg text-center ${
-                  guess.styleMatch === 'correct' ? 'bg-green-100' : 'bg-gray-100'
+                <div className={`p-4 rounded-lg ${
+                  guess.styleMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
                 }`}>
-                  <p className="text-xs text-gray-600 mb-1">Stijl</p>
-                  <div className="flex items-center justify-center gap-1">
-                    <p className="font-bold text-xs truncate">{guess.beer.style}</p>
+                  <p className="text-xs font-semibold text-gray-600 mb-1">Stijl</p>
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-sm truncate flex-1">{guess.beer.style}</p>
                     {guess.styleMatch === 'correct' ? (
-                      <Check className="w-4 h-4 text-green-600" />
+                      <Check className="w-6 h-6 text-green-600 ml-2" />
                     ) : (
-                      <X className="w-4 h-4 text-red-600" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Brewery */}
-                <div className={`p-3 rounded-lg text-center ${
-                  guess.breweryMatch === 'correct' ? 'bg-green-100' : 'bg-gray-100'
-                }`}>
-                  <p className="text-xs text-gray-600 mb-1">Brouwerij</p>
-                  <div className="flex items-center justify-center gap-1">
-                    {guess.breweryMatch === 'correct' ? (
-                      <Check className="w-4 h-4 text-green-600" />
-                    ) : (
-                      <X className="w-4 h-4 text-red-600" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Category */}
-                <div className={`p-3 rounded-lg text-center ${
-                  guess.categoryMatch === 'correct' ? 'bg-green-100' : 'bg-gray-100'
-                }`}>
-                  <p className="text-xs text-gray-600 mb-1">Categorie</p>
-                  <div className="flex items-center justify-center gap-1">
-                    {guess.categoryMatch === 'correct' ? (
-                      <Check className="w-4 h-4 text-green-600" />
-                    ) : (
-                      <X className="w-4 h-4 text-red-600" />
+                      <X className="w-6 h-6 text-red-600 ml-2" />
                     )}
                   </div>
                 </div>

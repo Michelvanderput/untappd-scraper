@@ -81,8 +81,9 @@ export const compareBeers = (guess: BeerData, target: BeerData): BeerdleGuess =>
   
   return {
     beer: guess,
-    abvMatch: Math.abs(abvDiff) < 0.1 ? 'correct' : abvDiff > 0 ? 'lower' : 'higher',
-    ratingMatch: Math.abs(ratingDiff) < 0.05 ? 'correct' : ratingDiff > 0 ? 'lower' : 'higher',
+    // More lenient thresholds for easier gameplay
+    abvMatch: Math.abs(abvDiff) < 0.5 ? 'correct' : abvDiff > 0 ? 'lower' : 'higher',
+    ratingMatch: Math.abs(ratingDiff) < 0.1 ? 'correct' : ratingDiff > 0 ? 'lower' : 'higher',
     styleMatch: guess.style === target.style ? 'correct' : 'incorrect',
     breweryMatch: guess.brewery === target.brewery ? 'correct' : 'incorrect',
     categoryMatch: guess.category === target.category ? 'correct' : 'incorrect',
