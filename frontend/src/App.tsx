@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Beer, TrendingUp, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Beer, TrendingUp, Sparkles, Gamepad2 } from 'lucide-react';
 import BeersPage from './pages/BeersPage';
 import TrendsPage from './pages/TrendsPage';
 import MenuBuilderPage from './pages/MenuBuilderPage';
+import BeerdlePage from './pages/BeerdlePage';
+import './App.css';
 
-type Tab = 'beers' | 'trends' | 'menu';
+type Tab = 'beers' | 'trends' | 'menu-builder' | 'beerdle';
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('beers');
@@ -39,9 +41,9 @@ function App() {
               Trends
             </button>
             <button
-              onClick={() => setActiveTab('menu')}
+              onClick={() => setActiveTab('menu-builder')}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
-                activeTab === 'menu'
+                activeTab === 'menu-builder'
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
@@ -49,21 +51,33 @@ function App() {
               <Sparkles className="w-5 h-5" />
               Menu Builder
             </button>
+            <button
+              onClick={() => setActiveTab('beerdle')}
+              className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+                activeTab === 'beerdle'
+                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              <Gamepad2 className="w-5 h-5" />
+              Beerdle
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Tab Content */}
+      {/* Content */}
       <motion.div
         key={activeTab}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
       >
         {activeTab === 'beers' && <BeersPage />}
         {activeTab === 'trends' && <TrendsPage />}
-        {activeTab === 'menu' && <MenuBuilderPage />}
+        {activeTab === 'menu-builder' && <MenuBuilderPage />}
+        {activeTab === 'beerdle' && <BeerdlePage />}
       </motion.div>
     </div>
   );
