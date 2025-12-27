@@ -26,19 +26,49 @@ export default function BeerdlePage() {
     const fetchBeers = async () => {
       try {
         const response = await fetch('/api/beers');
+        if (!response.ok) {
+          throw new Error('Failed to fetch beers');
+        }
         const data = await response.json();
+        
+        if (!data || data.length === 0) {
+          throw new Error('No beers available');
+        }
+        
         setBeers(data);
 
         // Load or initialize game state
         const saved = loadGameState();
-        if (saved) {
-          setGameState(saved);
-          if (saved.completed) {
-            setShowResults(true);
+        if (saved && saved.date === getTodayString()) {
+          // Check if saved beer still exists
+          const savedBeerExists = data.some((b: BeerData) => b.beer_url === saved.targetBeerUrl);
+          if (savedBeerExists) {
+            setGameState(saved);
+            if (saved.completed) {
+              setShowResults(true);
+            }
+          } else {
+            // Saved beer doesn't exist anymore, start new game
+            const dailyBeer = getDailyBeer(data);
+            if (!dailyBeer) {
+              throw new Error('Could not select daily beer');
+            }
+            const newState: BeerdleGameState = {
+              date: getTodayString(),
+              targetBeerUrl: dailyBeer.beer_url,
+              guesses: [],
+              completed: false,
+              won: false,
+            };
+            setGameState(newState);
+            saveGameState(newState);
           }
         } else {
           // Start new game
           const dailyBeer = getDailyBeer(data);
+          if (!dailyBeer) {
+            throw new Error('Could not select daily beer');
+          }
           const newState: BeerdleGameState = {
             date: getTodayString(),
             targetBeerUrl: dailyBeer.beer_url,
@@ -54,6 +84,7 @@ export default function BeerdlePage() {
       } catch (error) {
         console.error('Failed to fetch beers:', error);
         setLoading(false);
+        setGameState(null);
       }
     };
 
@@ -141,8 +172,20 @@ export default function BeerdlePage() {
 
   if (!gameState || !targetBeer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
-        <p className="text-xl text-gray-700">Fout bij laden van het spel</p>
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
+        <div className="text-center bg-white rounded-2xl p-8 shadow-xl max-w-md">
+          <Beer className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Oeps!</h2>
+          <p className="text-gray-600 mb-4">
+            Kon het spel niet laden. Probeer de pagina te verversen.
+          </p>
+          <button
+            onClick={() => window.location.reload()}
+            className="px-6 py-3 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-700 transition-colors"
+          >
+            Ververs Pagina
+          </button>
+        </div>
       </div>
     );
   }

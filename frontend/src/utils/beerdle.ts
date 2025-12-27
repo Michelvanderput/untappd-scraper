@@ -18,7 +18,9 @@ export interface BeerdleGameState {
 }
 
 // Get daily beer based on date (deterministic)
-export const getDailyBeer = (beers: BeerData[], date: Date = new Date()): BeerData => {
+export const getDailyBeer = (beers: BeerData[], date: Date = new Date()): BeerData | null => {
+  if (!beers || beers.length === 0) return null;
+  
   // Use date as seed for deterministic selection
   const dateString = date.toISOString().split('T')[0]; // YYYY-MM-DD
   const seed = dateString.split('-').reduce((acc, val) => acc + parseInt(val), 0);
@@ -32,10 +34,11 @@ export const getDailyBeer = (beers: BeerData[], date: Date = new Date()): BeerDa
     beer.rating >= 3.0 // Only well-rated beers
   );
   
-  if (validBeers.length === 0) return beers[0];
+  // Fallback to all beers if no valid ones
+  const beerPool = validBeers.length > 0 ? validBeers : beers;
   
-  const index = seed % validBeers.length;
-  return validBeers[index];
+  const index = seed % beerPool.length;
+  return beerPool[index];
 };
 
 // Get today's date string
