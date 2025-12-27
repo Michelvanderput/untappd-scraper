@@ -37,6 +37,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
           <img
             src={beer.image_url}
             alt={beer.name}
+            loading="lazy"
             className="w-20 h-20 object-contain flex-shrink-0"
           />
         ) : (
@@ -46,7 +47,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
         )}
         
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-800 mb-1 truncate group-hover:text-amber-600 transition-colors">
+          <h3 className="font-bold text-gray-800 mb-1 truncate group-hover:text-amber-600 transition-colors text-wrap">
             {beer.name}
           </h3>
           {beer.brewery && (

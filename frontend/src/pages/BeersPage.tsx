@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Heart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerRandomizer from '../components/BeerRandomizer';
 import BeerCard from '../components/BeerCard';
+import { useDebounce } from '../hooks/useDebounce';
+import { beerCache } from '../utils/cache';
 
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
@@ -32,11 +34,32 @@ export default function BeersPage() {
     localStorage.setItem('beerFavorites', JSON.stringify(Array.from(favorites)));
   }, [favorites]);
 
-  // Fetch beers from API or local JSON
+  // Fetch beers from API or local JSON with caching
   useEffect(() => {
     const fetchBeers = async () => {
       try {
-        // Try API first, fallback to local JSON for development
+        // Try cache first
+        const cached = await beerCache.get<BeerData[]>('beers');
+        if (cached) {
+          setBeers(cached);
+          setFilteredBeers(cached);
+          setLoading(false);
+          
+          // Fetch in background to update cache
+          fetchAndCache();
+          return;
+        }
+
+        // No cache, fetch immediately
+        await fetchAndCache();
+      } catch (error) {
+        console.error('Failed to fetch beers:', error);
+        setLoading(false);
+      }
+    };
+
+    const fetchAndCache = async () => {
+      try {
         let response;
         try {
           response = await fetch('/api/beers');
@@ -45,12 +68,14 @@ export default function BeersPage() {
         }
         
         const data = await response.json();
-        
-        // Handle both API response format and direct JSON format
         const beersList = data.beers || [];
+        
         setBeers(beersList);
         setFilteredBeers(beersList);
         setLoading(false);
+        
+        // Cache for next time
+        await beerCache.set('beers', beersList);
       } catch (error) {
         console.error('Failed to fetch beers:', error);
         setLoading(false);
@@ -107,8 +132,12 @@ export default function BeersPage() {
     });
   };
 
-  // Filter beers
-  useEffect(() => {
+  // Debounce search for better performance
+  const debouncedSearchTerm = useDebounce(searchTerm, 300);
+  const isSearching = searchTerm !== debouncedSearchTerm;
+
+  // Filter beers with useMemo for performance
+  const filteredBeersResult = useMemo(() => {
     let filtered = beers;
 
     // Remove duplicates first
@@ -126,13 +155,18 @@ export default function BeersPage() {
       filtered = filtered.filter(b => b.subcategory === selectedSubcategory);
     }
 
-    if (searchTerm) {
-      filtered = searchBeers(filtered, searchTerm);
+    if (debouncedSearchTerm) {
+      filtered = searchBeers(filtered, debouncedSearchTerm);
     }
 
-    setFilteredBeers(filtered);
+    return filtered;
+  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, showFavoritesOnly, favorites]);
+
+  // Update filtered beers and reset page
+  useEffect(() => {
+    setFilteredBeers(filteredBeersResult);
     setCurrentPage(1);
-  }, [searchTerm, selectedCategory, selectedSubcategory, beers, showFavoritesOnly, favorites]);
+  }, [filteredBeersResult]);
 
   // Get unique categories and subcategories
   const categories = Array.from(new Set(beers.map(b => b.category)));
@@ -219,14 +253,21 @@ export default function BeersPage() {
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
             <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
+                isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400'
+              }`} />
               <input
                 type="text"
                 placeholder="Zoek op naam, brouwerij of stijl..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 transition-all"
               />
+              {isSearching && (
+                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                </div>
+              )}
             </div>
 
             {/* Favorites Toggle */}
