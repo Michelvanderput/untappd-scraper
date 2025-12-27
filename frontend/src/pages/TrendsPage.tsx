@@ -11,13 +11,25 @@ export default function TrendsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const changelogRes = await fetch('/changelog.json').catch(() => fetch('/api/changelog'));
-        const changelogData = await changelogRes.json();
+        // Try API endpoint first, then fallback to root changelog.json
+        let changelogData;
+        try {
+          const apiRes = await fetch('/api/changelog');
+          if (apiRes.ok) {
+            changelogData = await apiRes.json();
+          } else {
+            throw new Error('API not available');
+          }
+        } catch {
+          // Fallback to fetching from GitHub raw or use mock data
+          const rootRes = await fetch('https://raw.githubusercontent.com/Michelvanderput/untappd-scraper/main/changelog.json');
+          changelogData = await rootRes.json();
+        }
 
         setChangelog(changelogData);
         setLoading(false);
       } catch (error) {
-        console.error('Failed to fetch data:', error);
+        console.error('Failed to fetch changelog:', error);
         setLoading(false);
       }
     };

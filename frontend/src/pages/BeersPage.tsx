@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Heart, Star } from 'lucide-react';
+import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerRandomizer from '../components/BeerRandomizer';
@@ -18,21 +18,6 @@ export default function BeersPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [beersPerPage, setBeersPerPage] = useState(24);
-  const [favorites, setFavorites] = useState<Set<string>>(new Set());
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
-
-  // Load favorites from localStorage
-  useEffect(() => {
-    const savedFavorites = localStorage.getItem('beerFavorites');
-    if (savedFavorites) {
-      setFavorites(new Set(JSON.parse(savedFavorites)));
-    }
-  }, []);
-
-  // Save favorites to localStorage
-  useEffect(() => {
-    localStorage.setItem('beerFavorites', JSON.stringify(Array.from(favorites)));
-  }, [favorites]);
 
   // Fetch beers from API or local JSON with caching
   useEffect(() => {
@@ -143,10 +128,6 @@ export default function BeersPage() {
     // Remove duplicates first
     filtered = deduplicateBeers(filtered);
 
-    if (showFavoritesOnly) {
-      filtered = filtered.filter(b => favorites.has(b.beer_url));
-    }
-
     if (selectedCategory) {
       filtered = filtered.filter(b => b.category === selectedCategory);
     }
@@ -160,7 +141,7 @@ export default function BeersPage() {
     }
 
     return filtered;
-  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, showFavoritesOnly, favorites]);
+  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers]);
 
   // Update filtered beers and reset page
   useEffect(() => {
@@ -177,23 +158,10 @@ export default function BeersPage() {
       .filter(Boolean)
   )) as string[];
 
-  const toggleFavorite = (beerUrl: string) => {
-    setFavorites(prev => {
-      const newFavorites = new Set(prev);
-      if (newFavorites.has(beerUrl)) {
-        newFavorites.delete(beerUrl);
-      } else {
-        newFavorites.add(beerUrl);
-      }
-      return newFavorites;
-    });
-  };
-
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
-    setShowFavoritesOnly(false);
   };
 
   if (loading) {
@@ -225,12 +193,6 @@ export default function BeersPage() {
           <p className="text-2xl text-gray-600 font-medium">
             {filteredBeers.length} unieke bieren beschikbaar
           </p>
-          {favorites.size > 0 && (
-            <p className="text-lg text-amber-600 mt-2 flex items-center justify-center gap-2">
-              <Heart className="w-5 h-5 fill-amber-600" />
-              {favorites.size} favorieten
-            </p>
-          )}
         </motion.div>
 
         {/* Randomizer Section */}
@@ -269,21 +231,6 @@ export default function BeersPage() {
                 </div>
               )}
             </div>
-
-            {/* Favorites Toggle */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-xl transition-all font-medium ${
-                showFavoritesOnly
-                  ? 'bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
-              }`}
-            >
-              <Heart className={`w-5 h-5 ${showFavoritesOnly ? 'fill-white' : ''}`} />
-              Favorieten {favorites.size > 0 && `(${favorites.size})`}
-            </motion.button>
 
             {/* Filter Toggle */}
             <button
@@ -339,7 +286,7 @@ export default function BeersPage() {
                 </select>
               </div>
 
-              {(searchTerm || selectedCategory || selectedSubcategory || showFavoritesOnly) && (
+              {(searchTerm || selectedCategory || selectedSubcategory) && (
                 <div className="md:col-span-2">
                   <button
                     onClick={clearFilters}
@@ -360,19 +307,6 @@ export default function BeersPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 relative">
-            {/* Favorite Button */}
-            <button
-              onClick={() => toggleFavorite(currentBeer.beer_url)}
-              className="absolute top-4 right-4 p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all z-10"
-            >
-              <Heart
-                className={`w-6 h-6 transition-colors ${
-                  favorites.has(currentBeer.beer_url)
-                    ? 'text-pink-500 fill-pink-500'
-                    : 'text-gray-400'
-                }`}
-              />
-            </button>
 
             <div className="flex flex-col md:flex-row gap-8">
               {/* Beer Image */}
@@ -509,8 +443,6 @@ export default function BeersPage() {
                 <BeerCard
                   beer={beer}
                   onClick={() => setCurrentBeer(beer)}
-                  isFavorite={favorites.has(beer.beer_url)}
-                  onToggleFavorite={() => toggleFavorite(beer.beer_url)}
                 />
               </motion.div>
             ))}
