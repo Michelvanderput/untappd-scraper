@@ -258,7 +258,7 @@ export default function BeerdlePage() {
                   gameState.completed ? 'blur-none' : 'blur-xl'
                 }`}
                 style={{
-                  filter: gameState.completed ? 'blur(0px)' : 'blur(20px)',
+                  filter: gameState.completed ? 'blur(0px)' : 'blur(10px)',
                 }}
               />
               {!gameState.completed && (
