@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Beer, TrendingUp, TrendingDown, Check, X, Share2, HelpCircle, Lightbulb } from 'lucide-react';
+import { Beer, TrendingUp, TrendingDown, Check, X, Share2, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
@@ -21,7 +21,6 @@ export default function BeerdlePage() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [showResults, setShowResults] = useState(false);
-  const [showHint, setShowHint] = useState(false);
 
   // Load beers and game state
   useEffect(() => {
@@ -81,7 +80,6 @@ export default function BeerdlePage() {
               guesses: [],
               completed: false,
               won: false,
-              hintUsed: false,
             };
             setGameState(newState);
             saveGameState(newState);
@@ -98,7 +96,6 @@ export default function BeerdlePage() {
             guesses: [],
             completed: false,
             won: false,
-            hintUsed: false,
           };
           setGameState(newState);
           saveGameState(newState);
@@ -132,20 +129,6 @@ export default function BeerdlePage() {
       )
       .slice(0, 10);
   }, [beers, searchTerm]);
-
-  // Handle hint
-  const handleHint = () => {
-    if (!gameState || gameState.hintUsed || gameState.completed) return;
-
-    const newState: BeerdleGameState = {
-      ...gameState,
-      hintUsed: true,
-    };
-
-    setGameState(newState);
-    saveGameState(newState);
-    setShowHint(true);
-  };
 
   // Handle guess
   const handleGuess = (beer: BeerData) => {
@@ -257,31 +240,37 @@ export default function BeerdlePage() {
           <p className="text-sm text-gray-500 mt-2">
             {getTodayString()} • {remainingGuesses} pogingen over
           </p>
-          
-          {/* Hint Section */}
-          {!gameState.completed && (
-            <div className="mt-4">
-              {!gameState.hintUsed ? (
-                <button
-                  onClick={handleHint}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-xl font-semibold transition-colors"
-                >
-                  <Lightbulb className="w-5 h-5" />
-                  Hint gebruiken
-                </button>
-              ) : showHint && targetBeer && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="inline-block px-6 py-3 bg-blue-100 border-2 border-blue-400 rounded-xl"
-                >
-                  <p className="text-sm text-blue-700 font-semibold mb-1">💡 Hint:</p>
-                  <p className="text-lg font-bold text-blue-900">{targetBeer.style}</p>
-                </motion.div>
+        </motion.div>
+
+        {/* Blurred Beer Image */}
+        {targetBeer && targetBeer.image_url && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center mb-8"
+          >
+            <div className="relative">
+              <img
+                src={targetBeer.image_url}
+                alt="Mystery beer"
+                className={`w-48 h-48 object-contain rounded-2xl transition-all duration-500 ${
+                  gameState.completed ? 'blur-none' : 'blur-xl'
+                }`}
+                style={{
+                  filter: gameState.completed ? 'blur(0px)' : 'blur(20px)',
+                }}
+              />
+              {!gameState.completed && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <p className="text-2xl font-bold text-gray-700 bg-white/80 px-4 py-2 rounded-xl shadow-lg">
+                    ?
+                  </p>
+                </div>
               )}
             </div>
-          )}
-        </motion.div>
+          </motion.div>
+        )}
 
         {/* Help Modal */}
         <AnimatePresence>

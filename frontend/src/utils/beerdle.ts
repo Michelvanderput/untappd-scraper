@@ -15,7 +15,6 @@ export interface BeerdleGameState {
   guesses: BeerdleGuess[];
   completed: boolean;
   won: boolean;
-  hintUsed: boolean;
 }
 
 // Get daily beer based on date (deterministic)
