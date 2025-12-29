@@ -32,11 +32,11 @@ function Navigation() {
   };
 
   return (
-    <nav className="bg-brand-white dark:bg-brand-black border-b border-brand-cream dark:border-brand-gray-dark sticky top-0 z-50 transition-colors backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+    <nav className="bg-brand-parchment dark:bg-brand-black border-b-2 border-brand-border dark:border-brand-border-dark sticky top-0 z-50 transition-colors shadow-lg" style={{boxShadow: '0 4px 6px var(--color-shadow)'}}>
       <div className="w-full">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-16 px-4 md:hidden">
-          <h1 className="text-2xl font-display tracking-tighter text-brand-black dark:text-brand-text-primary">
+          <h1 className="text-2xl font-display tracking-tighter text-brand-blood dark:text-brand-gold">
             BEERMENU
           </h1>
           <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ function Navigation() {
               className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Installeer app"
             >
-              <Download className="w-5 h-5 text-brand-black dark:text-brand-text-primary" />
+              <Download className="w-5 h-5 text-brand-blood dark:text-brand-gold" />
             </Link>
             <ThemeToggle />
             <button
@@ -53,7 +53,7 @@ function Navigation() {
               className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6 text-brand-black dark:text-brand-text-primary" /> : <Menu className="w-6 h-6 text-brand-black dark:text-brand-text-primary" />}
+              {isMenuOpen ? <X className="w-6 h-6 text-brand-blood dark:text-brand-gold" /> : <Menu className="w-6 h-6 text-brand-blood dark:text-brand-gold" />}
             </button>
           </div>
         </div>
@@ -66,8 +66,8 @@ function Navigation() {
               to={path}
               className={`flex items-center gap-2 px-4 lg:px-6 py-3 font-sans font-medium text-sm tracking-tight transition-all whitespace-nowrap border-b-2 ${
                 isActive(path)
-                  ? 'border-brand-accent text-brand-accent'
-                  : 'border-transparent text-brand-text-secondary dark:text-brand-text-secondary hover:text-brand-black dark:hover:text-brand-text-primary hover:border-brand-border'
+                  ? 'border-brand-gold text-brand-blood dark:text-brand-gold bg-brand-stone/20 dark:bg-brand-cathedral'
+                  : 'border-transparent text-brand-gray-medium dark:text-brand-text-secondary hover:text-brand-blood dark:hover:text-brand-gold hover:border-brand-border'
               }`}
             >
               <Icon className="w-5 h-5" />
@@ -79,7 +79,7 @@ function Navigation() {
             className="p-2 hover:opacity-70 transition-opacity"
             aria-label="Installeer app"
           >
-            <Download className="w-5 h-5 text-brand-text-secondary dark:text-brand-text-secondary" />
+            <Download className="w-5 h-5 text-brand-gray-medium dark:text-brand-text-secondary" />
           </Link>
           <ThemeToggle />
         </div>
@@ -92,7 +92,7 @@ function Navigation() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-brand-border dark:border-brand-border bg-brand-white dark:bg-brand-black"
+              className="md:hidden overflow-hidden border-t-2 border-brand-border dark:border-brand-border-dark bg-brand-parchment dark:bg-brand-black"
             >
               <div className="py-2 px-4 space-y-1">
                 {navItems.map(({ path, icon: Icon, label }) => (
@@ -100,10 +100,10 @@ function Navigation() {
                     key={path}
                     to={path}
                     onClick={handleNavClick}
-                    className={`flex items-center gap-3 px-4 py-3 font-sans font-medium transition-all border-l-2 ${
+                    className={`flex items-center gap-3 px-4 py-3 font-sans font-medium transition-all border-l-4 ${
                       isActive(path)
-                        ? 'border-brand-accent text-brand-accent bg-brand-cream dark:bg-brand-gray-dark'
-                        : 'border-transparent text-brand-text-secondary dark:text-brand-text-secondary hover:border-brand-border hover:bg-brand-cream dark:hover:bg-brand-gray-dark'
+                        ? 'border-brand-gold text-brand-blood dark:text-brand-gold bg-brand-stone/30 dark:bg-brand-cathedral'
+                        : 'border-transparent text-brand-gray-medium dark:text-brand-text-secondary hover:border-brand-border hover:bg-brand-stone/20 dark:hover:bg-brand-cathedral'
                     }`}
                   >
                     <Icon className="w-5 h-5" />

@@ -210,17 +210,17 @@ export default function TrendsPage() {
   const stats = getStats();
 
   return (
-    <div className="min-h-screen bg-brand-cream dark:bg-brand-black py-8 px-4">
+    <div className="min-h-screen bg-brand-parchment dark:bg-brand-black py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-7xl md:text-8xl font-display tracking-tighter text-brand-black dark:text-brand-text-primary mb-4 leading-none">
+          <h1 className="text-7xl md:text-8xl font-display tracking-tighter text-brand-blood dark:text-brand-gold mb-4 leading-none">
             TRENDS
           </h1>
-          <p className="text-lg text-brand-text-secondary dark:text-brand-text-secondary font-sans tracking-wide uppercase">
+          <p className="text-lg text-brand-gray-medium dark:text-brand-text-secondary font-sans tracking-wide uppercase">
             Ontdek de trends, top bieren en interessante statistieken
           </p>
         </motion.div>
@@ -282,10 +282,10 @@ export default function TrendsPage() {
             <button
               key={period.id}
               onClick={() => setSelectedPeriod(period.id)}
-              className={`flex items-center gap-2 px-6 py-3 font-sans font-medium uppercase text-sm tracking-wider transition-all border ${
+              className={`flex items-center gap-2 px-6 py-3 font-sans font-medium uppercase text-sm tracking-wider transition-all border-2 shadow-md ${
                 selectedPeriod === period.id
-                  ? 'bg-brand-accent text-white border-brand-accent'
-                  : 'bg-brand-white dark:bg-brand-gray-dark text-brand-text-secondary dark:text-brand-text-secondary border-brand-border dark:border-brand-border hover:border-brand-accent'
+                  ? 'bg-brand-blood text-brand-gold border-brand-gold'
+                  : 'bg-brand-cream dark:bg-brand-cathedral text-brand-gray-medium dark:text-brand-text-secondary border-brand-border dark:border-brand-border-dark hover:border-brand-gold'
               }`}
             >
               <period.icon className="w-5 h-5" />
