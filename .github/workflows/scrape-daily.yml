@@ -38,24 +38,6 @@ jobs:
       - name: Detect changes and create changelog
         run: node detect-changes.js
       
-      - name: Send notifications for new beers
-        if: success()
-        run: |
-          OLD_COUNT=$(jq '. | length' beers.old.json 2>/dev/null || echo 0)
-          NEW_COUNT=$(jq '. | length' beers.json)
-          
-          if [ $NEW_COUNT -gt $OLD_COUNT ]; then
-            DIFF=$((NEW_COUNT - OLD_COUNT))
-            echo "Found $DIFF new beers, sending notifications..."
-            node send-notifications.js new-beers $DIFF
-          else
-            echo "No new beers found"
-          fi
-        env:
-          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
-          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
-          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
-      
       - name: Commit and push if changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"

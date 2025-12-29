@@ -106,68 +106,6 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Handle push notifications
-self.addEventListener('push', (event) => {
-  let notificationData = {
-    title: 'BeerMenu Update',
-    body: 'Nieuwe bieren beschikbaar!',
-    icon: '/icon-192.png',
-    url: '/'
-  };
-
-  // Parse JSON data from push notification
-  if (event.data) {
-    try {
-      const data = event.data.json();
-      notificationData = {
-        title: data.title || notificationData.title,
-        body: data.body || notificationData.body,
-        icon: data.icon || notificationData.icon,
-        url: data.url || notificationData.url
-      };
-    } catch (e) {
-      console.error('Failed to parse notification data:', e);
-    }
-  }
-
-  const options = {
-    body: notificationData.body,
-    icon: notificationData.icon,
-    badge: notificationData.icon,
-    vibrate: [200, 100, 200],
-    data: {
-      url: notificationData.url,
-      dateOfArrival: Date.now()
-    },
-    actions: [
-      {
-        action: 'open',
-        title: 'Bekijken'
-      },
-      {
-        action: 'close',
-        title: 'Sluiten'
-      }
-    ]
-  };
-
-  event.waitUntil(
-    self.registration.showNotification(notificationData.title, options)
-  );
-});
-
-// Handle notification clicks
-self.addEventListener('notificationclick', (event) => {
-  event.notification.close();
-
-  if (event.action === 'open' || !event.action) {
-    const urlToOpen = event.notification.data?.url || '/';
-    event.waitUntil(
-      clients.openWindow(urlToOpen)
-    );
-  }
-});
-
 // Handle messages from clients
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
