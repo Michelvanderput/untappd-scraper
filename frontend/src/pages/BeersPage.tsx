@@ -46,7 +46,8 @@ export default function BeersPage() {
       try {
         let response;
         try {
-          response = await fetch('/api/beers');
+          // Fetch all beers without pagination limit
+          response = await fetch('/api/beers?limit=1000');
         } catch {
           response = await fetch('/beers.json');
         }
