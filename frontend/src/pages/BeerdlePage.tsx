@@ -260,7 +260,7 @@ export default function BeerdlePage() {
                       alt="Mystery beer"
                       className="w-48 h-48 object-contain rounded-xl transition-all duration-500"
                       style={{
-                        filter: gameState.completed ? 'blur(0px)' : 'blur(20px)',
+                        filter: gameState.completed ? 'blur(0px)' : 'blur(10px)',
                       }}
                     />
                   ) : (

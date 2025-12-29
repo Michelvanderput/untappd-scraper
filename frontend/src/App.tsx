@@ -25,7 +25,6 @@ function Navigation() {
     { path: '/menu-builder', icon: Sparkles, label: 'Menu' },
     { path: '/surprise', icon: Shuffle, label: 'Surprise' },
     { path: '/beerdle', icon: Gamepad2, label: 'Beerdle' },
-    { path: '/install', icon: Download, label: 'Installeer' },
   ];
 
   const handleNavClick = () => {
@@ -41,6 +40,13 @@ function Navigation() {
             <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">BeerMenu</span>
           </h1>
           <div className="flex items-center gap-2">
+            <Link
+              to="/install"
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Installeer app"
+            >
+              <Download className="w-5 h-5 text-gray-900 dark:text-white" />
+            </Link>
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -68,6 +74,13 @@ function Navigation() {
               <span className="hidden lg:inline">{label}</span>
             </Link>
           ))}
+          <Link
+            to="/install"
+            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Installeer app"
+          >
+            <Download className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+          </Link>
           <ThemeToggle />
         </div>
 
