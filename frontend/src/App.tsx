@@ -32,54 +32,54 @@ function Navigation() {
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors">
+    <nav className="bg-brand-white dark:bg-brand-black border-b border-brand-cream dark:border-brand-gray-dark sticky top-0 z-50 transition-colors backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
       <div className="w-full">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-16 px-4 md:hidden">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">BeerMenu</span>
+          <h1 className="text-2xl font-display tracking-tighter text-brand-black dark:text-brand-text-primary">
+            BEERMENU
           </h1>
           <div className="flex items-center gap-2">
             <Link
               to="/install"
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Installeer app"
             >
-              <Download className="w-5 h-5 text-gray-900 dark:text-white" />
+              <Download className="w-5 h-5 text-brand-black dark:text-brand-text-primary" />
             </Link>
             <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 hover:opacity-70 transition-opacity"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6 text-gray-900 dark:text-white" /> : <Menu className="w-6 h-6 text-gray-900 dark:text-white" />}
+              {isMenuOpen ? <X className="w-6 h-6 text-brand-black dark:text-brand-text-primary" /> : <Menu className="w-6 h-6 text-brand-black dark:text-brand-text-primary" />}
             </button>
           </div>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex justify-center items-center h-20 gap-2 px-4">
+        <div className="hidden md:flex justify-center items-center h-20 gap-1 px-4">
           {navItems.map(({ path, icon: Icon, label }) => (
             <Link
               key={path}
               to={path}
-              className={`flex items-center gap-2 px-4 lg:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-4 lg:px-6 py-3 font-sans font-medium text-sm tracking-tight transition-all whitespace-nowrap border-b-2 ${
                 isActive(path)
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  ? 'border-brand-accent text-brand-accent'
+                  : 'border-transparent text-brand-text-secondary dark:text-brand-text-secondary hover:text-brand-black dark:hover:text-brand-text-primary hover:border-brand-border'
               }`}
             >
               <Icon className="w-5 h-5" />
-              <span className="hidden lg:inline">{label}</span>
+              <span className="hidden lg:inline uppercase tracking-wider text-xs">{label}</span>
             </Link>
           ))}
           <Link
             to="/install"
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2 hover:opacity-70 transition-opacity"
             aria-label="Installeer app"
           >
-            <Download className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+            <Download className="w-5 h-5 text-brand-text-secondary dark:text-brand-text-secondary" />
           </Link>
           <ThemeToggle />
         </div>
@@ -92,7 +92,7 @@ function Navigation() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+              className="md:hidden overflow-hidden border-t border-brand-border dark:border-brand-border bg-brand-white dark:bg-brand-black"
             >
               <div className="py-2 px-4 space-y-1">
                 {navItems.map(({ path, icon: Icon, label }) => (
@@ -100,10 +100,10 @@ function Navigation() {
                     key={path}
                     to={path}
                     onClick={handleNavClick}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all ${
+                    className={`flex items-center gap-3 px-4 py-3 font-sans font-medium transition-all border-l-2 ${
                       isActive(path)
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                        ? 'border-brand-accent text-brand-accent bg-brand-cream dark:bg-brand-gray-dark'
+                        : 'border-transparent text-brand-text-secondary dark:text-brand-text-secondary hover:border-brand-border hover:bg-brand-cream dark:hover:bg-brand-gray-dark'
                     }`}
                   >
                     <Icon className="w-5 h-5" />

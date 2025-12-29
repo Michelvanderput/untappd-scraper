@@ -65,7 +65,7 @@ export default function SurprisePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
+    <div className="min-h-screen bg-brand-cream dark:bg-brand-black py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -75,12 +75,12 @@ export default function SurprisePage() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Sparkles className="w-12 h-12 text-amber-600" />
-            <h1 className="text-6xl font-bold text-gray-900 dark:text-white font-heading">
-              Sur<span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">prise</span>
+            <h1 className="text-7xl md:text-8xl font-display tracking-tighter text-brand-black dark:text-brand-text-primary leading-none">
+              SUR<span className="text-brand-accent">PRISE</span>
             </h1>
             <Sparkles className="w-12 h-12 text-amber-600" />
           </div>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-brand-text-secondary dark:text-brand-text-secondary font-sans tracking-wide uppercase">
             Laat het lot beslissen! 🎲
           </p>
         </motion.div>

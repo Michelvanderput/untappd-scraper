@@ -184,7 +184,7 @@ export default function BeersPage() {
         title={currentBeer ? `${currentBeer.name} - BeerMenu` : 'BeerMenu - Ontdek de Beste Bieren'}
         description={currentBeer ? `${currentBeer.name} - ${currentBeer.category} | ${currentBeer.subcategory || ''} | ABV: ${currentBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
       />
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      <div className="min-h-screen bg-brand-cream dark:bg-brand-black">
         <div className="container mx-auto px-4 py-8 max-w-7xl">
 
         {/* Header */}
@@ -194,12 +194,11 @@ export default function BeersPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-heading">
-            Bier <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Menu</span>
+          <h1 className="text-7xl md:text-8xl font-display tracking-tighter text-brand-black dark:text-brand-text-primary mb-8 leading-none">
+            BIER<span className="text-brand-accent">MENU</span>
           </h1>
-          <div className="w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" />
-          <p className="text-2xl text-gray-600 dark:text-gray-300 font-medium">
-            {filteredBeers.length} unieke bieren beschikbaar
+          <p className="text-lg text-brand-text-secondary dark:text-brand-text-secondary font-sans tracking-wide uppercase">
+            {filteredBeers.length} unieke bieren
           </p>
         </motion.div>
 
@@ -208,7 +207,7 @@ export default function BeersPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 border border-amber-100 dark:border-gray-700"
+          className="bg-brand-white dark:bg-brand-gray-dark border border-brand-border dark:border-brand-border p-6 mb-8"
         >
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
@@ -221,7 +220,7 @@ export default function BeersPage() {
                 placeholder="Zoek op naam, brouwerij of stijl..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white transition-all"
+                className="w-full pl-10 pr-4 py-3 border border-brand-border dark:border-brand-border focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary transition-all font-sans"
               />
               {isSearching && (
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -233,7 +232,7 @@ export default function BeersPage() {
             {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-amber-600 text-white rounded-xl hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 transition-colors shadow-md active:scale-95"
+              className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-brand-accent text-white hover:bg-brand-accent-hover transition-colors active:scale-95 font-sans font-medium uppercase text-sm tracking-wider"
             >
               <Filter className="w-5 h-5" />
               <span className="font-semibold">Filters</span>
@@ -258,7 +257,7 @@ export default function BeersPage() {
                     setSelectedCategory(e.target.value);
                     setSelectedSubcategory('');
                   }}
-                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
+                  className="w-full px-4 py-3 min-h-[48px] border border-brand-border dark:border-brand-border focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary font-sans"
                 >
                   <option value="">Alle categorieën</option>
                   {categories.map(cat => (

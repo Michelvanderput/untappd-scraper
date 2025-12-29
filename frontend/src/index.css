@@ -2,7 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Distortion Font Family - For Headings */
+/* ============================================
+   DESIGN SYSTEM - CSS VARIABLES
+   ============================================ */
+
+:root {
+  /* Light Mode Colors */
+  --color-bg-primary: #F6F2EC;
+  --color-bg-secondary: #FFFFFF;
+  --color-bg-tertiary: #FEFDFB;
+  --color-text-primary: #0F0F0F;
+  --color-text-secondary: #3D3D3D;
+  --color-text-tertiary: #6B6B6B;
+  --color-accent: #FF3B1F;
+  --color-accent-hover: #E6351B;
+  --color-border: #E0DDD6;
+  --color-border-light: #EFEEE9;
+}
+
+/* Dark Mode Colors */
+.dark {
+  --color-bg-primary: #0F0F0F;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1A1A1A;
+  --color-text-primary: #EDEDED;
+  --color-text-secondary: #B8B8B8;
+  --color-text-tertiary: #8A8A8A;
+  --color-accent: #FF3B1F;
+  --color-accent-hover: #FF5540;
+  --color-border: #2A2A2A;
+  --color-border-light: #222222;
+}
+
+/* ============================================
+   TYPOGRAPHY - FONT FACES
+   ============================================ */
+
+/* Rayuela Font - Primary Display Font */
+@font-face {
+  font-family: 'Rayuela';
+  src: url('./assets/OTRayuela-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Distortion Font Family - Alternative Display */
 @font-face {
   font-family: 'Distortion';
   src: url('./assets/Distortion-ALmog.ttf') format('truetype');
