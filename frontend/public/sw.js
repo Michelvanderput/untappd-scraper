@@ -1,5 +1,10 @@
-const CACHE_NAME = 'beermenu-v1';
-const RUNTIME_CACHE = 'beermenu-runtime';
+// Version - increment this to force cache refresh
+const VERSION = 'v2.1.0';
+const CACHE_NAME = `beermenu-${VERSION}`;
+const RUNTIME_CACHE = `beermenu-runtime-${VERSION}`;
+
+// Max cache age: 1 hour (in milliseconds)
+const MAX_CACHE_AGE = 60 * 60 * 1000;
 
 const PRECACHE_URLS = [
   '/',
@@ -7,25 +12,33 @@ const PRECACHE_URLS = [
   '/manifest.json'
 ];
 
-// Install event - precache static assets
+// Install event - precache static assets and skip waiting
 self.addEventListener('install', (event) => {
+  console.log('[SW] Installing version:', VERSION);
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => cache.addAll(PRECACHE_URLS))
-      .then(() => self.skipWaiting())
+      .then(() => self.skipWaiting()) // Force immediate activation
   );
 });
 
-// Activate event - clean up old caches
+// Activate event - clean up old caches and take control
 self.addEventListener('activate', (event) => {
+  console.log('[SW] Activating version:', VERSION);
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(name => name !== CACHE_NAME && name !== RUNTIME_CACHE)
-          .map(name => caches.delete(name))
+          .filter(name => !name.includes(VERSION)) // Delete all old versions
+          .map(name => {
+            console.log('[SW] Deleting old cache:', name);
+            return caches.delete(name);
+          })
       );
-    }).then(() => self.clients.claim())
+    }).then(() => {
+      console.log('[SW] Taking control of all clients');
+      return self.clients.claim(); // Take control immediately
+    })
   );
 });
 
@@ -152,5 +165,12 @@ self.addEventListener('notificationclick', (event) => {
     event.waitUntil(
       clients.openWindow(urlToOpen)
     );
+  }
+});
+
+// Handle messages from clients
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
   }
 });
