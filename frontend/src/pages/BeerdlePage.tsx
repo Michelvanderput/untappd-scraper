@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Beer, TrendingUp, TrendingDown, Check, X, Share2, HelpCircle } from 'lucide-react';
+import { Beer, Check, X, Share2, HelpCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
@@ -242,32 +242,122 @@ export default function BeerdlePage() {
           </p>
         </motion.div>
 
-        {/* Blurred Beer Image */}
-        {targetBeer && targetBeer.image_url && (
+        {/* Beer Card with Progressive Hints */}
+        {targetBeer && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex justify-center mb-8"
+            className="mb-8"
           >
-            <div className="relative">
-              <img
-                src={targetBeer.image_url}
-                alt="Mystery beer"
-                className={`w-48 h-48 object-contain rounded-2xl transition-all duration-500 ${
-                  gameState.completed ? 'blur-none' : 'blur-xl'
-                }`}
-                style={{
-                  filter: gameState.completed ? 'blur(0px)' : 'blur(10px)',
-                }}
-              />
-              {!gameState.completed && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <p className="text-2xl font-bold text-gray-700 bg-white/80 px-4 py-2 rounded-xl shadow-lg">
-                    ?
-                  </p>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 max-w-md mx-auto">
+              {/* Blurred Image */}
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  {targetBeer.image_url ? (
+                    <img
+                      src={targetBeer.image_url}
+                      alt="Mystery beer"
+                      className="w-48 h-48 object-contain rounded-xl transition-all duration-500"
+                      style={{
+                        filter: gameState.completed ? 'blur(0px)' : 'blur(20px)',
+                      }}
+                    />
+                  ) : (
+                    <div className="w-48 h-48 bg-amber-100 dark:bg-amber-900/20 rounded-xl flex items-center justify-center">
+                      <Beer className="w-24 h-24 text-amber-600 dark:text-amber-500" style={{ filter: 'blur(10px)' }} />
+                    </div>
+                  )}
+                  {!gameState.completed && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-6xl">❓</div>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
+
+              {/* Progressive Hints */}
+              <div className="space-y-3">
+                {/* Hint 1: ABV (after 1st guess) */}
+                <div className={`p-4 rounded-xl border-2 transition-all ${
+                  gameState.guesses.length >= 1
+                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-50'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">ABV</span>
+                    {gameState.guesses.length >= 1 ? (
+                      <span className="text-lg font-bold text-amber-600 dark:text-amber-400">{targetBeer.abv?.toFixed(1)}%</span>
+                    ) : (
+                      <span className="text-lg font-bold text-gray-400">???</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Hint 2: Rating (after 2nd guess) */}
+                <div className={`p-4 rounded-xl border-2 transition-all ${
+                  gameState.guesses.length >= 2
+                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-50'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Rating</span>
+                    {gameState.guesses.length >= 2 ? (
+                      <span className="text-lg font-bold text-amber-600 dark:text-amber-400">{targetBeer.rating?.toFixed(2)}</span>
+                    ) : (
+                      <span className="text-lg font-bold text-gray-400">???</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Hint 3: Category (after 3rd guess) */}
+                <div className={`p-4 rounded-xl border-2 transition-all ${
+                  gameState.guesses.length >= 3
+                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-50'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Categorie</span>
+                    {gameState.guesses.length >= 3 ? (
+                      <span className="text-sm font-bold text-amber-600 dark:text-amber-400">{targetBeer.category}</span>
+                    ) : (
+                      <span className="text-lg font-bold text-gray-400">???</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Hint 4: Style (after 4th guess) */}
+                <div className={`p-4 rounded-xl border-2 transition-all ${
+                  gameState.guesses.length >= 4
+                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-50'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Stijl</span>
+                    {gameState.guesses.length >= 4 ? (
+                      <span className="text-sm font-bold text-amber-600 dark:text-amber-400">{targetBeer.style}</span>
+                    ) : (
+                      <span className="text-lg font-bold text-gray-400">???</span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Hint 5: Brewery (after 5th guess) */}
+                <div className={`p-4 rounded-xl border-2 transition-all ${
+                  gameState.guesses.length >= 5
+                    ? 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700'
+                    : 'bg-gray-50 dark:bg-gray-700/50 border-gray-200 dark:border-gray-600 opacity-50'
+                }`}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">Brouwerij</span>
+                    {gameState.guesses.length >= 5 ? (
+                      <span className="text-sm font-bold text-amber-600 dark:text-amber-400">{targetBeer.brewery}</span>
+                    ) : (
+                      <span className="text-lg font-bold text-gray-400">???</span>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
@@ -293,11 +383,14 @@ export default function BeerdlePage() {
                 <div className="space-y-3 text-gray-700">
                   <p>🍺 Raad het dagelijkse bier in 6 pogingen</p>
                   <p>🔍 Type een biernaam in het zoekveld</p>
-                  <p>📊 Na elke gok zie je hints:</p>
+                  <p>💡 Na elke gok krijg je een nieuwe hint:</p>
                   <ul className="ml-6 space-y-1">
-                    <li>• <span className="text-green-600 font-semibold">Groen</span> = Correct!</li>
-                    <li>• <span className="text-blue-600 font-semibold">↑</span> = Het gezochte bier is hoger</li>
-                    <li>• <span className="text-red-600 font-semibold">↓</span> = Het gezochte bier is lager</li>
+                    <li>• Gok 1: <span className="font-semibold">ABV</span> wordt zichtbaar</li>
+                    <li>• Gok 2: <span className="font-semibold">Rating</span> wordt zichtbaar</li>
+                    <li>• Gok 3: <span className="font-semibold">Categorie</span> wordt zichtbaar</li>
+                    <li>• Gok 4: <span className="font-semibold">Stijl</span> wordt zichtbaar</li>
+                    <li>• Gok 5: <span className="font-semibold">Brouwerij</span> wordt zichtbaar</li>
+                    <li>• Gok 6: <span className="font-semibold">Laatste kans!</span></li>
                   </ul>
                   <p className="text-sm text-gray-500 mt-4">
                     Je kan maar 1x per dag spelen per apparaat!
@@ -352,122 +445,70 @@ export default function BeerdlePage() {
         )}
 
         {/* Guesses */}
-        <div className="space-y-4 mb-8">
-          {gameState.guesses.map((guess, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl shadow-lg p-4"
-            >
-              <div className="flex items-start gap-4 mb-3">
-                {/* Beer Image */}
-                <div className="flex-shrink-0">
-                  {guess.beer.image_url ? (
-                    <img
-                      src={guess.beer.image_url}
-                      alt={guess.beer.name}
-                      className="w-16 h-16 object-contain rounded-lg"
-                    />
-                  ) : (
-                    <div className="w-16 h-16 bg-amber-100 rounded-lg flex items-center justify-center">
-                      <Beer className="w-8 h-8 text-amber-600" />
-                    </div>
-                  )}
-                </div>
-
-                {/* Beer Info */}
-                <div className="flex-1 min-w-0">
-                  <p className="font-bold text-gray-800 dark:text-amber-100 text-lg">{guess.beer.name}</p>
-                  <p className="text-sm text-gray-600 dark:text-amber-200/70">{guess.beer.brewery}</p>
-                  {guess.beer.category && (
-                    <p className="text-xs text-gray-500 mt-1">
-                      <span className="inline-block px-2 py-1 bg-gray-100 rounded-full">
-                        {guess.beer.category}
-                      </span>
-                    </p>
-                  )}
-                </div>
-
-                <span className="text-2xl font-bold text-amber-600">#{index + 1}</span>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                {/* ABV */}
-                <div className={`p-4 rounded-lg ${
-                  guess.abvMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
-                }`}>
-                  <p className="text-xs font-semibold text-gray-600 mb-1">ABV</p>
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold text-lg">{guess.beer.abv?.toFixed(1)}%</p>
-                    {guess.abvMatch === 'higher' && (
-                      <div className="flex items-center gap-1 text-blue-600">
-                        <TrendingUp className="w-5 h-5" />
-                        <span className="text-xs font-semibold">Hoger</span>
-                      </div>
-                    )}
-                    {guess.abvMatch === 'lower' && (
-                      <div className="flex items-center gap-1 text-red-600">
-                        <TrendingDown className="w-5 h-5" />
-                        <span className="text-xs font-semibold">Lager</span>
-                      </div>
-                    )}
-                    {guess.abvMatch === 'correct' && (
-                      <Check className="w-6 h-6 text-green-600" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Rating */}
-                <div className={`p-4 rounded-lg ${
-                  guess.ratingMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
-                }`}>
-                  <p className="text-xs font-semibold text-gray-600 mb-1">Rating</p>
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold text-lg">{guess.beer.rating?.toFixed(2)}</p>
-                    {guess.ratingMatch === 'higher' && (
-                      <div className="flex items-center gap-1 text-blue-600">
-                        <TrendingUp className="w-5 h-5" />
-                        <span className="text-xs font-semibold">Hoger</span>
-                      </div>
-                    )}
-                    {guess.ratingMatch === 'lower' && (
-                      <div className="flex items-center gap-1 text-red-600">
-                        <TrendingDown className="w-5 h-5" />
-                        <span className="text-xs font-semibold">Lager</span>
-                      </div>
-                    )}
-                    {guess.ratingMatch === 'correct' && (
-                      <Check className="w-6 h-6 text-green-600" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Style */}
-                <div className={`p-4 rounded-lg ${
-                  guess.styleMatch === 'correct' ? 'bg-green-100 border-2 border-green-400' : 'bg-gray-50 border-2 border-gray-200'
-                }`}>
-                  <p className="text-xs font-semibold text-gray-600 mb-1">Stijl</p>
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold text-sm truncate flex-1">{guess.beer.style}</p>
-                    {guess.styleMatch === 'correct' ? (
-                      <Check className="w-6 h-6 text-green-600 ml-2" />
+        <div className="space-y-3 mb-8">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-3">Je Gokken:</h3>
+          {gameState.guesses.map((guess, index) => {
+            const isCorrect = guess.beer.beer_url === targetBeer.beer_url;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className={`rounded-xl shadow-lg p-4 ${
+                  isCorrect 
+                    ? 'bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40 border-2 border-green-500'
+                    : 'bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <span className={`text-xl font-bold ${
+                    isCorrect ? 'text-green-600' : 'text-gray-400'
+                  }`}>#{index + 1}</span>
+                  
+                  {/* Beer Image */}
+                  <div className="flex-shrink-0">
+                    {guess.beer.image_url ? (
+                      <img
+                        src={guess.beer.image_url}
+                        alt={guess.beer.name}
+                        className="w-12 h-12 object-contain rounded-lg"
+                      />
                     ) : (
-                      <X className="w-6 h-6 text-red-600 ml-2" />
+                      <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/20 rounded-lg flex items-center justify-center">
+                        <Beer className="w-6 h-6 text-amber-600 dark:text-amber-500" />
+                      </div>
                     )}
                   </div>
+
+                  {/* Beer Name */}
+                  <div className="flex-1 min-w-0">
+                    <p className="font-bold text-gray-800 dark:text-white truncate">{guess.beer.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 truncate">{guess.beer.brewery}</p>
+                  </div>
+
+                  {/* Result Icon */}
+                  {isCorrect ? (
+                    <div className="flex items-center gap-2 text-green-600">
+                      <Check className="w-8 h-8" />
+                      <span className="font-bold text-lg">Correct!</span>
+                    </div>
+                  ) : (
+                    <X className="w-6 h-6 text-red-500" />
+                  )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
 
           {/* Empty slots */}
           {!gameState.completed && Array.from({ length: remainingGuesses }).map((_, index) => (
             <div
               key={`empty-${index}`}
-              className="bg-white/50 border-2 border-dashed border-amber-200 rounded-xl p-4 h-32"
-            />
+              className="bg-white/30 dark:bg-gray-800/30 border-2 border-dashed border-amber-300 dark:border-amber-700 rounded-xl p-4 h-20 flex items-center justify-center"
+            >
+              <span className="text-gray-400 dark:text-gray-600 font-semibold">Gok #{gameState.guesses.length + index + 1}</span>
+            </div>
           ))}
         </div>
 
