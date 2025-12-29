@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import * as cheerio from "cheerio";
 import fs from "fs";
-import { setTimeout } from "timers/promises";
+import { setTimeout as sleep } from "timers/promises";
 
 const MENUS = [
   { name: "Wisseltap bieren", url: "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695" },
@@ -75,7 +75,7 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
           // Rate limited - wait longer
           const waitTime = RETRY_DELAY * attempt * 2;
           logInfo(`Rate limited, waiting ${waitTime}ms before retry`);
-          await setTimeout(waitTime);
+          await sleep(waitTime);
           continue;
         }
         throw new ScraperError(`HTTP ${response.status}`, url);
@@ -89,7 +89,7 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
       }
       
       logInfo(`Attempt ${attempt} failed, retrying in ${RETRY_DELAY}ms...`);
-      await setTimeout(RETRY_DELAY * attempt);
+      await sleep(RETRY_DELAY * attempt);
     }
   }
 }
