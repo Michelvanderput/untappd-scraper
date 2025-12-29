@@ -2,58 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ============================================
-   DESIGN SYSTEM - CSS VARIABLES
-   ============================================ */
-
-:root {
-  /* Gothic Light Mode - Aged Parchment */
-  --color-bg-primary: #E8DCC8;
-  --color-bg-secondary: #F5EFE6;
-  --color-bg-tertiary: #D4C5B0;
-  --color-text-primary: #1A1410;
-  --color-text-secondary: #3E3228;
-  --color-text-tertiary: #5C4E3F;
-  --color-accent: #8B0000;
-  --color-accent-hover: #A52A2A;
-  --color-gold: #D4AF37;
-  --color-gold-dark: #B8941F;
-  --color-border: #8B7355;
-  --color-border-light: #A68A6A;
-  --color-shadow: rgba(0, 0, 0, 0.3);
-}
-
-/* Gothic Dark Mode - Cathedral Stone */
-.dark {
-  --color-bg-primary: #0D0D0D;
-  --color-bg-secondary: #1A1614;
-  --color-bg-tertiary: #252220;
-  --color-text-primary: #E8DCC8;
-  --color-text-secondary: #C4B5A0;
-  --color-text-tertiary: #9A8A75;
-  --color-accent: #8B0000;
-  --color-accent-hover: #A52A2A;
-  --color-gold: #D4AF37;
-  --color-gold-dark: #B8941F;
-  --color-border: #3E3228;
-  --color-border-light: #2A2420;
-  --color-shadow: rgba(0, 0, 0, 0.6);
-}
-
-/* ============================================
-   TYPOGRAPHY - FONT FACES
-   ============================================ */
-
-/* Rayuela Font - Primary Display Font */
-@font-face {
-  font-family: 'Rayuela';
-  src: url('./assets/OTRayuela-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Distortion Font Family - Alternative Display */
+/* Distortion Font Family - For Headings */
 @font-face {
   font-family: 'Distortion';
   src: url('./assets/Distortion-ALmog.ttf') format('truetype');

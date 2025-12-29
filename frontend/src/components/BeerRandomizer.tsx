@@ -211,7 +211,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-brand-cream dark:bg-brand-cathedral p-8 border-4 border-brand-gold relative overflow-hidden shadow-2xl" style={{boxShadow: '0 8px 24px var(--color-shadow)'}}
+            className="bg-gradient-to-br from-white to-amber-50/50 dark:from-gray-800 dark:to-gray-900 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-4 border-amber-400 dark:border-amber-600 relative overflow-hidden"
           >
             {/* Decorative background */}
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 to-orange-400/10 pointer-events-none" />
@@ -290,7 +290,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 border-2 border-brand-border dark:border-brand-border-dark shadow-md"
+                          className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100 dark:border-gray-600"
                         >
                           <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Stijl</p>
                           <p className="font-semibold text-gray-800 dark:text-white text-sm">{currentBeer.style}</p>
@@ -298,7 +298,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`style-hidden-${currentBeer.beer_url}`}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 animate-pulse border-2 border-brand-border dark:border-brand-border-dark"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Stijl</p>
                           <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
@@ -316,7 +316,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-brand-stone p-3 border-2 border-brand-blood shadow-md"
+                          className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl p-3 border border-amber-200"
                         >
                           <p className="text-xs text-amber-700 mb-1">ABV</p>
                           <p className="font-bold text-amber-900 text-lg">{currentBeer.abv}%</p>
@@ -324,7 +324,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`abv-hidden-${currentBeer.beer_url}`}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 animate-pulse border-2 border-brand-border dark:border-brand-border-dark"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">ABV</p>
                           <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
@@ -342,7 +342,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-brand-stone p-3 border-2 border-brand-gold shadow-md"
+                          className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl p-3 border border-green-200"
                         >
                           <p className="text-xs text-green-700 mb-1">IBU</p>
                           <p className="font-bold text-green-900 text-lg">{currentBeer.ibu}</p>
@@ -350,7 +350,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`ibu-hidden-${currentBeer.beer_url}`}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 animate-pulse border-2 border-brand-border dark:border-brand-border-dark"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">IBU</p>
                           <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
@@ -368,7 +368,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-brand-stone p-3 border-2 border-brand-gold-dark shadow-md"
+                          className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl p-3 border border-yellow-200"
                         >
                           <p className="text-xs text-yellow-700 mb-1">Rating</p>
                           <div className="flex items-center gap-1">
@@ -381,7 +381,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`rating-hidden-${currentBeer.beer_url}`}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 animate-pulse border-2 border-brand-border dark:border-brand-border-dark"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Rating</p>
                           <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
@@ -399,7 +399,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-brand-stone p-3 border-2 border-brand-blood shadow-md"
+                          className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-3 border border-purple-200"
                         >
                           <p className="text-xs text-purple-700 mb-1">Categorie</p>
                           <p className="font-bold text-purple-900 text-sm">{currentBeer.category}</p>
@@ -407,7 +407,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`category-hidden-${currentBeer.beer_url}`}
-                          className="bg-brand-stone dark:bg-brand-gray-dark p-3 animate-pulse border-2 border-brand-border dark:border-brand-border-dark"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
                           <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Categorie</p>
                           <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
@@ -437,7 +437,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   href={currentBeer.beer_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-brand-blood dark:text-brand-gold hover:text-brand-gold hover:bg-brand-blood dark:hover:bg-brand-gold dark:hover:text-brand-blood font-bold bg-transparent px-4 py-2 border-2 border-brand-gold hover:shadow-lg transition-all uppercase text-sm tracking-wider"
+                  className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium bg-white/80 dark:bg-gray-700/80 px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all"
                 >
                   Bekijk op Untappd
                   <ExternalLink className="w-4 h-4" />
@@ -453,7 +453,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-brand-cream dark:bg-brand-cathedral p-6 border-2 border-brand-border dark:border-brand-border-dark shadow-lg"
+          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-100 dark:border-gray-700"
         >
           <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-amber-600" />
@@ -467,7 +467,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setCurrentBeer(beer)}
-                className="group relative bg-brand-stone dark:bg-brand-gray-dark p-3 border-2 border-brand-border dark:border-brand-border-dark hover:border-brand-gold hover:shadow-md transition-all"
+                className="group relative bg-white dark:bg-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600 hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg transition-all"
               >
                 {beer.image_url ? (
                   <img
