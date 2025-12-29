@@ -120,10 +120,10 @@ export default function TrendsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-amber-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Trends laden...</p>
+          <p className="text-gray-600 dark:text-gray-300">Trends laden...</p>
         </div>
       </div>
     );
@@ -134,17 +134,17 @@ export default function TrendsPage() {
   const newBeers = getNewAdditions();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-8"
         >
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 font-heading">
+          <h1 className="text-5xl font-bold text-gray-800 dark:text-white mb-4 font-heading">
             📊 Bier Trends
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Ontdek de grootste stijgers, dalers en nieuwe toevoegingen
           </p>
         </motion.div>
@@ -162,7 +162,7 @@ export default function TrendsPage() {
               className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all ${
                 selectedPeriod === period.id
                   ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
               }`}
             >
               <period.icon className="w-5 h-5" />
@@ -177,20 +177,20 @@ export default function TrendsPage() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white rounded-2xl shadow-xl p-6"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-green-100 rounded-xl">
+              <div className="p-3 bg-green-100 dark:bg-green-900/40 rounded-xl">
                 <TrendingUp className="w-6 h-6 text-green-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800">Stijgers</h2>
-                <p className="text-sm text-gray-600">Grootste rating stijgingen</p>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Stijgers</h2>
+                <p className="text-sm text-gray-600 dark:text-amber-200/70">Grootste rating stijgingen</p>
               </div>
             </div>
 
             {risers.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">Geen stijgers gevonden</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen stijgers gevonden</p>
             ) : (
               <div className="space-y-3">
                 {risers.map((beer, index) => {
@@ -207,7 +207,7 @@ export default function TrendsPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="block p-4 bg-green-50 hover:bg-green-100 rounded-xl transition-colors group relative overflow-hidden"
+                      className="block p-4 bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-xl transition-colors group relative overflow-hidden"
                     >
                       {/* Background bar */}
                       <div 
@@ -218,7 +218,7 @@ export default function TrendsPage() {
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-gray-800 truncate group-hover:text-green-700">
+                            <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-green-700 dark:group-hover:text-green-400">
                               {beer.name}
                             </p>
                           </div>
@@ -251,20 +251,20 @@ export default function TrendsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white rounded-2xl shadow-xl p-6"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-red-100 rounded-xl">
+              <div className="p-3 bg-red-100 dark:bg-red-900/40 rounded-xl">
                 <TrendingDown className="w-6 h-6 text-red-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800">Dalers</h2>
-                <p className="text-sm text-gray-600">Grootste rating dalingen</p>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Dalers</h2>
+                <p className="text-sm text-gray-600 dark:text-amber-200/70">Grootste rating dalingen</p>
               </div>
             </div>
 
             {fallers.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">Geen dalers gevonden</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen dalers gevonden</p>
             ) : (
               <div className="space-y-3">
                 {fallers.map((beer, index) => {
@@ -281,7 +281,7 @@ export default function TrendsPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="block p-4 bg-red-50 hover:bg-red-100 rounded-xl transition-colors group relative overflow-hidden"
+                      className="block p-4 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-xl transition-colors group relative overflow-hidden"
                     >
                       {/* Background bar */}
                       <div 
@@ -292,7 +292,7 @@ export default function TrendsPage() {
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-gray-800 truncate group-hover:text-red-700">
+                            <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-red-700 dark:group-hover:text-red-400">
                               {beer.name}
                             </p>
                           </div>
@@ -325,20 +325,20 @@ export default function TrendsPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-xl p-6"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-blue-100 rounded-xl">
+              <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl">
                 <Plus className="w-6 h-6 text-blue-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800">Nieuw</h2>
-                <p className="text-sm text-gray-600">Nieuwe toevoegingen</p>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Nieuw</h2>
+                <p className="text-sm text-gray-600 dark:text-amber-200/70">Nieuwe toevoegingen</p>
               </div>
             </div>
 
             {newBeers.length === 0 ? (
-              <p className="text-gray-500 text-center py-8">Geen nieuwe bieren</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen nieuwe bieren</p>
             ) : (
               <div className="space-y-3">
                 {newBeers.map((beer, index) => (
@@ -350,20 +350,20 @@ export default function TrendsPage() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="block p-3 bg-blue-50 hover:bg-blue-100 rounded-xl transition-colors group"
+                    className="block p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors group relative overflow-hidden"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-800 truncate group-hover:text-blue-700">
+                        <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-blue-700 dark:group-hover:text-blue-400">
                           {beer.name}
                         </p>
                         {beer.brewery && (
-                          <p className="text-xs text-gray-600 truncate">{beer.brewery}</p>
+                          <p className="text-sm text-gray-600 dark:text-amber-200/70 truncate">{beer.brewery}</p>
                         )}
                       </div>
                       <div className="flex items-center gap-2 ml-2">
                         {beer.abv && (
-                          <span className="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded font-medium">
+                          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium">
                             {beer.abv}%
                           </span>
                         )}
