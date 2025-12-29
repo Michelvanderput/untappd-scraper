@@ -109,6 +109,24 @@ function App() {
     // Register service worker for PWA
     registerServiceWorker();
     setupInstallPrompt();
+    
+    // Request notification permission after a short delay
+    setTimeout(async () => {
+      const hasAsked = localStorage.getItem('notification-asked');
+      if (!hasAsked && 'Notification' in window && Notification.permission === 'default') {
+        try {
+          const { requestNotificationPermission, subscribeToNotifications } = await import('./utils/notifications');
+          const granted = await requestNotificationPermission();
+          localStorage.setItem('notification-asked', 'true');
+          
+          if (granted) {
+            await subscribeToNotifications();
+          }
+        } catch (error) {
+          console.error('Failed to setup notifications:', error);
+        }
+      }
+    }, 3000);
   }, []);
 
   return (
