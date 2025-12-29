@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
+import { haptics } from '../utils/haptic';
 
 interface FavoritesContextType {
   favorites: string[];
@@ -24,11 +25,13 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   const addFavorite = (beerUrl: string) => {
     setFavorites(prev => {
       if (prev.includes(beerUrl)) return prev;
+      haptics.favorite();
       return [...prev, beerUrl];
     });
   };
 
   const removeFavorite = (beerUrl: string) => {
+    haptics.unfavorite();
     setFavorites(prev => prev.filter(url => url !== beerUrl));
   };
 

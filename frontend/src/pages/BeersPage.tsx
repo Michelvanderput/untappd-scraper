@@ -5,6 +5,8 @@ import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
+import { haptics } from '../utils/haptic';
+import SEO from '../components/SEO';
 
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
@@ -159,6 +161,7 @@ export default function BeersPage() {
   )) as string[];
 
   const clearFilters = () => {
+    haptics.filter();
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
@@ -176,8 +179,13 @@ export default function BeersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <>
+      <SEO 
+        title={currentBeer ? `${currentBeer.name} - BeerMenu` : 'BeerMenu - Ontdek de Beste Bieren'}
+        description={currentBeer ? `${currentBeer.name} - ${currentBeer.category} | ${currentBeer.subcategory || ''} | ABV: ${currentBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
+      />
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div className="container mx-auto px-4 py-8 max-w-7xl">
 
         {/* Header */}
         <motion.div
@@ -516,5 +524,6 @@ export default function BeersPage() {
         )}
       </div>
     </div>
+    </>
   );
 }
