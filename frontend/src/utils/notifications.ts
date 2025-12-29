@@ -20,12 +20,13 @@ export async function subscribeToNotifications(): Promise<PushSubscription | nul
   try {
     const registration = await navigator.serviceWorker.ready;
     
+    // Get VAPID public key from environment variable or use fallback
+    const vapidPublicKey = import.meta.env.VITE_VAPID_PUBLIC_KEY || 
+      'BKfxZl4GyAinA5-9cff_ChgHi5KLUxthSX3fLbUQudIe4-5kYRNEIRL3CAu9_kYKfF-DP0i8H7GG_O7-aiQWQww';
+    
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(
-        // Replace with your VAPID public key
-        'BKfxZl4GyAinA5-9cff_ChgHi5KLUxthSX3fLbUQudIe4-5kYRNEIRL3CAu9_kYKfF-DP0i8H7GG_O7-aiQWQww'
-      ) as BufferSource
+      applicationServerKey: urlBase64ToUint8Array(vapidPublicKey) as BufferSource
     });
 
     // Send subscription to backend
