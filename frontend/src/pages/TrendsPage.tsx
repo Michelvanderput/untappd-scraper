@@ -148,33 +148,6 @@ export default function TrendsPage() {
       .slice(0, 10);
   };
 
-  const getTopCategories = () => {
-    const categoryCount: Record<string, { count: number; avgRating: number; totalRating: number }> = {};
-    
-    beers.forEach(beer => {
-      if (beer.category) {
-        if (!categoryCount[beer.category]) {
-          categoryCount[beer.category] = { count: 0, avgRating: 0, totalRating: 0 };
-        }
-        categoryCount[beer.category].count++;
-        if (beer.rating) {
-          categoryCount[beer.category].totalRating += beer.rating;
-        }
-      }
-    });
-
-    // Calculate average ratings
-    Object.keys(categoryCount).forEach(category => {
-      const data = categoryCount[category];
-      data.avgRating = data.totalRating / data.count;
-    });
-
-    return Object.entries(categoryCount)
-      .map(([name, data]) => ({ name, ...data }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 8);
-  };
-
   const getTopBreweries = () => {
     const breweryCount: Record<string, { count: number; avgRating: number; totalRating: number }> = {};
     
@@ -233,7 +206,6 @@ export default function TrendsPage() {
   const fallers = getBiggestFallers();
   const newBeers = getNewAdditions();
   const topRated = getTopRatedBeers();
-  const topCategories = getTopCategories();
   const topBreweries = getTopBreweries();
   const stats = getStats();
 
@@ -341,14 +313,17 @@ export default function TrendsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
             {topRated.map((beer, index) => (
-              <motion.div
+              <motion.a
                 key={beer.beer_url}
+                href={beer.beer_url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.05 }}
-                className="relative group"
+                className="relative group block"
               >
-                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-4 hover:shadow-lg transition-all border-2 border-transparent hover:border-amber-300 dark:hover:border-amber-700">
+                <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-xl p-4 hover:shadow-lg transition-all border-2 border-transparent hover:border-amber-300 dark:hover:border-amber-700 cursor-pointer">
                   {/* Rank Badge */}
                   <div className={`absolute -top-2 -left-2 w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg ${
                     index === 0 ? 'bg-gradient-to-br from-yellow-400 to-amber-500' :
@@ -372,7 +347,7 @@ export default function TrendsPage() {
                   
                   {/* Beer Info */}
                   <div className="text-center">
-                    <p className="font-bold text-sm text-gray-800 dark:text-amber-100 mb-1 line-clamp-2 min-h-[2.5rem]">
+                    <p className="font-bold text-sm text-gray-800 dark:text-amber-100 mb-1 line-clamp-2 min-h-[2.5rem] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       {beer.name}
                     </p>
                     <div className="flex items-center justify-center gap-1 mb-2">
@@ -382,74 +357,18 @@ export default function TrendsPage() {
                     <p className="text-xs text-gray-600 dark:text-amber-200/70 truncate">{beer.brewery}</p>
                   </div>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>
 
-        {/* Top Categories & Breweries */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          {/* Top Categories */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
-            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl">
-                <BarChart3 className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Top Categorieën</h2>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Meest voorkomende bierstijlen</p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
-              {topCategories.map((category, index) => {
-                const maxCount = topCategories[0]?.count || 1;
-                const percentage = (category.count / maxCount) * 100;
-                
-                return (
-                  <motion.div
-                    key={category.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="relative"
-                  >
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-gray-800 dark:text-amber-100">{category.name}</span>
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm text-gray-600 dark:text-amber-200/70">{category.count} bieren</span>
-                        <div className="flex items-center gap-1">
-                          <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                          <span className="text-xs font-medium">{category.avgRating.toFixed(2)}</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${percentage}%` }}
-                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Top Breweries */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
-          >
+        {/* Top Breweries */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 mb-6 dark:border dark:border-amber-900/30"
+        >
             <div className="flex items-center gap-3 mb-6">
               <div className="p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl">
                 <Award className="w-6 h-6 text-white" />
@@ -495,33 +414,32 @@ export default function TrendsPage() {
                 );
               })}
             </div>
-          </motion.div>
-        </div>
+        </motion.div>
 
-        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center">📈 Changelog Trends</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">📈 Changelog Trends</h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Biggest Risers */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl shadow-lg p-4 dark:border dark:border-amber-900/30"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-green-100 dark:bg-green-900/40 rounded-xl">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="p-2 bg-green-100 dark:bg-green-900/40 rounded-lg">
+                <TrendingUp className="w-5 h-5 text-green-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Stijgers</h2>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Grootste rating stijgingen</p>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-amber-100">Stijgers</h2>
+                <p className="text-xs text-gray-600 dark:text-amber-200/70">Rating stijgingen</p>
               </div>
             </div>
 
             {risers.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen stijgers gevonden</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-4">Geen stijgers gevonden</p>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {risers.map((beer, index) => {
                   const maxChange = Math.max(...risers.map(b => b.change));
                   const percentage = (beer.change / maxChange) * 100;
@@ -536,7 +454,7 @@ export default function TrendsPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="block p-4 bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-xl transition-colors group relative overflow-hidden"
+                      className="block p-3 bg-green-50 dark:bg-green-900/20 hover:bg-green-100 dark:hover:bg-green-900/30 rounded-lg transition-colors group relative overflow-hidden"
                     >
                       {/* Background bar */}
                       <div 
@@ -547,23 +465,23 @@ export default function TrendsPage() {
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-green-700 dark:group-hover:text-green-400">
+                            <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-green-700 dark:group-hover:text-green-400">
                               {beer.name}
                             </p>
                           </div>
                           <div className="flex items-center gap-2 ml-2">
-                            <span className="px-2 py-1 bg-green-600 text-white text-xs font-bold rounded-full">
+                            <span className="px-1.5 py-0.5 bg-green-600 text-white text-xs font-bold rounded-full">
                               #{index + 1}
                             </span>
                           </div>
                         </div>
                         
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
                           <div className="flex items-center gap-1 text-green-600 font-bold">
-                            <TrendingUp className="w-4 h-4" />
-                            <span className="text-lg">+{changePercent}%</span>
+                            <TrendingUp className="w-3 h-3" />
+                            <span className="text-sm">+{changePercent}%</span>
                           </div>
-                          <span className="text-xs text-gray-600 dark:text-gray-300">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             (+{beer.change.toFixed(3)} sterren)
                           </span>
                         </div>
@@ -580,22 +498,22 @@ export default function TrendsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl shadow-lg p-4 dark:border dark:border-amber-900/30"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-red-100 dark:bg-red-900/40 rounded-xl">
-                <TrendingDown className="w-6 h-6 text-red-600" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="p-2 bg-red-100 dark:bg-red-900/40 rounded-lg">
+                <TrendingDown className="w-5 h-5 text-red-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Dalers</h2>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Grootste rating dalingen</p>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-amber-100">Dalers</h2>
+                <p className="text-xs text-gray-600 dark:text-amber-200/70">Rating dalingen</p>
               </div>
             </div>
 
             {fallers.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen dalers gevonden</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-4">Geen dalers gevonden</p>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {fallers.map((beer, index) => {
                   const maxChange = Math.max(...fallers.map(b => Math.abs(b.change)));
                   const percentage = (Math.abs(beer.change) / maxChange) * 100;
@@ -610,7 +528,7 @@ export default function TrendsPage() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="block p-4 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-xl transition-colors group relative overflow-hidden"
+                      className="block p-3 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors group relative overflow-hidden"
                     >
                       {/* Background bar */}
                       <div 
@@ -621,23 +539,23 @@ export default function TrendsPage() {
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex-1 min-w-0">
-                            <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-red-700 dark:group-hover:text-red-400">
+                            <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-red-700 dark:group-hover:text-red-400">
                               {beer.name}
                             </p>
                           </div>
                           <div className="flex items-center gap-2 ml-2">
-                            <span className="px-2 py-1 bg-red-600 text-white text-xs font-bold rounded-full">
+                            <span className="px-1.5 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">
                               #{index + 1}
                             </span>
                           </div>
                         </div>
                         
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2">
                           <div className="flex items-center gap-1 text-red-600 font-bold">
-                            <TrendingDown className="w-4 h-4" />
-                            <span className="text-lg">-{changePercent}%</span>
+                            <TrendingDown className="w-3 h-3" />
+                            <span className="text-sm">-{changePercent}%</span>
                           </div>
-                          <span className="text-xs text-gray-600 dark:text-gray-300">
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
                             ({beer.change.toFixed(3)} sterren)
                           </span>
                         </div>
@@ -654,22 +572,22 @@ export default function TrendsPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 dark:border dark:border-amber-900/30"
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl shadow-lg p-4 dark:border dark:border-amber-900/30"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-xl">
-                <Plus className="w-6 h-6 text-blue-600" />
+            <div className="flex items-center gap-2 mb-4">
+              <div className="p-2 bg-blue-100 dark:bg-blue-900/40 rounded-lg">
+                <Plus className="w-5 h-5 text-blue-600" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Nieuw</h2>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Nieuwe toevoegingen</p>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-amber-100">Nieuw</h2>
+                <p className="text-xs text-gray-600 dark:text-amber-200/70">Nieuwe toevoegingen</p>
               </div>
             </div>
 
             {newBeers.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400 text-center py-8">Geen nieuwe bieren</p>
+              <p className="text-gray-500 dark:text-gray-400 text-center py-4">Geen nieuwe bieren</p>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {newBeers.map((beer, index) => (
                   <motion.a
                     key={beer.beer_url}
@@ -679,20 +597,20 @@ export default function TrendsPage() {
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
-                    className="block p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors group relative overflow-hidden"
+                    className="block p-3 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-lg transition-colors group relative overflow-hidden"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-gray-800 dark:text-amber-100 truncate group-hover:text-blue-700 dark:group-hover:text-blue-400">
+                        <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-blue-700 dark:group-hover:text-blue-400">
                           {beer.name}
                         </p>
                         {beer.brewery && (
-                          <p className="text-sm text-gray-600 dark:text-amber-200/70 truncate">{beer.brewery}</p>
+                          <p className="text-xs text-gray-600 dark:text-amber-200/70 truncate">{beer.brewery}</p>
                         )}
                       </div>
-                      <div className="flex items-center gap-2 ml-2">
+                      <div className="flex items-center gap-1.5 ml-2">
                         {beer.abv && (
-                          <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium">
+                          <span className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs rounded-full font-medium">
                             {beer.abv}%
                           </span>
                         )}
