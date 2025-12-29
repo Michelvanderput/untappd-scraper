@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy } from 'lucide-react';
+import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Changelog, ChangelogEntry } from '../types/changelog';
 import type { BeerData } from '../types/beer';
@@ -347,9 +347,12 @@ export default function TrendsPage() {
                   
                   {/* Beer Info */}
                   <div className="text-center">
-                    <p className="font-bold text-sm text-gray-800 dark:text-amber-100 mb-1 line-clamp-2 min-h-[2.5rem] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
-                      {beer.name}
-                    </p>
+                    <div className="flex items-center justify-center gap-1 mb-1">
+                      <p className="font-bold text-sm text-gray-800 dark:text-amber-100 line-clamp-2 min-h-[2.5rem] group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                        {beer.name}
+                      </p>
+                      <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-amber-500 flex-shrink-0" />
+                    </div>
                     <div className="flex items-center justify-center gap-1 mb-2">
                       <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                       <span className="font-bold text-lg text-gray-800 dark:text-amber-100">{beer.rating?.toFixed(2)}</span>
@@ -463,10 +466,11 @@ export default function TrendsPage() {
                       
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex-1 min-w-0">
+                          <div className="flex-1 min-w-0 flex items-center gap-1">
                             <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-green-700 dark:group-hover:text-green-400">
                               {beer.name}
                             </p>
+                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-green-500 flex-shrink-0" />
                           </div>
                           <div className="flex items-center gap-2 ml-2">
                             <span className="px-1.5 py-0.5 bg-green-600 text-white text-xs font-bold rounded-full">
@@ -537,10 +541,11 @@ export default function TrendsPage() {
                       
                       <div className="relative">
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex-1 min-w-0">
+                          <div className="flex-1 min-w-0 flex items-center gap-1">
                             <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-red-700 dark:group-hover:text-red-400">
                               {beer.name}
                             </p>
+                            <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-red-500 flex-shrink-0" />
                           </div>
                           <div className="flex items-center gap-2 ml-2">
                             <span className="px-1.5 py-0.5 bg-red-600 text-white text-xs font-bold rounded-full">
@@ -600,9 +605,12 @@ export default function TrendsPage() {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-blue-700 dark:group-hover:text-blue-400">
-                          {beer.name}
-                        </p>
+                        <div className="flex items-center gap-1 mb-1">
+                          <p className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate group-hover:text-blue-700 dark:group-hover:text-blue-400">
+                            {beer.name}
+                          </p>
+                          <ExternalLink className="w-3 h-3 text-gray-400 group-hover:text-blue-500 flex-shrink-0" />
+                        </div>
                         {beer.brewery && (
                           <p className="text-xs text-gray-600 dark:text-amber-200/70 truncate">{beer.brewery}</p>
                         )}

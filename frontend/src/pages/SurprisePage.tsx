@@ -13,9 +13,10 @@ export default function SurprisePage() {
     const fetchBeers = async () => {
       try {
         const cached = await beerCache.get<BeerData[]>('beers');
-        if (cached) {
+        if (cached && cached.length > 0) {
           setBeers(cached);
           setLoading(false);
+          // Fetch fresh data in background
           fetchAndCache();
           return;
         }
