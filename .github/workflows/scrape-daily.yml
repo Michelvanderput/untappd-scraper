@@ -2,8 +2,10 @@ name: Daily Beer Menu Scraper
 
 on:
   schedule:
-    # Draait elke dag om 06:00 UTC (07:00 CET / 08:00 CEST)
-    - cron: '0 6 * * *'
+    # Draait 3x per dag voor frequentere updates
+    - cron: '0 6 * * *'   # 06:00 UTC (07:00 CET / 08:00 CEST) - Ochtend
+    - cron: '0 12 * * *'  # 12:00 UTC (13:00 CET / 14:00 CEST) - Middag
+    - cron: '0 18 * * *'  # 18:00 UTC (19:00 CET / 20:00 CEST) - Avond
   workflow_dispatch: # Handmatig kunnen triggeren
 
 jobs:
@@ -35,6 +37,24 @@ jobs:
       
       - name: Detect changes and create changelog
         run: node detect-changes.js
+      
+      - name: Send notifications for new beers
+        if: success()
+        run: |
+          OLD_COUNT=$(jq '. | length' beers.old.json 2>/dev/null || echo 0)
+          NEW_COUNT=$(jq '. | length' beers.json)
+          
+          if [ $NEW_COUNT -gt $OLD_COUNT ]; then
+            DIFF=$((NEW_COUNT - OLD_COUNT))
+            echo "Found $DIFF new beers, sending notifications..."
+            node send-notifications.js new-beers $DIFF
+          else
+            echo "No new beers found"
+          fi
+        env:
+          VAPID_PUBLIC_KEY: ${{ secrets.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_SUBJECT: ${{ secrets.VAPID_SUBJECT }}
       
       - name: Commit and push if changes
         run: |
