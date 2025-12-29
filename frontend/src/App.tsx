@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Settings } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import BeersPage from './pages/BeersPage';
 import TrendsPage from './pages/TrendsPage';
 import MenuBuilderPage from './pages/MenuBuilderPage';
 import BeerdlePage from './pages/BeerdlePage';
 import SurprisePage from './pages/SurprisePage';
+import SettingsPage from './pages/SettingsPage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import ThemeToggle from './components/ThemeToggle';
@@ -24,6 +25,7 @@ function Navigation() {
     { path: '/menu-builder', icon: Sparkles, label: 'Menu' },
     { path: '/surprise', icon: Shuffle, label: 'Surprise' },
     { path: '/beerdle', icon: Gamepad2, label: 'Beerdle' },
+    { path: '/settings', icon: Settings, label: 'Instellingen' },
   ];
 
   const handleNavClick = () => {
@@ -142,6 +144,7 @@ function App() {
               <Route path="/menu-builder" element={<MenuBuilderPage />} />
               <Route path="/surprise" element={<SurprisePage />} />
               <Route path="/beerdle" element={<BeerdlePage />} />
+              <Route path="/settings" element={<SettingsPage />} />
             </Routes>
           </div>
         </BrowserRouter>
