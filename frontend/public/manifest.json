@@ -1,0 +1,42 @@
+{
+  "name": "BeerMenu - Biertaverne De Gouverneur",
+  "short_name": "BeerMenu",
+  "description": "Ontdek het complete biermenu van Biertaverne De Gouverneur",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fffbeb",
+  "theme_color": "#d97706",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "lifestyle"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Bieren",
+      "short_name": "Bieren",
+      "description": "Bekijk alle bieren",
+      "url": "/",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Trends",
+      "short_name": "Trends",
+      "description": "Bekijk trends en wijzigingen",
+      "url": "/trends",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
