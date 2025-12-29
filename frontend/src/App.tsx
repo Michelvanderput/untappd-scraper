@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Scale } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import BeersPage from './pages/BeersPage';
 import TrendsPage from './pages/TrendsPage';
 import MenuBuilderPage from './pages/MenuBuilderPage';
 import BeerdlePage from './pages/BeerdlePage';
 import SurprisePage from './pages/SurprisePage';
-import ComparePage from './pages/ComparePage';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { ComparisonProvider } from './contexts/ComparisonContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import ThemeToggle from './components/ThemeToggle';
-import ComparisonBar from './components/ComparisonBar';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import './App.css';
 
@@ -26,7 +23,6 @@ function Navigation() {
     { path: '/trends', icon: TrendingUp, label: 'Trends' },
     { path: '/menu-builder', icon: Sparkles, label: 'Menu' },
     { path: '/surprise', icon: Shuffle, label: 'Surprise' },
-    { path: '/compare', icon: Scale, label: 'Vergelijk' },
     { path: '/beerdle', icon: Gamepad2, label: 'Beerdle' },
   ];
 
@@ -118,24 +114,19 @@ function App() {
   return (
     <ThemeProvider>
       <FavoritesProvider>
-        <ComparisonProvider>
-          <BrowserRouter>
-            <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
-              <Navigation />
-              
-              <Routes>
-                <Route path="/" element={<BeersPage />} />
-                <Route path="/trends" element={<TrendsPage />} />
-                <Route path="/menu-builder" element={<MenuBuilderPage />} />
-                <Route path="/surprise" element={<SurprisePage />} />
-                <Route path="/compare" element={<ComparePage />} />
-                <Route path="/beerdle" element={<BeerdlePage />} />
-              </Routes>
-              
-              <ComparisonBar />
-            </div>
-          </BrowserRouter>
-        </ComparisonProvider>
+        <BrowserRouter>
+          <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
+            <Navigation />
+            
+            <Routes>
+              <Route path="/" element={<BeersPage />} />
+              <Route path="/trends" element={<TrendsPage />} />
+              <Route path="/menu-builder" element={<MenuBuilderPage />} />
+              <Route path="/surprise" element={<SurprisePage />} />
+              <Route path="/beerdle" element={<BeerdlePage />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
       </FavoritesProvider>
     </ThemeProvider>
   );
