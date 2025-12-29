@@ -294,6 +294,7 @@ export default function BeersPage() {
         {/* Current Selected Beer */}
         {currentBeer && (
           <motion.div
+            id="beer-detail"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 dark:border-amber-600 relative">
@@ -432,7 +433,12 @@ export default function BeersPage() {
               >
                 <BeerCard
                   beer={beer}
-                  onClick={() => setCurrentBeer(beer)}
+                  onClick={() => {
+                    setCurrentBeer(beer);
+                    setTimeout(() => {
+                      document.getElementById('beer-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                  }}
                 />
               </motion.div>
             ))}

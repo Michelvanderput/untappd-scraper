@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
@@ -46,13 +46,14 @@ const GENERATION_MODES = [
 export default function MenuBuilderPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [generating, setGenerating] = useState(false);
   const [menuSize, setMenuSize] = useState(6);
   const [mode, setMode] = useState<'random' | 'balanced' | 'journey' | 'party' | 'expert'>('balanced');
   const [generatedMenu, setGeneratedMenu] = useState<GeneratedMenu | null>(null);
-  const [showAdvanced, setShowAdvanced] = useState(false);
+  const [generating, setGenerating] = useState(false);
+  const menuResultRef = useRef<HTMLDivElement>(null);
   
   // Advanced options
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const [minABV, setMinABV] = useState<number | undefined>(undefined);
   const [maxABV, setMaxABV] = useState<number | undefined>(undefined);
   const [minRating, setMinRating] = useState<number | undefined>(undefined);
@@ -97,6 +98,11 @@ export default function MenuBuilderPage() {
       const menu = generateBeerMenu(beers, options);
       setGeneratedMenu(menu);
       setGenerating(false);
+      
+      // Scroll to menu result after generation
+      setTimeout(() => {
+        menuResultRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     }, 800);
   };
 
@@ -325,6 +331,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
         <AnimatePresence mode="wait">
           {generatedMenu && (
             <motion.div
+              ref={menuResultRef}
               key={generatedMenu.theme}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
