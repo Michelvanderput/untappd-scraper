@@ -362,24 +362,27 @@ export default function TrendsPage() {
           </div>
         </motion.div>
 
-        {/* Top Breweries */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl shadow-xl p-6 mb-6 dark:border dark:border-amber-900/30"
-        >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl">
-                <Award className="w-6 h-6 text-white" />
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">📈 Trends & Changelog</h2>
+
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+          {/* Top Breweries */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl shadow-lg p-4 dark:border dark:border-amber-900/30"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg">
+                <Award className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100">Top Brouwerijen</h2>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Meeste bieren in het assortiment</p>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-amber-100">Top Brouwerijen</h2>
+                <p className="text-xs text-gray-600 dark:text-amber-200/70">Meeste bieren</p>
               </div>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {topBreweries.map((brewery, index) => {
                 const maxCount = topBreweries[0]?.count || 1;
                 const percentage = (brewery.count / maxCount) * 100;
@@ -393,9 +396,9 @@ export default function TrendsPage() {
                     className="relative"
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-semibold text-gray-800 dark:text-amber-100 truncate flex-1">{brewery.name}</span>
-                      <div className="flex items-center gap-2 ml-2">
-                        <span className="text-sm text-gray-600 dark:text-amber-200/70">{brewery.count}</span>
+                      <span className="font-semibold text-sm text-gray-800 dark:text-amber-100 truncate flex-1">{brewery.name}</span>
+                      <div className="flex items-center gap-1.5 ml-2">
+                        <span className="text-xs text-gray-600 dark:text-amber-200/70">{brewery.count}</span>
                         <div className="flex items-center gap-1">
                           <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                           <span className="text-xs font-medium">{brewery.avgRating.toFixed(2)}</span>
@@ -414,16 +417,12 @@ export default function TrendsPage() {
                 );
               })}
             </div>
-        </motion.div>
-
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">📈 Changelog Trends</h2>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          </motion.div>
           {/* Biggest Risers */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.2 }}
             className="bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-xl shadow-lg p-4 dark:border dark:border-amber-900/30"
           >
             <div className="flex items-center gap-2 mb-4">
