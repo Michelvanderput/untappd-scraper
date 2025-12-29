@@ -211,7 +211,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-gradient-to-br from-white to-amber-50/50 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-4 border-amber-400 relative overflow-hidden"
+            className="bg-gradient-to-br from-white to-amber-50/50 dark:from-gray-800 dark:to-gray-900 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-4 border-amber-400 dark:border-amber-600 relative overflow-hidden"
           >
             {/* Decorative background */}
             <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 to-orange-400/10 pointer-events-none" />
@@ -263,19 +263,19 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       animate={{ x: 0, opacity: 1, scale: 1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >
-                      <h2 className="text-4xl font-bold text-gray-800 mb-2 font-heading">
+                      <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-2 font-heading">
                         {currentBeer.name}
                       </h2>
                       {currentBeer.brewery && (
-                        <p className="text-xl text-gray-600 mb-6">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
                           {currentBeer.brewery}
                         </p>
                       )}
                     </motion.div>
                   ) : (
                     <div key={`name-hidden-${currentBeer.beer_url}`}>
-                      <div className="h-12 bg-gray-200 rounded-lg mb-2 animate-pulse" />
-                      <div className="h-7 bg-gray-200 rounded-lg mb-6 animate-pulse w-3/4" />
+                      <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg mb-2 animate-pulse" />
+                      <div className="h-7 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 animate-pulse w-3/4" />
                     </div>
                   )}
                 </AnimatePresence>
@@ -290,18 +290,18 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                           initial={{ scale: 0, rotate: -10 }}
                           animate={{ scale: 1, rotate: 0 }}
                           transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-white/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100"
+                          className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100 dark:border-gray-600"
                         >
-                          <p className="text-xs text-gray-500 mb-1">Stijl</p>
-                          <p className="font-semibold text-gray-800 text-sm">{currentBeer.style}</p>
+                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Stijl</p>
+                          <p className="font-semibold text-gray-800 dark:text-white text-sm">{currentBeer.style}</p>
                         </motion.div>
                       ) : (
                         <div
                           key={`style-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
-                          <p className="text-xs text-gray-400 mb-1">Stijl</p>
-                          <div className="h-5 bg-gray-300 rounded" />
+                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Stijl</p>
+                          <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
                         </div>
                       )}
                     </AnimatePresence>
@@ -324,10 +324,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`abv-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
-                          <p className="text-xs text-gray-400 mb-1">ABV</p>
-                          <div className="h-7 bg-gray-300 rounded" />
+                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">ABV</p>
+                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
                         </div>
                       )}
                     </AnimatePresence>
@@ -350,10 +350,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`ibu-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
-                          <p className="text-xs text-gray-400 mb-1">IBU</p>
-                          <div className="h-7 bg-gray-300 rounded" />
+                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">IBU</p>
+                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
                         </div>
                       )}
                     </AnimatePresence>
@@ -381,10 +381,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`rating-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
-                          <p className="text-xs text-gray-400 mb-1">Rating</p>
-                          <div className="h-7 bg-gray-300 rounded" />
+                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Rating</p>
+                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
                         </div>
                       )}
                     </AnimatePresence>
@@ -407,10 +407,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       ) : (
                         <div
                           key={`category-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 rounded-xl p-3 animate-pulse"
+                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
                         >
-                          <p className="text-xs text-gray-400 mb-1">Categorie</p>
-                          <div className="h-5 bg-gray-300 rounded" />
+                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Categorie</p>
+                          <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
                         </div>
                       )}
                     </AnimatePresence>
@@ -437,7 +437,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   href={currentBeer.beer_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium bg-white/80 px-4 py-2 rounded-lg hover:bg-white transition-all"
+                  className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium bg-white/80 dark:bg-gray-700/80 px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all"
                 >
                   Bekijk op Untappd
                   <ExternalLink className="w-4 h-4" />
@@ -453,9 +453,9 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-100"
+          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-100 dark:border-gray-700"
         >
-          <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-amber-600" />
             Recent Gerandomized
           </h3>
@@ -467,7 +467,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => setCurrentBeer(beer)}
-                className="group relative bg-white rounded-lg p-3 border border-gray-200 hover:border-amber-400 hover:shadow-lg transition-all"
+                className="group relative bg-white dark:bg-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600 hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg transition-all"
               >
                 {beer.image_url ? (
                   <img
@@ -480,7 +480,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     <BeerIcon className="w-8 h-8 text-amber-600" />
                   </div>
                 )}
-                <p className="text-xs font-medium text-gray-800 truncate group-hover:text-amber-600 transition-colors">
+                <p className="text-xs font-medium text-gray-800 dark:text-white truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                   {beer.name}
                 </p>
               </motion.button>

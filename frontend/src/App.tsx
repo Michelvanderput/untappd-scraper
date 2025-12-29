@@ -92,7 +92,7 @@ function Navigation() {
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-gray-200"
+              className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
             >
               <div className="py-2 px-4 space-y-1">
                 {navItems.map(({ path, icon: Icon, label }) => (

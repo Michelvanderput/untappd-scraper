@@ -75,12 +75,12 @@ export default function SurprisePage() {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Sparkles className="w-12 h-12 text-amber-600" />
-            <h1 className="text-6xl font-bold text-gray-900 font-heading">
+            <h1 className="text-6xl font-bold text-gray-900 dark:text-white font-heading">
               Sur<span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">prise</span>
             </h1>
             <Sparkles className="w-12 h-12 text-amber-600" />
           </div>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Laat het lot beslissen! 🎲
           </p>
         </motion.div>
