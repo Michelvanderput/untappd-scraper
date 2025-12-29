@@ -95,20 +95,41 @@ self.addEventListener('fetch', (event) => {
 
 // Handle push notifications
 self.addEventListener('push', (event) => {
-  const options = {
-    body: event.data ? event.data.text() : 'Nieuwe bieren beschikbaar!',
+  let notificationData = {
+    title: 'BeerMenu Update',
+    body: 'Nieuwe bieren beschikbaar!',
     icon: '/icon-192.png',
-    badge: '/icon-192.png',
+    url: '/'
+  };
+
+  // Parse JSON data from push notification
+  if (event.data) {
+    try {
+      const data = event.data.json();
+      notificationData = {
+        title: data.title || notificationData.title,
+        body: data.body || notificationData.body,
+        icon: data.icon || notificationData.icon,
+        url: data.url || notificationData.url
+      };
+    } catch (e) {
+      console.error('Failed to parse notification data:', e);
+    }
+  }
+
+  const options = {
+    body: notificationData.body,
+    icon: notificationData.icon,
+    badge: notificationData.icon,
     vibrate: [200, 100, 200],
     data: {
-      dateOfArrival: Date.now(),
-      primaryKey: 1
+      url: notificationData.url,
+      dateOfArrival: Date.now()
     },
     actions: [
       {
-        action: 'explore',
-        title: 'Bekijk bieren',
-        icon: '/icon-192.png'
+        action: 'open',
+        title: 'Bekijken'
       },
       {
         action: 'close',
@@ -118,7 +139,7 @@ self.addEventListener('push', (event) => {
   };
 
   event.waitUntil(
-    self.registration.showNotification('BeerMenu Update', options)
+    self.registration.showNotification(notificationData.title, options)
   );
 });
 
@@ -126,9 +147,10 @@ self.addEventListener('push', (event) => {
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
-  if (event.action === 'explore') {
+  if (event.action === 'open' || !event.action) {
+    const urlToOpen = event.notification.data?.url || '/';
     event.waitUntil(
-      clients.openWindow('/')
+      clients.openWindow(urlToOpen)
     );
   }
 });
