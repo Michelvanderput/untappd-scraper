@@ -1,17 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Store subscriptions in a JSON file
-const SUBSCRIPTIONS_FILE = path.join(__dirname, '..', 'subscriptions.json');
-
-// Initialize subscriptions file if it doesn't exist
-if (!fs.existsSync(SUBSCRIPTIONS_FILE)) {
-  fs.writeFileSync(SUBSCRIPTIONS_FILE, JSON.stringify({ subscriptions: [] }));
-}
+// Note: Vercel serverless functions don't have persistent file system access
+// Subscriptions are stored via GitHub API and managed by the workflow
+// This endpoint accepts subscriptions and stores them temporarily
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -36,17 +25,50 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Invalid subscription object' });
     }
 
-    // Read existing subscriptions
-    const data = JSON.parse(fs.readFileSync(SUBSCRIPTIONS_FILE, 'utf8'));
+    // Store subscription via GitHub API
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+    const GITHUB_REPO = process.env.GITHUB_REPO || 'Michelvanderput/untappd-scraper';
     
+    if (!GITHUB_TOKEN) {
+      console.warn('No GitHub token configured, subscription will not persist');
+      return res.status(201).json({ 
+        success: true,
+        message: 'Subscription received (persistence requires GitHub token configuration)',
+        warning: 'Subscriptions will not persist across deployments without GitHub token'
+      });
+    }
+
+    // Fetch current subscriptions from GitHub
+    const fileUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/subscriptions.json`;
+    
+    let currentData = { subscriptions: [] };
+    let sha = null;
+    
+    try {
+      const response = await fetch(fileUrl, {
+        headers: {
+          'Authorization': `token ${GITHUB_TOKEN}`,
+          'Accept': 'application/vnd.github.v3+json'
+        }
+      });
+      
+      if (response.ok) {
+        const fileData = await response.json();
+        sha = fileData.sha;
+        const content = Buffer.from(fileData.content, 'base64').toString('utf8');
+        currentData = JSON.parse(content);
+      }
+    } catch (error) {
+      console.log('No existing subscriptions file, will create new one');
+    }
+
     // Check if subscription already exists
-    const existingIndex = data.subscriptions.findIndex(
+    const existingIndex = currentData.subscriptions.findIndex(
       sub => sub.endpoint === subscription.endpoint
     );
 
     if (existingIndex === -1) {
-      // Add new subscription with preferences
-      data.subscriptions.push({
+      currentData.subscriptions.push({
         ...subscription,
         preferences: {
           newBeers: true,
@@ -56,10 +78,9 @@ export default async function handler(req, res) {
         subscribedAt: new Date().toISOString()
       });
     } else {
-      // Update existing subscription
-      data.subscriptions[existingIndex] = {
+      currentData.subscriptions[existingIndex] = {
         ...subscription,
-        preferences: data.subscriptions[existingIndex].preferences || {
+        preferences: currentData.subscriptions[existingIndex].preferences || {
           newBeers: true,
           beerdleUpdate: true,
           beerdleReminder: true
@@ -68,8 +89,22 @@ export default async function handler(req, res) {
       };
     }
 
-    // Save subscriptions
-    fs.writeFileSync(SUBSCRIPTIONS_FILE, JSON.stringify(data, null, 2));
+    // Save back to GitHub
+    const content = Buffer.from(JSON.stringify(currentData, null, 2)).toString('base64');
+    
+    await fetch(fileUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Update subscriptions',
+        content,
+        sha
+      })
+    });
 
     res.status(201).json({ 
       success: true,
@@ -77,6 +112,9 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error('Error saving subscription:', error);
-    res.status(500).json({ error: 'Failed to save subscription' });
+    res.status(500).json({ 
+      error: 'Failed to save subscription',
+      details: error.message 
+    });
   }
 }

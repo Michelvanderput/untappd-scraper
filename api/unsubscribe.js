@@ -1,11 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const SUBSCRIPTIONS_FILE = path.join(__dirname, '..', 'subscriptions.json');
+// Unsubscribe endpoint using GitHub API for persistence
 
 export default async function handler(req, res) {
   // Enable CORS
@@ -30,20 +23,55 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Endpoint is required' });
     }
 
-    // Read existing subscriptions
-    if (!fs.existsSync(SUBSCRIPTIONS_FILE)) {
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+    const GITHUB_REPO = process.env.GITHUB_REPO || 'Michelvanderput/untappd-scraper';
+    
+    if (!GITHUB_TOKEN) {
+      return res.status(200).json({ 
+        success: true,
+        message: 'Unsubscribe request received (persistence requires GitHub token)'
+      });
+    }
+
+    // Fetch current subscriptions
+    const fileUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/subscriptions.json`;
+    
+    const response = await fetch(fileUrl, {
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json'
+      }
+    });
+    
+    if (!response.ok) {
       return res.status(404).json({ error: 'No subscriptions found' });
     }
 
-    const data = JSON.parse(fs.readFileSync(SUBSCRIPTIONS_FILE, 'utf8'));
+    const fileData = await response.json();
+    const content = Buffer.from(fileData.content, 'base64').toString('utf8');
+    const data = JSON.parse(content);
     
     // Remove subscription
     data.subscriptions = data.subscriptions.filter(
       sub => sub.endpoint !== endpoint
     );
 
-    // Save subscriptions
-    fs.writeFileSync(SUBSCRIPTIONS_FILE, JSON.stringify(data, null, 2));
+    // Save back to GitHub
+    const newContent = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+    
+    await fetch(fileUrl, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: 'Remove subscription',
+        content: newContent,
+        sha: fileData.sha
+      })
+    });
 
     res.status(200).json({ 
       success: true,
