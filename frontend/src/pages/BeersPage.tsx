@@ -207,7 +207,7 @@ export default function BeersPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-brand-white dark:bg-brand-gray-dark border border-brand-border dark:border-brand-border p-6 mb-8"
+          className="bg-brand-white dark:bg-brand-gray-dark border-2 border-brand-border dark:border-brand-border p-6 mb-8"
         >
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
@@ -220,7 +220,7 @@ export default function BeersPage() {
                 placeholder="Zoek op naam, brouwerij of stijl..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-brand-border dark:border-brand-border focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary transition-all font-sans"
+                className="w-full pl-10 pr-4 py-3 border-2 border-brand-border dark:border-brand-border focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary transition-all font-sans"
               />
               {isSearching && (
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -232,7 +232,7 @@ export default function BeersPage() {
             {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-brand-accent text-white hover:bg-brand-accent-hover transition-colors active:scale-95 font-sans font-medium uppercase text-sm tracking-wider"
+              className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-brand-accent text-white hover:bg-brand-black dark:hover:bg-brand-text-primary hover:text-brand-accent dark:hover:text-brand-black transition-all border-2 border-brand-accent font-sans font-bold uppercase text-sm tracking-wider"
             >
               <Filter className="w-5 h-5" />
               <span className="font-semibold">Filters</span>
@@ -257,7 +257,7 @@ export default function BeersPage() {
                     setSelectedCategory(e.target.value);
                     setSelectedSubcategory('');
                   }}
-                  className="w-full px-4 py-3 min-h-[48px] border border-brand-border dark:border-brand-border focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary font-sans"
+                  className="w-full px-4 py-3 min-h-[48px] border-2 border-brand-border dark:border-brand-border focus:border-brand-accent outline-none bg-brand-white dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary font-sans"
                 >
                   <option value="">Alle categorieën</option>
                   {categories.map(cat => (
@@ -287,7 +287,7 @@ export default function BeersPage() {
                 <div className="md:col-span-2">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-2 px-4 py-2 min-h-[44px] text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium active:scale-95 transition-transform"
+                    className="flex items-center gap-2 px-4 py-2 min-h-[44px] text-brand-text-secondary dark:text-brand-text-secondary hover:text-brand-accent border-2 border-transparent hover:border-brand-accent font-medium transition-all uppercase text-xs tracking-wider"
                   >
                     <X className="w-5 h-5" />
                     Alle filters wissen

@@ -14,7 +14,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
     <motion.div
       whileHover={{ y: -4 }}
       onClick={onClick}
-      className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-xl shadow-md hover:shadow-2xl transition-all cursor-pointer p-6 border border-amber-100/50 dark:border-amber-900/30 relative group"
+      className="bg-brand-white dark:bg-brand-gray-dark border-2 border-brand-border dark:border-brand-border hover:border-brand-accent dark:hover:border-brand-accent transition-all cursor-pointer p-6 relative group"
     >
       {onToggleFavorite && (
         <button
@@ -22,7 +22,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
             e.stopPropagation();
             onToggleFavorite();
           }}
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 dark:bg-amber-950/60 hover:bg-white dark:hover:bg-amber-950/80 transition-colors"
+          className="absolute top-3 right-3 z-10 p-2 bg-brand-white dark:bg-brand-gray-dark border border-brand-border dark:border-brand-border hover:border-brand-accent transition-colors"
         >
           <Star
             className={`w-5 h-5 transition-colors ${
@@ -41,28 +41,28 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
             className="w-20 h-20 object-contain flex-shrink-0"
           />
         ) : (
-          <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 rounded-lg flex items-center justify-center flex-shrink-0">
+          <div className="w-20 h-20 bg-brand-cream dark:bg-brand-gray-dark border border-brand-border dark:border-brand-border flex items-center justify-center flex-shrink-0">
             <Beer className="w-10 h-10 text-amber-600 dark:text-amber-500" />
           </div>
         )}
         
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-800 dark:text-amber-100 mb-1 truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors text-wrap">
+          <h3 className="font-sans font-bold text-brand-black dark:text-brand-text-primary mb-1 truncate group-hover:text-brand-accent transition-colors text-wrap uppercase tracking-tight text-sm">
             {beer.name}
           </h3>
           {beer.brewery && (
-            <p className="text-sm text-gray-600 dark:text-amber-200/70 mb-2 truncate">
+            <p className="text-sm text-brand-text-secondary dark:text-brand-text-secondary mb-2 truncate">
               {beer.brewery}
             </p>
           )}
           <div className="flex items-center gap-3 text-sm flex-wrap">
             {beer.abv !== null && (
-              <span className="px-2 py-1 bg-amber-50 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 rounded-md font-medium">
+              <span className="px-2 py-1 bg-brand-cream dark:bg-brand-gray-dark text-brand-black dark:text-brand-text-primary border border-brand-border dark:border-brand-border font-medium text-xs">
                 {beer.abv}%
               </span>
             )}
             {beer.rating !== null && (
-              <div className="flex items-center gap-1 px-2 py-1 bg-yellow-50 dark:bg-yellow-900/30 rounded-md">
+              <div className="flex items-center gap-1 px-2 py-1 bg-brand-cream dark:bg-brand-gray-dark border border-brand-border dark:border-brand-border">
                 <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                 <span className="text-gray-700 dark:text-yellow-200 font-medium">
                   {beer.rating.toFixed(1)}
