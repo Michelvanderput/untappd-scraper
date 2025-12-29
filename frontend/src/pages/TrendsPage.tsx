@@ -105,7 +105,7 @@ export default function TrendsPage() {
       });
     });
 
-    return risers.sort((a, b) => b.change - a.change).slice(0, 10);
+    return risers.sort((a, b) => b.change - a.change).slice(0, 5);
   };
 
   const getBiggestFallers = () => {
@@ -127,7 +127,7 @@ export default function TrendsPage() {
       });
     });
 
-    return fallers.sort((a, b) => a.change - b.change).slice(0, 10);
+    return fallers.sort((a, b) => a.change - b.change).slice(0, 5);
   };
 
   const getNewAdditions = () => {
