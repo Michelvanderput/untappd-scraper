@@ -25,7 +25,7 @@ export async function subscribeToNotifications(): Promise<PushSubscription | nul
       applicationServerKey: urlBase64ToUint8Array(
         // Replace with your VAPID public key
         'YOUR_VAPID_PUBLIC_KEY_HERE'
-      )
+      ) as BufferSource
     });
 
     // Send subscription to backend

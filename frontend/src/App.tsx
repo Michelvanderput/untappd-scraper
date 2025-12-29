@@ -28,7 +28,7 @@ function Navigation() {
     { path: '/surprise', icon: Shuffle, label: 'Surprise' },
     { path: '/compare', icon: Scale, label: 'Vergelijk' },
     { path: '/beerdle', icon: Gamepad2, label: 'Beerdle' },
-  };
+  ];
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
