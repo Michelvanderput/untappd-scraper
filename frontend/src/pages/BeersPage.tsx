@@ -166,17 +166,17 @@ export default function BeersPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
-          <Beer className="w-16 h-16 text-amber-600 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700">Bieren laden...</p>
+          <Beer className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce mx-auto mb-4" />
+          <p className="text-xl text-gray-700 dark:text-gray-300">Bieren laden...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
 
         {/* Header */}
@@ -186,11 +186,11 @@ export default function BeersPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-6 font-heading">
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-heading">
             Bier <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Menu</span>
           </h1>
           <div className="w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" />
-          <p className="text-2xl text-gray-600 font-medium">
+          <p className="text-2xl text-gray-600 dark:text-gray-300 font-medium">
             {filteredBeers.length} unieke bieren beschikbaar
           </p>
         </motion.div>
@@ -200,20 +200,20 @@ export default function BeersPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 border border-amber-100"
+          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 border border-amber-100 dark:border-gray-700"
         >
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
             <div className="flex-1 relative">
               <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
-                isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400'
+                isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400 dark:text-gray-500'
               }`} />
               <input
                 type="text"
                 placeholder="Zoek op naam, brouwerij of stijl..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 transition-all"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white transition-all"
               />
               {isSearching && (
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
@@ -225,7 +225,7 @@ export default function BeersPage() {
             {/* Filter Toggle */}
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 transition-colors shadow-md"
+              className="flex items-center gap-2 px-6 py-3 bg-amber-600 text-white rounded-xl hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 transition-colors shadow-md"
             >
               <Filter className="w-5 h-5" />
               Filters
@@ -238,10 +238,10 @@ export default function BeersPage() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="grid md:grid-cols-2 gap-4 pt-4 border-t border-amber-100"
+              className="grid md:grid-cols-2 gap-4 pt-4 border-t border-amber-100 dark:border-gray-700"
             >
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Categorie
                 </label>
                 <select
@@ -250,7 +250,7 @@ export default function BeersPage() {
                     setSelectedCategory(e.target.value);
                     setSelectedSubcategory('');
                   }}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
                 >
                   <option value="">Alle categorieën</option>
                   {categories.map(cat => (
@@ -260,13 +260,13 @@ export default function BeersPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Subcategorie
                 </label>
                 <select
                   value={selectedSubcategory}
                   onChange={(e) => setSelectedSubcategory(e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
                   disabled={!selectedCategory}
                 >
                   <option value="">Alle subcategorieën</option>
@@ -280,7 +280,7 @@ export default function BeersPage() {
                 <div className="md:col-span-2">
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-2 text-gray-600 hover:text-gray-800 font-medium"
+                    className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium"
                   >
                     <X className="w-4 h-4" />
                     Alle filters wissen
@@ -296,7 +296,7 @@ export default function BeersPage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 relative">
+            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 dark:border-amber-600 relative">
 
             <div className="flex flex-col md:flex-row gap-8">
               {/* Beer Image */}
@@ -308,7 +308,7 @@ export default function BeersPage() {
                     className="w-48 h-48 object-contain mx-auto rounded-lg"
                   />
                 ) : (
-                  <div className="w-48 h-48 bg-gradient-to-br from-amber-100 to-orange-100 rounded-lg flex items-center justify-center">
+                  <div className="w-48 h-48 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900 rounded-lg flex items-center justify-center">
                     <Beer className="w-24 h-24 text-amber-600" />
                   </div>
                 )}
@@ -316,12 +316,12 @@ export default function BeersPage() {
 
               {/* Beer Info */}
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
                   {currentBeer.name}
                 </h2>
                 
                 {currentBeer.brewery && (
-                  <p className="text-xl text-gray-600 mb-4">
+                  <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
                     {currentBeer.brewery}
                   </p>
                 )}
@@ -329,31 +329,31 @@ export default function BeersPage() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
                   {currentBeer.style && (
                     <div>
-                      <p className="text-sm text-gray-500">Stijl</p>
-                      <p className="font-semibold text-gray-800">{currentBeer.style}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Stijl</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.style}</p>
                     </div>
                   )}
                   
                   {currentBeer.abv !== null && (
                     <div>
-                      <p className="text-sm text-gray-500">ABV</p>
-                      <p className="font-semibold text-gray-800">{currentBeer.abv}%</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">ABV</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.abv}%</p>
                     </div>
                   )}
                   
                   {currentBeer.ibu !== null && (
                     <div>
-                      <p className="text-sm text-gray-500">IBU</p>
-                      <p className="font-semibold text-gray-800">{currentBeer.ibu}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">IBU</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.ibu}</p>
                     </div>
                   )}
                   
                   {currentBeer.rating !== null && (
                     <div>
-                      <p className="text-sm text-gray-500">Rating</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Rating</p>
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                        <p className="font-semibold text-gray-800">
+                        <p className="font-semibold text-gray-800 dark:text-white">
                           {currentBeer.rating.toFixed(2)}
                         </p>
                       </div>
@@ -362,20 +362,20 @@ export default function BeersPage() {
                   
                   {currentBeer.container && (
                     <div>
-                      <p className="text-sm text-gray-500">Verpakking</p>
-                      <p className="font-semibold text-gray-800">{currentBeer.container}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Verpakking</p>
+                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.container}</p>
                     </div>
                   )}
                   
                   <div>
-                    <p className="text-sm text-gray-500">Categorie</p>
-                    <p className="font-semibold text-gray-800">{currentBeer.category}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">Categorie</p>
+                    <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.category}</p>
                   </div>
                 </div>
 
                 {currentBeer.subcategory && (
                   <div className="mb-4">
-                    <span className="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="inline-block bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-3 py-1 rounded-full text-sm font-medium">
                       {currentBeer.subcategory}
                     </span>
                   </div>
@@ -390,7 +390,7 @@ export default function BeersPage() {
         {filteredBeers.length > 0 && (
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-4">
-              <label className="text-sm text-gray-700">
+              <label className="text-sm text-gray-700 dark:text-gray-300">
                 Bieren per pagina:
               </label>
               <select
@@ -399,7 +399,7 @@ export default function BeersPage() {
                   setBeersPerPage(Number(e.target.value));
                   setCurrentPage(1);
                 }}
-                className="px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
               >
                 <option value={12}>12</option>
                 <option value={24}>24</option>
@@ -408,7 +408,7 @@ export default function BeersPage() {
               </select>
             </div>
             
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 dark:text-gray-400">
               Toon {((currentPage - 1) * beersPerPage) + 1} - {Math.min(currentPage * beersPerPage, filteredBeers.length)} van {filteredBeers.length} bieren
             </div>
           </div>
@@ -444,7 +444,7 @@ export default function BeersPage() {
             <button
               onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
               disabled={currentPage === 1}
-              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
+              className="flex items-center gap-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm"
             >
               <ChevronLeft className="w-4 h-4" />
               Vorige
@@ -475,7 +475,7 @@ export default function BeersPage() {
                         className={`px-4 py-2 rounded-xl transition-colors shadow-sm ${
                           currentPage === page
                             ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-md'
-                            : 'bg-white border border-gray-300 hover:bg-gray-50'
+                            : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white'
                         }`}
                       >
                         {page}
@@ -488,7 +488,7 @@ export default function BeersPage() {
             <button
               onClick={() => setCurrentPage(prev => Math.min(Math.ceil(filteredBeers.length / beersPerPage), prev + 1))}
               disabled={currentPage === Math.ceil(filteredBeers.length / beersPerPage)}
-              className="flex items-center gap-1 px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               Volgende
               <ChevronRight className="w-4 h-4" />
@@ -498,11 +498,11 @@ export default function BeersPage() {
 
         {filteredBeers.length === 0 && (
           <div className="text-center py-12">
-            <Beer className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-            <p className="text-xl text-gray-600">Geen bieren gevonden</p>
+            <Beer className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
+            <p className="text-xl text-gray-600 dark:text-gray-400">Geen bieren gevonden</p>
             <button
               onClick={clearFilters}
-              className="mt-4 text-amber-600 hover:text-amber-700 font-medium"
+              className="mt-4 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 font-medium"
             >
               Filters wissen
             </button>
