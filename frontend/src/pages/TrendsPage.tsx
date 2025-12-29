@@ -234,7 +234,7 @@ export default function TrendsPage() {
                             <TrendingUp className="w-4 h-4" />
                             <span className="text-lg">+{changePercent}%</span>
                           </div>
-                          <span className="text-xs text-gray-600">
+                          <span className="text-xs text-gray-600 dark:text-gray-300">
                             (+{beer.change.toFixed(3)} sterren)
                           </span>
                         </div>
@@ -308,7 +308,7 @@ export default function TrendsPage() {
                             <TrendingDown className="w-4 h-4" />
                             <span className="text-lg">-{changePercent}%</span>
                           </div>
-                          <span className="text-xs text-gray-600">
+                          <span className="text-xs text-gray-600 dark:text-gray-300">
                             ({beer.change.toFixed(3)} sterren)
                           </span>
                         </div>

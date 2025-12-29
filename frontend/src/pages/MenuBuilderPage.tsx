@@ -147,17 +147,17 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center">
         <div className="text-center">
           <Wine className="w-16 h-16 text-amber-600 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700">Menu Builder laden...</p>
+          <p className="text-xl text-gray-700 dark:text-gray-300">Menu Builder laden...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -165,10 +165,10 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-5xl font-bold text-gray-800 mb-4 font-heading">
+          <h1 className="text-5xl font-bold text-gray-800 dark:text-white mb-4 font-heading">
             🍺 Bier Menu Builder
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Stel je perfecte bier menu samen met slimme algoritmes!
           </p>
         </motion.div>
@@ -178,12 +178,12 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-amber-100"
+          className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-amber-100 dark:border-amber-900/30"
         >
           {/* Menu Size Slider */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800">Aantal Bieren</h3>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100">Aantal Bieren</h3>
               <span className="text-3xl font-bold text-amber-600">{menuSize}</span>
             </div>
             <input
@@ -197,7 +197,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
                 background: `linear-gradient(to right, rgb(245 158 11) 0%, rgb(249 115 22) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) 100%)`
               }}
             />
-            <div className="flex justify-between text-sm text-gray-600 mt-2">
+            <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-2">
               <span>3 bieren</span>
               <span>12 bieren</span>
             </div>
@@ -205,7 +205,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
 
           {/* Generation Mode */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Generatie Mode</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100 mb-4">Generatie Mode</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {GENERATION_MODES.map(modeOption => {
                 const Icon = modeOption.icon;
@@ -408,7 +408,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={handleGenerate}
-                className="mt-8 w-full py-4 bg-white/80 backdrop-blur-sm hover:bg-white rounded-xl font-semibold text-gray-800 transition-all shadow-lg border border-amber-200 flex items-center justify-center gap-2"
+                className="mt-8 w-full py-4 bg-white/80 dark:bg-amber-900/40 backdrop-blur-sm hover:bg-white dark:hover:bg-amber-900/60 rounded-xl font-semibold text-gray-800 dark:text-amber-100 transition-all shadow-lg border border-amber-200 dark:border-amber-900/30 flex items-center justify-center gap-2"
               >
                 <RefreshCw className="w-5 h-5" />
                 Genereer Nieuw Menu

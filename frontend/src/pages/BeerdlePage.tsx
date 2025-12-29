@@ -182,10 +182,10 @@ export default function BeerdlePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
           <Beer className="w-16 h-16 text-amber-600 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700">Beerdle laden...</p>
+          <p className="text-xl text-gray-700 dark:text-gray-300">Beerdle laden...</p>
         </div>
       </div>
     );
@@ -193,11 +193,11 @@ export default function BeerdlePage() {
 
   if (!gameState || !targetBeer) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 flex items-center justify-center p-4">
-        <div className="text-center bg-white rounded-2xl p-8 shadow-xl max-w-md">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4">
+        <div className="text-center bg-white dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 rounded-2xl p-8 shadow-xl max-w-md dark:border dark:border-amber-900/30">
           <Beer className="w-16 h-16 text-red-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Oeps!</h2>
-          <p className="text-gray-600 mb-4">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-2">Oeps!</h2>
+          <p className="text-gray-600 dark:text-amber-200/70 mb-4">
             Kon het spel niet laden. Probeer de pagina te verversen.
           </p>
           <button
@@ -214,7 +214,7 @@ export default function BeerdlePage() {
   const remainingGuesses = 6 - gameState.guesses.length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -342,8 +342,8 @@ export default function BeerdlePage() {
                     onClick={() => handleGuess(beer)}
                     className="w-full px-6 py-3 text-left hover:bg-amber-50 transition-colors border-b border-amber-100 last:border-b-0"
                   >
-                    <p className="font-semibold text-gray-800">{beer.name}</p>
-                    <p className="text-sm text-gray-600">{beer.brewery}</p>
+                    <p className="font-semibold text-gray-800 dark:text-amber-100">{beer.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-amber-200/70">{beer.brewery}</p>
                   </button>
                 ))}
               </div>
@@ -379,8 +379,8 @@ export default function BeerdlePage() {
 
                 {/* Beer Info */}
                 <div className="flex-1 min-w-0">
-                  <p className="font-bold text-gray-800 text-lg">{guess.beer.name}</p>
-                  <p className="text-sm text-gray-600">{guess.beer.brewery}</p>
+                  <p className="font-bold text-gray-800 dark:text-amber-100 text-lg">{guess.beer.name}</p>
+                  <p className="text-sm text-gray-600 dark:text-amber-200/70">{guess.beer.brewery}</p>
                   {guess.beer.category && (
                     <p className="text-xs text-gray-500 mt-1">
                       <span className="inline-block px-2 py-1 bg-gray-100 rounded-full">
@@ -502,9 +502,9 @@ export default function BeerdlePage() {
 
                   {/* Show target beer */}
                   <div className="bg-amber-50 rounded-xl p-6 mb-6">
-                    <p className="text-sm text-gray-600 mb-2">Het bier was:</p>
-                    <p className="text-2xl font-bold text-gray-800 mb-1">{targetBeer.name}</p>
-                    <p className="text-gray-600">{targetBeer.brewery}</p>
+                    <p className="text-sm text-gray-600 dark:text-amber-200/70 mb-2">Het bier was:</p>
+                    <p className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-1">{targetBeer.name}</p>
+                    <p className="text-gray-600 dark:text-amber-200/70">{targetBeer.brewery}</p>
                     <div className="flex justify-center gap-4 mt-4 text-sm">
                       <span>ABV: {targetBeer.abv?.toFixed(1)}%</span>
                       <span>Rating: {targetBeer.rating?.toFixed(2)}</span>
@@ -521,7 +521,7 @@ export default function BeerdlePage() {
                     </button>
                     <button
                       onClick={() => setShowResults(false)}
-                      className="flex-1 py-3 bg-gray-200 text-gray-800 rounded-xl font-semibold hover:bg-gray-300 transition-colors"
+                      className="flex-1 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-xl font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
                     >
                       Sluiten
                     </button>
