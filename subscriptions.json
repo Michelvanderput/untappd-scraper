@@ -1,0 +1,18 @@
+{
+  "subscriptions": [
+    {
+      "endpoint": "https://fcm.googleapis.com/fcm/send/csHCLuvt9KI:APA91bGDAE-BUhDl-eQorUEkBgMdXvwBcx2c9gp0tG0BK3NjLT6V7w3_hETUWLqioIK5_TG3yaF5wXpkgmbony1eyP4Wkc8FNrKpC6Gw9xMGgRLVIs-kV5tUeVZCbTcIjtO4M_qpfkhl",
+      "expirationTime": null,
+      "keys": {
+        "p256dh": "BBI_QdXDAeneHs94ZFujwEk2cMZbZWxxlts5eszMmxwgQZAAHTFC7_WQ59rid9g7_SW9vS_NGetuljcwAGy_MKo",
+        "auth": "mwoQ09bz6NAiSVLJFd1hwA"
+      },
+      "preferences": {
+        "newBeers": true,
+        "beerdleUpdate": true,
+        "beerdleReminder": true
+      },
+      "subscribedAt": "2025-12-29T10:17:51.694Z"
+    }
+  ]
+}
