@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, forwardRef } from 'react';
 import type { ReactNode } from 'react';
 import gsap from 'gsap';
 import { ANIMATION_CONFIG } from '../utils/animations';
@@ -10,8 +10,9 @@ interface CardProps {
   hoverable?: boolean;
 }
 
-export default function Card({ children, className = '', onClick, hoverable = false }: CardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
+const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className = '', onClick, hoverable = false }, ref) => {
+  const internalRef = useRef<HTMLDivElement>(null);
+  const cardRef = (ref as React.RefObject<HTMLDivElement>) || internalRef;
 
   useEffect(() => {
     if (!hoverable || !cardRef.current) return;
@@ -57,4 +58,8 @@ export default function Card({ children, className = '', onClick, hoverable = fa
       {children}
     </div>
   );
-}
+});
+
+Card.displayName = 'Card';
+
+export default Card;

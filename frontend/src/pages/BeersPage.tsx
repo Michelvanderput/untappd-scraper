@@ -1,15 +1,13 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Beer, Search, Filter, X } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
 import BeerModal from '../components/BeerModal';
+import Card from '../components/Card';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
 import SEO from '../components/SEO';
-
-gsap.registerPlugin(ScrollTrigger);
+import { animatePageHeader, animateFadeIn, animateGrid } from '../utils/animations';
 
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
@@ -31,77 +29,28 @@ export default function BeersPage() {
   // Animate header on mount
   useEffect(() => {
     if (headerRef.current && !loading) {
-      const timeline = gsap.timeline();
-      
-      timeline
-        .fromTo(
-          headerRef.current.querySelector('h1'),
-          { opacity: 0, y: -30, scale: 0.9 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.4)' }
-        )
-        .fromTo(
-          headerRef.current.querySelector('.divider'),
-          { scaleX: 0 },
-          { scaleX: 1, duration: 0.6, ease: 'power3.out' },
-          '-=0.4'
-        )
-        .fromTo(
-          headerRef.current.querySelector('p'),
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-          '-=0.3'
-        );
+      animatePageHeader(headerRef.current);
     }
   }, [loading]);
 
   // Animate search bar on mount
   useEffect(() => {
     if (searchRef.current && !loading) {
-      gsap.fromTo(
-        searchRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, delay: 0.3, ease: 'power3.out' }
-      );
+      animateFadeIn(searchRef.current, 0.3);
     }
   }, [loading]);
 
   // Animate grid on mount
   useEffect(() => {
     if (gridRef.current && !loading) {
-      const cards = gridRef.current.children;
-      
-      gsap.fromTo(
-        cards,
-        { opacity: 0, y: 30, scale: 0.95 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          scale: 1, 
-          duration: 0.5, 
-          stagger: 0.03,
-          ease: 'power3.out',
-          clearProps: 'all'
-        }
-      );
+      animateGrid(gridRef.current);
     }
   }, [filteredBeers, loading, displayCount]);
 
   // Animate filter panel
   useEffect(() => {
-    if (filterRef.current) {
-      if (showFilters) {
-        gsap.fromTo(
-          filterRef.current,
-          { height: 0, opacity: 0 },
-          { height: 'auto', opacity: 1, duration: 0.4, ease: 'power2.out' }
-        );
-        
-        gsap.fromTo(
-          filterRef.current.querySelectorAll('.filter-item'),
-          { x: -20, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.3, stagger: 0.1, delay: 0.1, ease: 'power2.out' }
-        );
-      }
+    if (filterRef.current && showFilters) {
+      animateFadeIn(filterRef.current, 0.1);
     }
   }, [showFilters]);
 
@@ -300,10 +249,7 @@ export default function BeersPage() {
         </div>
 
         {/* Search and Filters */}
-        <div
-          ref={searchRef}
-          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-8 border border-amber-100 dark:border-gray-700"
-        >
+        <Card className="p-6 mb-8" ref={searchRef}>
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             {/* Search */}
             <div className="flex-1 relative">
@@ -389,7 +335,7 @@ export default function BeersPage() {
               )}
             </div>
           )}
-        </div>
+        </Card>
 
         {/* Beer Grid */}
         <div
