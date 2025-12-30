@@ -1,6 +1,8 @@
+import { useRef, useEffect } from 'react';
 import { Beer, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import gsap from 'gsap';
 import type { BeerData } from '../types/beer';
+import { haptics } from '../utils/haptic';
 
 interface BeerCardProps {
   beer: BeerData;
@@ -10,19 +12,109 @@ interface BeerCardProps {
 }
 
 export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }: BeerCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement | HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+
+    const card = cardRef.current;
+
+    const handleMouseEnter = () => {
+      gsap.to(card, {
+        y: -8,
+        scale: 1.02,
+        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+      
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          scale: 1.1,
+          rotation: 5,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      }
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        y: 0,
+        scale: 1,
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+      
+      if (imageRef.current) {
+        gsap.to(imageRef.current, {
+          scale: 1,
+          rotation: 0,
+          duration: 0.3,
+          ease: 'power2.out',
+        });
+      }
+    };
+
+    const handleTouchStart = () => {
+      haptics.tap();
+      gsap.to(card, {
+        scale: 0.98,
+        duration: 0.1,
+        ease: 'power2.in',
+      });
+    };
+
+    const handleTouchEnd = () => {
+      gsap.to(card, {
+        scale: 1,
+        duration: 0.2,
+        ease: 'elastic.out(1, 0.5)',
+      });
+    };
+
+    card.addEventListener('mouseenter', handleMouseEnter);
+    card.addEventListener('mouseleave', handleMouseLeave);
+    card.addEventListener('touchstart', handleTouchStart);
+    card.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      card.removeEventListener('mouseenter', handleMouseEnter);
+      card.removeEventListener('mouseleave', handleMouseLeave);
+      card.removeEventListener('touchstart', handleTouchStart);
+      card.removeEventListener('touchend', handleTouchEnd);
+      gsap.killTweensOf(card);
+      if (imageRef.current) {
+        gsap.killTweensOf(imageRef.current);
+      }
+    };
+  }, []);
+
+  const handleClick = () => {
+    haptics.select();
+    onClick();
+  };
+
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (onToggleFavorite) {
+      haptics.favorite();
+      onToggleFavorite();
+    }
+  };
+
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      onClick={onClick}
+    <div
+      ref={cardRef}
+      onClick={handleClick}
       className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-xl shadow-md hover:shadow-2xl transition-all cursor-pointer p-6 border border-amber-100/50 dark:border-amber-900/30 relative group"
     >
       {onToggleFavorite && (
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleFavorite();
-          }}
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 dark:bg-amber-950/60 hover:bg-white dark:hover:bg-amber-950/80 transition-colors"
+          onClick={handleFavoriteClick}
+          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 dark:bg-amber-950/60 hover:bg-white dark:hover:bg-amber-950/80 transition-all active:scale-90"
         >
           <Star
             className={`w-5 h-5 transition-colors ${
@@ -35,13 +127,17 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       <div className="flex gap-4">
         {beer.image_url ? (
           <img
+            ref={imageRef as React.RefObject<HTMLImageElement>}
             src={beer.image_url}
             alt={beer.name}
             loading="lazy"
-            className="w-20 h-20 object-contain flex-shrink-0"
+            className="w-20 h-20 object-contain flex-shrink-0 transition-transform"
           />
         ) : (
-          <div className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 rounded-lg flex items-center justify-center flex-shrink-0">
+          <div
+            ref={imageRef as React.RefObject<HTMLDivElement>}
+            className="w-20 h-20 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 rounded-lg flex items-center justify-center flex-shrink-0 transition-transform"
+          >
             <Beer className="w-10 h-10 text-amber-600 dark:text-amber-500" />
           </div>
         )}
@@ -72,6 +168,6 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

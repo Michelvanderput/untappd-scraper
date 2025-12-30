@@ -35,6 +35,7 @@ export function triggerHaptic(type: HapticType = 'light'): void {
  */
 export const haptics = {
   // UI interactions
+  light: () => triggerHaptic('light'),
   tap: () => triggerHaptic('light'),
   select: () => triggerHaptic('medium'),
   toggle: () => triggerHaptic('medium'),

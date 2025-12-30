@@ -6,7 +6,8 @@
   "display": "standalone",
   "background_color": "#fffbeb",
   "theme_color": "#d97706",
-  "orientation": "portrait-primary",
+  "orientation": "any",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "icons": [
     {
       "src": "/icon-192.png",

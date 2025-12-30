@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import gsap from 'gsap';
 import BeersPage from './pages/BeersPage';
 import TrendsPage from './pages/TrendsPage';
 import MenuBuilderPage from './pages/MenuBuilderPage';
@@ -12,11 +13,14 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import ThemeToggle from './components/ThemeToggle';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
+import { haptics } from './utils/haptic';
 import './App.css';
 
 function Navigation() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
@@ -28,11 +32,39 @@ function Navigation() {
   ];
 
   const handleNavClick = () => {
+    haptics.light();
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    if (navRef.current) {
+      gsap.fromTo(
+        navRef.current,
+        { y: -100, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      if (isMenuOpen) {
+        gsap.fromTo(
+          menuRef.current,
+          { height: 0, opacity: 0 },
+          { height: 'auto', opacity: 1, duration: 0.3, ease: 'power2.out' }
+        );
+        gsap.fromTo(
+          menuRef.current.querySelectorAll('a'),
+          { x: -20, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.3, stagger: 0.05, ease: 'power2.out' }
+        );
+      }
+    }
+  }, [isMenuOpen]);
+
   return (
-    <nav className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors">
+    <nav ref={navRef} className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors">
       <div className="w-full">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-16 px-4 md:hidden">
@@ -49,8 +81,11 @@ function Navigation() {
             </Link>
             <ThemeToggle />
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              onClick={() => {
+                haptics.light();
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-6 h-6 text-gray-900 dark:text-white" /> : <Menu className="w-6 h-6 text-gray-900 dark:text-white" />}
@@ -88,6 +123,7 @@ function Navigation() {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
+              ref={menuRef}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -100,7 +136,7 @@ function Navigation() {
                     key={path}
                     to={path}
                     onClick={handleNavClick}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all ${
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all active:scale-95 ${
                       isActive(path)
                         ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
