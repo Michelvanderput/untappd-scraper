@@ -238,12 +238,12 @@ export default function BeersPage() {
         <div className="container mx-auto px-4 py-8 max-w-7xl">
 
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-16">
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-heading">
+        <div ref={headerRef} className="text-center mb-16" style={{ opacity: 1 }}>
+          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-heading" style={{ opacity: 1 }}>
             Bier <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Menu</span>
           </h1>
-          <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" />
-          <p className="text-2xl text-gray-600 dark:text-gray-300 font-medium">
+          <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" style={{ opacity: 1 }} />
+          <p className="text-2xl text-gray-600 dark:text-gray-300 font-medium" style={{ opacity: 1 }}>
             {filteredBeers.length} unieke bieren beschikbaar
           </p>
         </div>

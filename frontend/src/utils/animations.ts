@@ -22,7 +22,7 @@ export const ANIMATION_CONFIG = {
   },
 };
 
-// Page header animation
+// Page header animation - subtle, no layout shift
 export const animatePageHeader = (element: HTMLElement) => {
   const timeline = gsap.timeline();
   
@@ -30,11 +30,12 @@ export const animatePageHeader = (element: HTMLElement) => {
   const divider = element.querySelector('.divider');
   const subtitle = element.querySelector('p');
   
+  // Subtle fade in only, no position changes to prevent layout shift
   if (title) {
     timeline.fromTo(
       title,
-      { opacity: 0, y: -20 },
-      { opacity: 1, y: 0, duration: ANIMATION_CONFIG.duration.slow, ease: ANIMATION_CONFIG.ease.smooth }
+      { opacity: 0.8 },
+      { opacity: 1, duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth }
     );
   }
   
@@ -43,30 +44,29 @@ export const animatePageHeader = (element: HTMLElement) => {
       divider,
       { scaleX: 0 },
       { scaleX: 1, duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth },
-      '-=0.3'
+      '-=0.2'
     );
   }
   
   if (subtitle) {
     timeline.fromTo(
       subtitle,
-      { opacity: 0, y: 10 },
-      { opacity: 1, y: 0, duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth },
-      '-=0.2'
+      { opacity: 0.8 },
+      { opacity: 1, duration: ANIMATION_CONFIG.duration.normal, ease: ANIMATION_CONFIG.ease.smooth },
+      '-=0.15'
     );
   }
   
   return timeline;
 };
 
-// Fade in animation
+// Fade in animation - subtle, no layout shift
 export const animateFadeIn = (element: HTMLElement, delay = 0) => {
   return gsap.fromTo(
     element,
-    { opacity: 0, y: 20 },
+    { opacity: 0.8 },
     { 
       opacity: 1, 
-      y: 0, 
       duration: ANIMATION_CONFIG.duration.normal, 
       delay,
       ease: ANIMATION_CONFIG.ease.smooth 
@@ -74,16 +74,15 @@ export const animateFadeIn = (element: HTMLElement, delay = 0) => {
   );
 };
 
-// Grid stagger animation
+// Grid stagger animation - subtle, no layout shift
 export const animateGrid = (container: HTMLElement) => {
   const items = container.children;
   
   return gsap.fromTo(
     items,
-    { opacity: 0, y: 20 },
+    { opacity: 0.5 },
     { 
       opacity: 1, 
-      y: 0, 
       duration: ANIMATION_CONFIG.duration.normal,
       stagger: ANIMATION_CONFIG.stagger.fast,
       ease: ANIMATION_CONFIG.ease.smooth,
