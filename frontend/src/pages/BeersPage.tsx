@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { Beer, Search, Filter, X } from 'lucide-react';
+import { Beer, Search, Filter, X, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
 import BeerModal from '../components/BeerModal';
-import Card from '../components/Card';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
 import SEO from '../components/SEO';
@@ -222,7 +222,7 @@ export default function BeersPage() {
       <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
           <Beer className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700 dark:text-gray-300">Bieren laden...</p>
+          <p className="text-xl text-gray-700 dark:text-gray-300 font-heading">Bieren laden...</p>
         </div>
       </div>
     );
@@ -235,162 +235,211 @@ export default function BeersPage() {
         description={selectedBeer ? `${selectedBeer.name} - ${selectedBeer.category} | ${selectedBeer.subcategory || ''} | ABV: ${selectedBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
       />
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="container mx-auto px-4 py-8 max-w-7xl">
-
-        {/* Header */}
-        <div ref={headerRef} className="text-center mb-16" style={{ opacity: 1 }}>
-          <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 font-heading" style={{ opacity: 1 }}>
-            Bier <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Menu</span>
-          </h1>
-          <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full" style={{ opacity: 1 }} />
-          <p className="text-2xl text-gray-600 dark:text-gray-300 font-medium" style={{ opacity: 1 }}>
-            {filteredBeers.length} unieke bieren beschikbaar
-          </p>
+        {/* Abstract Background Elements */}
+        <div className="fixed inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-200/20 dark:bg-amber-900/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }} />
         </div>
 
-        {/* Search and Filters */}
-        <Card className="p-6 mb-8" ref={searchRef}>
-          <div className="flex flex-col md:flex-row gap-4 mb-4">
-            {/* Search */}
-            <div className="flex-1 relative">
-              <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
-                isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400 dark:text-gray-500'
-              }`} />
-              <input
-                type="text"
-                placeholder="Zoek op naam, brouwerij of stijl..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white transition-all"
-              />
-              {isSearching && (
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                  <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-                </div>
-              )}
+        <div className="container mx-auto px-4 py-8 max-w-7xl relative z-10">
+          {/* Header */}
+          <div ref={headerRef} className="text-center mb-12 opacity-0">
+            <h1 className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-6 font-heading tracking-tight">
+              Bier <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Menu</span>
+            </h1>
+            <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full shadow-lg shadow-amber-500/20" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-md rounded-full border border-amber-100 dark:border-gray-700">
+              <Sparkles className="w-4 h-4 text-amber-500" />
+              <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
+                {filteredBeers.length} unieke bieren beschikbaar
+              </p>
             </div>
-
-            {/* Filter Toggle */}
-            <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-amber-600 text-white rounded-xl hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 transition-all shadow-md active:scale-95"
-            >
-              <Filter className="w-5 h-5" />
-              <span className="font-semibold">Filters</span>
-            </button>
           </div>
 
-          {/* Filters */}
-          {showFilters && (
-            <div
-              ref={filterRef}
-              className="grid md:grid-cols-2 gap-4 pt-4 border-t border-amber-100 dark:border-gray-700 overflow-hidden"
-            >
-              <div className="filter-item">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Categorie
-                </label>
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => {
-                    setSelectedCategory(e.target.value);
-                    setSelectedSubcategory('');
-                  }}
-                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
-                >
-                  <option value="">Alle categorieën</option>
-                  {categories.map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
-                  ))}
-                </select>
+          {/* Search and Filters */}
+          <div 
+            ref={searchRef} 
+            className="glass-panel rounded-2xl p-6 mb-12 opacity-0 relative overflow-hidden"
+          >
+            {/* Decorative gradient */}
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50" />
+
+            <div className="flex flex-col md:flex-row gap-4 mb-4">
+              {/* Search */}
+              <div className="flex-1 relative group">
+                <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
+                  isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400 dark:text-gray-500 group-focus-within:text-amber-500'
+                }`} />
+                <input
+                  type="text"
+                  placeholder="Zoek op naam, brouwerij of stijl..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 text-gray-900 dark:text-white text-lg"
+                />
+                {isSearching && (
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                    <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
               </div>
 
-              <div className="filter-item">
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subcategorie
-                </label>
-                <select
-                  value={selectedSubcategory}
-                  onChange={(e) => setSelectedSubcategory(e.target.value)}
-                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white disabled:opacity-50"
-                  disabled={!selectedCategory}
-                >
-                  <option value="">Alle subcategorieën</option>
-                  {subcategories.map(sub => (
-                    <option key={sub} value={sub}>{sub}</option>
-                  ))}
-                </select>
-              </div>
+              {/* Filter Toggle */}
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setShowFilters(!showFilters)}
+                className={`flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all shadow-lg ${
+                  showFilters
+                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-2 ring-amber-500 ring-inset'
+                    : 'bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:shadow-amber-500/30'
+                }`}
+              >
+                <Filter className={`w-5 h-5 ${showFilters ? 'rotate-180' : ''} transition-transform duration-300`} />
+                <span>Filters</span>
+              </motion.button>
+            </div>
 
-              {(searchTerm || selectedCategory || selectedSubcategory) && (
-                <div className="md:col-span-2 filter-item">
-                  <button
-                    onClick={clearFilters}
-                    className="flex items-center gap-2 px-4 py-2 min-h-[44px] text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium active:scale-95 transition-transform"
-                  >
-                    <X className="w-5 h-5" />
-                    Alle filters wissen
-                  </button>
-                </div>
+            {/* Filters Panel */}
+            <AnimatePresence>
+              {showFilters && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-gray-200 dark:border-gray-700/50">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                        Categorie
+                      </label>
+                      <div className="relative">
+                        <select
+                          value={selectedCategory}
+                          onChange={(e) => {
+                            setSelectedCategory(e.target.value);
+                            setSelectedSubcategory('');
+                          }}
+                          className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none appearance-none text-gray-900 dark:text-white"
+                        >
+                          <option value="">Alle categorieën</option>
+                          {categories.map(cat => (
+                            <option key={cat} value={cat}>{cat}</option>
+                          ))}
+                        </select>
+                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                          ▼
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
+                        Subcategorie
+                      </label>
+                      <div className="relative">
+                        <select
+                          value={selectedSubcategory}
+                          onChange={(e) => setSelectedSubcategory(e.target.value)}
+                          className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none appearance-none text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                          disabled={!selectedCategory}
+                        >
+                          <option value="">Alle subcategorieën</option>
+                          {subcategories.map(sub => (
+                            <option key={sub} value={sub}>{sub}</option>
+                          ))}
+                        </select>
+                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
+                          ▼
+                        </div>
+                      </div>
+                    </div>
+
+                    {(searchTerm || selectedCategory || selectedSubcategory) && (
+                      <div className="md:col-span-2 flex justify-end">
+                        <button
+                          onClick={clearFilters}
+                          className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
+                        >
+                          <X className="w-4 h-4" />
+                          Alles wissen
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
               )}
+            </AnimatePresence>
+          </div>
+
+          {/* Beer Grid */}
+          <div
+            ref={gridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
+          >
+            {displayedBeers.map((beer) => (
+              <div key={beer.beer_url} className="h-full">
+                <BeerCard
+                  beer={beer}
+                  onClick={() => handleBeerClick(beer)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Loading More Indicator */}
+          {hasMore && (
+            <div ref={loadMoreRef} className="flex justify-center py-12">
+              <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3">
+                <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+                <span className="text-gray-600 dark:text-gray-300 font-medium">Meer bieren laden...</span>
+              </div>
             </div>
           )}
-        </Card>
 
-        {/* Beer Grid */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
-        >
-          {displayedBeers.map((beer) => (
-            <div key={beer.beer_url}>
-              <BeerCard
-                beer={beer}
-                onClick={() => handleBeerClick(beer)}
-              />
+          {/* End of List */}
+          {!hasMore && filteredBeers.length > 0 && (
+            <div className="text-center py-12">
+              <div className="inline-flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
+                <Beer className="w-8 h-8 opacity-50" />
+                <p className="font-medium">Dat waren ze allemaal!</p>
+              </div>
             </div>
-          ))}
-        </div>
+          )}
 
-        {/* Loading More Indicator */}
-        {hasMore && (
-          <div ref={loadMoreRef} className="text-center py-8">
-            <div className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400">
-              <div className="w-6 h-6 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-              <span>Meer bieren laden...</span>
-            </div>
-          </div>
-        )}
-
-        {/* End of List */}
-        {!hasMore && filteredBeers.length > 0 && (
-          <div className="text-center py-8 text-gray-600 dark:text-gray-400">
-            <p>Je hebt alle {filteredBeers.length} bieren gezien! 🍺</p>
-          </div>
-        )}
-
-        {filteredBeers.length === 0 && (
-          <div className="text-center py-12">
-            <Beer className="w-16 h-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-            <p className="text-xl text-gray-600 dark:text-gray-400">Geen bieren gevonden</p>
-            <button
-              onClick={clearFilters}
-              className="mt-4 text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 font-medium active:scale-95 transition-transform"
+          {/* Empty State */}
+          {filteredBeers.length === 0 && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center py-20"
             >
-              Filters wissen
-            </button>
-          </div>
-        )}
+              <div className="w-24 h-24 bg-amber-100 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Search className="w-10 h-10 text-amber-600 dark:text-amber-500" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-heading">Geen bieren gevonden</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+                We konden geen bieren vinden die aan je criteria voldoen. Probeer een andere zoekopdracht of filter.
+              </p>
+              <button
+                onClick={clearFilters}
+                className="btn-primary"
+              >
+                Filters wissen
+              </button>
+            </motion.div>
+          )}
+        </div>
       </div>
-    </div>
 
-    {/* Beer Modal */}
-    <BeerModal
-      beer={selectedBeer}
-      allBeers={filteredBeers}
-      onClose={handleModalClose}
-      onNavigate={handleModalNavigate}
-    />
+      {/* Beer Modal */}
+      <BeerModal
+        beer={selectedBeer}
+        allBeers={filteredBeers}
+        onClose={handleModalClose}
+        onNavigate={handleModalNavigate}
+      />
     </>
   );
 }

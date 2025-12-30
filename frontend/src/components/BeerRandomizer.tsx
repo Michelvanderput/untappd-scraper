@@ -16,8 +16,8 @@ const REVEAL_STEPS: RevealStep[] = ['style', 'abv', 'ibu', 'rating', 'category',
 const MODES = [
   { id: 'all' as RandomizerMode, label: 'Alles', icon: Shuffle, color: 'from-amber-500 to-orange-500' },
   { id: 'top-rated' as RandomizerMode, label: 'Top Rated', icon: Star, color: 'from-yellow-500 to-amber-500' },
-  { id: 'high-abv' as RandomizerMode, label: 'High ABV', icon: Flame, color: 'from-red-500 to-orange-500' },
-  { id: 'low-abv' as RandomizerMode, label: 'Pussy', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
+  { id: 'high-abv' as RandomizerMode, label: 'Sterk', icon: Flame, color: 'from-red-500 to-orange-500' },
+  { id: 'low-abv' as RandomizerMode, label: 'Licht', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
   { id: 'high-ibu' as RandomizerMode, label: 'Bitter', icon: Zap, color: 'from-green-500 to-emerald-500' },
 ];
 
@@ -85,7 +85,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     const finalIndex = Math.floor(Math.random() * filteredBeers.length);
     const finalBeer = filteredBeers[finalIndex];
     
-    // Reset state and set beer FIRST
+    // Reset state
     setRevealedSteps(new Set());
     setCurrentBeer(finalBeer);
     
@@ -96,7 +96,6 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     
     const completeRandomization = () => {
       setHistory(prev => {
-        // Ensure we add the correct final beer to history
         const newHistory = [finalBeer, ...prev.filter(b => b.beer_url !== finalBeer.beer_url).slice(0, 4)];
         return newHistory;
       });
@@ -120,15 +119,15 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         ease: 'power2.out'
       });
       
-      // Reveal each step sequentially with MAXIMUM suspense
+      // Reveal each step sequentially
       REVEAL_STEPS.forEach((step, index) => {
         tl.call(() => {
           setRevealedSteps(prev => new Set([...prev, step]));
-        }, [], 1.0 + index * 0.8);
+        }, [], 0.5 + index * 0.4);
       });
       
       // Dramatic pause before final bounce
-      tl.to({}, { duration: 0.5 });
+      tl.to({}, { duration: 0.2 });
       
       // Final bounce
       tl.to(randomBeerRef.current, {
@@ -145,9 +144,9 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   };
 
   return (
-    <div className="space-y-6">
-      {/* Mode Selection */}
-      <div className="flex flex-wrap gap-3 justify-center">
+    <div className="space-y-8">
+      {/* Mode Selection - Scrollable on mobile */}
+      <div className="flex flex-wrap md:justify-center gap-3 overflow-x-auto pb-4 md:pb-0 px-2 -mx-2 no-scrollbar touch-pan-x">
         {MODES.map((m) => {
           const Icon = m.icon;
           const isActive = mode === m.id;
@@ -157,10 +156,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setMode(m.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
+              className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
                 isActive
-                  ? `bg-gradient-to-r ${m.color} text-white shadow-lg`
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                  ? `bg-gradient-to-r ${m.color} text-white shadow-lg shadow-orange-500/20`
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -177,22 +176,24 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
           whileTap={{ scale: isRandomizing ? 1 : 0.95 }}
           onClick={randomizeBeer}
           disabled={isRandomizing}
-          className={`relative flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl font-bold text-lg transition-all shadow-2xl ${
+          className={`relative group flex items-center gap-3 px-8 py-5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl font-bold text-xl transition-all shadow-2xl ${
             isRandomizing 
               ? 'opacity-75 cursor-not-allowed animate-pulse' 
               : 'hover:shadow-amber-500/50 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700'
           }`}
         >
-          <Shuffle className={`w-6 h-6 ${isRandomizing ? 'animate-spin' : ''}`} />
-          {isRandomizing ? '🎲 Aan het randomizen...' : '🎰 Verras Me!'}
+          <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          <Shuffle className={`w-7 h-7 ${isRandomizing ? 'animate-spin' : ''}`} />
+          <span>{isRandomizing ? 'Aan het zoeken...' : 'Verras Me!'}</span>
+          
           {showConfetti && (
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{ type: 'spring', stiffness: 300 }}
-              className="absolute -top-2 -right-2"
+              className="absolute -top-3 -right-3 bg-white text-yellow-500 p-2 rounded-full shadow-lg"
             >
-              <Sparkles className="w-6 h-6 text-yellow-300 animate-pulse" />
+              <Sparkles className="w-5 h-5 animate-pulse" />
             </motion.div>
           )}
         </motion.button>
@@ -211,14 +212,14 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-gradient-to-br from-white to-amber-50/50 dark:from-gray-800 dark:to-gray-900 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border-4 border-amber-400 dark:border-amber-600 relative overflow-hidden"
+            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden max-w-2xl mx-auto"
           >
             {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 to-orange-400/10 pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-orange-400/5 pointer-events-none" />
             
-            <div className="relative flex flex-col md:flex-row gap-8">
+            <div className="relative flex flex-col md:flex-row gap-8 items-center md:items-start">
               {/* Beer Image */}
-              <div className="flex-shrink-0 mx-auto md:mx-0">
+              <div className="flex-shrink-0 relative">
                 <AnimatePresence mode="wait">
                   {revealedSteps.has('image') ? (
                     currentBeer.image_url ? (
@@ -229,7 +230,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                         src={currentBeer.image_url}
                         alt={currentBeer.name}
-                        className="w-48 h-48 object-contain rounded-lg"
+                        className="w-48 h-48 md:w-56 md:h-56 object-contain drop-shadow-2xl"
                       />
                     ) : (
                       <motion.div
@@ -237,210 +238,134 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                        className="w-48 h-48 bg-gradient-to-br from-amber-200 to-orange-200 rounded-lg flex items-center justify-center"
+                        className="w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-inner"
                       >
-                        <BeerIcon className="w-24 h-24 text-amber-600" />
+                        <BeerIcon className="w-24 h-24 text-amber-600/50" />
                       </motion.div>
                     )
                   ) : (
-                    <div
+                    <motion.div
                       key={`hidden-${currentBeer.beer_url}`}
-                      className="w-48 h-48 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="w-48 h-48 md:w-56 md:h-56 bg-gray-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center animate-pulse"
                     >
-                      <div className="text-6xl">❓</div>
-                    </div>
+                      <div className="text-6xl animate-bounce">❓</div>
+                    </motion.div>
                   )}
                 </AnimatePresence>
               </div>
 
               {/* Beer Info */}
-              <div className="flex-1">
+              <div className="flex-1 w-full text-center md:text-left">
                 <AnimatePresence mode="wait">
                   {revealedSteps.has('name') ? (
                     <motion.div
                       key={`name-${currentBeer.beer_url}`}
-                      initial={{ x: -20, opacity: 0, scale: 0.9 }}
-                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      initial={{ x: -20, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
                       transition={{ type: 'spring', stiffness: 300 }}
                     >
-                      <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-2 font-heading">
+                      <h2 className="text-3xl md:text-4xl font-heading text-gray-900 dark:text-white mb-2 leading-tight">
                         {currentBeer.name}
                       </h2>
                       {currentBeer.brewery && (
-                        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6 font-medium">
                           {currentBeer.brewery}
                         </p>
                       )}
                     </motion.div>
                   ) : (
-                    <div key={`name-hidden-${currentBeer.beer_url}`}>
-                      <div className="h-12 bg-gray-200 dark:bg-gray-700 rounded-lg mb-2 animate-pulse" />
-                      <div className="h-7 bg-gray-200 dark:bg-gray-700 rounded-lg mb-6 animate-pulse w-3/4" />
+                    <div key={`name-hidden-${currentBeer.beer_url}`} className="w-full">
+                      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-xl mb-3 animate-pulse w-3/4 mx-auto md:mx-0" />
+                      <div className="h-6 bg-gray-100 dark:bg-gray-800 rounded-lg mb-8 animate-pulse w-1/2 mx-auto md:mx-0" />
                     </div>
                   )}
                 </AnimatePresence>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-2 gap-4 mb-6">
                   {/* Style */}
-                  {currentBeer.style && (
-                    <AnimatePresence mode="wait">
-                      {revealedSteps.has('style') ? (
+                  <AnimatePresence mode="wait">
+                    {revealedSteps.has('style') ? (
                         <motion.div
-                          key={`style-${currentBeer.beer_url}`}
-                          initial={{ scale: 0, rotate: -10 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-3 border border-amber-100 dark:border-gray-600"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-3 border border-gray-100 dark:border-gray-700"
                         >
-                          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Stijl</p>
-                          <p className="font-semibold text-gray-800 dark:text-white text-sm">{currentBeer.style}</p>
+                          <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Stijl</p>
+                          <p className="font-semibold text-gray-900 dark:text-white text-sm line-clamp-2">{currentBeer.style || currentBeer.category}</p>
                         </motion.div>
-                      ) : (
-                        <div
-                          key={`style-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
-                        >
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Stijl</p>
-                          <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                  
-                  {/* ABV */}
-                  {currentBeer.abv !== null && (
-                    <AnimatePresence mode="wait">
-                      {revealedSteps.has('abv') ? (
-                        <motion.div
-                          key={`abv-${currentBeer.beer_url}`}
-                          initial={{ scale: 0, rotate: -10 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl p-3 border border-amber-200"
-                        >
-                          <p className="text-xs text-amber-700 mb-1">ABV</p>
-                          <p className="font-bold text-amber-900 text-lg">{currentBeer.abv}%</p>
-                        </motion.div>
-                      ) : (
-                        <div
-                          key={`abv-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
-                        >
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">ABV</p>
-                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                  
-                  {/* IBU */}
-                  {currentBeer.ibu !== null && (
-                    <AnimatePresence mode="wait">
-                      {revealedSteps.has('ibu') ? (
-                        <motion.div
-                          key={`ibu-${currentBeer.beer_url}`}
-                          initial={{ scale: 0, rotate: -10 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-gradient-to-br from-green-100 to-emerald-100 rounded-xl p-3 border border-green-200"
-                        >
-                          <p className="text-xs text-green-700 mb-1">IBU</p>
-                          <p className="font-bold text-green-900 text-lg">{currentBeer.ibu}</p>
-                        </motion.div>
-                      ) : (
-                        <div
-                          key={`ibu-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
-                        >
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">IBU</p>
-                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                  
+                    ) : (
+                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
+                    )}
+                  </AnimatePresence>
+
                   {/* Rating */}
-                  {currentBeer.rating !== null && (
-                    <AnimatePresence mode="wait">
-                      {revealedSteps.has('rating') ? (
+                  <AnimatePresence mode="wait">
+                    {revealedSteps.has('rating') ? (
                         <motion.div
-                          key={`rating-${currentBeer.beer_url}`}
-                          initial={{ scale: 0, rotate: -10 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-gradient-to-br from-yellow-100 to-amber-100 rounded-xl p-3 border border-yellow-200"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-3 border border-yellow-100 dark:border-yellow-900/30"
                         >
-                          <p className="text-xs text-yellow-700 mb-1">Rating</p>
-                          <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-yellow-600 fill-yellow-600" />
-                            <p className="font-bold text-yellow-900 text-lg">
-                              {currentBeer.rating.toFixed(2)}
+                          <p className="text-xs text-yellow-700 dark:text-yellow-500 uppercase tracking-wider mb-1">Rating</p>
+                          <div className="flex items-center justify-center md:justify-start gap-1">
+                            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                            <p className="font-bold text-gray-900 dark:text-white">
+                              {currentBeer.rating?.toFixed(2) || 'N/A'}
                             </p>
                           </div>
                         </motion.div>
-                      ) : (
-                        <div
-                          key={`rating-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
-                        >
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Rating</p>
-                          <div className="h-7 bg-gray-300 dark:bg-gray-600 rounded" />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                  
-                  {/* Category */}
-                  {currentBeer.category && (
-                    <AnimatePresence mode="wait">
-                      {revealedSteps.has('category') ? (
-                        <motion.div
-                          key={`category-${currentBeer.beer_url}`}
-                          initial={{ scale: 0, rotate: -10 }}
-                          animate={{ scale: 1, rotate: 0 }}
-                          transition={{ type: 'spring', stiffness: 300 }}
-                          className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl p-3 border border-purple-200"
-                        >
-                          <p className="text-xs text-purple-700 mb-1">Categorie</p>
-                          <p className="font-bold text-purple-900 text-sm">{currentBeer.category}</p>
-                        </motion.div>
-                      ) : (
-                        <div
-                          key={`category-hidden-${currentBeer.beer_url}`}
-                          className="bg-gray-200 dark:bg-gray-700 rounded-xl p-3 animate-pulse"
-                        >
-                          <p className="text-xs text-gray-400 dark:text-gray-500 mb-1">Categorie</p>
-                          <div className="h-5 bg-gray-300 dark:bg-gray-600 rounded" />
-                        </div>
-                      )}
-                    </AnimatePresence>
-                  )}
-                </div>
+                    ) : (
+                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
+                    )}
+                  </AnimatePresence>
 
-                {currentBeer.subcategory && (
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5 }}
-                    className="mb-4"
-                  >
-                    <span className="inline-block bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium border border-amber-200">
-                      {currentBeer.subcategory}
-                    </span>
-                  </motion.div>
-                )}
+                  {/* ABV */}
+                  <AnimatePresence mode="wait">
+                    {revealedSteps.has('abv') ? (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3 border border-amber-100 dark:border-amber-900/30"
+                        >
+                          <p className="text-xs text-amber-700 dark:text-amber-500 uppercase tracking-wider mb-1">ABV</p>
+                          <p className="font-bold text-gray-900 dark:text-white">{currentBeer.abv}%</p>
+                        </motion.div>
+                    ) : (
+                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
+                    )}
+                  </AnimatePresence>
+
+                  {/* IBU */}
+                  <AnimatePresence mode="wait">
+                    {revealedSteps.has('ibu') ? (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="bg-green-50 dark:bg-green-900/20 rounded-xl p-3 border border-green-100 dark:border-green-900/30"
+                        >
+                          <p className="text-xs text-green-700 dark:text-green-500 uppercase tracking-wider mb-1">IBU</p>
+                          <p className="font-bold text-gray-900 dark:text-white">{currentBeer.ibu || 'N/A'}</p>
+                        </motion.div>
+                    ) : (
+                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
+                    )}
+                  </AnimatePresence>
+                </div>
 
                 <motion.a
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.6 }}
+                  transition={{ delay: 1 }}
                   href={currentBeer.beer_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-medium bg-white/80 dark:bg-gray-700/80 px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-all"
+                  className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-bold bg-amber-50 dark:bg-amber-900/20 px-6 py-3 rounded-xl hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-all group"
                 >
                   Bekijk op Untappd
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </motion.a>
               </div>
             </div>
@@ -448,40 +373,46 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         )}
       </AnimatePresence>
 
-      {/* History */}
+      {/* History - Grid Scrollable on mobile */}
       {history.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-100 dark:border-gray-700"
+          className="glass-panel rounded-2xl p-6"
         >
-          <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-amber-600" />
-            Recent Gerandomized
+            Eerder Gevonden
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+          <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto pb-4 md:pb-0 -mx-2 px-2 no-scrollbar snap-x">
             {history.map((beer, index) => (
               <motion.button
                 key={`${beer.beer_url}-${index}`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                onClick={() => setCurrentBeer(beer)}
-                className="group relative bg-white dark:bg-gray-700 rounded-lg p-3 border border-gray-200 dark:border-gray-600 hover:border-amber-400 dark:hover:border-amber-500 hover:shadow-lg transition-all"
+                onClick={() => {
+                   setCurrentBeer(beer);
+                   setRevealedSteps(new Set(REVEAL_STEPS));
+                }}
+                className="flex-shrink-0 w-32 md:w-auto snap-center bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-lg transition-all group"
               >
                 {beer.image_url ? (
                   <img
                     src={beer.image_url}
                     alt={beer.name}
-                    className="w-full h-20 object-contain mb-2"
+                    className="w-full h-24 object-contain mb-3 group-hover:scale-110 transition-transform duration-300"
                   />
                 ) : (
-                  <div className="w-full h-20 bg-gradient-to-br from-amber-100 to-orange-100 rounded flex items-center justify-center mb-2">
-                    <BeerIcon className="w-8 h-8 text-amber-600" />
+                  <div className="w-full h-24 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-3 group-hover:bg-amber-50 dark:group-hover:bg-amber-900/20 transition-colors">
+                    <BeerIcon className="w-8 h-8 text-amber-600/50" />
                   </div>
                 )}
-                <p className="text-xs font-medium text-gray-800 dark:text-white truncate group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                <p className="text-xs font-bold text-gray-900 dark:text-white truncate">
                   {beer.name}
+                </p>
+                <p className="text-[10px] text-gray-500 truncate">
+                  {beer.brewery}
                 </p>
               </motion.button>
             ))}

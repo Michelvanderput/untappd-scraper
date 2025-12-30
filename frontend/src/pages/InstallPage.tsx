@@ -1,236 +1,159 @@
-import { Smartphone, Share, Home, MoreVertical, Download } from 'lucide-react';
+import { Smartphone, Share, Home, MoreVertical, Download, Wifi, Zap, Bell, CheckCircle } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
 
 export default function InstallPage() {
   return (
     <PageLayout title="Installeer de App" subtitle="Gebruik BeerMenu als een echte app op je telefoon!">
-
-        <Card className="p-8 mb-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-6">
-            ✨ Voordelen van de App
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
-              <span className="text-2xl">🚀</span>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-amber-100">Sneller</h3>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Direct openen vanaf je home screen</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
-              <span className="text-2xl">📱</span>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-amber-100">App-gevoel</h3>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Volledig scherm zonder browser UI</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
-              <span className="text-2xl">📴</span>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-amber-100">Offline</h3>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Werkt ook zonder internet</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
-              <span className="text-2xl">🔔</span>
-              <div>
-                <h3 className="font-semibold text-gray-800 dark:text-amber-100">Updates</h3>
-                <p className="text-sm text-gray-600 dark:text-amber-200/70">Automatisch de nieuwste versie</p>
-              </div>
-            </div>
-          </div>
-        </Card>
-
-        <Card className="p-8 mb-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
-              <span className="text-2xl">🤖</span>
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-green-100">
-              Android (Chrome)
-            </h2>
-          </div>
-
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                1
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-green-100 mb-2">
-                  Open het menu
-                </h3>
-                <p className="text-gray-600 dark:text-green-200/70 mb-3">
-                  Tik op de drie puntjes <MoreVertical className="inline w-4 h-4" /> rechtsboven in Chrome
-                </p>
-                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border-2 border-green-200 dark:border-green-800">
-                  <div className="flex items-center gap-2 text-green-800 dark:text-green-300">
-                    <MoreVertical className="w-5 h-5" />
-                    <span className="font-medium">Menu openen</span>
-                  </div>
+        <div className="max-w-4xl mx-auto">
+            <Card className="p-8 mb-10 overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-6 font-heading flex items-center gap-2">
+                    <Zap className="w-6 h-6 text-amber-500" />
+                    Waarom installeren?
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
+                            <Zap className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-1">Sneller</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Direct openen vanaf je home screen zonder browser balken.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg text-purple-600 dark:text-purple-400">
+                            <Smartphone className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-1">App Ervaring</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Volledig scherm en native feel op je toestel.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg text-green-600 dark:text-green-400">
+                            <Wifi className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-1">Offline Modus</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Bekijk bieren zelfs zonder internetverbinding.</p>
+                        </div>
+                    </div>
+                    <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-100 dark:border-gray-700">
+                        <div className="p-2 bg-orange-100 dark:bg-orange-900/30 rounded-lg text-orange-600 dark:text-orange-400">
+                            <Bell className="w-6 h-6" />
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-900 dark:text-white mb-1">Updates</h3>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">Automatisch altijd de nieuwste versie.</p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
+            </Card>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                2
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-green-100 mb-2">
-                  Kies "App installeren" of "Toevoegen aan startscherm"
-                </h3>
-                <p className="text-gray-600 dark:text-green-200/70 mb-3">
-                  Scroll in het menu en zoek naar deze optie
-                </p>
-                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border-2 border-green-200 dark:border-green-800">
-                  <div className="flex items-center gap-2 text-green-800 dark:text-green-300">
-                    <Download className="w-5 h-5" />
-                    <span className="font-medium">App installeren</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+                {/* Android Instructions */}
+                <Card className="p-8 h-full" hoverable={false}>
+                    <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-100 dark:border-gray-700">
+                        <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center text-green-600 dark:text-green-400">
+                            <Smartphone className="w-7 h-7" />
+                        </div>
+                        <div>
+                            <h2 className="text-xl font-bold text-gray-900 dark:text-white">Android</h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Chrome Browser</p>
+                        </div>
+                    </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold">
-                3
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-green-100 mb-2">
-                  Bevestig installatie
-                </h3>
-                <p className="text-gray-600 dark:text-green-200/70 mb-3">
-                  Tik op "Installeren" in de popup
-                </p>
-                <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border-2 border-green-200 dark:border-green-800">
-                  <div className="text-center">
-                    <p className="text-green-800 dark:text-green-300 font-medium mb-2">✅ Klaar!</p>
-                    <p className="text-sm text-green-600 dark:text-green-400">
-                      De app verschijnt nu op je home screen
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
+                    <div className="space-y-8 relative">
+                        <div className="absolute left-[15px] top-4 bottom-4 w-0.5 bg-gray-100 dark:bg-gray-700 -z-10" />
+                        
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/30 z-10">1</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Open het menu</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Tik op de drie puntjes rechtsboven.</p>
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300">
+                                    <MoreVertical className="w-3 h-3" /> Menu
+                                </div>
+                            </div>
+                        </div>
 
-        <Card className="p-8 mb-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-              <span className="text-2xl">🍎</span>
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-blue-100">
-              iPhone (Safari)
-            </h2>
-          </div>
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/30 z-10">2</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Installeer</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Kies "App installeren" of "Toevoegen aan startscherm".</p>
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300">
+                                    <Download className="w-3 h-3" /> App installeren
+                                </div>
+                            </div>
+                        </div>
 
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                1
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-blue-100 mb-2">
-                  Open de website in Safari
-                </h3>
-                <p className="text-gray-600 dark:text-blue-200/70 mb-3">
-                  ⚠️ Belangrijk: Dit werkt alleen in Safari, niet in Chrome!
-                </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border-2 border-blue-200 dark:border-blue-800">
-                  <div className="flex items-center gap-2 text-blue-800 dark:text-blue-300">
-                    <Smartphone className="w-5 h-5" />
-                    <span className="font-medium">Open in Safari</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-green-500/30 z-10">3</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Klaar!</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">De app staat nu op je startscherm.</p>
+                                <div className="mt-2 text-green-600 dark:text-green-400">
+                                    <CheckCircle className="w-6 h-6" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                2
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-blue-100 mb-2">
-                  Tik op de "Deel" knop
-                </h3>
-                <p className="text-gray-600 dark:text-blue-200/70 mb-3">
-                  Dit is het vierkantje met een pijl naar boven, onderaan het scherm
-                </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border-2 border-blue-200 dark:border-blue-800">
-                  <div className="flex items-center gap-2 text-blue-800 dark:text-blue-300">
-                    <Share className="w-5 h-5" />
-                    <span className="font-medium">Deel knop</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+                {/* iOS Instructions */}
+                <Card className="p-8 h-full" hoverable={false}>
+                    <div className="flex items-center gap-3 mb-8 pb-4 border-b border-gray-100 dark:border-gray-700">
+                        <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <Smartphone className="w-7 h-7" />
+                        </div>
+                        <div>
+                            <h2 className="text-xl font-bold text-gray-900 dark:text-white">iPhone</h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Safari Browser</p>
+                        </div>
+                    </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                3
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-blue-100 mb-2">
-                  Scroll en kies "Zet op beginscherm"
-                </h3>
-                <p className="text-gray-600 dark:text-blue-200/70 mb-3">
-                  Scroll in het menu naar beneden tot je deze optie ziet
-                </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border-2 border-blue-200 dark:border-blue-800">
-                  <div className="flex items-center gap-2 text-blue-800 dark:text-blue-300">
-                    <Home className="w-5 h-5" />
-                    <span className="font-medium">Zet op beginscherm</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div className="space-y-8 relative">
+                        <div className="absolute left-[15px] top-4 bottom-4 w-0.5 bg-gray-100 dark:bg-gray-700 -z-10" />
+                        
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30 z-10">1</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Delen</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Tik op de deel-knop onderin de balk.</p>
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300">
+                                    <Share className="w-3 h-3" /> Deel
+                                </div>
+                            </div>
+                        </div>
 
-            <div className="flex gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                4
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-800 dark:text-blue-100 mb-2">
-                  Bevestig met "Voeg toe"
-                </h3>
-                <p className="text-gray-600 dark:text-blue-200/70 mb-3">
-                  Je kunt eventueel de naam aanpassen
-                </p>
-                <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border-2 border-blue-200 dark:border-blue-800">
-                  <div className="text-center">
-                    <p className="text-blue-800 dark:text-blue-300 font-medium mb-2">✅ Klaar!</p>
-                    <p className="text-sm text-blue-600 dark:text-blue-400">
-                      De app verschijnt nu op je home screen
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30 z-10">2</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Zet op beginscherm</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">Scroll naar beneden en kies deze optie.</p>
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-medium text-gray-600 dark:text-gray-300">
+                                    <Home className="w-3 h-3" /> Zet op beginscherm
+                                </div>
+                            </div>
+                        </div>
 
-        <Card className="p-8">
-          <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-4">
-            💡 Tips
-          </h2>
-          <div className="space-y-3 text-gray-600 dark:text-amber-200/70">
-            <p>
-              • De app werkt ook <strong>offline</strong> - ideaal voor in de kroeg zonder wifi!
-            </p>
-            <p>
-              • Updates worden <strong>automatisch</strong> geïnstalleerd wanneer je de app opent
-            </p>
-            <p>
-              • Je kunt de app altijd verwijderen zoals elke andere app
-            </p>
-            <p>
-              • De app gebruikt <strong>geen extra opslagruimte</strong> - het is gewoon een snelkoppeling!
-            </p>
-          </div>
-        </Card>
+                        <div className="flex gap-6 relative">
+                            <div className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg shadow-blue-500/30 z-10">3</div>
+                            <div className="flex-1">
+                                <h3 className="font-bold text-gray-900 dark:text-white mb-2">Klaar!</h3>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">Bevestig met "Voeg toe".</p>
+                                <div className="mt-2 text-green-600 dark:text-green-400">
+                                    <CheckCircle className="w-6 h-6" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+        </div>
     </PageLayout>
   );
 }

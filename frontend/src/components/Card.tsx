@@ -51,8 +51,8 @@ const Card = forwardRef<HTMLDivElement, CardProps>(({ children, className = '', 
     <div
       ref={cardRef}
       onClick={onClick}
-      className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl shadow-lg border border-amber-100 dark:border-gray-700 transition-shadow ${
-        onClick ? 'cursor-pointer' : ''
+      className={`glass-panel rounded-2xl transition-all ${
+        onClick ? 'cursor-pointer active:scale-[0.98]' : ''
       } ${className}`}
     >
       {children}

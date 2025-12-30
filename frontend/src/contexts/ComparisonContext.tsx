@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { BeerData } from '../types/beer';
 
@@ -13,7 +13,14 @@ interface ComparisonContextType {
 const ComparisonContext = createContext<ComparisonContextType | undefined>(undefined);
 
 export function ComparisonProvider({ children }: { children: ReactNode }) {
-  const [comparisonBeers, setComparisonBeers] = useState<BeerData[]>([]);
+  const [comparisonBeers, setComparisonBeers] = useState<BeerData[]>(() => {
+    const saved = localStorage.getItem('comparisonBeers');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('comparisonBeers', JSON.stringify(comparisonBeers));
+  }, [comparisonBeers]);
 
   const addToComparison = (beer: BeerData) => {
     setComparisonBeers(prev => {
