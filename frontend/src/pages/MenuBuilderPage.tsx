@@ -87,7 +87,9 @@ export default function MenuBuilderPage() {
 
   const handleGenerate = () => {
     setGenerating(true);
+    setGeneratedMenu(null); // Clear previous menu for dramatic effect
     
+    // Simulate exciting generation with progress
     setTimeout(() => {
       const options: MenuGenerationOptions = {
         size: menuSize,
@@ -102,7 +104,7 @@ export default function MenuBuilderPage() {
       const menu = generateBeerMenu(beers, options);
       setGeneratedMenu(menu);
       setGenerating(false);
-    }, 1000);
+    }, 1500);
   };
 
   const handleExport = () => {
@@ -306,8 +308,58 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
         </button>
       </Card>
 
+      {/* Generation Progress - Exciting Visual Feedback */}
+      {generating && (
+        <Card className="p-12 text-center">
+          <div className="space-y-6">
+            <div className="relative w-32 h-32 mx-auto">
+              {/* Spinning beer bottles */}
+              <div className="absolute inset-0 animate-spin">
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-6 h-6 text-2xl"
+                    style={{
+                      top: '50%',
+                      left: '50%',
+                      transform: `rotate(${i * 45}deg) translateY(-50px)`,
+                      animation: `pulse 0.8s ease-in-out ${i * 0.1}s infinite`
+                    }}
+                  >
+                    🍺
+                  </div>
+                ))}
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Sparkles className="w-12 h-12 text-amber-500 animate-pulse" />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <h3 className="text-2xl font-bold text-gray-800 dark:text-amber-100">
+                Menu wordt gegenereerd...
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 animate-pulse">
+                {selectedMode?.emoji} {selectedMode?.label} mode actief
+              </p>
+            </div>
+
+            {/* Progress bar */}
+            <div className="w-full max-w-md mx-auto h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 rounded-full animate-[shimmer_1.5s_ease-in-out_infinite]"
+                style={{
+                  animation: 'shimmer 1.5s ease-in-out infinite',
+                  backgroundSize: '200% 100%'
+                }}
+              />
+            </div>
+          </div>
+        </Card>
+      )}
+
       {/* Generated Menu */}
-      {generatedMenu && (
+      {generatedMenu && !generating && (
         <div className="space-y-6">
           {/* Menu Header - Compact & Exciting */}
           <Card className="bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 text-white border-none p-6 md:p-8">
