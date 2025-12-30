@@ -151,44 +151,6 @@ function Navigation() {
   );
 }
 
-function AnimatedRoutes() {
-  const location = useLocation();
-  const pageRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (pageRef.current) {
-      // Fade out
-      gsap.to(pageRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.2,
-        ease: 'power2.in',
-        onComplete: () => {
-          // Fade in
-          gsap.fromTo(
-            pageRef.current,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out' }
-          );
-        }
-      });
-    }
-  }, [location.pathname]);
-
-  return (
-    <div ref={pageRef}>
-      <Routes location={location}>
-        <Route path="/" element={<BeersPage />} />
-        <Route path="/trends" element={<TrendsPage />} />
-        <Route path="/menu-builder" element={<MenuBuilderPage />} />
-        <Route path="/surprise" element={<SurprisePage />} />
-        <Route path="/beerdle" element={<BeerdlePage />} />
-        <Route path="/install" element={<InstallPage />} />
-      </Routes>
-    </div>
-  );
-}
-
 function App() {
   useEffect(() => {
     // Register service worker for PWA
@@ -202,7 +164,16 @@ function App() {
         <BrowserRouter>
           <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 transition-colors">
             <Navigation />
-            <AnimatedRoutes />
+            
+            <Routes>
+              <Route path="/" element={<BeersPage />} />
+              <Route path="/trends" element={<TrendsPage />} />
+              <Route path="/menu-builder" element={<MenuBuilderPage />} />
+              <Route path="/surprise" element={<SurprisePage />} />
+              <Route path="/beerdle" element={<BeerdlePage />} />
+              <Route path="/install" element={<InstallPage />} />
+            </Routes>
+            
             <UpdateNotification />
           </div>
         </BrowserRouter>
