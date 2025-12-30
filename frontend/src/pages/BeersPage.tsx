@@ -243,7 +243,7 @@ export default function BeersPage() {
 
         <div className="container mx-auto px-4 py-8 max-w-7xl relative z-10">
           {/* Header */}
-          <div ref={headerRef} className="text-center mb-12 opacity-0">
+          <div ref={headerRef} className="text-center mb-12">
             <h1 className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-6 font-heading tracking-tight">
               Bier <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Menu</span>
             </h1>

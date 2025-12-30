@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer } from 'lucide-react';
+import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
+import BeerModal from '../components/BeerModal';
 import { beerCache } from '../utils/cache';
 
 const GENERATION_MODES = [
@@ -57,6 +58,7 @@ export default function MenuBuilderPage() {
   const [mode, setMode] = useState<'random' | 'balanced' | 'journey' | 'party' | 'expert'>('balanced');
   const [generatedMenu, setGeneratedMenu] = useState<GeneratedMenu | null>(null);
   const [generating, setGenerating] = useState(false);
+  const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
   
   // Advanced options
   const [showAdvanced, setShowAdvanced] = useState(false);
@@ -432,29 +434,34 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
             </div>
           </Card>
 
-          {/* Beer Grid - Optimized for large menus */}
-          <div className={`grid gap-6 ${
-            menuSize <= 6 
-              ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
-              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-          }`}>
-            {generatedMenu.beers.map((beer, index) => (
-              <div key={beer.beer_url} className="relative group">
-                <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-900 dark:from-amber-500 dark:to-orange-500 rounded-xl rotate-3 flex items-center justify-center text-white text-lg font-bold shadow-lg z-10 border-2 border-white dark:border-gray-800 group-hover:-rotate-3 transition-transform duration-300">
-                  {index + 1}
-                </div>
-                <div className="h-full transform transition-transform duration-300 group-hover:-translate-y-1">
-                    <BeerCard
-                    beer={beer}
-                    onClick={() => window.open(beer.beer_url, '_blank')}
-                    />
-                </div>
-              </div>
-            ))}
+          {/* Beer Carousel - One by one view */}
+          <div className="relative">
+             <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 no-scrollbar" style={{ scrollBehavior: 'smooth' }}>
+                {generatedMenu.beers.map((beer, index) => (
+                    <div key={beer.beer_url} className="snap-center shrink-0 w-[85vw] md:w-[350px] relative group">
+                        <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-lg z-10 border-2 border-white dark:border-gray-800">
+                            {index + 1}
+                        </div>
+                        <div className="h-full">
+                            <BeerCard
+                                beer={beer}
+                                onClick={() => setSelectedBeer(beer)}
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+            {/* Scroll Hints */}
+            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-amber-50 dark:from-gray-900 to-transparent pointer-events-none md:hidden" />
+            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-amber-50 dark:from-gray-900 to-transparent pointer-events-none md:hidden" />
           </div>
 
+          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 md:hidden">
+            Swipe om de bieren te bekijken
+          </p>
+
           {/* Regenerate Button - Subtle */}
-          <div className="flex justify-center pt-8">
+          <div className="flex justify-center pt-4">
             <button
                 onClick={handleGenerate}
                 className="group flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-full font-bold text-gray-600 dark:text-gray-300 transition-all shadow-sm border border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-amber-700"
@@ -465,6 +472,14 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
           </div>
         </div>
       )}
+      
+      {/* Beer Modal */}
+      <BeerModal
+        beer={selectedBeer}
+        allBeers={generatedMenu?.beers || []}
+        onClose={() => setSelectedBeer(null)}
+        onNavigate={setSelectedBeer}
+      />
     </PageLayout>
   );
 }

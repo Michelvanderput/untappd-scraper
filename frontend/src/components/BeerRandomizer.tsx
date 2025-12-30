@@ -123,16 +123,16 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       REVEAL_STEPS.forEach((step, index) => {
         tl.call(() => {
           setRevealedSteps(prev => new Set([...prev, step]));
-        }, [], 0.5 + index * 0.4);
+        }, [], 0.5 + index * 0.8); // Slower steps (0.8s apart instead of 0.4s)
       });
       
       // Dramatic pause before final bounce
-      tl.to({}, { duration: 0.2 });
+      tl.to({}, { duration: 1.0 }); // Longer pause
       
       // Final bounce
       tl.to(randomBeerRef.current, {
         scale: 1,
-        duration: 0.8,
+        duration: 1.2, // Slower bounce
         ease: 'elastic.out(1, 0.3)'
       });
     } else {

@@ -155,33 +155,33 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       />
 
       {/* Top Section with Image and Badges */}
-      <div className="relative p-6 flex-grow z-10">
-        <div className="flex justify-between items-start mb-4">
+      <div className="relative p-4 flex-grow z-10">
+        <div className="flex justify-between items-start mb-2">
             {/* Badges Container */}
-            <div className="flex flex-wrap gap-2 max-w-[calc(100%-80px)]">
+            <div className="flex flex-wrap gap-1.5 max-w-[calc(100%-70px)]">
                 {beer.abv !== null && (
-                <span className="px-2 py-1 text-xs font-bold bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 rounded-lg backdrop-blur-sm">
+                <span className="px-1.5 py-0.5 text-[10px] font-bold bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 rounded-md backdrop-blur-sm">
                     {beer.abv}%
                 </span>
                 )}
                 {beer.ibu !== null && (
-                <span className="px-2 py-1 text-xs font-bold bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-lg backdrop-blur-sm">
+                <span className="px-1.5 py-0.5 text-[10px] font-bold bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-md backdrop-blur-sm">
                     {beer.ibu} IBU
                 </span>
                 )}
             </div>
 
-            <div className="flex items-center -mr-2 -mt-2">
+            <div className="flex items-center -mr-1 -mt-1">
                 {/* Untappd Link */}
                 <a
                     href={beer.beer_url}
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors z-20 group/link"
+                    className="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors z-20 group/link"
                     title="Bekijk op Untappd"
                 >
-                    <ExternalLink className="w-5 h-5 text-gray-400 dark:text-gray-500 group-hover/link:text-amber-600 dark:group-hover/link:text-amber-400 transition-colors" />
+                    <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover/link:text-amber-600 dark:group-hover/link:text-amber-400 transition-colors" />
                 </a>
 
                 {/* Favorite Button */}
@@ -189,10 +189,10 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
                 <button
                     ref={starRef}
                     onClick={handleFavoriteClick}
-                    className="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors z-20"
+                    className="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors z-20"
                 >
                     <Star
-                    className={`w-5 h-5 transition-all duration-300 ${
+                    className={`w-4 h-4 transition-all duration-300 ${
                         isFavorite 
                         ? 'text-yellow-500 fill-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]' 
                         : 'text-gray-400 dark:text-gray-500 hover:text-yellow-500'
@@ -205,7 +205,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
 
         <div className="flex flex-col items-center text-center">
             {beer.image_url ? (
-            <div className="relative w-32 h-32 mb-4 filter drop-shadow-xl">
+            <div className="relative w-24 h-24 mb-3 filter drop-shadow-lg">
                 <img
                 ref={imageRef as React.RefObject<HTMLImageElement>}
                 src={beer.image_url}
@@ -217,31 +217,31 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
             ) : (
             <div
                 ref={imageRef as React.RefObject<HTMLDivElement>}
-                className="w-32 h-32 mb-4 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 rounded-2xl flex items-center justify-center shadow-inner"
+                className="w-24 h-24 mb-3 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/50 dark:to-orange-900/50 rounded-xl flex items-center justify-center shadow-inner"
             >
-                <Beer className="w-12 h-12 text-amber-600 dark:text-amber-500 opacity-80" />
+                <Beer className="w-10 h-10 text-amber-600 dark:text-amber-500 opacity-80" />
             </div>
             )}
 
-            <h3 className="font-heading text-2xl leading-tight text-gray-900 dark:text-amber-50 mb-1 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+            <h3 className="font-heading text-lg leading-tight text-gray-900 dark:text-amber-50 mb-1 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
             {beer.name}
             </h3>
             
             {beer.brewery && (
-            <p className="text-sm font-medium text-gray-500 dark:text-amber-200/60 mb-3 line-clamp-1">
+            <p className="text-xs font-medium text-gray-500 dark:text-amber-200/60 mb-2 line-clamp-1">
                 {beer.brewery}
             </p>
             )}
 
             <div className="flex items-center justify-center gap-2 mt-auto">
-                <span className="px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full">
+                <span className="px-2 py-0.5 text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full truncate max-w-[120px]">
                     {beer.style || beer.category}
                 </span>
                 
                 {beer.rating !== null && (
-                    <div className="flex items-center gap-1 px-3 py-1 bg-yellow-50 dark:bg-yellow-900/20 rounded-full border border-yellow-100 dark:border-yellow-900/30">
+                    <div className="flex items-center gap-1 px-2 py-0.5 bg-yellow-50 dark:bg-yellow-900/20 rounded-full border border-yellow-100 dark:border-yellow-900/30">
                     <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                    <span className="text-sm font-bold text-gray-700 dark:text-yellow-200">
+                    <span className="text-xs font-bold text-gray-700 dark:text-yellow-200">
                         {beer.rating.toFixed(1)}
                     </span>
                     </div>

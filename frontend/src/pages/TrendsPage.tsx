@@ -245,7 +245,7 @@ export default function TrendsPage() {
       </div>
 
       {/* Period Selector */}
-      <div className="flex justify-center gap-3 mb-8">
+      <div className="flex flex-wrap justify-center gap-3 mb-8">
         {[
           { id: 'latest' as const, label: 'Laatste Update' },
           { id: 'week' as const, label: 'Deze Week' },
@@ -254,13 +254,13 @@ export default function TrendsPage() {
           <button
             key={period.id}
             onClick={() => setSelectedPeriod(period.id)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all active:scale-95 ${
+            className={`flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 text-sm md:text-base rounded-xl font-semibold transition-all active:scale-95 ${
               selectedPeriod === period.id
                 ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/20'
                 : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
             }`}
           >
-            <Calendar className="w-5 h-5" />
+            <Calendar className="w-4 h-4 md:w-5 md:h-5" />
             {period.label}
           </button>
         ))}
