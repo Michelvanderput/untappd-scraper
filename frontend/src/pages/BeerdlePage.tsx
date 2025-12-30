@@ -229,7 +229,7 @@ export default function BeerdlePage() {
           className="text-center mb-8"
         >
           <div className="flex items-center justify-center gap-4 mb-2">
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 font-heading tracking-tight">
+            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white font-heading tracking-tight">
               Beer<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">dle</span>
             </h1>
             <div className="flex gap-2">
