@@ -12,6 +12,7 @@ import InstallPage from './pages/InstallPage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import ThemeToggle from './components/ThemeToggle';
+import UpdateNotification from './components/UpdateNotification';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import { haptics } from './utils/haptic';
 import './App.css';
@@ -177,6 +178,8 @@ function App() {
               <Route path="/beerdle" element={<BeerdlePage />} />
               <Route path="/install" element={<InstallPage />} />
             </Routes>
+            
+            <UpdateNotification />
           </div>
         </BrowserRouter>
       </FavoritesProvider>

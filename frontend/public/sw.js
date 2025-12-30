@@ -1,15 +1,26 @@
 // Version - increment this to force cache refresh
-const VERSION = 'v2.1.0';
+// Use timestamp for automatic versioning on each deploy
+const VERSION = 'v2.2.0-' + new Date().getTime();
 const CACHE_NAME = `beermenu-${VERSION}`;
 const RUNTIME_CACHE = `beermenu-runtime-${VERSION}`;
+const DATA_CACHE = `beermenu-data-${VERSION}`;
 
-// Max cache age: 1 hour (in milliseconds)
-const MAX_CACHE_AGE = 60 * 60 * 1000;
+// Max cache age: 5 minutes for HTML/JS/CSS (in milliseconds)
+const MAX_CACHE_AGE = 5 * 60 * 1000;
 
+// Only precache manifest - everything else network-first
 const PRECACHE_URLS = [
+  '/manifest.json'
+];
+
+// Files that should always be fetched from network first
+const NETWORK_FIRST_URLS = [
   '/',
   '/index.html',
-  '/manifest.json'
+  '.js',
+  '.css',
+  '.tsx',
+  '.ts'
 ];
 
 // Install event - precache static assets and skip waiting
@@ -42,7 +53,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - network first, fallback to cache
+// Fetch event - aggressive network-first strategy
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
@@ -52,29 +63,69 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // API requests - network first, cache fallback
+  // Always bypass cache for HTML, JS, CSS - force network
+  const shouldBypassCache = NETWORK_FIRST_URLS.some(pattern => 
+    url.pathname === pattern || url.pathname.endsWith(pattern)
+  );
+
+  if (shouldBypassCache) {
+    event.respondWith(
+      fetch(request, { cache: 'no-store' })
+        .then(response => {
+          // Cache the fresh response
+          if (response && response.status === 200) {
+            const responseClone = response.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(request, responseClone);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          // Only use cache as last resort
+          return caches.match(request);
+        })
+    );
+    return;
+  }
+
+  // API requests - network first with short cache
   if (url.pathname.startsWith('/api/')) {
     event.respondWith(
-      fetch(request)
+      fetch(request, { cache: 'no-cache' })
         .then(response => {
-          // Clone the response before caching
+          // Clone and cache API responses with timestamp
           const responseClone = response.clone();
-          caches.open(RUNTIME_CACHE).then(cache => {
-            cache.put(request, responseClone);
+          caches.open(DATA_CACHE).then(cache => {
+            const cacheResponse = new Response(responseClone.body, {
+              status: responseClone.status,
+              statusText: responseClone.statusText,
+              headers: new Headers({
+                ...Object.fromEntries(responseClone.headers.entries()),
+                'sw-cached-at': Date.now().toString()
+              })
+            });
+            cache.put(request, cacheResponse);
           });
           return response;
         })
         .catch(() => {
           return caches.match(request).then(cached => {
             if (cached) {
+              // Check cache age
+              const cachedAt = cached.headers.get('sw-cached-at');
+              if (cachedAt && (Date.now() - parseInt(cachedAt)) > MAX_CACHE_AGE) {
+                // Cache too old, return error
+                return new Response(
+                  JSON.stringify({ error: 'Offline - data te oud' }),
+                  { status: 503, headers: { 'Content-Type': 'application/json' } }
+                );
+              }
               return cached;
             }
             return new Response(
               JSON.stringify({ error: 'Offline - geen data beschikbaar' }),
-              { 
-                status: 503,
-                headers: { 'Content-Type': 'application/json' }
-              }
+              { status: 503, headers: { 'Content-Type': 'application/json' } }
             );
           });
         })
@@ -82,26 +133,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Static assets - cache first, network fallback
+  // Images and static assets - cache first for performance
   event.respondWith(
     caches.match(request).then(cached => {
-      if (cached) {
-        return cached;
-      }
-
-      return fetch(request).then(response => {
-        // Don't cache non-successful responses
-        if (!response || response.status !== 200) {
-          return response;
+      // Return cached version while fetching fresh in background
+      const fetchPromise = fetch(request).then(response => {
+        if (response && response.status === 200) {
+          const responseClone = response.clone();
+          caches.open(RUNTIME_CACHE).then(cache => {
+            cache.put(request, responseClone);
+          });
         }
-
-        const responseClone = response.clone();
-        caches.open(RUNTIME_CACHE).then(cache => {
-          cache.put(request, responseClone);
-        });
-
         return response;
-      });
+      }).catch(() => cached);
+
+      return cached || fetchPromise;
     })
   );
 });
@@ -110,5 +156,28 @@ self.addEventListener('fetch', (event) => {
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
+  }
+  
+  // Clear all caches on demand
+  if (event.data && event.data.type === 'CLEAR_CACHE') {
+    event.waitUntil(
+      caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(name => caches.delete(name))
+        );
+      }).then(() => {
+        // Notify client that cache is cleared
+        self.clients.matchAll().then(clients => {
+          clients.forEach(client => {
+            client.postMessage({ type: 'CACHE_CLEARED' });
+          });
+        });
+      })
+    );
+  }
+  
+  // Get current version
+  if (event.data && event.data.type === 'GET_VERSION') {
+    event.ports[0].postMessage({ version: VERSION });
   }
 });
