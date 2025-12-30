@@ -97,34 +97,26 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
     }
   };
 
-  const animateTransition = (direction: 'left' | 'right', callback: () => void) => {
+  const animateTransition = (_direction: 'left' | 'right', callback: () => void) => {
     if (contentRef.current) {
-      const xValue = direction === 'left' ? -50 : 50;
-      
-      // Smooth fade and slide out
+      // Smooth crossfade transition
       gsap.to(contentRef.current, {
-        x: xValue,
         opacity: 0,
-        scale: 0.95,
-        duration: 0.25,
-        ease: 'power2.inOut',
+        duration: 0.15,
+        ease: 'power1.inOut',
         onComplete: () => {
           callback();
           if (contentRef.current) {
-            // Smooth fade and slide in from opposite direction
+            // Fade in new content
             gsap.fromTo(
               contentRef.current,
               { 
-                x: -xValue, 
-                opacity: 0,
-                scale: 0.95
+                opacity: 0
               },
               { 
-                x: 0, 
                 opacity: 1,
-                scale: 1,
-                duration: 0.25,
-                ease: 'power2.inOut'
+                duration: 0.15,
+                ease: 'power1.inOut'
               }
             );
           }
