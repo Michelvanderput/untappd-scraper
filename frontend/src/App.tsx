@@ -21,54 +21,74 @@ function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLHeadingElement>(null);
+  const navLinksRef = useRef<HTMLDivElement>(null);
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { path: '/', icon: Beer, label: 'Bieren' },
-    { path: '/trends', icon: TrendingUp, label: 'Trends' },
-    { path: '/menu-builder', icon: Sparkles, label: 'Menu' },
-    { path: '/surprise', icon: Shuffle, label: 'Surprise' },
-    { path: '/beerdle', icon: Gamepad2, label: 'Beerdle' },
+    { path: '/', icon: Beer, label: 'Bieren', color: 'from-amber-500 to-orange-500' },
+    { path: '/trends', icon: TrendingUp, label: 'Trends', color: 'from-blue-500 to-cyan-500' },
+    { path: '/menu-builder', icon: Sparkles, label: 'Menu', color: 'from-purple-500 to-pink-500' },
+    { path: '/surprise', icon: Shuffle, label: 'Surprise', color: 'from-green-500 to-emerald-500' },
+    { path: '/beerdle', icon: Gamepad2, label: 'Beerdle', color: 'from-red-500 to-orange-500' },
   ];
 
   const handleNavClick = () => {
     setIsMenuOpen(false);
   };
 
+  // Initial nav animation
   useEffect(() => {
     if (navRef.current) {
       gsap.fromTo(
         navRef.current,
         { y: -100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }
+        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+      );
+    }
+
+    // Logo animation
+    if (logoRef.current) {
+      gsap.fromTo(
+        logoRef.current,
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6, delay: 0.3, ease: 'back.out(1.7)' }
+      );
+    }
+
+    // Stagger nav links
+    if (navLinksRef.current) {
+      gsap.fromTo(
+        navLinksRef.current.querySelectorAll('a'),
+        { y: -20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, delay: 0.4, ease: 'power2.out' }
       );
     }
   }, []);
 
+  // Mobile menu animation
   useEffect(() => {
-    if (menuRef.current) {
-      if (isMenuOpen) {
-        gsap.fromTo(
-          menuRef.current,
-          { height: 0, opacity: 0 },
-          { height: 'auto', opacity: 1, duration: 0.3, ease: 'power2.out' }
-        );
-        gsap.fromTo(
-          menuRef.current.querySelectorAll('a'),
-          { x: -20, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.3, stagger: 0.05, ease: 'power2.out' }
-        );
-      }
+    if (menuRef.current && isMenuOpen) {
+      gsap.fromTo(
+        menuRef.current,
+        { height: 0, opacity: 0 },
+        { height: 'auto', opacity: 1, duration: 0.4, ease: 'power3.out' }
+      );
+      gsap.fromTo(
+        menuRef.current.querySelectorAll('a'),
+        { x: -30, opacity: 0, scale: 0.9 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.4, stagger: 0.06, ease: 'back.out(1.4)' }
+      );
     }
   }, [isMenuOpen]);
 
   return (
-    <nav ref={navRef} className="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50 transition-colors">
+    <nav ref={navRef} className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-xl sticky top-0 z-50 transition-colors border-b border-amber-100/50 dark:border-gray-800">
       <div className="w-full">
         {/* Mobile Header */}
         <div className="flex items-center justify-between h-16 px-4 md:hidden">
-          <h1 className="text-xl font-bold text-gray-900 dark:text-white">
-            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">BeerMenu</span>
+          <h1 ref={logoRef} className="text-xl font-bold text-gray-900 dark:text-white">
+            <span className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 bg-clip-text text-transparent font-heading">BeerMenu</span>
           </h1>
           <div className="flex items-center gap-2">
             <Link
@@ -90,24 +110,24 @@ function Navigation() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex justify-center items-center h-20 gap-2 px-4">
-          {navItems.map(({ path, icon: Icon, label }) => (
+        <div ref={navLinksRef} className="hidden md:flex justify-center items-center h-20 gap-3 px-4">
+          {navItems.map(({ path, icon: Icon, label, color }) => (
             <Link
               key={path}
               to={path}
-              className={`flex items-center gap-2 px-4 lg:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap ${
+              className={`flex items-center gap-2 px-5 lg:px-6 py-3 rounded-xl font-semibold transition-all whitespace-nowrap hover:scale-105 active:scale-95 ${
                 isActive(path)
-                  ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                  ? `bg-gradient-to-r ${color} text-white shadow-lg shadow-amber-500/25`
                   : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
               }`}
             >
-              <Icon className="w-5 h-5" />
+              <Icon className={`w-5 h-5 ${isActive(path) ? '' : 'group-hover:scale-110'}`} />
               <span className="hidden lg:inline">{label}</span>
             </Link>
           ))}
           <Link
             to="/install"
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all hover:scale-110 active:scale-95"
             aria-label="Installeer app"
           >
             <Download className="w-5 h-5 text-gray-700 dark:text-gray-300" />
@@ -123,22 +143,24 @@ function Navigation() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+              transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              className="md:hidden overflow-hidden border-t border-amber-100/50 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md"
             >
-              <div className="py-2 px-4 space-y-1">
-                {navItems.map(({ path, icon: Icon, label }) => (
+              <div className="py-3 px-4 space-y-2">
+                {navItems.map(({ path, icon: Icon, label, color }) => (
                   <Link
                     key={path}
                     to={path}
                     onClick={handleNavClick}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all active:scale-95 ${
+                    className={`flex items-center gap-3 px-5 py-4 rounded-2xl font-semibold transition-all active:scale-95 ${
                       isActive(path)
-                        ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
+                        ? `bg-gradient-to-r ${color} text-white shadow-lg`
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`}
                   >
-                    <Icon className="w-5 h-5" />
+                    <div className={`p-2 rounded-xl ${isActive(path) ? 'bg-white/20' : 'bg-gray-100 dark:bg-gray-800'}`}>
+                      <Icon className="w-5 h-5" />
+                    </div>
                     {label}
                   </Link>
                 ))}

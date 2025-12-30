@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Beer, Star } from 'lucide-react';
 import gsap from 'gsap';
 import type { BeerData } from '../types/beer';
-import { ANIMATION_CONFIG } from '../utils/animations';
+import { ANIMATION_CONFIG, createRipple } from '../utils/animations';
 
 interface BeerCardProps {
   beer: BeerData;
@@ -14,6 +14,8 @@ interface BeerCardProps {
 export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }: BeerCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement | HTMLDivElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+  const starRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!cardRef.current) return;
@@ -21,16 +23,28 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
     const card = cardRef.current;
 
     const handleMouseEnter = () => {
+      // Card lift and scale
       gsap.to(card, {
-        y: -4,
-        scale: 1.01,
+        y: -8,
+        scale: 1.02,
+        boxShadow: '0 20px 40px rgba(245, 158, 11, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1)',
         duration: ANIMATION_CONFIG.duration.normal,
         ease: ANIMATION_CONFIG.ease.smooth,
       });
       
+      // Image zoom
       if (imageRef.current) {
         gsap.to(imageRef.current, {
-          scale: 1.05,
+          scale: 1.1,
+          duration: ANIMATION_CONFIG.duration.slow,
+          ease: ANIMATION_CONFIG.ease.smooth,
+        });
+      }
+
+      // Glow effect
+      if (glowRef.current) {
+        gsap.to(glowRef.current, {
+          opacity: 1,
           duration: ANIMATION_CONFIG.duration.normal,
           ease: ANIMATION_CONFIG.ease.smooth,
         });
@@ -41,6 +55,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       gsap.to(card, {
         y: 0,
         scale: 1,
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         duration: ANIMATION_CONFIG.duration.normal,
         ease: ANIMATION_CONFIG.ease.smooth,
       });
@@ -52,12 +67,20 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
           ease: ANIMATION_CONFIG.ease.smooth,
         });
       }
+
+      if (glowRef.current) {
+        gsap.to(glowRef.current, {
+          opacity: 0,
+          duration: ANIMATION_CONFIG.duration.normal,
+          ease: ANIMATION_CONFIG.ease.smooth,
+        });
+      }
     };
 
     const handleTouchStart = () => {
       gsap.to(card, {
-        scale: 0.98,
-        duration: ANIMATION_CONFIG.duration.fast,
+        scale: 0.97,
+        duration: ANIMATION_CONFIG.duration.instant,
         ease: ANIMATION_CONFIG.ease.snappy,
       });
     };
@@ -66,7 +89,7 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       gsap.to(card, {
         scale: 1,
         duration: ANIMATION_CONFIG.duration.fast,
-        ease: ANIMATION_CONFIG.ease.smooth,
+        ease: ANIMATION_CONFIG.ease.bounce,
       });
     };
 
@@ -81,19 +104,36 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       card.removeEventListener('touchstart', handleTouchStart);
       card.removeEventListener('touchend', handleTouchEnd);
       gsap.killTweensOf(card);
-      if (imageRef.current) {
-        gsap.killTweensOf(imageRef.current);
-      }
+      if (imageRef.current) gsap.killTweensOf(imageRef.current);
+      if (glowRef.current) gsap.killTweensOf(glowRef.current);
     };
   }, []);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    if (cardRef.current) {
+      createRipple(e.nativeEvent, cardRef.current);
+    }
     onClick();
   };
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (onToggleFavorite) {
+    if (onToggleFavorite && starRef.current) {
+      // Animate star
+      gsap.to(starRef.current, {
+        scale: 1.3,
+        rotation: isFavorite ? 0 : 72,
+        duration: 0.2,
+        ease: ANIMATION_CONFIG.ease.bounce,
+        onComplete: () => {
+          gsap.to(starRef.current, {
+            scale: 1,
+            rotation: 0,
+            duration: 0.2,
+            ease: ANIMATION_CONFIG.ease.smooth,
+          });
+        }
+      });
       onToggleFavorite();
     }
   };
@@ -102,16 +142,23 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
     <div
       ref={cardRef}
       onClick={handleClick}
-      className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-xl shadow-md hover:shadow-2xl transition-all cursor-pointer p-6 border border-amber-100/50 dark:border-amber-900/30 relative group"
+      className="bg-white/90 dark:bg-gradient-to-br dark:from-amber-950/50 dark:to-orange-950/50 backdrop-blur-md rounded-2xl shadow-lg cursor-pointer p-6 border border-amber-100/50 dark:border-amber-800/30 relative group overflow-hidden"
     >
+      {/* Glow effect overlay */}
+      <div 
+        ref={glowRef}
+        className="absolute inset-0 bg-gradient-to-br from-amber-400/20 via-orange-400/10 to-transparent opacity-0 pointer-events-none rounded-2xl"
+      />
+
       {onToggleFavorite && (
         <button
+          ref={starRef}
           onClick={handleFavoriteClick}
-          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 dark:bg-amber-950/60 hover:bg-white dark:hover:bg-amber-950/80 transition-all active:scale-90"
+          className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 dark:bg-amber-950/60 hover:bg-white dark:hover:bg-amber-950/80 transition-all shadow-md"
         >
           <Star
-            className={`w-5 h-5 transition-colors ${
-              isFavorite ? 'text-yellow-500 fill-yellow-500' : 'text-gray-400 dark:text-gray-500'
+            className={`w-5 h-5 transition-all duration-300 ${
+              isFavorite ? 'text-yellow-500 fill-yellow-500 drop-shadow-[0_0_8px_rgba(234,179,8,0.6)]' : 'text-gray-400 dark:text-gray-500'
             }`}
           />
         </button>
