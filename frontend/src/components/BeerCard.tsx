@@ -31,7 +31,6 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       if (imageRef.current) {
         gsap.to(imageRef.current, {
           scale: 1.1,
-          rotation: 5,
           duration: 0.3,
           ease: 'power2.out',
         });
@@ -50,7 +49,6 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       if (imageRef.current) {
         gsap.to(imageRef.current, {
           scale: 1,
-          rotation: 0,
           duration: 0.3,
           ease: 'power2.out',
         });
