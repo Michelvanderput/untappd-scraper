@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer } from 'lucide-react';
+import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer, ArrowRight, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
@@ -13,23 +14,23 @@ const GENERATION_MODES = [
     id: 'random' as const, 
     label: 'Random', 
     icon: Shuffle, 
-    description: 'Laat het lot beslissen!',
+    description: 'Het lot beslist',
     color: 'from-purple-500 to-pink-500',
     emoji: '🎲'
   },
   { 
     id: 'balanced' as const, 
-    label: 'Gebalanceerd', 
+    label: 'Balans', 
     icon: Sparkles, 
-    description: 'Mix van alle stijlen',
+    description: 'Mooie mix',
     color: 'from-blue-500 to-cyan-500',
     emoji: '⚖️'
   },
   { 
     id: 'journey' as const, 
-    label: 'Smaak Reis', 
+    label: 'Reis', 
     icon: Map, 
-    description: 'Van licht naar zwaar',
+    description: 'Opbouwende smaak',
     color: 'from-green-500 to-emerald-500',
     emoji: '🗺️'
   },
@@ -37,7 +38,7 @@ const GENERATION_MODES = [
     id: 'party' as const, 
     label: 'Party', 
     icon: PartyPopper, 
-    description: 'Crowd pleasers!',
+    description: 'Crowd pleasers',
     color: 'from-orange-500 to-red-500',
     emoji: '🎉'
   },
@@ -54,22 +55,26 @@ const GENERATION_MODES = [
 export default function MenuBuilderPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [menuSize, setMenuSize] = useState(6);
-  const [mode, setMode] = useState<'random' | 'balanced' | 'journey' | 'party' | 'expert'>('balanced');
-  const [generatedMenu, setGeneratedMenu] = useState<GeneratedMenu | null>(null);
-  const [generating, setGenerating] = useState(false);
-  const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
   
-  // Advanced options
+  // Setup State
+  const [menuSize, setMenuSize] = useState(4);
+  const [mode, setMode] = useState<'random' | 'balanced' | 'journey' | 'party' | 'expert'>('balanced');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [minABV, setMinABV] = useState<number | undefined>(undefined);
   const [maxABV, setMaxABV] = useState<number | undefined>(undefined);
   const [minRating, setMinRating] = useState<number | undefined>(undefined);
 
+  // Flow State
+  const [viewState, setViewState] = useState<'setup' | 'revealing' | 'summary'>('setup');
+  const [generatedMenu, setGeneratedMenu] = useState<GeneratedMenu | null>(null);
+  const [revealIndex, setRevealIndex] = useState(0);
+  const [generating, setGenerating] = useState(false);
+  
+  const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
+
   useEffect(() => {
     const fetchBeers = async () => {
       try {
-        // Try cache first
         const cached = await beerCache.get<BeerData[]>('beers');
         if (cached) {
           setBeers(cached);
@@ -102,7 +107,6 @@ export default function MenuBuilderPage() {
   const handleGenerate = () => {
     setGenerating(true);
     
-    // Simulate thinking time for effect
     setTimeout(() => {
       const options: MenuGenerationOptions = {
         size: menuSize,
@@ -116,14 +120,29 @@ export default function MenuBuilderPage() {
 
       const menu = generateBeerMenu(beers, options);
       setGeneratedMenu(menu);
+      setRevealIndex(0);
+      setViewState('revealing');
       setGenerating(false);
       
-      // Scroll to result
-      const resultElement = document.getElementById('menu-result');
-      if (resultElement) {
-        resultElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 600);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 800);
+  };
+
+  const handleNextReveal = () => {
+    if (!generatedMenu) return;
+    if (revealIndex < generatedMenu.beers.length - 1) {
+        setRevealIndex(prev => prev + 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        setViewState('summary');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const handleReset = () => {
+    setViewState('setup');
+    setGeneratedMenu(null);
+    setRevealIndex(0);
   };
 
   const handleExport = () => {
@@ -184,296 +203,268 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
   const selectedMode = GENERATION_MODES.find(m => m.id === mode);
 
   return (
-    <PageLayout title="Menu Builder" subtitle="Stel je perfecte bier menu samen met AI-algoritmes">
-      {/* Configuration Card */}
-      <Card className="p-6 md:p-8 mb-8 relative overflow-hidden" hoverable={false}>
-        {/* Decorative background */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-
-        {/* Menu Size with Visual Indicator */}
-        <div className="mb-10 relative z-10">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-bold text-gray-800 dark:text-amber-100 flex items-center gap-2">
-              <Beer className="w-5 h-5 text-amber-500" />
-              Aantal Bieren
-            </h3>
-            <div className="flex items-center gap-3">
-              <span className="text-4xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent font-heading">
-                {menuSize}
-              </span>
-            </div>
-          </div>
-          
-          <div className="px-2">
-            <input
-              type="range"
-              min="3"
-              max="12"
-              value={menuSize}
-              onChange={(e) => setMenuSize(parseInt(e.target.value))}
-              className="w-full h-3 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 hover:accent-amber-400 transition-all"
-              style={{
-                backgroundImage: `linear-gradient(to right, rgb(245 158 11) 0%, rgb(249 115 22) ${((menuSize - 3) / 9) * 100}%, transparent ${((menuSize - 3) / 9) * 100}%)`
-              }}
-            />
-            <div className="flex justify-between text-xs font-medium text-gray-500 dark:text-gray-400 mt-3">
-              <span>Klein (3)</span>
-              <span>Gemiddeld (7-8)</span>
-              <span>Groot (12)</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Generation Mode - Compact Grid */}
-        <div className="mb-10 relative z-10">
-          <h3 className="text-lg font-bold text-gray-800 dark:text-amber-100 mb-6 flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-amber-500" />
-            Generatie Mode
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {GENERATION_MODES.map(modeOption => {
-              const isSelected = mode === modeOption.id;
-              return (
-                <button
-                  key={modeOption.id}
-                  onClick={() => setMode(modeOption.id)}
-                  className={`relative p-4 rounded-2xl transition-all duration-300 min-h-[120px] flex flex-col items-center justify-center border-2 group ${
-                    isSelected
-                      ? `bg-gradient-to-br ${modeOption.color} text-white shadow-lg scale-105 border-transparent`
-                      : 'bg-white/50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-800 border-gray-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-amber-800'
-                  }`}
-                >
-                  <span className="text-4xl mb-3 transform transition-transform group-hover:scale-110 duration-300">{modeOption.emoji}</span>
-                  <p className={`font-bold text-sm mb-1 ${isSelected ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`}>
-                    {modeOption.label}
-                  </p>
-                  <p className={`text-[10px] text-center leading-tight ${isSelected ? 'text-white/90' : 'text-gray-500 dark:text-gray-400'}`}>
-                    {modeOption.description}
-                  </p>
-                  
-                  {isSelected && (
-                    <div className="absolute -top-2 -right-2 bg-white text-amber-600 rounded-full p-1 shadow-md">
-                        <Zap className="w-3 h-3 fill-current" />
-                    </div>
-                  )}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Advanced Options - Collapsible */}
-        <div className="mb-8 relative z-10">
-          <button
-            onClick={() => setShowAdvanced(!showAdvanced)}
-            className="text-amber-600 dark:text-amber-500 hover:text-amber-700 dark:hover:text-amber-400 font-bold flex items-center gap-2 transition-colors bg-amber-50 dark:bg-amber-900/20 px-4 py-2 rounded-lg text-sm"
-          >
-            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showAdvanced ? 'rotate-180' : ''}`} />
-            Geavanceerde Opties
-          </button>
-          
-          <div className={`grid md:grid-cols-3 gap-4 overflow-hidden transition-all duration-300 ease-in-out ${showAdvanced ? 'mt-4 opacity-100 max-h-48' : 'mt-0 opacity-0 max-h-0'}`}>
-              <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                  Min ABV %
-                </label>
-                <input
-                  type="number"
-                  step="0.5"
-                  min="0"
-                  max="15"
-                  value={minABV || ''}
-                  onChange={(e) => setMinABV(e.target.value ? parseFloat(e.target.value) : undefined)}
-                  placeholder="Geen limiet"
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all outline-none text-gray-900 dark:text-white"
-                />
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                  Max ABV %
-                </label>
-                <input
-                  type="number"
-                  step="0.5"
-                  min="0"
-                  max="15"
-                  value={maxABV || ''}
-                  onChange={(e) => setMaxABV(e.target.value ? parseFloat(e.target.value) : undefined)}
-                  placeholder="Geen limiet"
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all outline-none text-gray-900 dark:text-white"
-                />
-              </div>
-              <div className="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">
-                  Min Rating ⭐
-                </label>
-                <input
-                  type="number"
-                  step="0.1"
-                  min="0"
-                  max="5"
-                  value={minRating || ''}
-                  onChange={(e) => setMinRating(e.target.value ? parseFloat(e.target.value) : undefined)}
-                  placeholder="Geen limiet"
-                  className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all outline-none text-gray-900 dark:text-white"
-                />
-              </div>
-            </div>
-        </div>
-
-        {/* Generate Button - Eye-catching */}
-        <button
-          onClick={handleGenerate}
-          disabled={generating}
-          className={`relative w-full py-5 rounded-xl font-bold text-lg transition-all shadow-xl min-h-[64px] group overflow-hidden ${
-            generating
-              ? 'bg-gray-400 cursor-not-allowed'
-              : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700 text-white hover:shadow-2xl hover:shadow-amber-500/30 hover:scale-[1.01] active:scale-[0.99]'
-          }`}
+    <PageLayout title="Menu Builder" subtitle={viewState === 'setup' ? "Stel je perfecte bier menu samen" : generatedMenu?.theme || "Menu"}>
+      
+      {/* SETUP VIEW */}
+      {viewState === 'setup' && (
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="max-w-2xl mx-auto"
         >
-          {generating ? (
-            <span className="flex items-center justify-center gap-3">
-              <RefreshCw className="w-6 h-6 animate-spin" />
-              <span className="animate-pulse">Menu samenstellen...</span>
-            </span>
-          ) : (
-            <span className="flex items-center justify-center gap-3 relative z-10">
-              <Zap className="w-6 h-6 transition-transform group-hover:scale-110 group-hover:rotate-12" />
-              Genereer {selectedMode?.emoji} Menu!
-            </span>
-          )}
-          {!generating && (
-            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12" />
-          )}
-        </button>
-      </Card>
-
-      {/* Generated Menu */}
-      {generatedMenu && (
-        <div id="menu-result" className="space-y-8 animate-fade-in">
-          <div className="flex items-center justify-center my-8">
-            <div className="h-1 w-24 bg-gray-200 dark:bg-gray-700 rounded-full" />
-          </div>
-
-          {/* Menu Header - Compact & Exciting */}
-          <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white border-none p-8 relative overflow-hidden" hoverable={false}>
-            {/* Background pattern */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
-            
-            <div className="relative z-10">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-8">
-                <div className="flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-white/10">
-                        {selectedMode?.label} Mode
-                    </div>
-                    <div className="flex items-center gap-4 mb-2">
-                        <span className="text-5xl filter drop-shadow-lg">{selectedMode?.emoji}</span>
-                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-100">
-                            {generatedMenu.theme}
-                        </h2>
-                    </div>
-                    <p className="text-lg text-gray-300 max-w-2xl leading-relaxed">{generatedMenu.description}</p>
-                </div>
-                <div className="flex gap-3">
-                    <button
-                    onClick={handleExport}
-                    className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all active:scale-95 border border-white/10 font-medium"
-                    title="Download menu"
-                    >
-                    <Download className="w-4 h-4" />
-                    <span className="hidden md:inline">Opslaan</span>
-                    </button>
-                    <button
-                    onClick={handleShare}
-                    className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all active:scale-95 font-medium shadow-lg shadow-amber-500/20"
-                    title="Deel menu"
-                    >
-                    <Share2 className="w-4 h-4" />
-                    <span className="hidden md:inline">Delen</span>
-                    </button>
-                </div>
-                </div>
-
-                {/* Pairing Notes & Suggestions */}
-                <div className="grid md:grid-cols-2 gap-6 bg-white/5 rounded-2xl p-6 border border-white/10">
-                    <div>
-                        <h4 className="text-amber-400 font-bold mb-3 flex items-center gap-2">
-                            <Wine className="w-4 h-4" />
-                            Proefnotities
-                        </h4>
-                        {generatedMenu.pairingNotes && generatedMenu.pairingNotes.length > 0 ? (
-                            <ul className="space-y-2">
-                                {generatedMenu.pairingNotes.map((note, i) => (
-                                <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
-                                    <span className="text-amber-500/50 mt-1">•</span>
-                                    {note}
-                                </li>
-                                ))}
-                            </ul>
-                        ) : (
-                            <p className="text-sm text-gray-400 italic">Geen specifieke notities.</p>
-                        )}
-                    </div>
-                    <div>
-                        <h4 className="text-amber-400 font-bold mb-3 flex items-center gap-2">
-                            <Sparkles className="w-4 h-4" />
-                            Food Pairing
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                        {generatePairingSuggestions(generatedMenu).map((suggestion, i) => (
-                            <span
-                            key={i}
-                            className="px-3 py-1.5 bg-white/10 hover:bg-white/20 border border-white/5 rounded-lg text-sm text-gray-200 transition-colors cursor-default"
+            <Card className="p-6 relative overflow-hidden" hoverable={false}>
+                {/* Mode Selection - Compact */}
+                <div className="mb-6">
+                    <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 block">Kies een sfeer</label>
+                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                        {GENERATION_MODES.map(modeOption => {
+                        const isSelected = mode === modeOption.id;
+                        return (
+                            <button
+                            key={modeOption.id}
+                            onClick={() => setMode(modeOption.id)}
+                            className={`relative p-2 rounded-xl transition-all duration-300 flex flex-col items-center justify-center border-2 ${
+                                isSelected
+                                ? `bg-gradient-to-br ${modeOption.color} text-white border-transparent shadow-md scale-105`
+                                : 'bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-transparent hover:bg-gray-100 dark:hover:bg-gray-700'
+                            }`}
                             >
-                            {suggestion}
-                            </span>
-                        ))}
-                        </div>
+                            <span className="text-2xl mb-1">{modeOption.emoji}</span>
+                            <span className="text-[10px] font-bold leading-tight text-center">{modeOption.label}</span>
+                            </button>
+                        );
+                        })}
+                    </div>
+                    {selectedMode && (
+                        <p className="text-xs text-center mt-2 text-gray-500 dark:text-gray-400 italic">
+                            "{selectedMode.description}"
+                        </p>
+                    )}
+                </div>
+
+                {/* Size Selection - Compact */}
+                <div className="mb-6">
+                    <div className="flex justify-between items-center mb-2">
+                        <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Aantal Gangen</label>
+                        <span className="text-xl font-bold text-amber-600 dark:text-amber-500">{menuSize}</span>
+                    </div>
+                    <input
+                        type="range"
+                        min="3"
+                        max="8"
+                        value={menuSize}
+                        onChange={(e) => setMenuSize(parseInt(e.target.value))}
+                        className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                    />
+                    <div className="flex justify-between text-[10px] text-gray-400 mt-1">
+                        <span>3 (Klein)</span>
+                        <span>8 (Groot)</span>
                     </div>
                 </div>
-            </div>
-          </Card>
 
-          {/* Beer Carousel - One by one view */}
-          <div className="relative">
-             <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 no-scrollbar" style={{ scrollBehavior: 'smooth' }}>
-                {generatedMenu.beers.map((beer, index) => (
-                    <div key={beer.beer_url} className="snap-center shrink-0 w-[85vw] md:w-[350px] relative group">
-                        <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-lg z-10 border-2 border-white dark:border-gray-800">
-                            {index + 1}
+                {/* Advanced Options Toggle */}
+                <div className="mb-6">
+                    <button
+                        onClick={() => setShowAdvanced(!showAdvanced)}
+                        className="text-xs font-bold text-amber-600 dark:text-amber-500 flex items-center gap-1 hover:underline"
+                    >
+                        <ChevronDown className={`w-3 h-3 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
+                        Meer opties
+                    </button>
+                    
+                    <div className={`grid grid-cols-3 gap-3 overflow-hidden transition-all duration-300 ${showAdvanced ? 'mt-3 opacity-100 max-h-24' : 'mt-0 opacity-0 max-h-0'}`}>
+                        <div>
+                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Min ABV</label>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                value={minABV || ''}
+                                onChange={(e) => setMinABV(e.target.value ? parseFloat(e.target.value) : undefined)}
+                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
+                            />
                         </div>
-                        <div className="h-full">
-                            <BeerCard
-                                beer={beer}
-                                onClick={() => setSelectedBeer(beer)}
+                        <div>
+                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Max ABV</label>
+                            <input
+                                type="number"
+                                placeholder="15"
+                                value={maxABV || ''}
+                                onChange={(e) => setMaxABV(e.target.value ? parseFloat(e.target.value) : undefined)}
+                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Min Rating</label>
+                            <input
+                                type="number"
+                                placeholder="0"
+                                step="0.1"
+                                value={minRating || ''}
+                                onChange={(e) => setMinRating(e.target.value ? parseFloat(e.target.value) : undefined)}
+                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
                             />
                         </div>
                     </div>
-                ))}
+                </div>
+
+                <button
+                    onClick={handleGenerate}
+                    disabled={generating}
+                    className={`w-full py-4 rounded-xl font-bold text-lg text-white shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 ${
+                        generating 
+                        ? 'bg-gray-400 cursor-wait' 
+                        : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-amber-500/30'
+                    }`}
+                >
+                    {generating ? (
+                        <>
+                            <RefreshCw className="w-5 h-5 animate-spin" />
+                            Menu Samenstellen...
+                        </>
+                    ) : (
+                        <>
+                            <Zap className="w-5 h-5" />
+                            Start Menu
+                        </>
+                    )}
+                </button>
+            </Card>
+        </motion.div>
+      )}
+
+      {/* REVEALING VIEW - Step by Step */}
+      {viewState === 'revealing' && generatedMenu && (
+        <div className="max-w-md mx-auto">
+            <div className="text-center mb-6">
+                <span className="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                    Gang {revealIndex + 1} van {generatedMenu.beers.length}
+                </span>
+                <div className="h-1 w-full bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
+                    <motion.div 
+                        className="h-full bg-amber-500"
+                        initial={{ width: `${(revealIndex / generatedMenu.beers.length) * 100}%` }}
+                        animate={{ width: `${((revealIndex + 1) / generatedMenu.beers.length) * 100}%` }}
+                        transition={{ duration: 0.5 }}
+                    />
+                </div>
             </div>
-            {/* Scroll Hints */}
-            <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-amber-50 dark:from-gray-900 to-transparent pointer-events-none md:hidden" />
-            <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-amber-50 dark:from-gray-900 to-transparent pointer-events-none md:hidden" />
-          </div>
 
-          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-2 md:hidden">
-            Swipe om de bieren te bekijken
-          </p>
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={revealIndex}
+                    initial={{ opacity: 0, x: 50, rotateY: -10 }}
+                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
+                    exit={{ opacity: 0, x: -50, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    className="perspective-1000"
+                >
+                    <div className="transform transition-transform duration-500 hover:scale-[1.02]">
+                        <BeerCard
+                            beer={generatedMenu.beers[revealIndex]}
+                            onClick={() => setSelectedBeer(generatedMenu.beers[revealIndex])}
+                        />
+                    </div>
+                </motion.div>
+            </AnimatePresence>
 
-          {/* Regenerate Button - Subtle */}
-          <div className="flex justify-center pt-4">
-            <button
-                onClick={handleGenerate}
-                className="group flex items-center gap-3 px-8 py-4 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-full font-bold text-gray-600 dark:text-gray-300 transition-all shadow-sm border border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-amber-700"
+            <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={handleNextReveal}
+                className="w-full mt-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold shadow-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center gap-2 hover:border-amber-500 dark:hover:border-amber-500 transition-colors"
             >
-                <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
-                Niet tevreden? Genereer opnieuw
-            </button>
-          </div>
+                {revealIndex < generatedMenu.beers.length - 1 ? (
+                    <>
+                        Volgende Gang <ArrowRight className="w-5 h-5" />
+                    </>
+                ) : (
+                    <>
+                        Naar Overzicht <Check className="w-5 h-5" />
+                    </>
+                )}
+            </motion.button>
         </div>
       )}
+
+      {/* SUMMARY VIEW */}
+      {viewState === 'summary' && generatedMenu && (
+        <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-2xl mx-auto"
+        >
+            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white border-none p-6 md:p-8 relative overflow-hidden mb-8" hoverable={false}>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] pointer-events-none" />
+                
+                <div className="relative z-10 text-center">
+                    <div className="inline-block p-3 bg-white/10 rounded-full mb-4">
+                        <span className="text-4xl">{selectedMode?.emoji}</span>
+                    </div>
+                    <h2 className="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-100 mb-2">
+                        {generatedMenu.theme}
+                    </h2>
+                    <p className="text-gray-300 mb-6">{generatedMenu.description}</p>
+
+                    <div className="flex justify-center gap-3">
+                        <button
+                            onClick={handleExport}
+                            className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all font-medium text-sm"
+                        >
+                            <Download className="w-4 h-4" /> Opslaan
+                        </button>
+                        <button
+                            onClick={handleShare}
+                            className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all font-medium text-sm shadow-lg shadow-amber-500/20"
+                        >
+                            <Share2 className="w-4 h-4" /> Delen
+                        </button>
+                    </div>
+                </div>
+            </Card>
+
+            <div className="space-y-3 mb-8">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white px-2">Jouw Menu</h3>
+                {generatedMenu.beers.map((beer, index) => (
+                    <motion.div 
+                        key={beer.beer_url}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="bg-white dark:bg-gray-800/50 p-3 rounded-xl border border-gray-100 dark:border-gray-700/50 flex items-center gap-4 cursor-pointer hover:border-amber-500/50 transition-colors"
+                        onClick={() => setSelectedBeer(beer)}
+                    >
+                        <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-700 dark:text-amber-500 font-bold text-sm shrink-0">
+                            {index + 1}
+                        </div>
+                        {beer.image_url ? (
+                            <img src={beer.image_url} alt="" className="w-10 h-10 object-contain" />
+                        ) : (
+                            <Beer className="w-8 h-8 text-gray-300" />
+                        )}
+                        <div className="flex-1 min-w-0">
+                            <h4 className="font-bold text-gray-900 dark:text-white truncate">{beer.name}</h4>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{beer.brewery}</p>
+                        </div>
+                        <div className="text-xs font-medium bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-300">
+                            {beer.abv}%
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+
+            <div className="flex justify-center">
+                <button
+                    onClick={handleReset}
+                    className="text-gray-500 hover:text-amber-600 dark:text-gray-400 dark:hover:text-amber-500 font-medium flex items-center gap-2 transition-colors"
+                >
+                    <RefreshCw className="w-4 h-4" />
+                    Nieuw Menu Maken
+                </button>
+            </div>
+        </motion.div>
+      )}
       
-      {/* Beer Modal */}
       <BeerModal
         beer={selectedBeer}
         allBeers={generatedMenu?.beers || []}
