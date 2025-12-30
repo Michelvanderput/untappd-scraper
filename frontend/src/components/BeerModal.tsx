@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { X, Share2, Star, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
+import { X, Share2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { BeerData } from '../types/beer';
 import { useSwipe } from '../hooks/useSwipe';
 import { animateModalOpen, animateModalClose, animateCrossfade } from '../utils/animations';

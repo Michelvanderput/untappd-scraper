@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer } from 'lucide-react';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
