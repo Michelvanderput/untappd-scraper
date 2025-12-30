@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Sparkles, RefreshCw, Download, Share2, Shuffle, Wine, Map, PartyPopper, GraduationCap } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
+import PageLayout from '../components/PageLayout';
+import Card from '../components/Card';
 
 const GENERATION_MODES = [
   { 
@@ -147,111 +148,158 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <Wine className="w-16 h-16 text-amber-600 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700 dark:text-gray-300">Menu Builder laden...</p>
+      <PageLayout title="Menu Builder" subtitle="Laden...">
+        <div className="flex justify-center items-center py-20">
+          <Wine className="w-16 h-16 text-amber-600 animate-bounce" />
         </div>
-      </div>
+      </PageLayout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-5xl font-bold text-gray-800 dark:text-white mb-4 font-heading">
-            🍺 Bier Menu Builder
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Stel je perfecte bier menu samen met slimme algoritmes!
-          </p>
-        </motion.div>
-
-        {/* Configuration */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-amber-100 dark:border-amber-900/30"
-        >
-          {/* Menu Size Slider */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100">Aantal Bieren</h3>
-              <span className="text-3xl font-bold text-amber-600">{menuSize}</span>
-            </div>
-            <input
-              type="range"
-              min="3"
-              max="12"
-              value={menuSize}
-              onChange={(e) => setMenuSize(parseInt(e.target.value))}
-              className="w-full h-3 bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg appearance-none cursor-pointer slider"
-              style={{
-                background: `linear-gradient(to right, rgb(245 158 11) 0%, rgb(249 115 22) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) 100%)`
-              }}
-            />
-            <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-2">
-              <span>3 bieren</span>
-              <span>12 bieren</span>
-            </div>
+    <PageLayout title="Menu Builder" subtitle="Stel je perfecte bier menu samen met slimme algoritmes!">
+      <Card className="p-8 mb-8">
+        {/* Menu Size Slider */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100">Aantal Bieren</h3>
+            <span className="text-3xl font-bold text-amber-600">{menuSize}</span>
           </div>
-
-          {/* Generation Mode */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100 mb-4">Generatie Mode</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {GENERATION_MODES.map(modeOption => {
-                const Icon = modeOption.icon;
-                return (
-                  <button
-                    key={modeOption.id}
-                    onClick={() => setMode(modeOption.id)}
-                    className={`p-4 rounded-xl transition-all ${
-                      mode === modeOption.id
-                        ? `bg-gradient-to-r ${modeOption.color} text-white shadow-lg scale-105`
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                    }`}
-                  >
-                    <Icon className="w-8 h-8 mx-auto mb-2" />
-                    <p className="font-semibold mb-1">{modeOption.label}</p>
-                    <p className="text-xs opacity-90">{modeOption.description}</p>
-                  </button>
-                );
-              })}
-            </div>
+          <input
+            type="range"
+            min="3"
+            max="12"
+            value={menuSize}
+            onChange={(e) => setMenuSize(parseInt(e.target.value))}
+            className="w-full h-3 bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg appearance-none cursor-pointer slider"
+            style={{
+              background: `linear-gradient(to right, rgb(245 158 11) 0%, rgb(249 115 22) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) ${((menuSize - 3) / 9) * 100}%, rgb(254 215 170) 100%)`
+            }}
+          />
+          <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-2">
+            <span>3 bieren</span>
+            <span>12 bieren</span>
           </div>
+        </div>
 
-          {/* Advanced Options */}
-          <div className="mb-6">
-            <button
-              onClick={() => setShowAdvanced(!showAdvanced)}
-              className="text-amber-600 hover:text-amber-700 font-medium flex items-center gap-2"
-            >
-              {showAdvanced ? '▼' : '▶'} Geavanceerde Opties
-            </button>
-            
-            <AnimatePresence>
-              {showAdvanced && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="mt-4 grid md:grid-cols-3 gap-4"
+        {/* Generation Mode */}
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100 mb-4">Generatie Mode</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {GENERATION_MODES.map(modeOption => {
+              const Icon = modeOption.icon;
+              return (
+                <button
+                  key={modeOption.id}
+                  onClick={() => setMode(modeOption.id)}
+                  className={`p-4 rounded-xl transition-all ${
+                    mode === modeOption.id
+                      ? `bg-gradient-to-r ${modeOption.color} text-white shadow-lg scale-105`
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
                 >
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Min ABV
-                    </label>
-                    <input
-                      type="number"
-                      step="0.5"
+                  <Icon className="w-8 h-8 mx-auto mb-2" />
+                  <p className="font-semibold mb-1">{modeOption.label}</p>
+                  <p className="text-xs opacity-90">{modeOption.description}</p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Advanced Options */}
+        <div className="mb-6">
+          <button
+            onClick={() => setShowAdvanced(!showAdvanced)}
+            className="text-amber-600 hover:text-amber-700 font-medium flex items-center gap-2"
+          >
+            {showAdvanced ? '▼' : '▶'} Geavanceerde Opties
+          </button>
+          
+          {showAdvanced && (
+            <div className="grid md:grid-cols-3 gap-4 pt-4 border-t border-amber-100 dark:border-gray-700">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Min ABV
+                </label>
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  max="15"
+                  value={minABV || ''}
+                  onChange={(e) => setMinABV(e.target.value ? parseFloat(e.target.value) : undefined)}
+                  placeholder="Geen limiet"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Max ABV
+                </label>
+                <input
+                  type="number"
+                  step="0.5"
+                  min="0"
+                  max="15"
+                  value={maxABV || ''}
+                  onChange={(e) => setMaxABV(e.target.value ? parseFloat(e.target.value) : undefined)}
+                  placeholder="Geen limiet"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Min Rating
+                </label>
+                <input
+                  type="number"
+                  step="0.1"
+                  min="0"
+                  max="5"
+                  value={minRating || ''}
+                  onChange={(e) => setMinRating(e.target.value ? parseFloat(e.target.value) : undefined)}
+                  placeholder="Geen limiet"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Generate Button */}
+        <button
+          onClick={handleGenerate}
+          disabled={generating}
+          className={`w-full py-4 rounded-xl font-bold text-lg transition-all shadow-lg ${
+            generating
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700 text-white'
+          }`}
+        >
+          {generating ? (
+            <span className="flex items-center justify-center gap-3">
+              <RefreshCw className="w-6 h-6 animate-spin" />
+              Menu Genereren...
+            </span>
+          ) : (
+            <span className="flex items-center justify-center gap-3">
+              <Sparkles className="w-6 h-6" />
+              Genereer Menu!
+            </span>
+          )}
+        </button>
+      </Card>
+
+      {/* Generated Menu */}
+      {generatedMenu && (
+        <div>
+          {/* Menu Header */}
+          <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 rounded-2xl shadow-xl p-8 mb-6 text-white">
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h2 className="text-3xl font-bold mb-2">{generatedMenu.theme}</h2>
+                <p className="text-lg opacity-90">{generatedMenu.description}</p>
                       min="0"
                       max="15"
                       value={minABV || ''}
@@ -290,13 +338,12 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                     />
                   </div>
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
           </div>
 
           {/* Generate Button */}
-          <motion.button
+          <button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleGenerate}
@@ -318,8 +365,8 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
                 Genereer Menu!
               </span>
             )}
-          </motion.button>
-        </motion.div>
+          </button>
+        </Card>
 
         {/* Generated Menu */}
         <AnimatePresence mode="wait">
@@ -416,7 +463,6 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </div>
+    </PageLayout>
   );
 }
