@@ -201,7 +201,6 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
           <h3 className="text-lg font-semibold text-gray-800 dark:text-amber-100 mb-4">Generatie Mode</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {GENERATION_MODES.map(modeOption => {
-              const Icon = modeOption.icon;
               const isSelected = mode === modeOption.id;
               return (
                 <button
