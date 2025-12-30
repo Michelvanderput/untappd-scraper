@@ -29,7 +29,6 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
   const swipeRef = useSwipe<HTMLDivElement>({
     onSwipeLeft: () => navigateNext(),
     onSwipeRight: () => navigatePrevious(),
-    onSwipeDown: () => handleClose(),
   }, { threshold: 50 });
 
   // Open animation
@@ -328,7 +327,6 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
           {/* Swipe Hint */}
           <div className="text-center pb-6 text-sm text-gray-500 dark:text-gray-400">
             <p>← Swipe om te navigeren →</p>
-            <p className="text-xs mt-1">Swipe naar beneden om te sluiten</p>
           </div>
         </div>
       </div>
