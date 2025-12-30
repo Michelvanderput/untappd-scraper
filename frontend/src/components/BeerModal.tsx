@@ -100,20 +100,33 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
 
   const animateTransition = (direction: 'left' | 'right', callback: () => void) => {
     if (contentRef.current) {
-      const xValue = direction === 'left' ? -100 : 100;
+      const xValue = direction === 'left' ? -50 : 50;
       
+      // Smooth fade and slide out
       gsap.to(contentRef.current, {
         x: xValue,
         opacity: 0,
-        duration: 0.3,
-        ease: 'power2.in',
+        scale: 0.95,
+        duration: 0.25,
+        ease: 'power2.inOut',
         onComplete: () => {
           callback();
           if (contentRef.current) {
+            // Smooth fade and slide in from opposite direction
             gsap.fromTo(
               contentRef.current,
-              { x: -xValue, opacity: 0 },
-              { x: 0, opacity: 1, duration: 0.3, ease: 'power2.out' }
+              { 
+                x: -xValue, 
+                opacity: 0,
+                scale: 0.95
+              },
+              { 
+                x: 0, 
+                opacity: 1,
+                scale: 1,
+                duration: 0.25,
+                ease: 'power2.inOut'
+              }
             );
           }
         }
@@ -163,11 +176,11 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
       {/* Content */}
       <div
         ref={contentRef}
-        className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col"
       >
         <div
           ref={swipeRef}
-          className="relative h-full overflow-y-auto"
+          className="relative flex-1 overflow-y-auto overscroll-contain"
         >
           {/* Header */}
           <div className="sticky top-0 z-10 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 px-6 py-4">
