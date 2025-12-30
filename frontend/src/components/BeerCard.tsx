@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Beer, Star } from 'lucide-react';
 import gsap from 'gsap';
 import type { BeerData } from '../types/beer';
+import { ANIMATION_CONFIG } from '../utils/animations';
 
 interface BeerCardProps {
   beer: BeerData;
@@ -21,18 +22,17 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
 
     const handleMouseEnter = () => {
       gsap.to(card, {
-        y: -8,
-        scale: 1.02,
-        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.15)',
-        duration: 0.3,
-        ease: 'power2.out',
+        y: -4,
+        scale: 1.01,
+        duration: ANIMATION_CONFIG.duration.normal,
+        ease: ANIMATION_CONFIG.ease.smooth,
       });
       
       if (imageRef.current) {
         gsap.to(imageRef.current, {
-          scale: 1.1,
-          duration: 0.3,
-          ease: 'power2.out',
+          scale: 1.05,
+          duration: ANIMATION_CONFIG.duration.normal,
+          ease: ANIMATION_CONFIG.ease.smooth,
         });
       }
     };
@@ -41,16 +41,15 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
       gsap.to(card, {
         y: 0,
         scale: 1,
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-        duration: 0.3,
-        ease: 'power2.out',
+        duration: ANIMATION_CONFIG.duration.normal,
+        ease: ANIMATION_CONFIG.ease.smooth,
       });
       
       if (imageRef.current) {
         gsap.to(imageRef.current, {
           scale: 1,
-          duration: 0.3,
-          ease: 'power2.out',
+          duration: ANIMATION_CONFIG.duration.normal,
+          ease: ANIMATION_CONFIG.ease.smooth,
         });
       }
     };
@@ -58,16 +57,16 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
     const handleTouchStart = () => {
       gsap.to(card, {
         scale: 0.98,
-        duration: 0.1,
-        ease: 'power2.in',
+        duration: ANIMATION_CONFIG.duration.fast,
+        ease: ANIMATION_CONFIG.ease.snappy,
       });
     };
 
     const handleTouchEnd = () => {
       gsap.to(card, {
         scale: 1,
-        duration: 0.2,
-        ease: 'elastic.out(1, 0.5)',
+        duration: ANIMATION_CONFIG.duration.fast,
+        ease: ANIMATION_CONFIG.ease.smooth,
       });
     };
 

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { X, Share2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import gsap from 'gsap';
 import type { BeerData } from '../types/beer';
 import { useSwipe } from '../hooks/useSwipe';
+import { animateModalOpen, animateModalClose, animateCrossfade } from '../utils/animations';
 
 interface BeerModalProps {
   beer: BeerData | null;
@@ -37,20 +37,7 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
       // Prevent body scroll
       document.body.style.overflow = 'hidden';
 
-      const timeline = gsap.timeline();
-      
-      timeline
-        .fromTo(
-          overlayRef.current,
-          { opacity: 0 },
-          { opacity: 1, duration: 0.3, ease: 'power2.out' }
-        )
-        .fromTo(
-          contentRef.current,
-          { opacity: 0, scale: 0.9, y: 50 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: 'back.out(1.4)' },
-          '-=0.2'
-        );
+      animateModalOpen(overlayRef.current, contentRef.current);
 
       return () => {
         document.body.style.overflow = '';
@@ -60,26 +47,10 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
 
   const handleClose = () => {
     if (contentRef.current && overlayRef.current) {
-      const timeline = gsap.timeline({
-        onComplete: () => {
-          document.body.style.overflow = '';
-          onClose();
-        }
+      animateModalClose(overlayRef.current, contentRef.current, () => {
+        document.body.style.overflow = '';
+        onClose();
       });
-
-      timeline
-        .to(contentRef.current, {
-          opacity: 0,
-          scale: 0.9,
-          y: 50,
-          duration: 0.3,
-          ease: 'power2.in'
-        })
-        .to(overlayRef.current, {
-          opacity: 0,
-          duration: 0.2,
-          ease: 'power2.in'
-        }, '-=0.1');
     }
   };
 
@@ -99,29 +70,7 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
 
   const animateTransition = (_direction: 'left' | 'right', callback: () => void) => {
     if (contentRef.current) {
-      // Smooth crossfade transition
-      gsap.to(contentRef.current, {
-        opacity: 0,
-        duration: 0.15,
-        ease: 'power1.inOut',
-        onComplete: () => {
-          callback();
-          if (contentRef.current) {
-            // Fade in new content
-            gsap.fromTo(
-              contentRef.current,
-              { 
-                opacity: 0
-              },
-              { 
-                opacity: 1,
-                duration: 0.15,
-                ease: 'power1.inOut'
-              }
-            );
-          }
-        }
-      });
+      animateCrossfade(contentRef.current, callback);
     }
   };
 
