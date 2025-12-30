@@ -14,7 +14,6 @@ import { FavoritesProvider } from './contexts/FavoritesContext';
 import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
-import { haptics } from './utils/haptic';
 import './App.css';
 
 function Navigation() {
@@ -33,7 +32,6 @@ function Navigation() {
   ];
 
   const handleNavClick = () => {
-    haptics.light();
     setIsMenuOpen(false);
   };
 
@@ -82,10 +80,7 @@ function Navigation() {
             </Link>
             <ThemeToggle />
             <button
-              onClick={() => {
-                haptics.light();
-                setIsMenuOpen(!isMenuOpen);
-              }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95"
               aria-label="Toggle menu"
             >

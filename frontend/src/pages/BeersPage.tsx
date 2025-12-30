@@ -1,12 +1,12 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
-import { Beer, Search, Filter, X, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { Beer, Search, Filter, X } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
+import BeerModal from '../components/BeerModal';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
-import { haptics } from '../utils/haptic';
 import SEO from '../components/SEO';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,20 +14,19 @@ gsap.registerPlugin(ScrollTrigger);
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<BeerData[]>([]);
-  const [currentBeer, setCurrentBeer] = useState<BeerData | null>(null);
+  const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [beersPerPage, setBeersPerPage] = useState(24);
+  const [displayCount, setDisplayCount] = useState(24);
   
   const headerRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
-  const beerDetailRef = useRef<HTMLDivElement>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
 
   // Animate header on mount
   useEffect(() => {
@@ -66,7 +65,7 @@ export default function BeersPage() {
     }
   }, [loading]);
 
-  // Animate grid on mount and page change
+  // Animate grid on mount
   useEffect(() => {
     if (gridRef.current && !loading) {
       const cards = gridRef.current.children;
@@ -85,7 +84,7 @@ export default function BeersPage() {
         }
       );
     }
-  }, [filteredBeers, currentPage, loading]);
+  }, [filteredBeers, loading, displayCount]);
 
   // Animate filter panel
   useEffect(() => {
@@ -106,16 +105,23 @@ export default function BeersPage() {
     }
   }, [showFilters]);
 
-  // Animate beer detail on selection
+  // Infinite scroll observer
   useEffect(() => {
-    if (beerDetailRef.current && currentBeer) {
-      gsap.fromTo(
-        beerDetailRef.current,
-        { opacity: 0, scale: 0.95, y: 20 },
-        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'back.out(1.2)' }
-      );
-    }
-  }, [currentBeer]);
+    if (!loadMoreRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && displayCount < filteredBeers.length) {
+          setDisplayCount(prev => Math.min(prev + 24, filteredBeers.length));
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(loadMoreRef.current);
+
+    return () => observer.disconnect();
+  }, [displayCount, filteredBeers.length]);
 
   // Fetch beers from API or local JSON with caching
   useEffect(() => {
@@ -230,7 +236,7 @@ export default function BeersPage() {
 
   useEffect(() => {
     setFilteredBeers(filteredBeersResult);
-    setCurrentPage(1);
+    setDisplayCount(24); // Reset display count on filter change
   }, [filteredBeersResult]);
 
   const categories = Array.from(new Set(beers.map(b => b.category)));
@@ -242,11 +248,25 @@ export default function BeersPage() {
   )) as string[];
 
   const clearFilters = () => {
-    haptics.filter();
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
   };
+
+  const handleBeerClick = useCallback((beer: BeerData) => {
+    setSelectedBeer(beer);
+  }, []);
+
+  const handleModalClose = useCallback(() => {
+    setSelectedBeer(null);
+  }, []);
+
+  const handleModalNavigate = useCallback((beer: BeerData) => {
+    setSelectedBeer(beer);
+  }, []);
+
+  const displayedBeers = filteredBeers.slice(0, displayCount);
+  const hasMore = displayCount < filteredBeers.length;
 
   if (loading) {
     return (
@@ -262,8 +282,8 @@ export default function BeersPage() {
   return (
     <>
       <SEO 
-        title={currentBeer ? `${currentBeer.name} - BeerMenu` : 'BeerMenu - Ontdek de Beste Bieren'}
-        description={currentBeer ? `${currentBeer.name} - ${currentBeer.category} | ${currentBeer.subcategory || ''} | ABV: ${currentBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
+        title={selectedBeer ? `${selectedBeer.name} - BeerMenu` : 'BeerMenu - Ontdek de Beste Bieren'}
+        description={selectedBeer ? `${selectedBeer.name} - ${selectedBeer.category} | ${selectedBeer.subcategory || ''} | ABV: ${selectedBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
       />
       <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -306,10 +326,7 @@ export default function BeersPage() {
 
             {/* Filter Toggle */}
             <button
-              onClick={() => {
-                haptics.tap();
-                setShowFilters(!showFilters);
-              }}
+              onClick={() => setShowFilters(!showFilters)}
               className="flex items-center justify-center gap-2 px-6 py-3 md:py-3 min-h-[48px] bg-amber-600 text-white rounded-xl hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 transition-all shadow-md active:scale-95"
             >
               <Filter className="w-5 h-5" />
@@ -330,7 +347,6 @@ export default function BeersPage() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => {
-                    haptics.select();
                     setSelectedCategory(e.target.value);
                     setSelectedSubcategory('');
                   }}
@@ -349,10 +365,7 @@ export default function BeersPage() {
                 </label>
                 <select
                   value={selectedSubcategory}
-                  onChange={(e) => {
-                    haptics.select();
-                    setSelectedSubcategory(e.target.value);
-                  }}
+                  onChange={(e) => setSelectedSubcategory(e.target.value)}
                   className="w-full px-4 py-3 min-h-[48px] border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white disabled:opacity-50"
                   disabled={!selectedCategory}
                 >
@@ -378,214 +391,35 @@ export default function BeersPage() {
           )}
         </div>
 
-        {/* Current Selected Beer */}
-        {currentBeer && (
-          <div
-            ref={beerDetailRef}
-            id="beer-detail"
-            className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border-2 border-amber-300 dark:border-amber-600 relative">
-
-            <div className="flex flex-col md:flex-row gap-8">
-              {/* Beer Image */}
-              <div className="flex-shrink-0">
-                {currentBeer.image_url ? (
-                  <img
-                    src={currentBeer.image_url}
-                    alt={currentBeer.name}
-                    className="w-48 h-48 object-contain mx-auto rounded-lg"
-                  />
-                ) : (
-                  <div className="w-48 h-48 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900 rounded-lg flex items-center justify-center">
-                    <Beer className="w-24 h-24 text-amber-600" />
-                  </div>
-                )}
-              </div>
-
-              {/* Beer Info */}
-              <div className="flex-1">
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
-                  {currentBeer.name}
-                </h2>
-                
-                {currentBeer.brewery && (
-                  <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">
-                    {currentBeer.brewery}
-                  </p>
-                )}
-
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
-                  {currentBeer.style && (
-                    <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Stijl</p>
-                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.style}</p>
-                    </div>
-                  )}
-                  
-                  {currentBeer.abv !== null && (
-                    <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">ABV</p>
-                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.abv}%</p>
-                    </div>
-                  )}
-                  
-                  {currentBeer.ibu !== null && (
-                    <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">IBU</p>
-                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.ibu}</p>
-                    </div>
-                  )}
-                  
-                  {currentBeer.rating !== null && (
-                    <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Rating</p>
-                      <div className="flex items-center gap-1">
-                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                        <p className="font-semibold text-gray-800 dark:text-white">
-                          {currentBeer.rating.toFixed(2)}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  {currentBeer.container && (
-                    <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">Verpakking</p>
-                      <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.container}</p>
-                    </div>
-                  )}
-                  
-                  <div>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Categorie</p>
-                    <p className="font-semibold text-gray-800 dark:text-white">{currentBeer.category}</p>
-                  </div>
-                </div>
-
-                {currentBeer.subcategory && (
-                  <div className="mb-4">
-                    <span className="inline-block bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 px-3 py-1 rounded-full text-sm font-medium">
-                      {currentBeer.subcategory}
-                    </span>
-                  </div>
-                )}
-
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Pagination Controls - Top */}
-        {filteredBeers.length > 0 && (
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-            <div className="flex items-center gap-4">
-              <label className="text-sm text-gray-700 dark:text-gray-300">
-                Bieren per pagina:
-              </label>
-              <select
-                value={beersPerPage}
-                onChange={(e) => {
-                  haptics.select();
-                  setBeersPerPage(Number(e.target.value));
-                  setCurrentPage(1);
-                }}
-                className="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none bg-white/80 dark:bg-gray-700/80 dark:text-white"
-              >
-                <option value={12}>12</option>
-                <option value={24}>24</option>
-                <option value={48}>48</option>
-                <option value={96}>96</option>
-              </select>
-            </div>
-            
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              Toon {((currentPage - 1) * beersPerPage) + 1} - {Math.min(currentPage * beersPerPage, filteredBeers.length)} van {filteredBeers.length} bieren
-            </div>
-          </div>
-        )}
-
         {/* Beer Grid */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
         >
-          {filteredBeers
-            .slice((currentPage - 1) * beersPerPage, currentPage * beersPerPage)
-            .map((beer) => (
-              <div key={beer.beer_url}>
-                <BeerCard
-                  beer={beer}
-                  onClick={() => {
-                    setCurrentBeer(beer);
-                    setTimeout(() => {
-                      document.getElementById('beer-detail')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 100);
-                  }}
-                />
-              </div>
-            ))}
+          {displayedBeers.map((beer) => (
+            <div key={beer.beer_url}>
+              <BeerCard
+                beer={beer}
+                onClick={() => handleBeerClick(beer)}
+              />
+            </div>
+          ))}
         </div>
 
-        {/* Pagination Controls - Bottom */}
-        {filteredBeers.length > beersPerPage && (
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <button
-              onClick={() => {
-                haptics.tap();
-                setCurrentPage(prev => Math.max(1, prev - 1));
-              }}
-              disabled={currentPage === 1}
-              className="flex items-center gap-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Vorige
-            </button>
-            
-            <div className="flex gap-1">
-              {Array.from({ length: Math.ceil(filteredBeers.length / beersPerPage) }, (_, i) => i + 1)
-                .filter(page => {
-                  const totalPages = Math.ceil(filteredBeers.length / beersPerPage);
-                  return (
-                    page === 1 ||
-                    page === totalPages ||
-                    (page >= currentPage - 1 && page <= currentPage + 1)
-                  );
-                })
-                .map((page, index, array) => {
-                  const showEllipsisBefore = index > 0 && page - array[index - 1] > 1;
-                  
-                  return (
-                    <div key={page} className="flex items-center gap-1">
-                      {showEllipsisBefore && (
-                        <span className="px-2 text-gray-500">...</span>
-                      )}
-                      <button
-                        onClick={() => {
-                          haptics.tap();
-                          setCurrentPage(page);
-                        }}
-                        className={`px-4 py-2 rounded-xl transition-all shadow-sm active:scale-95 ${
-                          currentPage === page
-                            ? 'bg-gradient-to-r from-amber-600 to-orange-600 text-white shadow-md'
-                            : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    </div>
-                  );
-                })}
+        {/* Loading More Indicator */}
+        {hasMore && (
+          <div ref={loadMoreRef} className="text-center py-8">
+            <div className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400">
+              <div className="w-6 h-6 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
+              <span>Meer bieren laden...</span>
             </div>
-            
-            <button
-              onClick={() => {
-                haptics.tap();
-                setCurrentPage(prev => Math.min(Math.ceil(filteredBeers.length / beersPerPage), prev + 1));
-              }}
-              disabled={currentPage === Math.ceil(filteredBeers.length / beersPerPage)}
-              className="flex items-center gap-1 px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
-            >
-              Volgende
-              <ChevronRight className="w-4 h-4" />
-            </button>
+          </div>
+        )}
+
+        {/* End of List */}
+        {!hasMore && filteredBeers.length > 0 && (
+          <div className="text-center py-8 text-gray-600 dark:text-gray-400">
+            <p>Je hebt alle {filteredBeers.length} bieren gezien! 🍺</p>
           </div>
         )}
 
@@ -603,6 +437,14 @@ export default function BeersPage() {
         )}
       </div>
     </div>
+
+    {/* Beer Modal */}
+    <BeerModal
+      beer={selectedBeer}
+      allBeers={filteredBeers}
+      onClose={handleModalClose}
+      onNavigate={handleModalNavigate}
+    />
     </>
   );
 }

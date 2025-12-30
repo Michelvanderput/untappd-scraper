@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 import { Beer, Star } from 'lucide-react';
 import gsap from 'gsap';
 import type { BeerData } from '../types/beer';
-import { haptics } from '../utils/haptic';
 
 interface BeerCardProps {
   beer: BeerData;
@@ -59,7 +58,6 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
     };
 
     const handleTouchStart = () => {
-      haptics.tap();
       gsap.to(card, {
         scale: 0.98,
         duration: 0.1,
@@ -93,14 +91,12 @@ export default function BeerCard({ beer, onClick, isFavorite, onToggleFavorite }
   }, []);
 
   const handleClick = () => {
-    haptics.select();
     onClick();
   };
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (onToggleFavorite) {
-      haptics.favorite();
       onToggleFavorite();
     }
   };
