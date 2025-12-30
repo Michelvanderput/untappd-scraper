@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
 import BeerRandomizer from '../components/BeerRandomizer';
 import { beerCache } from '../utils/cache';
 import type { BeerData } from '../types/beer';
+import PageLayout from '../components/PageLayout';
 
 export default function SurprisePage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
@@ -55,45 +55,17 @@ export default function SurprisePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="text-center">
-          <Sparkles className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700 dark:text-gray-300">Bieren laden...</p>
+      <PageLayout title="Surprise" subtitle="Laden...">
+        <div className="flex justify-center items-center py-20">
+          <Sparkles className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce" />
         </div>
-      </div>
+      </PageLayout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Sparkles className="w-12 h-12 text-amber-600" />
-            <h1 className="text-6xl font-bold text-gray-900 dark:text-white font-heading">
-              Sur<span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">prise</span>
-            </h1>
-            <Sparkles className="w-12 h-12 text-amber-600" />
-          </div>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Laat het lot beslissen! 🎲
-          </p>
-        </motion.div>
-
-        {/* Randomizer */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          <BeerRandomizer beers={beers} />
-        </motion.div>
-      </div>
-    </div>
+    <PageLayout title="Surprise" subtitle="Laat het lot beslissen! 🎲">
+      <BeerRandomizer beers={beers} />
+    </PageLayout>
   );
 }

@@ -1,34 +1,12 @@
-import { motion } from 'framer-motion';
 import { Smartphone, Share, Home, MoreVertical, Download } from 'lucide-react';
+import PageLayout from '../components/PageLayout';
+import Card from '../components/Card';
 
 export default function InstallPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Smartphone className="w-12 h-12 text-amber-600 dark:text-amber-500" />
-            <h1 className="text-5xl font-bold text-gray-800 dark:text-white font-heading">
-              Installeer de App
-            </h1>
-          </div>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Gebruik BeerMenu als een echte app op je telefoon!
-          </p>
-        </motion.div>
+    <PageLayout title="Installeer de App" subtitle="Gebruik BeerMenu als een echte app op je telefoon!">
 
-        {/* Benefits */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-amber-100 dark:border-amber-900/30"
-        >
+        <Card className="p-8 mb-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-6">
             ✨ Voordelen van de App
           </h2>
@@ -62,15 +40,9 @@ export default function InstallPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Card>
 
-        {/* Android Instructions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white/80 dark:bg-gradient-to-br dark:from-green-950/40 dark:to-emerald-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-green-100 dark:border-green-900/30"
-        >
+        <Card className="p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
               <span className="text-2xl">🤖</span>
@@ -143,15 +115,9 @@ export default function InstallPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Card>
 
-        {/* iPhone Instructions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="bg-white/80 dark:bg-gradient-to-br dark:from-blue-950/40 dark:to-indigo-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 mb-8 border border-blue-100 dark:border-blue-900/30"
-        >
+        <Card className="p-8 mb-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
               <span className="text-2xl">🍎</span>
@@ -244,15 +210,9 @@ export default function InstallPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </Card>
 
-        {/* Tips */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="bg-white/80 dark:bg-gradient-to-br dark:from-amber-950/40 dark:to-orange-950/40 backdrop-blur-sm rounded-2xl shadow-xl p-8 border border-amber-100 dark:border-amber-900/30"
-        >
+        <Card className="p-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-amber-100 mb-4">
             💡 Tips
           </h2>
@@ -270,8 +230,7 @@ export default function InstallPage() {
               • De app gebruikt <strong>geen extra opslagruimte</strong> - het is gewoon een snelkoppeling!
             </p>
           </div>
-        </motion.div>
-      </div>
-    </div>
+        </Card>
+    </PageLayout>
   );
 }
