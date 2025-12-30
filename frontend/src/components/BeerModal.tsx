@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { X, Share2, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, Share2, Star } from 'lucide-react';
 import type { BeerData } from '../types/beer';
-import { animateModalOpen, animateModalClose, animateCrossfade } from '../utils/animations';
+import { animateModalOpen, animateModalClose } from '../utils/animations';
 
 interface BeerModalProps {
   beer: BeerData | null;
@@ -10,7 +10,7 @@ interface BeerModalProps {
   onNavigate: (beer: BeerData) => void;
 }
 
-export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerModalProps) {
+export default function BeerModal({ beer, allBeers, onClose }: BeerModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -47,26 +47,6 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
     }
   };
 
-  const navigateNext = () => {
-    if (currentIndex < allBeers.length - 1) {
-      const nextBeer = allBeers[currentIndex + 1];
-      animateTransition('left', () => onNavigate(nextBeer));
-    }
-  };
-
-  const navigatePrevious = () => {
-    if (currentIndex > 0) {
-      const prevBeer = allBeers[currentIndex - 1];
-      animateTransition('right', () => onNavigate(prevBeer));
-    }
-  };
-
-  const animateTransition = (_direction: 'left' | 'right', callback: () => void) => {
-    if (contentRef.current) {
-      animateCrossfade(contentRef.current, callback);
-    }
-  };
-
   const handleShare = async () => {
     if (!beer) return;
 
@@ -89,17 +69,7 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
     }
   };
 
-  // Toggle favorite
-  const isFavorite = false; // This should be connected to context if needed, but keeping it simple as per current file structure
-  const handleToggleFavorite = () => {
-    // Placeholder for now, as context wasn't imported in the read file
-    // If we need to implement it, we need to import useFavorites
-  };
-
   if (!beer) return null;
-
-  const hasPrevious = currentIndex > 0;
-  const hasNext = currentIndex < allBeers.length - 1;
 
   return (
     <div
@@ -131,26 +101,6 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
 
           {/* Image Section - Compact */}
           <div className="relative h-48 shrink-0 bg-gradient-to-b from-amber-50 to-white dark:from-gray-800 dark:to-gray-900">
-            {/* Navigation Arrows (Absolute) */}
-            <button
-              onClick={(e) => { e.stopPropagation(); navigatePrevious(); }}
-              disabled={!hasPrevious}
-              className={`absolute left-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-all hidden md:block ${
-                !hasPrevious ? 'opacity-0 pointer-events-none' : 'text-gray-600 dark:text-gray-300 hover:scale-110'
-              }`}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); navigateNext(); }}
-              disabled={!hasNext}
-              className={`absolute right-4 top-1/2 -translate-y-1/2 z-20 p-2 bg-white/50 dark:bg-black/30 backdrop-blur-sm rounded-full transition-all hidden md:block ${
-                !hasNext ? 'opacity-0 pointer-events-none' : 'text-gray-600 dark:text-gray-300 hover:scale-110'
-              }`}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
             {/* Image */}
             <div className="absolute inset-0 flex items-center justify-center p-4">
               {beer.image_url ? (
@@ -218,18 +168,6 @@ export default function BeerModal({ beer, allBeers, onClose, onNavigate }: BeerM
               </a>
 
               <div className="flex gap-3">
-                <button
-                  onClick={handleToggleFavorite}
-                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold transition-all border-2 ${
-                    isFavorite
-                      ? 'border-yellow-500 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-400'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-yellow-400 text-gray-600 dark:text-gray-300'
-                  }`}
-                >
-                  <Star className={`w-5 h-5 ${isFavorite ? 'fill-yellow-500' : ''}`} />
-                  {isFavorite ? 'Favoriet' : 'Opslaan'}
-                </button>
-                
                 <button
                   onClick={handleShare}
                   className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 text-gray-600 dark:text-gray-300 transition-all"
