@@ -335,7 +335,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
 
       {/* REVEALING VIEW - Step by Step */}
       {viewState === 'revealing' && generatedMenu && (
-        <div className="max-w-md mx-auto">
+        <div className="max-w-xl mx-auto">
             <div className="text-center mb-6">
                 <span className="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
                     Gang {revealIndex + 1} van {generatedMenu.beers.length}

@@ -284,7 +284,7 @@ export default function BeerdlePage() {
                         alt="Mystery beer"
                         className="w-full h-full object-contain"
                         style={{
-                          filter: gameState.completed ? 'blur(0px)' : 'blur(15px)',
+                          filter: gameState.completed ? 'blur(0px)' : 'blur(10px)',
                           transition: 'filter 1s ease-in-out',
                           opacity: gameState.completed ? 1 : 0.8
                         }}
