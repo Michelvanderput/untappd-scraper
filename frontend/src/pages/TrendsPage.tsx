@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy, ExternalLink } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
+import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy, ExternalLink, PieChart } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, Cell } from 'recharts';
 import type { Changelog, ChangelogEntry } from '../types/changelog';
 import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
@@ -56,6 +57,62 @@ export default function TrendsPage() {
 
     fetchData();
   }, []);
+
+  // --- Data Preparation for Charts ---
+
+  const categoryData = useMemo(() => {
+    const counts: Record<string, number> = {};
+    beers.forEach(b => {
+      counts[b.category] = (counts[b.category] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 8); // Top 8 categories
+  }, [beers]);
+
+  const abvData = useMemo(() => {
+    const ranges = [
+      { name: '0-4%', min: 0, max: 4, count: 0 },
+      { name: '4-6%', min: 4, max: 6, count: 0 },
+      { name: '6-8%', min: 6, max: 8, count: 0 },
+      { name: '8-10%', min: 8, max: 10, count: 0 },
+      { name: '10%+', min: 10, max: 100, count: 0 },
+    ];
+    
+    beers.forEach(b => {
+      const abv = b.abv || 0;
+      const range = ranges.find(r => abv >= r.min && abv < r.max);
+      if (range) range.count++;
+    });
+    
+    return ranges;
+  }, [beers]);
+
+  const breweryChartData = useMemo(() => {
+    const counts: Record<string, number> = {};
+    beers.forEach(b => {
+      if (b.brewery) counts[b.brewery] = (counts[b.brewery] || 0) + 1;
+    });
+    return Object.entries(counts)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 10);
+  }, [beers]);
+
+  const CustomTooltip = ({ active, payload, label }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-100 dark:border-gray-700 rounded-xl shadow-xl">
+          <p className="font-bold text-gray-900 dark:text-white mb-1">{label}</p>
+          <p className="text-amber-600 dark:text-amber-500 text-sm">
+            {payload[0].value} bieren
+          </p>
+        </div>
+      );
+    }
+    return null;
+  };
 
   const getFilteredChanges = (): ChangelogEntry[] => {
     if (!changelog) return [];
@@ -241,6 +298,103 @@ export default function TrendsPage() {
             <span className="text-3xl font-bold">{stats.uniqueCategories}</span>
           </div>
           <p className="text-sm font-semibold opacity-90">Categorieën</p>
+        </Card>
+      </div>
+
+      {/* DASHBOARD CHARTS */}
+      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center font-heading">📊 Data Dashboard</h2>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        {/* Category Distribution */}
+        <Card className="p-6" hoverable={false}>
+            <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                    <PieChart className="w-5 h-5 text-amber-500" />
+                    Bieren per Categorie
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Verdeling van de populairste stijlen</p>
+            </div>
+            <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={categoryData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
+                        <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} opacity={0.3} />
+                        <XAxis type="number" hide />
+                        <YAxis 
+                            dataKey="name" 
+                            type="category" 
+                            width={100} 
+                            tick={{ fontSize: 11, fill: '#6b7280' }} 
+                        />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
+                        <Bar dataKey="value" fill="#f59e0b" radius={[0, 4, 4, 0]}>
+                            {categoryData.map((_, index) => (
+                                <Cell key={`cell-${index}`} fill={`hsl(35, 95%, ${50 + index * 5}%)`} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
+        </Card>
+
+        {/* ABV Distribution */}
+        <Card className="p-6" hoverable={false}>
+            <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-blue-500" />
+                    Alcoholpercentage (ABV)
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Hoe sterk zijn de bieren?</p>
+            </div>
+            <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={abvData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+                        <defs>
+                            <linearGradient id="colorAbv" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
+                                <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                            </linearGradient>
+                        </defs>
+                        <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#6b7280' }} axisLine={false} tickLine={false} />
+                        <YAxis hide />
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Area type="monotone" dataKey="count" stroke="#3b82f6" fillOpacity={1} fill="url(#colorAbv)" />
+                    </AreaChart>
+                </ResponsiveContainer>
+            </div>
+        </Card>
+
+        {/* Top Breweries Chart */}
+        <Card className="p-6 md:col-span-2" hoverable={false}>
+            <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                    <Award className="w-5 h-5 text-purple-500" />
+                    Populaire Brouwerijen
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Brouwerijen met de meeste bieren op de kaart</p>
+            </div>
+            <div className="h-[300px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={breweryChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
+                        <XAxis 
+                            dataKey="name" 
+                            tick={{ fontSize: 11, fill: '#6b7280' }} 
+                            interval={0}
+                            angle={-45}
+                            textAnchor="end"
+                            height={60}
+                        />
+                        <YAxis hide />
+                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
+                        <Bar dataKey="value" fill="#8b5cf6" radius={[4, 4, 0, 0]}>
+                            {breweryChartData.map((_, index) => (
+                                <Cell key={`cell-${index}`} fill={`hsl(260, 95%, ${60 + index * 3}%)`} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </ResponsiveContainer>
+            </div>
         </Card>
       </div>
 

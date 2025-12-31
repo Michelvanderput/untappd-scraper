@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import { Beer, Search, Filter, X, Sparkles } from 'lucide-react';
+import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
@@ -9,6 +9,15 @@ import { beerCache } from '../utils/cache';
 import SEO from '../components/SEO';
 import { animatePageHeader, animateFadeIn, animateGrid } from '../utils/animations';
 
+type SmartTag = 'debob' | 'hopbom' | 'zoetekauw' | 'zwaar';
+
+const SMART_TAGS = [
+  { id: 'debob' as SmartTag, label: 'De Bob', icon: Car, color: 'text-blue-500 bg-blue-50 dark:bg-blue-900/20' },
+  { id: 'hopbom' as SmartTag, label: 'Hopbom', icon: Zap, color: 'text-green-500 bg-green-50 dark:bg-green-900/20' },
+  { id: 'zoetekauw' as SmartTag, label: 'Zoetekauw', icon: Candy, color: 'text-pink-500 bg-pink-50 dark:bg-pink-900/20' },
+  { id: 'zwaar' as SmartTag, label: 'Zwaar Geschut', icon: Flame, color: 'text-red-500 bg-red-50 dark:bg-red-900/20' },
+];
+
 export default function BeersPage() {
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<BeerData[]>([]);
@@ -16,6 +25,7 @@ export default function BeersPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
+  const [activeSmartTag, setActiveSmartTag] = useState<SmartTag | null>(null);
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   const [displayCount, setDisplayCount] = useState(24);
@@ -25,6 +35,8 @@ export default function BeersPage() {
   const gridRef = useRef<HTMLDivElement>(null);
   const filterRef = useRef<HTMLDivElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+
+  // ... (animations and data fetching logic remains same) ...
 
   // Animate header on mount
   useEffect(() => {
@@ -168,6 +180,30 @@ export default function BeersPage() {
 
     filtered = deduplicateBeers(filtered);
 
+    // Apply Smart Tags logic
+    if (activeSmartTag) {
+        switch (activeSmartTag) {
+            case 'debob':
+                filtered = filtered.filter(b => (b.abv || 0) <= 0.5);
+                break;
+            case 'hopbom':
+                filtered = filtered.filter(b => 
+                    (b.style?.toLowerCase().includes('ipa') || b.style?.toLowerCase().includes('pale ale')) && 
+                    (b.ibu || 0) > 40
+                );
+                break;
+            case 'zoetekauw':
+                filtered = filtered.filter(b => {
+                    const style = b.style?.toLowerCase() || '';
+                    return style.includes('stout') || style.includes('porter') || style.includes('sour') || style.includes('fruit') || style.includes('pastry');
+                });
+                break;
+            case 'zwaar':
+                filtered = filtered.filter(b => (b.abv || 0) >= 10);
+                break;
+        }
+    }
+
     if (selectedCategory) {
       filtered = filtered.filter(b => b.category === selectedCategory);
     }
@@ -181,7 +217,7 @@ export default function BeersPage() {
     }
 
     return filtered;
-  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers]);
+  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, activeSmartTag]);
 
   useEffect(() => {
     setFilteredBeers(filteredBeersResult);
@@ -200,6 +236,7 @@ export default function BeersPage() {
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
+    setActiveSmartTag(null);
   };
 
   const handleBeerClick = useCallback((beer: BeerData) => {
@@ -244,6 +281,29 @@ export default function BeersPage() {
               Bier <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Menu</span>
             </h1>
             <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full shadow-lg shadow-amber-500/20" />
+            
+            {/* Smart Tags - Mobile Friendly Scrollable */}
+            <div className="flex flex-wrap justify-center gap-3 mb-8 px-2">
+                {SMART_TAGS.map(tag => {
+                    const isActive = activeSmartTag === tag.id;
+                    const Icon = tag.icon;
+                    return (
+                        <button
+                            key={tag.id}
+                            onClick={() => setActiveSmartTag(isActive ? null : tag.id)}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all border-2 ${
+                                isActive 
+                                    ? `${tag.color} border-transparent shadow-md scale-105` 
+                                    : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                            }`}
+                        >
+                            <Icon className={`w-4 h-4 ${isActive ? 'animate-pulse' : ''}`} />
+                            {tag.label}
+                        </button>
+                    )
+                })}
+            </div>
+
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-md rounded-full border border-amber-100 dark:border-gray-700">
               <Sparkles className="w-4 h-4 text-amber-500" />
               <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
@@ -352,7 +412,7 @@ export default function BeersPage() {
                       </div>
                     </div>
 
-                    {(searchTerm || selectedCategory || selectedSubcategory) && (
+                    {(searchTerm || selectedCategory || selectedSubcategory || activeSmartTag) && (
                       <div className="md:col-span-2 flex justify-end">
                         <button
                           onClick={clearFilters}
