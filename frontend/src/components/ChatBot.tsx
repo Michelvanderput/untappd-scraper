@@ -57,9 +57,19 @@ export default function ChatBot() {
       }
 
       setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Chat error:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: 'Oeps, ik ben even de draad kwijt. Probeer het later nog eens! 😵‍💫' }]);
+      let errorMessage = 'Oeps, ik ben even de draad kwijt. Probeer het later nog eens! 😵‍💫';
+      
+      if (error.message.includes('404')) {
+        errorMessage = 'Ik kan mijn hersenen (API) niet vinden. Draait de backend server wel?';
+      } else if (error.message.includes('500')) {
+        errorMessage = 'Er ging iets mis in mijn geheugen. Check de server logs.';
+      } else if (error.message) {
+        errorMessage = `Er ging iets mis: ${error.message}`;
+      }
+      
+      setMessages(prev => [...prev, { role: 'assistant', content: errorMessage }]);
     } finally {
       setIsLoading(false);
     }
