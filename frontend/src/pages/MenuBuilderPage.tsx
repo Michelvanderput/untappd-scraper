@@ -123,8 +123,6 @@ export default function MenuBuilderPage() {
       setRevealIndex(0);
       setViewState('revealing');
       setGenerating(false);
-      
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 800);
   };
 
@@ -132,10 +130,8 @@ export default function MenuBuilderPage() {
     if (!generatedMenu) return;
     if (revealIndex < generatedMenu.beers.length - 1) {
         setRevealIndex(prev => prev + 1);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         setViewState('summary');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 

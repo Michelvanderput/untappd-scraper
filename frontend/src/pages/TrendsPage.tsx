@@ -467,48 +467,7 @@ export default function TrendsPage() {
 
       <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center font-heading">📈 Trends & Changelog</h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Top Breweries */}
-        <Card className="p-6 h-full" hoverable={false}>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl shadow-lg shadow-blue-500/20">
-              <Award className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg text-gray-800 dark:text-white">Top Brouwerijen</h3>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Meeste bieren in assortiment</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            {topBreweries.map((brewery) => {
-              const maxCount = topBreweries[0]?.count || 1;
-              const percentage = (brewery.count / maxCount) * 100;
-              
-              return (
-                <div key={brewery.name} className="relative group cursor-default">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-semibold text-sm text-gray-800 dark:text-white truncate flex-1 group-hover:text-blue-500 transition-colors">{brewery.name}</span>
-                    <div className="flex items-center gap-2 ml-2">
-                      <span className="text-xs font-bold bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-gray-600 dark:text-gray-300">{brewery.count}</span>
-                      <div className="flex items-center gap-0.5 text-yellow-500">
-                        <Star className="w-3 h-3 fill-yellow-500" />
-                        <span className="text-xs font-bold">{brewery.avgRating.toFixed(2)}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${percentage}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Card>
-
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Biggest Risers */}
         <Card className="p-6 h-full" hoverable={false}>
           <div className="flex items-center gap-3 mb-6">
