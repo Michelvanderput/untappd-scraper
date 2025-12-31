@@ -22,7 +22,7 @@ export default async function handler(req, res) {
     const beersPath = path.join(process.cwd(), 'beers.json');
     if (!fs.existsSync(beersPath)) {
         console.error('beers.json not found at:', beersPath);
-        throw new Error('Beer data not available');
+        throw new Error(`Beer data not found at ${beersPath}. CWD: ${process.cwd()}`);
     }
     const data = JSON.parse(fs.readFileSync(beersPath, 'utf-8'));
     
@@ -32,8 +32,7 @@ export default async function handler(req, res) {
     ).join('\n');
   } catch (error) {
     console.error('Error loading beer data:', error);
-    // Fallback or error? Let's error for now as the bot needs data
-    return res.status(500).json({ error: 'Failed to load beer menu data' });
+    return res.status(500).json({ error: `Failed to load beer data: ${error.message}` });
   }
 
   try {
@@ -81,6 +80,9 @@ Gebruiker vraagt: "${message}"
 
     if (json.error) {
         console.error('OpenAI API Error:', json.error);
+        if (json.error.code === 'insufficient_quota') {
+            throw new Error('OpenAI tegoed is op. Controleer je billing gegevens.');
+        }
         throw new Error(json.error.message || 'OpenAI API Error');
     }
 
