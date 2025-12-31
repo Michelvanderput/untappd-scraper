@@ -1,28 +1,19 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { X, Share2, Star } from 'lucide-react';
 import type { BeerData } from '../types/beer';
 import { animateModalOpen, animateModalClose } from '../utils/animations';
 
 interface BeerModalProps {
   beer: BeerData | null;
-  allBeers: BeerData[];
+  allBeers: BeerData[]; // Kept for interface compatibility
   onClose: () => void;
-  onNavigate: (beer: BeerData) => void;
+  onNavigate: (beer: BeerData) => void; // Kept for interface compatibility
 }
 
-export default function BeerModal({ beer, allBeers, onClose }: BeerModalProps) {
+export default function BeerModal({ beer, onClose }: BeerModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Find current beer index
-  useEffect(() => {
-    if (beer) {
-      const index = allBeers.findIndex(b => b.beer_url === beer.beer_url);
-      setCurrentIndex(index);
-    }
-  }, [beer, allBeers]);
 
   // Open animation
   useEffect(() => {
@@ -127,9 +118,6 @@ export default function BeerModal({ beer, allBeers, onClose }: BeerModalProps) {
               <p className="text-gray-500 dark:text-gray-400 font-medium">
                 {beer.brewery}
               </p>
-              <div className="flex items-center justify-center gap-2 mt-2 text-xs text-gray-400 font-mono">
-                <span>{currentIndex + 1} / {allBeers.length}</span>
-              </div>
             </div>
 
             {/* Stats Grid */}
@@ -170,7 +158,7 @@ export default function BeerModal({ beer, allBeers, onClose }: BeerModalProps) {
               <div className="flex gap-3">
                 <button
                   onClick={handleShare}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 text-gray-600 dark:text-gray-300 transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 text-gray-600 dark:text-gray-300 transition-all"
                 >
                   <Share2 className="w-5 h-5" />
                   Delen
