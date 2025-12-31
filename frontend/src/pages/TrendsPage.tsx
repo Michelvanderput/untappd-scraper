@@ -226,11 +226,17 @@ export default function TrendsPage() {
         const rating = Number(b.rating);
         return !isNaN(abv) && !isNaN(rating) && abv > 0 && rating > 0;
       })
-      .map(b => ({
-        ...b,
-        abv: Number(b.abv),
-        rating: Number(b.rating)
-      }));
+      .map(b => {
+        // Exclude 'style' property to prevent Recharts from passing it as a string style prop to DOM elements
+        // causing React error #62
+        const { style, ...rest } = b;
+        return {
+          ...rest,
+          beerStyle: style, // Rename it just in case we need it later
+          abv: Number(b.abv),
+          rating: Number(b.rating)
+        };
+      });
   }, [beers]);
 
   const handleBeerClick = (beer: any) => {

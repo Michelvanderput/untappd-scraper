@@ -81,11 +81,16 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     const finalIndex = Math.floor(Math.random() * filteredBeers.length);
     const finalBeer = filteredBeers[finalIndex];
     
-    // Reset state
-    setCurrentBeer(finalBeer);
-    setIsRandomizing(true);
+    // Immediately hide existing content before state update
+    if (currentBeer) {
+        gsap.set('.reveal-item', { opacity: 0, y: 20, scale: 0.9 });
+    }
     
-    // Small delay to allow element to render
+    // Reset state
+    setIsRandomizing(true);
+    setCurrentBeer(finalBeer);
+    
+    // Small delay to allow element to render and create suspense
     setTimeout(() => {
         runRevealAnimation(finalBeer);
     }, 400);
