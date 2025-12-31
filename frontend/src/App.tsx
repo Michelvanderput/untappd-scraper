@@ -192,7 +192,6 @@ function App() {
               </Routes>
               
               <ComparisonBar />
-              <ChatBot />
               <UpdateNotification />
             </div>
           </BrowserRouter>
