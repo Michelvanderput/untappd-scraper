@@ -375,7 +375,7 @@ export default function TrendsPage() {
             </div>
             <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={breweryChartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                    <BarChart data={breweryChartData} margin={{ top: 5, right: 30, left: 20, bottom: 40 }}>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
                         <XAxis 
                             dataKey="name" 
@@ -383,7 +383,7 @@ export default function TrendsPage() {
                             interval={0}
                             angle={-45}
                             textAnchor="end"
-                            height={60}
+                            height={80}
                         />
                         <YAxis hide />
                         <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
