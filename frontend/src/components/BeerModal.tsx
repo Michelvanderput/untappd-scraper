@@ -5,9 +5,7 @@ import { animateModalOpen, animateModalClose } from '../utils/animations';
 
 interface BeerModalProps {
   beer: BeerData | null;
-  allBeers: BeerData[]; // Kept for interface compatibility
   onClose: () => void;
-  onNavigate: (beer: BeerData) => void; // Kept for interface compatibility
 }
 
 export default function BeerModal({ beer, onClose }: BeerModalProps) {
