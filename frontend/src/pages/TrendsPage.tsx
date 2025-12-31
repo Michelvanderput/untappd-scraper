@@ -340,7 +340,7 @@ export default function TrendsPage() {
             </div>
         </Card>
 
-        {/* Top Breweries Chart */}
+        {/* Top Breweries List */}
         <Card className="p-6 md:col-span-2" hoverable={false}>
             <div className="mb-6">
                 <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
@@ -349,27 +349,44 @@ export default function TrendsPage() {
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">Brouwerijen met de meeste bieren op de kaart</p>
             </div>
-            <div className="h-[500px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={breweryChartData} margin={{ top: 5, right: 30, left: 20, bottom: 150 }}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
-                        <XAxis 
-                            dataKey="name" 
-                            tick={{ fontSize: 11, fill: '#6b7280' }} 
-                            interval={0}
-                            angle={-45}
-                            textAnchor="end"
-                            height={150}
-                        />
-                        <YAxis hide />
-                        <Tooltip content={<CustomTooltip />} cursor={{ fill: 'transparent' }} />
-                        <Bar dataKey="value" fill="#8b5cf6" radius={[4, 4, 0, 0]}>
-                            {breweryChartData.map((_, index) => (
-                                <Cell key={`cell-${index}`} fill={`hsl(260, 95%, ${60 + index * 3}%)`} />
-                            ))}
-                        </Bar>
-                    </BarChart>
-                </ResponsiveContainer>
+            
+            <div className="space-y-4">
+                {breweryChartData.map((brewery, index) => (
+                    <div key={brewery.name} className="relative group">
+                        <div className="flex items-center justify-between mb-2 z-10 relative">
+                            <div className="flex items-center gap-3 overflow-hidden">
+                                <div className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg font-bold text-sm ${
+                                    index === 0 ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400 ring-1 ring-yellow-500/50' :
+                                    index === 1 ? 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 ring-1 ring-slate-500/50' :
+                                    index === 2 ? 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-400 ring-1 ring-orange-500/50' :
+                                    'bg-gray-50 text-gray-500 dark:bg-gray-800/50 dark:text-gray-500'
+                                }`}>
+                                    {index + 1}
+                                </div>
+                                <span className="font-semibold text-gray-800 dark:text-gray-200 truncate group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                    {brewery.name}
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2 pl-2">
+                                <span className="font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 px-2.5 py-1 rounded-md text-xs whitespace-nowrap border border-gray-200 dark:border-gray-700">
+                                    {brewery.value} bieren
+                                </span>
+                            </div>
+                        </div>
+                        {/* Progress Bar */}
+                        <div className="h-2 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                            <div 
+                                className={`h-full rounded-full transition-all duration-1000 ease-out ${
+                                    index === 0 ? 'bg-gradient-to-r from-yellow-400 to-amber-500' :
+                                    index === 1 ? 'bg-gradient-to-r from-slate-400 to-slate-500' :
+                                    index === 2 ? 'bg-gradient-to-r from-orange-400 to-orange-500' :
+                                    'bg-gradient-to-r from-purple-500 to-indigo-500 opacity-70'
+                                }`}
+                                style={{ width: `${(brewery.value / breweryChartData[0].value) * 100}%` }}
+                            />
+                        </div>
+                    </div>
+                ))}
             </div>
         </Card>
       </div>
