@@ -463,7 +463,7 @@ export default function BeerdlePage() {
                 }}
                 onFocus={() => setShowDropdown(true)}
                 placeholder="Type een biernaam..."
-                className="w-full px-6 py-5 text-lg rounded-2xl border-2 border-transparent bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-xl focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all placeholder:text-gray-400"
+                className="w-full px-6 py-5 text-lg rounded-2xl border-2 border-transparent bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-xl focus:border-amber-500 focus:ring-4 focus:ring-amber-500/10 outline-none transition-all placeholder:text-gray-400 text-gray-900 dark:text-white"
               />
               <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-amber-500 transition-colors">
                 <Beer className="w-6 h-6" />
