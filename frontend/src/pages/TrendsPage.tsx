@@ -221,7 +221,11 @@ export default function TrendsPage() {
 
   const flavorMapData = useMemo(() => {
     return beers
-      .filter(b => typeof b.abv === 'number' && typeof b.rating === 'number')
+      .filter(b => {
+        const abv = Number(b.abv);
+        const rating = Number(b.rating);
+        return !isNaN(abv) && !isNaN(rating) && abv > 0 && rating > 0;
+      })
       .map(b => ({
         ...b,
         abv: Number(b.abv),
@@ -230,7 +234,9 @@ export default function TrendsPage() {
   }, [beers]);
 
   const handleBeerClick = (beer: any) => {
-    setSelectedBeer(beer as BeerData);
+    if (beer) {
+      setSelectedBeer(beer as BeerData);
+    }
   };
 
   const handleModalClose = () => {
@@ -314,66 +320,73 @@ export default function TrendsPage() {
                 </p>
             </div>
             <div className="h-[400px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                    <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
-                        <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                        <XAxis 
-                            type="number" 
-                            dataKey="abv" 
-                            name="Alcohol" 
-                            unit="%" 
-                            domain={['auto', 'auto']}
-                            label={{ value: 'Alcoholpercentage (ABV)', position: 'bottom', offset: 0, fill: '#6b7280', fontSize: 12 }}
-                            tick={{ fill: '#6b7280', fontSize: 11 }}
-                        />
-                        <YAxis 
-                            type="number" 
-                            dataKey="rating" 
-                            name="Rating" 
-                            domain={[0, 5]}
-                            label={{ value: 'Waardering (0-5)', angle: -90, position: 'left', offset: 0, fill: '#6b7280', fontSize: 12 }}
-                            tick={{ fill: '#6b7280', fontSize: 11 }}
-                        />
-                        <Tooltip 
-                            cursor={{ strokeDasharray: '3 3' }} 
-                            content={({ active, payload }) => {
-                                if (active && payload && payload.length) {
-                                    const data = payload[0].payload;
-                                    return (
-                                        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-100 dark:border-gray-700 rounded-xl shadow-xl z-50">
-                                            <p className="font-bold text-gray-900 dark:text-white mb-1">{data.name}</p>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{data.brewery}</p>
-                                            <div className="flex gap-3 text-xs">
-                                                <span className="text-blue-600 dark:text-blue-400 font-medium">ABV: {data.abv}%</span>
-                                                <span className="text-amber-600 dark:text-amber-500 font-medium">★ {data.rating.toFixed(2)}</span>
+                {flavorMapData.length > 0 ? (
+                    <ResponsiveContainer width="100%" height="100%">
+                        <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
+                            <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+                            <XAxis 
+                                type="number" 
+                                dataKey="abv" 
+                                name="Alcohol" 
+                                unit="%" 
+                                domain={[0, 'auto']}
+                                label={{ value: 'Alcoholpercentage (ABV)', position: 'bottom', offset: 0, fill: '#6b7280', fontSize: 12 }}
+                                tick={{ fill: '#6b7280', fontSize: 11 }}
+                            />
+                            <YAxis 
+                                type="number" 
+                                dataKey="rating" 
+                                name="Rating" 
+                                domain={[0, 5]}
+                                label={{ value: 'Waardering (0-5)', angle: -90, position: 'left', offset: 0, fill: '#6b7280', fontSize: 12 }}
+                                tick={{ fill: '#6b7280', fontSize: 11 }}
+                            />
+                            <Tooltip 
+                                cursor={{ strokeDasharray: '3 3' }} 
+                                content={({ active, payload }) => {
+                                    if (active && payload && payload.length) {
+                                        const data = payload[0].payload;
+                                        return (
+                                            <div className="bg-white dark:bg-gray-800 p-3 border border-gray-100 dark:border-gray-700 rounded-xl shadow-xl z-50">
+                                                <p className="font-bold text-gray-900 dark:text-white mb-1">{data.name}</p>
+                                                <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{data.brewery}</p>
+                                                <div className="flex gap-3 text-xs">
+                                                    <span className="text-blue-600 dark:text-blue-400 font-medium">ABV: {data.abv}%</span>
+                                                    <span className="text-amber-600 dark:text-amber-500 font-medium">★ {data.rating.toFixed(2)}</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    );
-                                }
-                                return null;
-                            }}
-                        />
-                        <Scatter 
-                            name="Bieren" 
-                            data={flavorMapData} 
-                            fill="#8884d8"
-                            onClick={(data) => handleBeerClick(data.payload)}
-                            cursor="pointer"
-                        >
-                            {flavorMapData.map((entry, index) => (
-                                <Cell 
-                                    key={`cell-${index}`} 
-                                    fill={
-                                        entry.rating >= 4.0 ? '#fbbf24' : // Amber-400
-                                        entry.rating >= 3.5 ? '#f59e0b' : // Amber-500
-                                        entry.rating >= 3.0 ? '#d97706' : // Amber-600
-                                        '#9ca3af' // Gray-400
-                                    } 
-                                />
-                            ))}
-                        </Scatter>
-                    </ScatterChart>
-                </ResponsiveContainer>
+                                        );
+                                    }
+                                    return null;
+                                }}
+                            />
+                            <Scatter 
+                                name="Bieren" 
+                                data={flavorMapData} 
+                                fill="#8884d8"
+                                onClick={(data) => handleBeerClick(data.payload)}
+                                cursor="pointer"
+                            >
+                                {flavorMapData.map((entry, index) => (
+                                    <Cell 
+                                        key={`cell-${index}`} 
+                                        fill={
+                                            entry.rating >= 4.0 ? '#fbbf24' : // Amber-400
+                                            entry.rating >= 3.5 ? '#f59e0b' : // Amber-500
+                                            entry.rating >= 3.0 ? '#d97706' : // Amber-600
+                                            '#9ca3af' // Gray-400
+                                        } 
+                                    />
+                                ))}
+                            </Scatter>
+                        </ScatterChart>
+                    </ResponsiveContainer>
+                ) : (
+                    <div className="flex flex-col items-center justify-center h-full text-gray-400">
+                        <Compass className="w-12 h-12 mb-4 opacity-20" />
+                        <p>Nog onvoldoende data voor het smaaklandschap</p>
+                    </div>
+                )}
             </div>
         </Card>
 
