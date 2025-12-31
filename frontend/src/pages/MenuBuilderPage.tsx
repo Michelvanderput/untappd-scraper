@@ -461,10 +461,14 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
         </motion.div>
       )}
       
-      <BeerModal
-        beer={selectedBeer}
-        onClose={() => setSelectedBeer(null)}
-      />
+      <Suspense fallback={null}>
+        {selectedBeer && (
+          <BeerModal
+            beer={selectedBeer}
+            onClose={() => setSelectedBeer(null)}
+          />
+        )}
+      </Suspense>
     </PageLayout>
   );
 }

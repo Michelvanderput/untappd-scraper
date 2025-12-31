@@ -1,15 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import gsap from 'gsap';
-import BeersPage from './pages/BeersPage';
-import TrendsPage from './pages/TrendsPage';
-import MenuBuilderPage from './pages/MenuBuilderPage';
-import BeerdlePage from './pages/BeerdlePage';
-import SurprisePage from './pages/SurprisePage';
-import InstallPage from './pages/InstallPage';
-import ComparePage from './pages/ComparePage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { ComparisonProvider } from './contexts/ComparisonContext';
@@ -18,6 +11,23 @@ import UpdateNotification from './components/UpdateNotification';
 import ComparisonBar from './components/ComparisonBar';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import './App.css';
+
+// Lazy load pages
+const BeersPage = lazy(() => import('./pages/BeersPage'));
+const TrendsPage = lazy(() => import('./pages/TrendsPage'));
+const MenuBuilderPage = lazy(() => import('./pages/MenuBuilderPage'));
+const BeerdlePage = lazy(() => import('./pages/BeerdlePage'));
+const SurprisePage = lazy(() => import('./pages/SurprisePage'));
+const InstallPage = lazy(() => import('./pages/InstallPage'));
+const ComparePage = lazy(() => import('./pages/ComparePage'));
+
+function LoadingSpinner() {
+  return (
+    <div className="flex items-center justify-center min-h-[50vh]">
+      <Loader2 className="w-10 h-10 text-amber-500 animate-spin" />
+    </div>
+  );
+}
 
 function Navigation() {
   const location = useLocation();
@@ -181,15 +191,17 @@ function App() {
             <div className="min-h-screen bg-amber-50 dark:bg-gray-900 transition-colors pt-20">
               <Navigation />
               
-              <Routes>
-                <Route path="/" element={<BeersPage />} />
-                <Route path="/trends" element={<TrendsPage />} />
-                <Route path="/menu-builder" element={<MenuBuilderPage />} />
-                <Route path="/surprise" element={<SurprisePage />} />
-                <Route path="/beerdle" element={<BeerdlePage />} />
-                <Route path="/install" element={<InstallPage />} />
-                <Route path="/compare" element={<ComparePage />} />
-              </Routes>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Routes>
+                  <Route path="/" element={<BeersPage />} />
+                  <Route path="/trends" element={<TrendsPage />} />
+                  <Route path="/menu-builder" element={<MenuBuilderPage />} />
+                  <Route path="/surprise" element={<SurprisePage />} />
+                  <Route path="/beerdle" element={<BeerdlePage />} />
+                  <Route path="/install" element={<InstallPage />} />
+                  <Route path="/compare" element={<ComparePage />} />
+                </Routes>
+              </Suspense>
               
               <ComparisonBar />
               <UpdateNotification />

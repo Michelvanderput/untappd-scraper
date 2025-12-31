@@ -490,10 +490,14 @@ export default function BeersPage() {
       </div>
 
       {/* Beer Modal */}
-      <BeerModal
-        beer={selectedBeer}
-        onClose={handleModalClose}
-      />
+      <Suspense fallback={null}>
+        {selectedBeer && (
+          <BeerModal
+            beer={selectedBeer}
+            onClose={handleModalClose}
+          />
+        )}
+      </Suspense>
     </>
   );
 }

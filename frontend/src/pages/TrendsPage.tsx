@@ -201,29 +201,6 @@ export default function TrendsPage() {
       .slice(0, 10);
   };
 
-  const getTopBreweries = () => {
-    const breweryMap = new Map<string, { count: number; totalRating: number }>();
-    
-    beers.forEach(beer => {
-      if (beer.brewery) {
-        const existing = breweryMap.get(beer.brewery) || { count: 0, totalRating: 0 };
-        breweryMap.set(beer.brewery, {
-          count: existing.count + 1,
-          totalRating: existing.totalRating + (beer.rating || 0)
-        });
-      }
-    });
-
-    return Array.from(breweryMap.entries())
-      .map(([name, data]) => ({
-        name,
-        count: data.count,
-        avgRating: data.totalRating / data.count
-      }))
-      .sort((a, b) => b.count - a.count)
-      .slice(0, 10);
-  };
-
   const getStats = () => {
     const uniqueBreweries = new Set(beers.map(b => b.brewery).filter(Boolean)).size;
     const uniqueCategories = new Set(beers.map(b => b.category)).size;
@@ -253,7 +230,6 @@ export default function TrendsPage() {
   const fallers = getBiggestFallers();
   const newBeers = getNewAdditions();
   const topRated = getTopRatedBeers();
-  const topBreweries = getTopBreweries();
   const stats = getStats();
 
   return (
