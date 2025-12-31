@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon } from 'lucide-react';
+import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import type { BeerData, RandomizerMode } from '../types/beer';
@@ -8,10 +8,6 @@ interface BeerRandomizerProps {
   beers: BeerData[];
   onBeerSelect?: (beer: BeerData) => void;
 }
-
-type RevealStep = 'style' | 'abv' | 'ibu' | 'rating' | 'category' | 'image' | 'name';
-
-const REVEAL_STEPS: RevealStep[] = ['style', 'abv', 'ibu', 'rating', 'category', 'image', 'name'];
 
 const MODES = [
   { id: 'all' as RandomizerMode, label: 'Alles', icon: Shuffle, color: 'from-amber-500 to-orange-500' },
@@ -26,10 +22,11 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const [history, setHistory] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
   const [isRandomizing, setIsRandomizing] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [revealedSteps, setRevealedSteps] = useState<Set<RevealStep>>(new Set());
-  const randomBeerRef = useRef<HTMLDivElement>(null);
+  const [showModal, setShowModal] = useState(false);
+  
+  const modalRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const getFilteredBeers = (selectedMode: RandomizerMode): BeerData[] => {
     let filtered = [...beers];
@@ -67,10 +64,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       confettiRef.current.appendChild(confetti);
       
       gsap.to(confetti, {
-        x: (Math.random() - 0.5) * 400,
-        y: (Math.random() - 0.5) * 400,
+        x: (Math.random() - 0.5) * 600,
+        y: (Math.random() - 0.5) * 600,
         opacity: 0,
-        duration: 1 + Math.random(),
+        duration: 1.5 + Math.random(),
         ease: 'power2.out',
         onComplete: () => confetti.remove()
       });
@@ -86,66 +83,66 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     const finalBeer = filteredBeers[finalIndex];
     
     // Reset state
-    setRevealedSteps(new Set());
     setCurrentBeer(finalBeer);
+    setShowModal(true);
+    setIsRandomizing(true);
     
-    // Small delay to ensure DOM is ready
+    // Small delay to allow modal to render
     setTimeout(() => {
-      setIsRandomizing(true);
-      setShowConfetti(false);
+        runRevealAnimation(finalBeer);
+    }, 100);
+  };
+
+  const runRevealAnimation = (beer: BeerData) => {
+    if (!modalRef.current) return;
     
-    const completeRandomization = () => {
-      setHistory(prev => {
-        const newHistory = [finalBeer, ...prev.filter(b => b.beer_url !== finalBeer.beer_url).slice(0, 4)];
-        return newHistory;
-      });
-      setIsRandomizing(false);
-      setShowConfetti(true);
-      createConfetti();
-      if (onBeerSelect) onBeerSelect(finalBeer);
-      
-      setTimeout(() => setShowConfetti(false), 3000);
-    };
+    // Reset elements for animation
+    gsap.set('.reveal-item', { opacity: 0, y: 20, scale: 0.9 });
     
-    if (randomBeerRef.current) {
-      const tl = gsap.timeline({
-        onComplete: completeRandomization
-      });
-      
-      // Scale up animation at start
-      tl.to(randomBeerRef.current, {
-        scale: 1.05,
-        duration: 0.3,
-        ease: 'power2.out'
-      });
-      
-      // Reveal each step sequentially
-      REVEAL_STEPS.forEach((step, index) => {
-        tl.call(() => {
-          setRevealedSteps(prev => new Set([...prev, step]));
-        }, [], 0.5 + index * 0.8); // Slower steps (0.8s apart instead of 0.4s)
-      });
-      
-      // Dramatic pause before final bounce
-      tl.to({}, { duration: 1.0 }); // Longer pause
-      
-      // Final bounce
-      tl.to(randomBeerRef.current, {
-        scale: 1,
-        duration: 1.2, // Slower bounce
-        ease: 'elastic.out(1, 0.3)'
-      });
-    } else {
-      // Fallback without animation
-      setRevealedSteps(new Set(REVEAL_STEPS));
-      completeRandomization();
-    }
-    }, 50);
+    const tl = gsap.timeline({
+      onComplete: () => {
+        setHistory(prev => {
+            if (prev.some(b => b.beer_url === beer.beer_url)) return prev;
+            return [beer, ...prev.slice(0, 4)];
+        });
+        setIsRandomizing(false);
+        createConfetti();
+        if (onBeerSelect) onBeerSelect(beer);
+      }
+    });
+    
+    // Reveal each step sequentially
+    // Style -> Rating -> ABV -> IBU -> Image -> Name
+    const steps = [
+        '.reveal-style', 
+        '.reveal-rating', 
+        '.reveal-abv', 
+        '.reveal-ibu', 
+        '.reveal-image', 
+        '.reveal-name'
+    ];
+    
+    steps.forEach((selector, index) => {
+        // Slower animation: 0.8s duration, staggered by 1.2s
+        tl.to(selector, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: 'back.out(1.2)'
+        }, index * 1.2); 
+    });
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentBeer(null);
+    setIsRandomizing(false);
   };
 
   return (
-    <div className="space-y-8">
-      {/* Mode Selection - Scrollable on mobile */}
+    <div className="space-y-8" ref={containerRef}>
+      {/* Mode Selection */}
       <div className="flex flex-wrap md:justify-center gap-3 overflow-x-auto pb-4 md:pb-0 px-2 -mx-2 no-scrollbar touch-pan-x">
         {MODES.map((m) => {
           const Icon = m.icon;
@@ -185,191 +182,114 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
           <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
           <Shuffle className={`w-7 h-7 ${isRandomizing ? 'animate-spin' : ''}`} />
           <span>{isRandomizing ? 'Aan het zoeken...' : 'Verras Me!'}</span>
-          
-          {showConfetti && (
-            <motion.div
-              initial={{ scale: 0, rotate: -180 }}
-              animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="absolute -top-3 -right-3 bg-white text-yellow-500 p-2 rounded-full shadow-lg"
-            >
-              <Sparkles className="w-5 h-5 animate-pulse" />
-            </motion.div>
-          )}
         </motion.button>
       </div>
 
-      {/* Confetti Container */}
-      <div ref={confettiRef} className="absolute inset-0 pointer-events-none overflow-hidden" />
-
-      {/* Current Beer Display */}
-      <AnimatePresence mode="wait">
-        {currentBeer && (
-          <motion.div
-            key={currentBeer.beer_url}
-            ref={randomBeerRef}
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden max-w-2xl mx-auto"
-          >
-            {/* Decorative background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-400/5 to-orange-400/5 pointer-events-none" />
-            
-            <div className="relative flex flex-col md:flex-row gap-8 items-center md:items-start">
-              {/* Beer Image */}
-              <div className="flex-shrink-0 relative">
-                <AnimatePresence mode="wait">
-                  {revealedSteps.has('image') ? (
-                    currentBeer.image_url ? (
-                      <motion.img
-                        key={`image-${currentBeer.beer_url}`}
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                        src={currentBeer.image_url}
-                        alt={currentBeer.name}
-                        className="w-48 h-48 md:w-56 md:h-56 object-contain drop-shadow-2xl"
-                      />
-                    ) : (
-                      <motion.div
-                        key={`placeholder-${currentBeer.beer_url}`}
-                        initial={{ scale: 0, rotate: -180 }}
-                        animate={{ scale: 1, rotate: 0 }}
-                        transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                        className="w-48 h-48 md:w-56 md:h-56 bg-gradient-to-br from-amber-100 to-orange-100 rounded-2xl flex items-center justify-center shadow-inner"
-                      >
-                        <BeerIcon className="w-24 h-24 text-amber-600/50" />
-                      </motion.div>
-                    )
-                  ) : (
-                    <motion.div
-                      key={`hidden-${currentBeer.beer_url}`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="w-48 h-48 md:w-56 md:h-56 bg-gray-100 dark:bg-gray-800 rounded-2xl flex items-center justify-center animate-pulse"
-                    >
-                      <div className="text-6xl animate-bounce">❓</div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-
-              {/* Beer Info */}
-              <div className="flex-1 w-full text-center md:text-left">
-                <AnimatePresence mode="wait">
-                  {revealedSteps.has('name') ? (
-                    <motion.div
-                      key={`name-${currentBeer.beer_url}`}
-                      initial={{ x: -20, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                    >
-                      <h2 className="text-3xl md:text-4xl font-heading text-gray-900 dark:text-white mb-2 leading-tight">
-                        {currentBeer.name}
-                      </h2>
-                      {currentBeer.brewery && (
-                        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6 font-medium">
-                          {currentBeer.brewery}
-                        </p>
-                      )}
-                    </motion.div>
-                  ) : (
-                    <div key={`name-hidden-${currentBeer.beer_url}`} className="w-full">
-                      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded-xl mb-3 animate-pulse w-3/4 mx-auto md:mx-0" />
-                      <div className="h-6 bg-gray-100 dark:bg-gray-800 rounded-lg mb-8 animate-pulse w-1/2 mx-auto md:mx-0" />
-                    </div>
-                  )}
-                </AnimatePresence>
-
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  {/* Style */}
-                  <AnimatePresence mode="wait">
-                    {revealedSteps.has('style') ? (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-3 border border-gray-100 dark:border-gray-700"
-                        >
-                          <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Stijl</p>
-                          <p className="font-semibold text-gray-900 dark:text-white text-sm line-clamp-2">{currentBeer.style || currentBeer.category}</p>
-                        </motion.div>
-                    ) : (
-                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
-                    )}
-                  </AnimatePresence>
-
-                  {/* Rating */}
-                  <AnimatePresence mode="wait">
-                    {revealedSteps.has('rating') ? (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-3 border border-yellow-100 dark:border-yellow-900/30"
-                        >
-                          <p className="text-xs text-yellow-700 dark:text-yellow-500 uppercase tracking-wider mb-1">Rating</p>
-                          <div className="flex items-center justify-center md:justify-start gap-1">
-                            <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                            <p className="font-bold text-gray-900 dark:text-white">
-                              {currentBeer.rating?.toFixed(2) || 'N/A'}
-                            </p>
-                          </div>
-                        </motion.div>
-                    ) : (
-                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
-                    )}
-                  </AnimatePresence>
-
-                  {/* ABV */}
-                  <AnimatePresence mode="wait">
-                    {revealedSteps.has('abv') ? (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3 border border-amber-100 dark:border-amber-900/30"
-                        >
-                          <p className="text-xs text-amber-700 dark:text-amber-500 uppercase tracking-wider mb-1">ABV</p>
-                          <p className="font-bold text-gray-900 dark:text-white">{currentBeer.abv}%</p>
-                        </motion.div>
-                    ) : (
-                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
-                    )}
-                  </AnimatePresence>
-
-                  {/* IBU */}
-                  <AnimatePresence mode="wait">
-                    {revealedSteps.has('ibu') ? (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="bg-green-50 dark:bg-green-900/20 rounded-xl p-3 border border-green-100 dark:border-green-900/30"
-                        >
-                          <p className="text-xs text-green-700 dark:text-green-500 uppercase tracking-wider mb-1">IBU</p>
-                          <p className="font-bold text-gray-900 dark:text-white">{currentBeer.ibu || 'N/A'}</p>
-                        </motion.div>
-                    ) : (
-                        <div className="h-16 bg-gray-100 dark:bg-gray-800 rounded-xl animate-pulse" />
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <motion.a
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 1 }}
-                  href={currentBeer.beer_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 font-bold bg-amber-50 dark:bg-amber-900/20 px-6 py-3 rounded-xl hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-all group"
+      {/* Result Modal */}
+      <AnimatePresence>
+        {showModal && currentBeer && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                {/* Backdrop */}
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={!isRandomizing ? closeModal : undefined}
+                    className="absolute inset-0 bg-black/60 backdrop-blur-md"
+                />
+                
+                {/* Modal Content */}
+                <motion.div
+                    ref={modalRef}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                    className="relative w-full max-w-lg bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
                 >
-                  Bekijk op Untappd
-                  <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </motion.a>
-              </div>
+                    {/* Header with Close Button */}
+                    <div className="flex justify-between items-center p-4 border-b border-gray-100 dark:border-gray-800">
+                        <div className="flex items-center gap-2 text-amber-500 font-bold">
+                            <Sparkles className="w-5 h-5" />
+                            <span>Surprise!</span>
+                        </div>
+                        <button 
+                            onClick={closeModal}
+                            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                        >
+                            <X className="w-6 h-6 text-gray-500" />
+                        </button>
+                    </div>
+
+                    <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+                        {/* 1. Stats Grid (Top-Left to Bottom-Right) */}
+                        <div className="grid grid-cols-2 gap-4 mb-8">
+                            {/* Style (Top-Left) */}
+                            <div className="reveal-item reveal-style bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-blue-500 shadow-lg opacity-0 transform translate-y-4">
+                                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">Stijl</p>
+                                <p className="text-white font-bold text-sm leading-tight">{currentBeer.style || currentBeer.category}</p>
+                            </div>
+
+                            {/* Rating (Top-Right) */}
+                            <div className="reveal-item reveal-rating bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-yellow-500 shadow-lg opacity-0 transform translate-y-4">
+                                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">Rating</p>
+                                <div className="flex items-center gap-2">
+                                    <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                                    <span className="text-white font-bold text-lg">{currentBeer.rating?.toFixed(2) || 'N/A'}</span>
+                                </div>
+                            </div>
+
+                            {/* ABV (Bottom-Left) */}
+                            <div className="reveal-item reveal-abv bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-red-500 shadow-lg opacity-0 transform translate-y-4">
+                                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">ABV</p>
+                                <p className="text-white font-bold text-lg">{currentBeer.abv}%</p>
+                            </div>
+
+                            {/* IBU (Bottom-Right) */}
+                            <div className="reveal-item reveal-ibu bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-green-500 shadow-lg opacity-0 transform translate-y-4">
+                                <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">IBU</p>
+                                <p className="text-white font-bold text-lg">{currentBeer.ibu || 'N/A'}</p>
+                            </div>
+                        </div>
+
+                        {/* 2. Beer Image (Center) */}
+                        <div className="reveal-item reveal-image flex justify-center mb-6 opacity-0 transform translate-y-4 scale-90">
+                            {currentBeer.image_url ? (
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-amber-500/20 blur-2xl rounded-full" />
+                                    <img 
+                                        src={currentBeer.image_url} 
+                                        alt={currentBeer.name}
+                                        className="w-48 h-48 object-contain relative z-10 drop-shadow-2xl"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="w-40 h-40 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center relative z-10">
+                                    <BeerIcon className="w-20 h-20 text-gray-300 dark:text-gray-600" />
+                                </div>
+                            )}
+                        </div>
+
+                        {/* 3. Name & Brewery (Bottom) */}
+                        <div className="reveal-item reveal-name text-center opacity-0 transform translate-y-4">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-heading">{currentBeer.name}</h2>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">{currentBeer.brewery}</p>
+                            
+                            <a
+                                href={currentBeer.beer_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-8 rounded-xl transition-colors shadow-lg shadow-amber-500/30"
+                            >
+                                Bekijk op Untappd
+                                <ExternalLink className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {/* Confetti Container inside Modal */}
+                    <div ref={confettiRef} className="absolute inset-0 pointer-events-none overflow-hidden z-20" />
+                </motion.div>
             </div>
-          </motion.div>
         )}
       </AnimatePresence>
 
@@ -393,7 +313,11 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 transition={{ delay: index * 0.1 }}
                 onClick={() => {
                    setCurrentBeer(beer);
-                   setRevealedSteps(new Set(REVEAL_STEPS));
+                   setShowModal(true);
+                   // Immediate reveal for history items
+                   setTimeout(() => {
+                        gsap.set('.reveal-item', { opacity: 1, y: 0, scale: 1 });
+                   }, 50);
                 }}
                 className="flex-shrink-0 w-32 md:w-auto snap-center bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-lg transition-all group"
               >
