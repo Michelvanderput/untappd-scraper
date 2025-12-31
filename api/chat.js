@@ -16,16 +16,27 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: 'OpenAI API key not configured' });
   }
 
+  let beerContext = '';
   try {
     // Load beer data
     const beersPath = path.join(process.cwd(), 'beers.json');
+    if (!fs.existsSync(beersPath)) {
+        console.error('beers.json not found at:', beersPath);
+        throw new Error('Beer data not available');
+    }
     const data = JSON.parse(fs.readFileSync(beersPath, 'utf-8'));
     
     // Create a simplified context of the beer menu to save tokens
-    const beerContext = data.beers.map(b => 
+    beerContext = data.beers.map(b => 
       `- ${b.name} (${b.style}, ${b.abv}%, ${b.brewery}) - Rating: ${b.rating || 'N/A'}`
     ).join('\n');
+  } catch (error) {
+    console.error('Error loading beer data:', error);
+    // Fallback or error? Let's error for now as the bot needs data
+    return res.status(500).json({ error: 'Failed to load beer menu data' });
+  }
 
+  try {
     const systemPrompt = `
 Je bent "De Gouverneur Bot", de virtuele biersommelier van Biertaverne De Gouverneur.
 Je helpt gasten bij het kiezen van een biertje van de kaart.

@@ -50,6 +50,21 @@ export default function ChatBot() {
         }),
       });
 
+      if (!response.ok) {
+        const errorText = await response.text();
+        try {
+            const jsonError = JSON.parse(errorText);
+            throw new Error(jsonError.error || `Server error: ${response.status}`);
+        } catch {
+            throw new Error(`Server error: ${response.status} ${response.statusText}`);
+        }
+      }
+
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('API returned non-JSON response (possibly HTML fallback)');
+      }
+
       const data = await response.json();
 
       if (data.error) {
@@ -59,14 +74,14 @@ export default function ChatBot() {
       setMessages(prev => [...prev, { role: 'assistant', content: data.response }]);
     } catch (error: any) {
       console.error('Chat error:', error);
-      let errorMessage = 'Oeps, ik ben even de draad kwijt. Probeer het later nog eens! 😵‍💫';
+      let errorMessage = 'Er is een technische storing. Probeer het later opnieuw.';
       
-      if (error.message.includes('404')) {
-        errorMessage = 'Ik kan mijn hersenen (API) niet vinden. Draait de backend server wel?';
+      if (error.message.includes('404') || error.message.includes('HTML')) {
+        errorMessage = 'Kan de server niet bereiken (404). Controleer je verbinding.';
       } else if (error.message.includes('500')) {
-        errorMessage = 'Er ging iets mis in mijn geheugen. Check de server logs.';
+        errorMessage = 'Er ging iets mis op de server (500).';
       } else if (error.message) {
-        errorMessage = `Er ging iets mis: ${error.message}`;
+        errorMessage = `Foutmelding: ${error.message}`;
       }
       
       setMessages(prev => [...prev, { role: 'assistant', content: errorMessage }]);
