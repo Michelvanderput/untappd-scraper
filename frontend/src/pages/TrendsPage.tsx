@@ -365,7 +365,6 @@ export default function TrendsPage() {
                                 data={flavorMapData} 
                                 fill="#8884d8"
                                 onClick={(data) => handleBeerClick(data.payload)}
-                                cursor="pointer"
                             >
                                 {flavorMapData.map((entry, index) => (
                                     <Cell 
