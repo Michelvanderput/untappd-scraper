@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Sparkles, RefreshCw, Download, Share2, Shuffle, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer, ArrowRight, Check } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
@@ -6,8 +6,9 @@ import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type 
 import BeerCard from '../components/BeerCard';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
-import BeerModal from '../components/BeerModal';
 import { beerCache } from '../utils/cache';
+
+const BeerModal = lazy(() => import('../components/BeerModal'));
 
 const GENERATION_MODES = [
   { 

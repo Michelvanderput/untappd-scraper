@@ -1,13 +1,14 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
 import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
-import BeerModal from '../components/BeerModal';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
 import SEO from '../components/SEO';
 import { animatePageHeader, animateFadeIn, animateGrid } from '../utils/animations';
+
+const BeerModal = lazy(() => import('../components/BeerModal'));
 
 type SmartTag = 'debob' | 'hopbom' | 'zoetekauw' | 'zwaar';
 
