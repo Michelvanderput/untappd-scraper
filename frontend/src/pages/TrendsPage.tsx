@@ -1,17 +1,20 @@
-import { useState, useEffect, useMemo } from 'react';
-import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy, ExternalLink, PieChart } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, Cell } from 'recharts';
+import { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import { TrendingUp, TrendingDown, Plus, Calendar, Star, Award, BarChart3, Flame, Trophy, ExternalLink, PieChart, Compass } from 'lucide-react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area, Cell, ScatterChart, Scatter } from 'recharts';
 import type { Changelog, ChangelogEntry } from '../types/changelog';
 import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
 
+const BeerModal = lazy(() => import('../components/BeerModal'));
+
 export default function TrendsPage() {
   const [changelog, setChangelog] = useState<Changelog | null>(null);
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedPeriod, setSelectedPeriod] = useState<'latest' | 'week' | 'month'>('latest');
+  const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -216,6 +219,24 @@ export default function TrendsPage() {
     };
   };
 
+  const flavorMapData = useMemo(() => {
+    return beers
+      .filter(b => typeof b.abv === 'number' && typeof b.rating === 'number')
+      .map(b => ({
+        ...b,
+        abv: Number(b.abv),
+        rating: Number(b.rating)
+      }));
+  }, [beers]);
+
+  const handleBeerClick = (beer: any) => {
+    setSelectedBeer(beer as BeerData);
+  };
+
+  const handleModalClose = () => {
+    setSelectedBeer(null);
+  };
+
   if (loading) {
     return (
       <PageLayout title="Trends & Updates" subtitle="Laden...">
@@ -281,6 +302,81 @@ export default function TrendsPage() {
       <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center font-heading">📊 Data Dashboard</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+        {/* Flavor Map (Scatter Plot) */}
+        <Card className="p-6 lg:col-span-2" hoverable={false}>
+            <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                    <Compass className="w-5 h-5 text-indigo-500" />
+                    Smaaklandschap
+                </h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                    Ontdek bieren op basis van sterkte (ABV) en waardering. Klik op een punt voor details.
+                </p>
+            </div>
+            <div className="h-[400px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                    <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 10 }}>
+                        <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+                        <XAxis 
+                            type="number" 
+                            dataKey="abv" 
+                            name="Alcohol" 
+                            unit="%" 
+                            domain={['auto', 'auto']}
+                            label={{ value: 'Alcoholpercentage (ABV)', position: 'bottom', offset: 0, fill: '#6b7280', fontSize: 12 }}
+                            tick={{ fill: '#6b7280', fontSize: 11 }}
+                        />
+                        <YAxis 
+                            type="number" 
+                            dataKey="rating" 
+                            name="Rating" 
+                            domain={[0, 5]}
+                            label={{ value: 'Waardering (0-5)', angle: -90, position: 'left', offset: 0, fill: '#6b7280', fontSize: 12 }}
+                            tick={{ fill: '#6b7280', fontSize: 11 }}
+                        />
+                        <Tooltip 
+                            cursor={{ strokeDasharray: '3 3' }} 
+                            content={({ active, payload }) => {
+                                if (active && payload && payload.length) {
+                                    const data = payload[0].payload;
+                                    return (
+                                        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-100 dark:border-gray-700 rounded-xl shadow-xl z-50">
+                                            <p className="font-bold text-gray-900 dark:text-white mb-1">{data.name}</p>
+                                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">{data.brewery}</p>
+                                            <div className="flex gap-3 text-xs">
+                                                <span className="text-blue-600 dark:text-blue-400 font-medium">ABV: {data.abv}%</span>
+                                                <span className="text-amber-600 dark:text-amber-500 font-medium">★ {data.rating.toFixed(2)}</span>
+                                            </div>
+                                        </div>
+                                    );
+                                }
+                                return null;
+                            }}
+                        />
+                        <Scatter 
+                            name="Bieren" 
+                            data={flavorMapData} 
+                            fill="#8884d8"
+                            onClick={(data) => handleBeerClick(data.payload)}
+                            cursor="pointer"
+                        >
+                            {flavorMapData.map((entry, index) => (
+                                <Cell 
+                                    key={`cell-${index}`} 
+                                    fill={
+                                        entry.rating >= 4.0 ? '#fbbf24' : // Amber-400
+                                        entry.rating >= 3.5 ? '#f59e0b' : // Amber-500
+                                        entry.rating >= 3.0 ? '#d97706' : // Amber-600
+                                        '#9ca3af' // Gray-400
+                                    } 
+                                />
+                            ))}
+                        </Scatter>
+                    </ScatterChart>
+                </ResponsiveContainer>
+            </div>
+        </Card>
+
         {/* Category Distribution */}
         <Card className="p-6" hoverable={false}>
             <div className="mb-6">
@@ -590,6 +686,16 @@ export default function TrendsPage() {
           )}
         </Card>
       </div>
+
+      {/* Beer Modal */}
+      <Suspense fallback={null}>
+        {selectedBeer && (
+          <BeerModal
+            beer={selectedBeer}
+            onClose={handleModalClose}
+          />
+        )}
+      </Suspense>
     </PageLayout>
   );
 }
