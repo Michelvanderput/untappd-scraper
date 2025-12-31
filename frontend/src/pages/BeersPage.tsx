@@ -210,10 +210,6 @@ export default function BeersPage() {
     setSelectedBeer(null);
   }, []);
 
-  const handleModalNavigate = useCallback((beer: BeerData) => {
-    setSelectedBeer(beer);
-  }, []);
-
   const displayedBeers = filteredBeers.slice(0, displayCount);
   const hasMore = displayCount < filteredBeers.length;
 
