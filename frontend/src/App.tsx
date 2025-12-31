@@ -16,6 +16,7 @@ import { ComparisonProvider } from './contexts/ComparisonContext';
 import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
 import ComparisonBar from './components/ComparisonBar';
+import ChatBot from './components/ChatBot';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import './App.css';
 
