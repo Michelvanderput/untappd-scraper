@@ -467,9 +467,7 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
       
       <BeerModal
         beer={selectedBeer}
-        allBeers={generatedMenu?.beers || []}
         onClose={() => setSelectedBeer(null)}
-        onNavigate={setSelectedBeer}
       />
     </PageLayout>
   );

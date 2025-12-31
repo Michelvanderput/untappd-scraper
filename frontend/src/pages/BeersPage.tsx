@@ -436,9 +436,7 @@ export default function BeersPage() {
       {/* Beer Modal */}
       <BeerModal
         beer={selectedBeer}
-        allBeers={filteredBeers}
         onClose={handleModalClose}
-        onNavigate={handleModalNavigate}
       />
     </>
   );
