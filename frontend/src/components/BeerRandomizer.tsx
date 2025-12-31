@@ -88,7 +88,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     // Small delay to allow element to render
     setTimeout(() => {
         runRevealAnimation(finalBeer);
-    }, 100);
+    }, 400);
   };
 
   const runRevealAnimation = (beer: BeerData) => {
