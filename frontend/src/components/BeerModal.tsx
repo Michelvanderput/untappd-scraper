@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { X, Share2, Star } from 'lucide-react';
+import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Legend } from 'recharts';
 import type { BeerData } from '../types/beer';
 import { animateModalOpen, animateModalClose } from '../utils/animations';
 
@@ -59,6 +60,30 @@ export default function BeerModal({ beer, onClose }: BeerModalProps) {
   };
 
   if (!beer) return null;
+
+  // Prepare data for Radar Chart
+  // Normalize values to 0-100 scale for visual comparison
+  // Baseline (Average): ABV ~6.5%, IBU ~35, Rating ~3.6
+  const chartData = [
+    {
+      subject: 'Sterkte',
+      A: Math.min(((beer.abv || 0) / 12) * 100, 100), // Cap at 12% for full scale
+      B: (6.5 / 12) * 100, // Avg 6.5%
+      fullMark: 100,
+    },
+    {
+      subject: 'Bitterheid',
+      A: Math.min(((beer.ibu || 0) / 70) * 100, 100), // Cap at 70 IBU for full scale (unless higher)
+      B: (35 / 70) * 100, // Avg 35 IBU
+      fullMark: 100,
+    },
+    {
+      subject: 'Waardering',
+      A: ((beer.rating || 0) / 5) * 100,
+      B: (3.6 / 5) * 100, // Avg 3.6
+      fullMark: 100,
+    },
+  ];
 
   return (
     <div
@@ -139,6 +164,46 @@ export default function BeerModal({ beer, onClose }: BeerModalProps) {
                   <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                 </div>
               </div>
+            </div>
+
+            {/* Smaakprofiel Radar Chart */}
+            <div className="mb-6 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 border border-gray-100 dark:border-gray-700">
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center flex items-center justify-center gap-2">
+                <Star className="w-4 h-4 text-amber-500" />
+                Smaakprofiel
+              </h3>
+              <div className="h-[200px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RadarChart cx="50%" cy="50%" outerRadius="70%" data={chartData}>
+                    <PolarGrid stroke="#e5e7eb" strokeOpacity={0.5} />
+                    <PolarAngleAxis dataKey="subject" tick={{ fill: '#9ca3af', fontSize: 10, fontWeight: 'bold' }} />
+                    <Radar
+                      name="Dit Bier"
+                      dataKey="A"
+                      stroke="#f59e0b"
+                      strokeWidth={2}
+                      fill="#f59e0b"
+                      fillOpacity={0.5}
+                    />
+                    <Radar
+                      name="Gemiddeld"
+                      dataKey="B"
+                      stroke="#9ca3af"
+                      strokeWidth={1}
+                      strokeDasharray="3 3"
+                      fill="#9ca3af"
+                      fillOpacity={0.1}
+                    />
+                    <Legend 
+                      iconSize={8} 
+                      wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} 
+                    />
+                  </RadarChart>
+                </ResponsiveContainer>
+              </div>
+              <p className="text-[10px] text-center text-gray-400 mt-2 italic">
+                * Vergeleken met het gemiddelde van de kaart
+              </p>
             </div>
 
             {/* Actions */}
