@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2025-12-31T18:08:32.820Z",
+  "fetched_at": "2026-01-01T06:08:55.970Z",
   "count": 397,
-  "scrape_duration_seconds": 2.54,
+  "scrape_duration_seconds": 2.8,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 75,
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Op=Op kaart": 75,
       "Bierbijbel": 294
     }
   },
   "beers": [
+    {
+      "name": "Lost Kees",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees/6530515",
+      "image_url": "https://labels.untappd.com/6530515",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.1,
+      "ibu": 17,
+      "rating": 3.55,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Iced Caramel Brown Sugar Apple",
       "beer_url": "https://untappd.com/b/vault-city-brewing-iced-caramel-brown-sugar-apple/6413250",
@@ -133,21 +148,6 @@
       "abv": 12,
       "ibu": 21,
       "rating": 3.71,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Cone of Lupulin",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-cone-of-lupulin/6384281",
-      "image_url": "https://labels.untappd.com/6384281",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 51,
-      "rating": 3.7,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },

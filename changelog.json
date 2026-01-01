@@ -1,6 +1,94 @@
 {
   "changes": [
     {
+      "date": "2026-01-01T06:08:56.055Z",
+      "summary": {
+        "added": 1,
+        "removed": 1,
+        "updated": 4,
+        "total_beers": 397
+      },
+      "added": [
+        {
+          "name": "Lost Kees",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees/6530515",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees",
+          "style": "IPA - New England / Hazy",
+          "abv": 5.1,
+          "image_url": "https://labels.untappd.com/6530515"
+        }
+      ],
+      "removed": [
+        {
+          "name": "Cone of Lupulin",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-cone-of-lupulin/6384281",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        }
+      ],
+      "updated": [
+        {
+          "name": "Brice",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Kasteel Cuvée",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2025-12-31T18:08:32.917Z",
       "summary": {
         "added": 0,
