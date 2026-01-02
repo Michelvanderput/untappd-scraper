@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-01T18:08:32.973Z",
+  "fetched_at": "2026-01-02T06:08:54.014Z",
   "count": 397,
-  "scrape_duration_seconds": 2.11,
+  "scrape_duration_seconds": 2.5,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
@@ -5652,7 +5652,7 @@
       "subcategory": "Dark Ale - Stout",
       "abv": 9,
       "ibu": 50,
-      "rating": 3.59,
+      "rating": 3.6,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
