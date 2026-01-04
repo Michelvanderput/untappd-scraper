@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-03T18:07:34.220Z",
+  "fetched_at": "2026-01-04T06:08:31.948Z",
   "count": 397,
-  "scrape_duration_seconds": 2.31,
+  "scrape_duration_seconds": 2.02,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Porter Of No Return",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
+      "image_url": "https://labels.untappd.com/6480000",
+      "style": "Bock - Eisbock",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 20,
+      "ibu": 41,
+      "rating": 3.93,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Lost Kees",
       "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees/6530515",
@@ -163,21 +178,6 @@
       "abv": 11,
       "ibu": 35,
       "rating": 3.85,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tête De Mort X-mas",
-      "beer_url": "https://untappd.com/b/brasserie-du-bocq-tete-de-mort-x-mas/5059359",
-      "image_url": "https://labels.untappd.com/5059359",
-      "style": "Winter Ale",
-      "brewery": "Brasserie du Bocq",
-      "brewery_url": "https://untappd.com/w/brasserie-du-bocq/187",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.1,
-      "ibu": null,
-      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
