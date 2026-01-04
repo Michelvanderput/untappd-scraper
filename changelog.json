@@ -1,6 +1,195 @@
 {
   "changes": [
     {
+      "date": "2026-01-04T18:07:34.980Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 16,
+        "total_beers": 397
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Porter Of No Return",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
+          "changes": {
+            "rating": {
+              "old": 3.93,
+              "new": 3.92
+            }
+          }
+        },
+        {
+          "name": "Lost Kees",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees/6530515",
+          "changes": {
+            "rating": {
+              "old": 3.59,
+              "new": 3.6
+            }
+          }
+        },
+        {
+          "name": "Brice",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Kasteel Cuvée",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Lupulus Hazy Session",
+          "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-hazy-session/5316399",
+          "changes": {
+            "rating": {
+              "old": 3.49,
+              "new": 3.5
+            }
+          }
+        },
+        {
+          "name": "Talk To Me Goose",
+          "beer_url": "https://untappd.com/b/brewski-talk-to-me-goose/6515493",
+          "changes": {
+            "rating": {
+              "old": 3.64,
+              "new": 3.67
+            }
+          }
+        },
+        {
+          "name": "Gingerbread Man",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
+          "changes": {
+            "rating": {
+              "old": 3.85,
+              "new": 3.86
+            }
+          }
+        },
+        {
+          "name": "Yvler the Creator",
+          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
+          "changes": {
+            "rating": {
+              "old": 3.65,
+              "new": 3.6
+            }
+          }
+        },
+        {
+          "name": "Blueprints: Stapler",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-stapler/6462363",
+          "changes": {
+            "rating": {
+              "old": 3.96,
+              "new": 3.95
+            }
+          }
+        },
+        {
+          "name": "My First And Last Dip",
+          "beer_url": "https://untappd.com/b/sudden-death-brewing-co-my-first-and-last-dip/6514598",
+          "changes": {
+            "rating": {
+              "old": 4.1,
+              "new": 4.09
+            }
+          }
+        },
+        {
+          "name": "Triple Meltdown",
+          "beer_url": "https://untappd.com/b/zuyd-craft-triple-meltdown/6474310",
+          "changes": {
+            "rating": {
+              "old": 4.1,
+              "new": 4.11
+            }
+          }
+        },
+        {
+          "name": "Barrel Project 2025 Red Wine Aged In Red Wine Barrels. (Collab With Tartarus Brewing)",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-red-wine-aged-in-red-wine-barrels-collab-with-tartarus-brewing/6479999",
+          "changes": {
+            "rating": {
+              "old": 3.97,
+              "new": 3.98
+            }
+          }
+        },
+        {
+          "name": "Meesterstuk 2024 Barrel Aged Dru Whiskey Barrels",
+          "beer_url": "https://untappd.com/b/jopen-meesterstuk-2024-barrel-aged-dru-whiskey-barrels/6513292",
+          "changes": {
+            "rating": {
+              "old": 4.1,
+              "new": 4.11
+            }
+          }
+        },
+        {
+          "name": "Barcode: Turquoise Off-White",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-turquoise-off-white/6493638",
+          "changes": {
+            "rating": {
+              "old": 4.4,
+              "new": 4.39
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-04T12:11:40.002Z",
       "summary": {
         "added": 0,
