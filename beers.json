@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-07T12:13:30.939Z",
+  "fetched_at": "2026-01-07T18:08:46.627Z",
   "count": 397,
-  "scrape_duration_seconds": 2.18,
+  "scrape_duration_seconds": 2.3,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 75,
       "Bierbijbel": 294
     }
@@ -32,8 +32,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Lost Kees",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees/6530515",
+      "name": "Lost Kees ( Collab with Lost Brewing)",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
       "image_url": "https://labels.untappd.com/6530515",
       "style": "IPA - New England / Hazy",
       "brewery": "Brouwerij Kees",
@@ -137,7 +137,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Witte Winter Jopen",
+      "name": "Witte Winter",
       "beer_url": "https://untappd.com/b/jopen-witte-winter-jopen/6073415",
       "image_url": "https://labels.untappd.com/6073415",
       "style": "Wheat Beer - Witbier / Blanche",
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 5.8,
       "ibu": null,
-      "rating": 3.65,
+      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -537,7 +537,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 45,
-      "rating": 3.85,
+      "rating": 3.86,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -552,7 +552,7 @@
       "subcategory": null,
       "abv": 12.5,
       "ibu": 42,
-      "rating": 3.98,
+      "rating": 3.99,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -567,7 +567,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 33,
-      "rating": 3.83,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -822,7 +822,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.62,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1287,7 +1287,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.4,
+      "rating": 4.39,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5712,7 +5712,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": 20,
-      "rating": 3.32,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
