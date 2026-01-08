@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-07T18:08:46.627Z",
+  "fetched_at": "2026-01-08T06:09:10.351Z",
   "count": 397,
-  "scrape_duration_seconds": 2.3,
+  "scrape_duration_seconds": 1.86,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
@@ -2140,7 +2140,7 @@
       "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
       "category": "Bierbijbel",
       "subcategory": "Fruitbieren",
-      "abv": 6.8,
+      "abv": 7,
       "ibu": 6,
       "rating": 3.53,
       "container": null,
