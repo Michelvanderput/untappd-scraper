@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-08T18:07:46.180Z",
+  "fetched_at": "2026-01-09T06:09:01.993Z",
   "count": 397,
-  "scrape_duration_seconds": 2.72,
+  "scrape_duration_seconds": 2.15,
   "stats": {
     "total_fetched": 397,
     "total_valid": 397,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 75,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 75,
       "Bierbijbel": 294
     }
   },
   "beers": [
+    {
+      "name": "Ter Dolen Tripel",
+      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
+      "image_url": "https://labels.untappd.com/70991",
+      "style": "Belgian Tripel",
+      "brewery": "Ter Dolen",
+      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.1,
+      "ibu": 30,
+      "rating": 3.61,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Porter Of No Return",
       "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
@@ -73,21 +88,6 @@
       "abv": 5,
       "ibu": null,
       "rating": 3.7,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ter Dolen Winter",
-      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-winter/513573",
-      "image_url": "https://labels.untappd.com/513573",
-      "style": "Winter Warmer",
-      "brewery": "Ter Dolen",
-      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9.1,
-      "ibu": 20,
-      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
