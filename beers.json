@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-11T12:12:22.685Z",
+  "fetched_at": "2026-01-11T18:07:33.856Z",
   "count": 396,
-  "scrape_duration_seconds": 2.77,
+  "scrape_duration_seconds": 2.59,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
@@ -16,6 +16,36 @@
     }
   },
   "beers": [
+    {
+      "name": "Tynt Meadow Blond",
+      "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+      "image_url": "https://labels.untappd.com/5571049",
+      "style": "Blonde / Golden Ale - English",
+      "brewery": "Mount Saint Bernard Abbey",
+      "brewery_url": "https://untappd.com/w/mount-saint-bernard-abbey/397470",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": null,
+      "rating": 3.53,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "King Mule Winter",
+      "beer_url": "https://untappd.com/b/brouwerij-cornelissen-king-mule-winter/5970791",
+      "image_url": "https://labels.untappd.com/5970791",
+      "style": "Winter Ale",
+      "brewery": "Brouwerij Cornelissen",
+      "brewery_url": "https://untappd.com/w/brouwerij-cornelissen/254053",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9.3,
+      "ibu": 25,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Blueprints: Vacuum Cleaner",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-vacuum-cleaner/6393488",
@@ -87,7 +117,7 @@
       "subcategory": null,
       "abv": 5.1,
       "ibu": 17,
-      "rating": 3.59,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -167,21 +197,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Straffe Hendrik Xmas Blend (2025)",
-      "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-straffe-hendrik-xmas-blend-2025/6454973",
-      "image_url": "https://labels.untappd.com/6454973",
-      "style": "Winter Ale",
-      "brewery": "Brouwerij De Halve Maan",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-halve-maan/430",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": 35,
-      "rating": 3.85,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Val-Dieu Grand Cru",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-grand-cru/352",
       "image_url": "https://labels.untappd.com/352",
@@ -223,21 +238,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.49,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Kasteel Cuvée",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
-      "image_url": "https://labels.untappd.com/15332",
-      "style": "Belgian Quadrupel",
-      "brewery": "Kasteel Brouwerij Vanhonsebrouck",
-      "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": 20,
-      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 5.8,
       "ibu": null,
-      "rating": 3.68,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -537,7 +537,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 45,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -627,7 +627,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": 17,
-      "rating": 3.4,
+      "rating": 3.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -702,7 +702,7 @@
       "subcategory": null,
       "abv": 7.3,
       "ibu": null,
-      "rating": 3.92,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -777,7 +777,7 @@
       "subcategory": null,
       "abv": 7.6,
       "ibu": null,
-      "rating": 3.78,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -972,7 +972,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.29,
+      "rating": 3.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2337,7 +2337,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.5,
       "ibu": 5,
-      "rating": 3.63,
+      "rating": 3.64,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5772,7 +5772,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": 6,
-      "rating": 3.13,
+      "rating": 3.14,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
