@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-16T18:08:46.213Z",
+  "fetched_at": "2026-01-17T06:07:55.246Z",
   "count": 400,
-  "scrape_duration_seconds": 2.13,
+  "scrape_duration_seconds": 1.75,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Aubel Triple",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+      "image_url": "https://labels.untappd.com/304329",
+      "style": "Belgian Tripel",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 31,
+      "rating": 3.62,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Blond",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
@@ -118,21 +133,6 @@
       "abv": 5.1,
       "ibu": 17,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Brice",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-      "image_url": "https://labels.untappd.com/17870",
-      "style": "Belgian Blonde",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.8,
-      "ibu": 22,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -5853,9 +5853,9 @@
     },
     {
       "name": "Tropical 0.0",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-0-0/6249320",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-tropical-0-0/6249320",
       "image_url": "https://labels.untappd.com/6249320",
-      "style": "Non-Alcoholic - Other",
+      "style": "Non-Alcoholic - Fruit Beer",
       "brewery": "Kasteel Brouwerij Vanhonsebrouck",
       "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
       "category": "Bierbijbel",
