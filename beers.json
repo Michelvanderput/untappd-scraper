@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-18T06:08:20.771Z",
+  "fetched_at": "2026-01-18T12:12:09.606Z",
   "count": 400,
-  "scrape_duration_seconds": 1.9,
+  "scrape_duration_seconds": 2.02,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
@@ -747,7 +747,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 65,
-      "rating": 3.63,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5810,7 +5810,7 @@
       "name": "Leffe Blonde / Blond 0,0%",
       "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond-0-0/2948556",
       "image_url": "https://labels.untappd.com/2948556",
-      "style": "Non-Alcoholic - Other",
+      "style": "Non-Alcoholic - Blonde / Golden Ale",
       "brewery": "Abbaye de Leffe",
       "brewery_url": "https://untappd.com/w/abbaye-de-leffe/5",
       "category": "Bierbijbel",
@@ -5825,7 +5825,7 @@
       "name": "Fruitesse 0.0",
       "beer_url": "https://untappd.com/b/brouwerij-liefmans-fruitesse-0-0/3322220",
       "image_url": "https://labels.untappd.com/3322220",
-      "style": "Non-Alcoholic - Other",
+      "style": "Non-Alcoholic - Fruit Beer",
       "brewery": "Brouwerij Liefmans",
       "brewery_url": "https://untappd.com/w/brouwerij-liefmans/287",
       "category": "Bierbijbel",
@@ -5847,7 +5847,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.38,
+      "rating": 3.37,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
