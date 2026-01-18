@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-17T18:08:01.507Z",
+  "fetched_at": "2026-01-18T06:08:20.771Z",
   "count": 400,
-  "scrape_duration_seconds": 2.24,
+  "scrape_duration_seconds": 1.9,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Lidmašīnas",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-lidmasinas/6012047",
+      "image_url": "https://labels.untappd.com/6012047",
+      "style": "Stout - Imperial / Double",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 20,
+      "rating": 4.01,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Aubel Triple",
       "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
@@ -88,21 +103,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.79,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Piece of Cake: Tiramisu",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-tiramisu/6141344",
-      "image_url": "https://labels.untappd.com/6141344",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 20,
-      "rating": 4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -2675,7 +2675,7 @@
       "name": "Bootjes Bier",
       "beer_url": "https://untappd.com/b/antwerpse-brouw-compagnie-bootjes-bier/1077246",
       "image_url": "https://labels.untappd.com/1077246",
-      "style": "Red Ale - American Amber / Red",
+      "style": "Red Ale - Ambrée",
       "brewery": "Antwerpse Brouw Compagnie",
       "brewery_url": "https://untappd.com/w/antwerpse-brouw-compagnie/25341",
       "category": "Bierbijbel",
@@ -5615,7 +5615,7 @@
       "name": "Charbon",
       "beer_url": "https://untappd.com/b/brouwerij-de-dochter-van-de-korenaar-charbon/190893",
       "image_url": "https://labels.untappd.com/190893",
-      "style": "Smoked Beer",
+      "style": "Stout - Smoked",
       "brewery": "Brouwerij De Dochter van de Korenaar",
       "brewery_url": "https://untappd.com/w/brouwerij-de-dochter-van-de-korenaar/428",
       "category": "Bierbijbel",
@@ -5645,7 +5645,7 @@
       "name": "West Indies Porter",
       "beer_url": "https://untappd.com/b/guinness-west-indies-porter/800349",
       "image_url": "https://labels.untappd.com/800349",
-      "style": "Porter - Other",
+      "style": "Porter - India Export",
       "brewery": "Guinness",
       "brewery_url": "https://untappd.com/w/guinness/49",
       "category": "Bierbijbel",
