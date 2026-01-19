@@ -1,6 +1,262 @@
 {
   "changes": [
     {
+      "date": "2026-01-19T18:08:36.799Z",
+      "summary": {
+        "added": 2,
+        "removed": 5,
+        "updated": 17,
+        "total_beers": 397
+      },
+      "added": [
+        {
+          "name": "Instant Krush",
+          "beer_url": "https://untappd.com/b/jopen-instant-krush/6557905",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Jopen",
+          "style": "IPA - American",
+          "abv": 7,
+          "image_url": "https://labels.untappd.com/6557905"
+        },
+        {
+          "name": "Kerel Kaishaku",
+          "beer_url": "https://untappd.com/b/vbdck-brewery-kerel-kaishaku/2235054",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "VBDCK Brewery",
+          "style": "Strong Ale - American",
+          "abv": 15,
+          "image_url": "https://labels.untappd.com/2235054"
+        }
+      ],
+      "removed": [
+        {
+          "name": "Lupulus Nelson Sauvin (2025)",
+          "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-blonde-dry-hop-2025-nelson-sauvin/6076955",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brasserie Lupulus"
+        },
+        {
+          "name": "Stille Nacht",
+          "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-stille-nacht/1365",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij De Dolle Brouwers"
+        },
+        {
+          "name": "Gleuvenglijder",
+          "beer_url": "https://untappd.com/b/brouwerij-de-eeuwige-jeugd-gleuvenglijder/2581614",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij de Eeuwige Jeugd"
+        },
+        {
+          "name": "Gouden Carolus Indulgence 2024 - Margaretha",
+          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-indulgence-2024-margaretha/5961025",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Het Anker"
+        },
+        {
+          "name": "Cherry Cola Float",
+          "beer_url": "https://untappd.com/b/vault-city-brewing-cherry-cola-float/6398379",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Vault City Brewing"
+        }
+      ],
+      "updated": [
+        {
+          "name": "Lidmašīnas",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-lidmasinas/6012047",
+          "changes": {
+            "rating": {
+              "old": 4.01,
+              "new": 4.02
+            }
+          }
+        },
+        {
+          "name": "Aubel Triple",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow Blond",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Porter Of No Return",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
+          "changes": {
+            "rating": {
+              "old": 3.93,
+              "new": 3.94
+            }
+          }
+        },
+        {
+          "name": "Lost Kees ( Collab with Lost Brewing)",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
+          "changes": {
+            "rating": {
+              "old": 3.61,
+              "new": 3.6
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Circus Winter Ale",
+          "beer_url": "https://untappd.com/b/circus-brouwerij-circus-winter-ale/5629064",
+          "changes": {
+            "rating": {
+              "old": 3.5,
+              "new": 3.49
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Barrel Collab Series #2 - Flanders Style Red Ale",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-flanders-style-red-ale/6482954",
+          "changes": {
+            "rating": {
+              "old": 3.45,
+              "new": 3.46
+            }
+          }
+        },
+        {
+          "name": "Frontman",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-frontman/6559081",
+          "changes": {
+            "rating": {
+              "old": 3.18,
+              "new": 3.22
+            }
+          }
+        },
+        {
+          "name": "Caramel Fudge Stout - Salted Caramel",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-caramel-fudge-stout-salted-caramel/6384081",
+          "changes": {
+            "rating": {
+              "old": 3.88,
+              "new": 3.89
+            }
+          }
+        },
+        {
+          "name": "DUBAI CHOCO",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-dubai-choco/6225050",
+          "changes": {
+            "rating": {
+              "old": 3.84,
+              "new": 3.83
+            }
+          }
+        },
+        {
+          "name": "My First And Last Dip",
+          "beer_url": "https://untappd.com/b/sudden-death-brewing-co-my-first-and-last-dip/6514598",
+          "changes": {
+            "rating": {
+              "old": 4.11,
+              "new": 4.1
+            }
+          }
+        },
+        {
+          "name": "Island Fever",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-island-fever/6457962",
+          "changes": {
+            "rating": {
+              "old": 3.13,
+              "new": 3.14
+            }
+          }
+        },
+        {
+          "name": "Barrel Project 2025 Red Wine Aged In Red Wine Barrels. (Collab With Tartarus Brewing)",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-red-wine-aged-in-red-wine-barrels-collab-with-tartarus-brewing/6479999",
+          "changes": {
+            "rating": {
+              "old": 3.97,
+              "new": 3.98
+            }
+          }
+        },
+        {
+          "name": "Oude Kriek Jart-Elle (2022)",
+          "beer_url": "https://untappd.com/b/lambiek-fabriek-oude-kriek-jart-elle-2022/4822501",
+          "changes": {
+            "rating": {
+              "old": 3.89,
+              "new": 3.88
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-19T12:14:26.584Z",
       "summary": {
         "added": 0,
@@ -3482,149 +3738,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Wisseltap bieren"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-01-09T18:08:55.500Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 11,
-        "total_beers": 397
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Ter Dolen Tripel",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Lost Kees ( Collab with Lost Brewing)",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
-          "changes": {
-            "rating": {
-              "old": 3.6,
-              "new": 3.58
-            }
-          }
-        },
-        {
-          "name": "Brice",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Cuvée des Trolls",
-          "beer_url": "https://untappd.com/b/brasserie-dubuisson-cuvee-des-trolls/7318",
-          "changes": {
-            "rating": {
-              "old": 3.47,
-              "new": 3.48
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kasteel Cuvée",
-          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Lupulus Hazy Session",
-          "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-hazy-session/5316399",
-          "changes": {
-            "rating": {
-              "old": 3.5,
-              "new": 3.49
-            }
-          }
-        },
-        {
-          "name": "Yvler the Creator",
-          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
-          "changes": {
-            "rating": {
-              "old": 3.59,
-              "new": 3.6
-            }
-          }
-        },
-        {
-          "name": "Fram Bush",
-          "beer_url": "https://untappd.com/b/brasserie-dubuisson-fram-bush/4697132",
-          "changes": {
-            "rating": {
-              "old": 3.33,
-              "new": 3.32
-            }
-          }
-        },
-        {
-          "name": "Fun House Non Alcoholic NEIPA",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-fun-house-non-alcoholic-neipa/3955069",
-          "changes": {
-            "rating": {
-              "old": 3.31,
-              "new": 3.32
             }
           }
         }
