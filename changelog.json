@@ -1,6 +1,85 @@
 {
   "changes": [
     {
+      "date": "2026-01-19T06:11:15.535Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 5,
+        "total_beers": 400
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Aubel Triple",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow Blond",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-18T18:07:39.814Z",
       "summary": {
         "added": 0,
@@ -3472,97 +3551,6 @@
       },
       "added": [],
       "removed": [],
-      "updated": [
-        {
-          "name": "Ter Dolen Tripel",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Brice",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kasteel Cuvée",
-          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-01-09T06:09:02.074Z",
-      "summary": {
-        "added": 0,
-        "removed": 1,
-        "updated": 5,
-        "total_beers": 397
-      },
-      "added": [],
-      "removed": [
-        {
-          "name": "Ter Dolen Winter",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-winter/513573",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Ter Dolen"
-        }
-      ],
       "updated": [
         {
           "name": "Ter Dolen Tripel",
