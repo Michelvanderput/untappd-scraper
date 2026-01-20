@@ -1,6 +1,105 @@
 {
   "changes": [
     {
+      "date": "2026-01-20T12:14:08.793Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 7,
+        "total_beers": 397
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Aubel Triple",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow Blond",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Instant Krush",
+          "beer_url": "https://untappd.com/b/jopen-instant-krush/6557905",
+          "changes": {
+            "rating": {
+              "old": 3.61,
+              "new": 3.6
+            }
+          }
+        },
+        {
+          "name": "Stormbock",
+          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-stormbock/70139",
+          "changes": {
+            "rating": {
+              "old": 3.63,
+              "new": 3.64
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-20T06:09:58.416Z",
       "summary": {
         "added": 1,
@@ -3670,89 +3769,6 @@
             "rating": {
               "old": 3.59,
               "new": 3.6
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-01-10T12:11:30.736Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 5,
-        "total_beers": 397
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Ter Dolen Tripel",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Brice",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kasteel Cuvée",
-          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee/15332",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
             }
           }
         }
