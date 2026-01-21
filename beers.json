@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-21T12:14:21.594Z",
+  "fetched_at": "2026-01-21T18:16:40.505Z",
   "count": 394,
-  "scrape_duration_seconds": 2.54,
+  "scrape_duration_seconds": 2.63,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 14,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 14,
       "Op=Op kaart": 76,
       "Bierbijbel": 293
     }
@@ -530,7 +530,7 @@
       "name": "Famous Pastries: Crepe Suzette",
       "beer_url": "https://untappd.com/b/dutch-bargain-famous-pastries-crepe-suzette/6516516",
       "image_url": "https://labels.untappd.com/6516516",
-      "style": "Stout - Pastry",
+      "style": "Stout - Imperial / Double Pastry",
       "brewery": "Dutch Bargain",
       "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
       "category": "Op=Op kaart",
@@ -762,7 +762,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.57,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -792,7 +792,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -867,7 +867,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 4.11,
+      "rating": 4.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -927,7 +927,7 @@
       "subcategory": null,
       "abv": 7.7,
       "ibu": 14,
-      "rating": 3.22,
+      "rating": 3.25,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.88,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },

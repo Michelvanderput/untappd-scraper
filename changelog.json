@@ -1,6 +1,135 @@
 {
   "changes": [
     {
+      "date": "2026-01-21T18:16:40.585Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 10,
+        "total_beers": 394
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Aubel Triple",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow Blond",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Yvler the Creator",
+          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
+          "changes": {
+            "rating": {
+              "old": 3.57,
+              "new": 3.58
+            }
+          }
+        },
+        {
+          "name": "Blueprints: Camera",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
+          "changes": {
+            "rating": {
+              "old": 3.76,
+              "new": 3.75
+            }
+          }
+        },
+        {
+          "name": "My First And Last Dip",
+          "beer_url": "https://untappd.com/b/sudden-death-brewing-co-my-first-and-last-dip/6514598",
+          "changes": {
+            "rating": {
+              "old": 4.11,
+              "new": 4.1
+            }
+          }
+        },
+        {
+          "name": "Frontman",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-frontman/6559081",
+          "changes": {
+            "rating": {
+              "old": 3.22,
+              "new": 3.25
+            }
+          }
+        },
+        {
+          "name": "Oude Kriek Jart-Elle (2022)",
+          "beer_url": "https://untappd.com/b/lambiek-fabriek-oude-kriek-jart-elle-2022/4822501",
+          "changes": {
+            "rating": {
+              "old": 3.88,
+              "new": 3.89
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-21T12:14:21.682Z",
       "summary": {
         "added": 0,
@@ -3398,194 +3527,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Wisseltap bieren"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-01-11T18:07:33.941Z",
-      "summary": {
-        "added": 1,
-        "removed": 1,
-        "updated": 14,
-        "total_beers": 396
-      },
-      "added": [
-        {
-          "name": "King Mule Winter",
-          "beer_url": "https://untappd.com/b/brouwerij-cornelissen-king-mule-winter/5970791",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Brouwerij Cornelissen",
-          "style": "Winter Ale",
-          "abv": 9.3,
-          "image_url": "https://labels.untappd.com/5970791"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Straffe Hendrik Xmas Blend (2025)",
-          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-straffe-hendrik-xmas-blend-2025/6454973",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Brouwerij De Halve Maan"
-        }
-      ],
-      "updated": [
-        {
-          "name": "Tynt Meadow Blond",
-          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Tripel",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Lost Kees ( Collab with Lost Brewing)",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
-          "changes": {
-            "rating": {
-              "old": 3.59,
-              "new": 3.6
-            }
-          }
-        },
-        {
-          "name": "Brice",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Sour Framboise/Passion",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-sour-framboise-passion/6514603",
-          "changes": {
-            "rating": {
-              "old": 3.68,
-              "new": 3.67
-            }
-          }
-        },
-        {
-          "name": "Gingerbread Man",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
-          "changes": {
-            "rating": {
-              "old": 3.84,
-              "new": 3.85
-            }
-          }
-        },
-        {
-          "name": "Fire In the Beehive",
-          "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
-          "changes": {
-            "rating": {
-              "old": 3.4,
-              "new": 3.36
-            }
-          }
-        },
-        {
-          "name": "Garden of Fools",
-          "beer_url": "https://untappd.com/b/factory-brewing-garden-of-fools/6454741",
-          "changes": {
-            "rating": {
-              "old": 3.92,
-              "new": 3.91
-            }
-          }
-        },
-        {
-          "name": "Crimson Curse",
-          "beer_url": "https://untappd.com/b/holy-goat-brewing-crimson-curse/6216832",
-          "changes": {
-            "rating": {
-              "old": 3.78,
-              "new": 3.79
-            }
-          }
-        },
-        {
-          "name": "Playlist",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-playlist/6472881",
-          "changes": {
-            "rating": {
-              "old": 3.29,
-              "new": 3.28
-            }
-          }
-        },
-        {
-          "name": "Cassis",
-          "beer_url": "https://untappd.com/b/brouwerij-lindemans-cassis/7895",
-          "changes": {
-            "rating": {
-              "old": 3.63,
-              "new": 3.64
-            }
-          }
-        },
-        {
-          "name": "Fruitesse 0.0",
-          "beer_url": "https://untappd.com/b/brouwerij-liefmans-fruitesse-0-0/3322220",
-          "changes": {
-            "rating": {
-              "old": 3.13,
-              "new": 3.14
             }
           }
         }
