@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-22T06:09:15.356Z",
+  "fetched_at": "2026-01-22T12:14:44.163Z",
   "count": 394,
-  "scrape_duration_seconds": 2.01,
+  "scrape_duration_seconds": 2.1,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 14,
-      "Op=Op kaart": 76,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 76,
       "Bierbijbel": 293
     }
   },
@@ -320,7 +320,7 @@
       "name": "Lupulus Hazy Session",
       "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-hazy-session/5316399",
       "image_url": "https://labels.untappd.com/5316399",
-      "style": "IPA - Session",
+      "style": "IPA - Session New England / Hazy",
       "brewery": "Brasserie Lupulus",
       "brewery_url": "https://untappd.com/w/brasserie-lupulus/14082",
       "category": "Op=Op kaart",
@@ -627,7 +627,7 @@
       "subcategory": null,
       "abv": 7.3,
       "ibu": null,
-      "rating": 3.91,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -717,7 +717,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
