@@ -1,6 +1,155 @@
 {
   "changes": [
     {
+      "date": "2026-01-22T18:08:50.310Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 12,
+        "total_beers": 394
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Aubel Triple",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tynt Meadow Blond",
+          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Porter Of No Return",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
+          "changes": {
+            "rating": {
+              "old": 3.94,
+              "new": 3.93
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Night Knocker",
+          "beer_url": "https://untappd.com/b/brewski-night-knocker/6472612",
+          "changes": {
+            "rating": {
+              "old": 3.61,
+              "new": 3.62
+            }
+          }
+        },
+        {
+          "name": "Fire In the Beehive",
+          "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
+          "changes": {
+            "rating": {
+              "old": 3.37,
+              "new": 3.36
+            }
+          }
+        },
+        {
+          "name": "Yvler the Creator",
+          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
+          "changes": {
+            "rating": {
+              "old": 3.58,
+              "new": 3.57
+            }
+          }
+        },
+        {
+          "name": "My First And Last Dip",
+          "beer_url": "https://untappd.com/b/sudden-death-brewing-co-my-first-and-last-dip/6514598",
+          "changes": {
+            "rating": {
+              "old": 4.1,
+              "new": 4.11
+            }
+          }
+        },
+        {
+          "name": "Island Fever",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-island-fever/6457962",
+          "changes": {
+            "rating": {
+              "old": 3.14,
+              "new": 3.15
+            }
+          }
+        },
+        {
+          "name": "Triple Meltdown",
+          "beer_url": "https://untappd.com/b/zuyd-craft-triple-meltdown/6474310",
+          "changes": {
+            "rating": {
+              "old": 4.1,
+              "new": 4.09
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-01-22T12:14:44.252Z",
       "summary": {
         "added": 0,
@@ -3312,155 +3461,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Wisseltap bieren"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-01-12T18:08:45.130Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 12,
-        "total_beers": 400
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Tynt Meadow Blond",
-          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Tripel",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Lost Kees ( Collab with Lost Brewing)",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
-          "changes": {
-            "rating": {
-              "old": 3.6,
-              "new": 3.61
-            }
-          }
-        },
-        {
-          "name": "Brice",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-brice/17870",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Circus Winter Ale",
-          "beer_url": "https://untappd.com/b/circus-brouwerij-circus-winter-ale/5629064",
-          "changes": {
-            "rating": {
-              "old": 3.49,
-              "new": 3.5
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Loveship",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-loveship/6534884",
-          "changes": {
-            "rating": {
-              "old": 3.99,
-              "new": 3.95
-            }
-          }
-        },
-        {
-          "name": "Barrel Collab Series #2 - Flanders Style Red Ale",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-flanders-style-red-ale/6482954",
-          "changes": {
-            "rating": {
-              "old": 3.47,
-              "new": 3.46
-            }
-          }
-        },
-        {
-          "name": "Yvler the Creator",
-          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
-          "changes": {
-            "rating": {
-              "old": 3.6,
-              "new": 3.59
-            }
-          }
-        },
-        {
-          "name": "Mad Treasure",
-          "beer_url": "https://untappd.com/b/mead-scientist-mad-treasure/6399973",
-          "changes": {
-            "rating": {
-              "old": 3.63,
-              "new": 3.64
-            }
-          }
-        },
-        {
-          "name": "My First And Last Dip",
-          "beer_url": "https://untappd.com/b/sudden-death-brewing-co-my-first-and-last-dip/6514598",
-          "changes": {
-            "rating": {
-              "old": 4.1,
-              "new": 4.09
             }
           }
         }
