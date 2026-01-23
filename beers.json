@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-22T18:08:50.221Z",
+  "fetched_at": "2026-01-23T06:09:06.400Z",
   "count": 394,
-  "scrape_duration_seconds": 2.72,
+  "scrape_duration_seconds": 1.92,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
@@ -10,12 +10,57 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 14,
-      "Op=Op kaart": 76,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 76,
       "Bierbijbel": 293
     }
   },
   "beers": [
+    {
+      "name": "Gouden Carolus Classic",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-classic/9087",
+      "image_url": "https://labels.untappd.com/9087",
+      "style": "Belgian Strong Dark Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": 25,
+      "rating": 3.73,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Delirium Red",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-red/33040",
+      "image_url": "https://labels.untappd.com/33040",
+      "style": "Fruit Beer",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 10,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Averbode",
+      "beer_url": "https://untappd.com/b/huisbrouwerij-averbode-averbode/657805",
+      "image_url": "https://labels.untappd.com/657805",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Huisbrouwerij Averbode",
+      "brewery_url": "https://untappd.com/w/huisbrouwerij-averbode/362929",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.5,
+      "ibu": 34,
+      "rating": 3.57,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Lidmašīnas",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-lidmasinas/6012047",
@@ -107,21 +152,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Porter Of No Return",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-porter-of-no-return/6480000",
-      "image_url": "https://labels.untappd.com/6480000",
-      "style": "Bock - Eisbock",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 20,
-      "ibu": 41,
-      "rating": 3.93,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Lost Kees ( Collab with Lost Brewing)",
       "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
       "image_url": "https://labels.untappd.com/6530515",
@@ -152,21 +182,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Val-Dieu Grand Cru",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-grand-cru/352",
-      "image_url": "https://labels.untappd.com/352",
-      "style": "Belgian Quadrupel",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 20,
-      "rating": 3.78,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Val-Dieu Blonde",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
       "image_url": "https://labels.untappd.com/40880",
@@ -178,21 +193,6 @@
       "abv": 6,
       "ibu": 18,
       "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Circus Winter Ale",
-      "beer_url": "https://untappd.com/b/circus-brouwerij-circus-winter-ale/5629064",
-      "image_url": "https://labels.untappd.com/5629064",
-      "style": "Winter Ale",
-      "brewery": "Circus Brouwerij",
-      "brewery_url": "https://untappd.com/w/circus-brouwerij/171782",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -5702,7 +5702,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Chouffe 0.4",
+      "name": "La Chouffe 0.4",
       "beer_url": "https://untappd.com/b/brasserie-d-achouffe-chouffe-0-4/5127446",
       "image_url": "https://labels.untappd.com/5127446",
       "style": "Non-Alcoholic - Blonde / Golden Ale",
@@ -5747,8 +5747,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Rouge 0.0",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-rouge-0-0/5773823",
+      "name": "Kasteel Rouge 0.0",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-rouge-0-0/5773823",
       "image_url": "https://labels.untappd.com/5773823",
       "style": "Non-Alcoholic - Fruit Beer",
       "brewery": "Kasteel Brouwerij Vanhonsebrouck",
