@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-23T18:08:51.558Z",
+  "fetched_at": "2026-01-24T06:08:07.848Z",
   "count": 394,
-  "scrape_duration_seconds": 2.61,
+  "scrape_duration_seconds": 1.94,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
@@ -2585,7 +2585,7 @@
       "name": "Bootjes Bier",
       "beer_url": "https://untappd.com/b/antwerpse-brouw-compagnie-bootjes-bier/1077246",
       "image_url": "https://labels.untappd.com/1077246",
-      "style": "Red Ale - Ambrée",
+      "style": "Pale Ale - Belgian",
       "brewery": "Antwerpse Brouw Compagnie",
       "brewery_url": "https://untappd.com/w/antwerpse-brouw-compagnie/25341",
       "category": "Bierbijbel",
