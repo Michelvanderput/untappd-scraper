@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-24T18:07:39.897Z",
+  "fetched_at": "2026-01-25T06:08:20.447Z",
   "count": 394,
-  "scrape_duration_seconds": 4.27,
+  "scrape_duration_seconds": 1.96,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
@@ -815,7 +815,7 @@
       "name": "País Tropical",
       "beer_url": "https://untappd.com/b/oedipus-brewing-pais-tropical/3692528",
       "image_url": "https://labels.untappd.com/3692528",
-      "style": "IPA - Session",
+      "style": "IPA - Session New England / Hazy",
       "brewery": "Oedipus Brewing",
       "brewery_url": "https://untappd.com/w/oedipus-brewing/18058",
       "category": "Op=Op kaart",

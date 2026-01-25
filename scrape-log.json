@@ -1,5 +1,22 @@
 [
   {
+    "timestamp": "2026-01-25T06:08:20.451Z",
+    "success": true,
+    "duration_seconds": 1.96,
+    "beers_count": 394,
+    "stats": {
+      "totalFetched": 394,
+      "totalValid": 394,
+      "errors": 0,
+      "byCategory": {
+        "Vaste bieren van de tap": 11,
+        "Wisseltap bieren": 14,
+        "Op=Op kaart": 76,
+        "Bierbijbel": 293
+      }
+    }
+  },
+  {
     "timestamp": "2026-01-24T18:07:39.901Z",
     "success": true,
     "duration_seconds": 4.27,
