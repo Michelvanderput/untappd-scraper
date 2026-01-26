@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-26T06:10:55.834Z",
+  "fetched_at": "2026-01-26T12:14:37.652Z",
   "count": 394,
-  "scrape_duration_seconds": 2.14,
+  "scrape_duration_seconds": 1.78,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
@@ -1152,7 +1152,7 @@
       "subcategory": null,
       "abv": 11.8,
       "ibu": 29,
-      "rating": 3.98,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2112,7 +2112,7 @@
       "subcategory": "Fruitbieren",
       "abv": 7,
       "ibu": 6,
-      "rating": 3.54,
+      "rating": 3.53,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2322,7 +2322,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.5,
       "ibu": 18,
-      "rating": 3.58,
+      "rating": 3.57,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5667,7 +5667,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": 20,
-      "rating": 3.31,
+      "rating": 3.32,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
