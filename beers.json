@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-26T12:14:37.652Z",
+  "fetched_at": "2026-01-26T18:09:39.258Z",
   "count": 394,
-  "scrape_duration_seconds": 1.78,
+  "scrape_duration_seconds": 2.11,
   "stats": {
     "total_fetched": 394,
     "total_valid": 394,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 14,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 76,
       "Bierbijbel": 293
     }
   },
   "beers": [
+    {
+      "name": "Mango Smash",
+      "beer_url": "https://untappd.com/b/thornbridge-brewery-mango-smash/3361256",
+      "image_url": "https://labels.untappd.com/3361256",
+      "style": "IPA - Milkshake",
+      "brewery": "Thornbridge Brewery",
+      "brewery_url": "https://untappd.com/w/thornbridge-brewery/2047",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.5,
+      "ibu": 20,
+      "rating": 3.7,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Blueprints: Watch",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-watch/6418059",
@@ -148,21 +163,6 @@
       "abv": 9.3,
       "ibu": 25,
       "rating": 3.55,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Lost Kees ( Collab with Lost Brewing)",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-lost-kees-collab-with-lost-brewing/6530515",
-      "image_url": "https://labels.untappd.com/6530515",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.1,
-      "ibu": 17,
-      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.07,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -462,7 +462,7 @@
       "subcategory": null,
       "abv": 12.5,
       "ibu": 42,
-      "rating": 3.93,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -537,7 +537,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.93,
+      "rating": 3.94,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -567,7 +567,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 38,
-      "rating": 3.64,
+      "rating": 3.65,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -642,7 +642,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -717,7 +717,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.63,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1182,7 +1182,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 3.87,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
