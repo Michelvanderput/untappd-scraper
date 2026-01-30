@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-30T12:16:44.396Z",
+  "fetched_at": "2026-01-30T18:13:37.824Z",
   "count": 404,
-  "scrape_duration_seconds": 2.03,
+  "scrape_duration_seconds": 2.27,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 17,
       "Op=Op kaart": 79,
+      "Wisseltap bieren": 17,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Bliss Point",
+      "beer_url": "https://untappd.com/b/thornbridge-brewery-bliss-point/3028613",
+      "image_url": "https://labels.untappd.com/3028613",
+      "style": "Pale Ale - New England / Hazy",
+      "brewery": "Thornbridge Brewery",
+      "brewery_url": "https://untappd.com/w/thornbridge-brewery/2047",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": null,
+      "rating": 3.57,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Goliath MCLXI",
       "beer_url": "https://untappd.com/b/brasserie-des-legendes-goliath-mclxi/6372909",
@@ -103,21 +118,6 @@
       "abv": 7.5,
       "ibu": 51,
       "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mango Smash",
-      "beer_url": "https://untappd.com/b/thornbridge-brewery-mango-smash/3361256",
-      "image_url": "https://labels.untappd.com/3361256",
-      "style": "IPA - Milkshake",
-      "brewery": "Thornbridge Brewery",
-      "brewery_url": "https://untappd.com/w/thornbridge-brewery/2047",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.5,
-      "ibu": 20,
-      "rating": 3.7,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 41,
-      "rating": 3.95,
+      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.72,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -537,7 +537,7 @@
       "subcategory": null,
       "abv": 11.5,
       "ibu": 45,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -672,7 +672,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.93,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 7,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1062,7 +1062,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 37,
-      "rating": 3.87,
+      "rating": 3.86,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1392,7 +1392,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 19,
-      "rating": 4.27,
+      "rating": 4.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
