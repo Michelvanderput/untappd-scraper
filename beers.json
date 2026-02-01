@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-01-31T18:08:14.249Z",
+  "fetched_at": "2026-02-01T06:20:11.686Z",
   "count": 404,
-  "scrape_duration_seconds": 2.47,
+  "scrape_duration_seconds": 2.01,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 79,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Silky Slice",
+      "beer_url": "https://untappd.com/b/two-chefs-brewing-silky-slice/6480571",
+      "image_url": "https://labels.untappd.com/6480571",
+      "style": "Sour - Fruited",
+      "brewery": "Two Chefs Brewing",
+      "brewery_url": "https://untappd.com/w/two-chefs-brewing/43977",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": null,
+      "rating": 3.57,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Gouden Carolus Indulgence 2025 - Blond Whisky Infused",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-indulgence-2025-blond-whisky-infused/6390332",
+      "image_url": "https://labels.untappd.com/6390332",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10.7,
+      "ibu": 17,
+      "rating": 4.04,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Bliss Point",
       "beer_url": "https://untappd.com/b/thornbridge-brewery-bliss-point/3028613",
@@ -152,21 +182,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Delirium Red",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-red/33040",
-      "image_url": "https://labels.untappd.com/33040",
-      "style": "Fruit Beer",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 10,
-      "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Aubel Triple",
       "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
       "image_url": "https://labels.untappd.com/304329",
@@ -253,21 +268,6 @@
       "abv": 8.8,
       "ibu": 20,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouden Carolus Tripel",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
-      "image_url": "https://labels.untappd.com/356",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 30,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
