@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-01T06:20:11.686Z",
+  "fetched_at": "2026-02-01T12:14:12.432Z",
   "count": 404,
-  "scrape_duration_seconds": 2.01,
+  "scrape_duration_seconds": 3.05,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -852,7 +852,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.62,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1827,7 +1827,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 9.5,
       "ibu": 24,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2937,7 +2937,7 @@
       "subcategory": "Amber - Red Ale",
       "abv": 6.5,
       "ibu": 26,
-      "rating": 3.37,
+      "rating": 3.36,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5937,7 +5937,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.4,
       "ibu": 12,
-      "rating": 3.18,
+      "rating": 3.16,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
