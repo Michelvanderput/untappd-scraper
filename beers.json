@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-01T18:08:57.273Z",
+  "fetched_at": "2026-02-02T06:26:56.568Z",
   "count": 404,
-  "scrape_duration_seconds": 2.19,
+  "scrape_duration_seconds": 1.97,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 79,
       "Bierbijbel": 297
     }
@@ -5735,7 +5735,7 @@
       "name": "Motor Oil / Motorolie",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-motor-oil-motorolie/1733389",
       "image_url": "https://labels.untappd.com/1733389",
-      "style": "Stout - Imperial / Double",
+      "style": "Stout - Russian Imperial",
       "brewery": "Moersleutel Craft Brewery",
       "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
       "category": "Bierbijbel",
