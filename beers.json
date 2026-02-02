@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-02T06:26:56.568Z",
+  "fetched_at": "2026-02-02T12:18:05.502Z",
   "count": 404,
-  "scrape_duration_seconds": 1.97,
+  "scrape_duration_seconds": 1.93,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -627,7 +627,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 42,
-      "rating": 4.05,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -852,7 +852,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.6,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1047,7 @@
       "subcategory": null,
       "abv": 7.7,
       "ibu": 14,
-      "rating": 3.24,
+      "rating": 3.25,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3387,7 +3387,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6,
       "ibu": null,
-      "rating": 3.6,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5937,7 +5937,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.4,
       "ibu": 12,
-      "rating": 3.16,
+      "rating": 3.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
