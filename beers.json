@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-03T12:18:07.099Z",
-  "count": 404,
-  "scrape_duration_seconds": 3.07,
+  "fetched_at": "2026-02-03T18:21:51.135Z",
+  "count": 405,
+  "scrape_duration_seconds": 2.56,
   "stats": {
-    "total_fetched": 404,
-    "total_valid": 404,
+    "total_fetched": 405,
+    "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 79,
-      "Bierbijbel": 297,
-      "Vaste bieren van de tap": 11
+      "Op=Op kaart": 80,
+      "Bierbijbel": 297
     }
   },
   "beers": [
@@ -272,77 +272,17 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Cherry Cola Float",
-      "beer_url": "https://untappd.com/b/vault-city-brewing-cherry-cola-float/6398379",
-      "image_url": "https://labels.untappd.com/6398379",
-      "style": "Sour - Fruited",
-      "brewery": "Vault City Brewing",
-      "brewery_url": "https://untappd.com/w/vault-city-brewing/399292",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.3,
-      "ibu": null,
-      "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Blueprints: Jet Pack",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-jet-pack/6568892",
-      "image_url": "https://labels.untappd.com/6568892",
-      "style": "IPA - American",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "name": "Apocalyptic Thunder Juice",
+      "beer_url": "https://untappd.com/b/amundsen-brewery-apocalyptic-thunder-juice/2052131",
+      "image_url": "https://labels.untappd.com/2052131",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Amundsen Brewery",
+      "brewery_url": "https://untappd.com/w/amundsen-brewery/16909",
       "category": "Op=Op kaart",
       "subcategory": null,
       "abv": 6.5,
-      "ibu": null,
-      "rating": 3.83,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Blueprints: Moon Boots",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-moon-boots/6557270",
-      "image_url": "https://labels.untappd.com/6557270",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.89,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Crazy Lines Series: In the Dark",
-      "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-in-the-dark/6501865",
-      "image_url": "https://labels.untappd.com/6501865",
-      "style": "IPA - Black / Cascadian Dark Ale",
-      "brewery": "Nepo Brewing",
-      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": null,
-      "rating": 3.92,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "STRATASPHERE",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-stratasphere/6560662",
-      "image_url": "https://labels.untappd.com/6560662",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 41,
-      "rating": 3.92,
+      "ibu": 50,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -358,21 +298,6 @@
       "abv": 7.3,
       "ibu": null,
       "rating": 3.91,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Apocalyptic Thunder Juice",
-      "beer_url": "https://untappd.com/b/amundsen-brewery-apocalyptic-thunder-juice/2052131",
-      "image_url": "https://labels.untappd.com/2052131",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Amundsen Brewery",
-      "brewery_url": "https://untappd.com/w/amundsen-brewery/16909",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 50,
-      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -417,7 +342,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": 30,
-      "rating": 3.56,
+      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -582,7 +507,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 45,
-      "rating": 3.83,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -632,6 +557,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
+      "name": "STRATASPHERE",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-stratasphere/6560662",
+      "image_url": "https://labels.untappd.com/6560662",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 41,
+      "rating": 3.92,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Piraat Triple Hop",
       "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-piraat-triple-hop/295125",
       "image_url": "https://labels.untappd.com/295125",
@@ -657,7 +597,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 25,
-      "rating": 3.31,
+      "rating": 3.3,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -812,6 +752,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
+      "name": "Smokey Blues Beer 4050",
+      "beer_url": "https://untappd.com/b/gulpener-microbrouwerij-smokey-blues-beer/3943618",
+      "image_url": "https://labels.untappd.com/3943618",
+      "style": "Pale Ale - American",
+      "brewery": "Gulpener Microbrouwerij",
+      "brewery_url": "https://untappd.com/w/gulpener-microbrouwerij/420657",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": null,
+      "ibu": null,
+      "rating": 3.95,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Schaarbeekse Kriek",
       "beer_url": "https://untappd.com/b/hanssens-artisanaal-schaerbeekse-kriek/2079987",
       "image_url": "https://labels.untappd.com/2079987",
@@ -852,7 +807,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -882,7 +837,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.56,
+      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -932,6 +887,36 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
+      "name": "Blueprints: Jet Pack",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-jet-pack/6568892",
+      "image_url": "https://labels.untappd.com/6568892",
+      "style": "IPA - American",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.83,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Blueprints: Moon Boots",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-moon-boots/6557270",
+      "image_url": "https://labels.untappd.com/6557270",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": null,
+      "rating": 3.9,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Blueprints: Stapler",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-stapler/6462363",
       "image_url": "https://labels.untappd.com/6462363",
@@ -943,6 +928,21 @@
       "abv": 9,
       "ibu": null,
       "rating": 3.95,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Crazy Lines Series: In the Dark",
+      "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-in-the-dark/6501865",
+      "image_url": "https://labels.untappd.com/6501865",
+      "style": "IPA - Black / Cascadian Dark Ale",
+      "brewery": "Nepo Brewing",
+      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": null,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1002,7 +1002,7 @@
       "subcategory": null,
       "abv": 6.8,
       "ibu": null,
-      "rating": 3.17,
+      "rating": 3.16,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1082,6 +1082,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
+      "name": "Cherry Cola Float",
+      "beer_url": "https://untappd.com/b/vault-city-brewing-cherry-cola-float/6398379",
+      "image_url": "https://labels.untappd.com/6398379",
+      "style": "Sour - Fruited",
+      "brewery": "Vault City Brewing",
+      "brewery_url": "https://untappd.com/w/vault-city-brewing/399292",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 4.3,
+      "ibu": null,
+      "rating": 3.83,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Toffee Nut Latte",
       "beer_url": "https://untappd.com/b/vault-city-brewing-toffee-nut-latte/6426812",
       "image_url": "https://labels.untappd.com/6426812",
@@ -1122,7 +1137,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 15,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
