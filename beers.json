@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-04T18:18:41.884Z",
+  "fetched_at": "2026-02-05T06:23:38.651Z",
   "count": 405,
-  "scrape_duration_seconds": 2.44,
+  "scrape_duration_seconds": 1.87,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
@@ -5495,7 +5495,7 @@
       "name": "Hop Zij Met Ons",
       "beer_url": "https://untappd.com/b/jopen-hop-zij-met-ons/1176696",
       "image_url": "https://labels.untappd.com/1176696",
-      "style": "IPA - Other",
+      "style": "Gluten-Free",
       "brewery": "Jopen",
       "brewery_url": "https://untappd.com/w/jopen/620",
       "category": "Bierbijbel",
