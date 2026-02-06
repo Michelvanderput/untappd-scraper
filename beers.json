@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-05T18:20:59.159Z",
+  "fetched_at": "2026-02-06T06:21:11.318Z",
   "count": 405,
-  "scrape_duration_seconds": 2.4,
+  "scrape_duration_seconds": 2.06,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 80,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Gouden Carolus Tripel",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
+      "image_url": "https://labels.untappd.com/356",
+      "style": "Belgian Tripel",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 30,
+      "rating": 3.82,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Silky Slice",
       "beer_url": "https://untappd.com/b/two-chefs-brewing-silky-slice/6480571",
@@ -28,21 +43,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.56,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouden Carolus Indulgence 2025 - Blond Whisky Infused",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-indulgence-2025-blond-whisky-infused/6390332",
-      "image_url": "https://labels.untappd.com/6390332",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.7,
-      "ibu": 17,
-      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
