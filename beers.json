@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-06T06:21:11.318Z",
+  "fetched_at": "2026-02-06T12:18:26.573Z",
   "count": 405,
-  "scrape_duration_seconds": 2.06,
+  "scrape_duration_seconds": 2.88,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 17,
       "Op=Op kaart": 80,
+      "Wisseltap bieren": 17,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Achel Superior Winter",
+      "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-superior-winter/5619249",
+      "image_url": "https://labels.untappd.com/5619249",
+      "style": "Winter Ale",
+      "brewery": "De Achelse Kluis",
+      "brewery_url": "https://untappd.com/w/de-achelse-kluis/280",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9.5,
+      "ibu": null,
+      "rating": 3.69,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gouden Carolus Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
@@ -223,21 +238,6 @@
       "abv": 5,
       "ibu": null,
       "rating": 3.53,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Bush de Noël",
-      "beer_url": "https://untappd.com/b/brasserie-dubuisson-bush-de-noel/12695",
-      "image_url": "https://labels.untappd.com/12695",
-      "style": "Winter Ale",
-      "brewery": "Brasserie Dubuisson",
-      "brewery_url": "https://untappd.com/w/brasserie-dubuisson/188",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 12,
-      "ibu": 21,
-      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -2502,7 +2502,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.39,
+      "rating": 3.4,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3402,7 +3402,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6,
       "ibu": null,
-      "rating": 3.6,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4407,7 +4407,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10.7,
       "ibu": 17,
-      "rating": 3.89,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
