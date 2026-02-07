@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-07T06:15:54.479Z",
+  "fetched_at": "2026-02-07T12:13:53.569Z",
   "count": 404,
-  "scrape_duration_seconds": 1.84,
+  "scrape_duration_seconds": 3.5,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -2472,7 +2472,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8,
       "ibu": 10,
-      "rating": 3.54,
+      "rating": 3.55,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3387,7 +3387,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6,
       "ibu": null,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
