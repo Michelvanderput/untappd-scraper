@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-11T18:23:50.915Z",
+  "fetched_at": "2026-02-12T06:27:53.537Z",
   "count": 404,
-  "scrape_duration_seconds": 2.76,
+  "scrape_duration_seconds": 1.87,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -16,6 +16,36 @@
     }
   },
   "beers": [
+    {
+      "name": "Bolleke De Koninck (APA)",
+      "beer_url": "https://untappd.com/b/brouwerij-de-koninck-bolleke-de-koninck-apa/13211",
+      "image_url": "https://labels.untappd.com/13211",
+      "style": "Pale Ale - Belgian",
+      "brewery": "Brouwerij De Koninck",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-koninck/4053",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.2,
+      "ibu": 23,
+      "rating": 3.34,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Armand Ter Dolen",
+      "beer_url": "https://untappd.com/b/ter-dolen-armand-ter-dolen/76969",
+      "image_url": "https://labels.untappd.com/76969",
+      "style": "Belgian Blonde",
+      "brewery": "Ter Dolen",
+      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.1,
+      "ibu": 35,
+      "rating": 3.55,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "No Way Out",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-no-way-out/5678825",
@@ -167,21 +197,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Goliath MCLXI",
-      "beer_url": "https://untappd.com/b/brasserie-des-legendes-goliath-mclxi/6372909",
-      "image_url": "https://labels.untappd.com/6372909",
-      "style": "Belgian Blonde",
-      "brewery": "Brasserie des Légendes",
-      "brewery_url": "https://untappd.com/w/brasserie-des-legendes/191",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": null,
-      "rating": 3.59,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Stormbock (2025)",
       "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-stormbock-2025/6147377",
       "image_url": "https://labels.untappd.com/6147377",
@@ -238,21 +253,6 @@
       "abv": 7.5,
       "ibu": 51,
       "rating": 3.43,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ter Dolen Blond",
-      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-      "image_url": "https://labels.untappd.com/55364",
-      "style": "Belgian Blonde",
-      "brewery": "Ter Dolen",
-      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.1,
-      "ibu": 25,
-      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
