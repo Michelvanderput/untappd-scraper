@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-12T18:22:47.621Z",
-  "count": 404,
-  "scrape_duration_seconds": 3.03,
+  "fetched_at": "2026-02-13T06:24:57.472Z",
+  "count": 407,
+  "scrape_duration_seconds": 2.18,
   "stats": {
-    "total_fetched": 404,
-    "total_valid": 404,
+    "total_fetched": 407,
+    "total_valid": 407,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 79,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 82,
       "Bierbijbel": 297
     }
   },
@@ -298,6 +298,36 @@
       "abv": 7.3,
       "ibu": null,
       "rating": 3.92,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Limburgse Koffie... Wat Els?!",
+      "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
+      "image_url": "https://labels.untappd.com/6497004",
+      "style": "Stout - Imperial / Double Coffee",
+      "brewery": "Aspro Brews",
+      "brewery_url": "https://untappd.com/w/aspro-brews/483656",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 11,
+      "ibu": 33,
+      "rating": 3.73,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Proemevlaai",
+      "beer_url": "https://untappd.com/b/aspro-brews-proemevlaai/4683376",
+      "image_url": "https://labels.untappd.com/4683376",
+      "style": "Stout - Imperial / Double Pastry",
+      "brewery": "Aspro Brews",
+      "brewery_url": "https://untappd.com/w/aspro-brews/483656",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 36,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -718,6 +748,21 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.86,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Sticky Business: Espresso Martini",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
+      "image_url": "https://labels.untappd.com/6562566",
+      "style": "Stout - Other",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 7.5,
+      "ibu": null,
+      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
