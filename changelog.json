@@ -1,6 +1,339 @@
 {
   "changes": [
     {
+      "date": "2026-02-14T18:09:15.793Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 30,
+        "total_beers": 407
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Bolleke De Koninck (APA)",
+          "beer_url": "https://untappd.com/b/brouwerij-de-koninck-bolleke-de-koninck-apa/13211",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Armand Ter Dolen",
+          "beer_url": "https://untappd.com/b/ter-dolen-armand-ter-dolen/76969",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Fram Bush",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-fram-bush/4697132",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Grand Cru",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-grand-cru/352",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Silky Slice",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-silky-slice/6480571",
+          "changes": {
+            "rating": {
+              "old": 3.57,
+              "new": 3.58
+            }
+          }
+        },
+        {
+          "name": "Stormbock (2025)",
+          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-stormbock-2025/6147377",
+          "changes": {
+            "rating": {
+              "old": 3.77,
+              "new": 3.76
+            }
+          }
+        },
+        {
+          "name": "Blurred Lines",
+          "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Camaraderie",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
+          "changes": {
+            "category": {
+              "old": "Op=Op kaart",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Talk To Me Goose",
+          "beer_url": "https://untappd.com/b/brewski-talk-to-me-goose/6515493",
+          "changes": {
+            "rating": {
+              "old": 3.72,
+              "new": 3.74
+            }
+          }
+        },
+        {
+          "name": "Export Porter 1750",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-export-porter-1750/1072271",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Gingerbread Man",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
+          "changes": {
+            "rating": {
+              "old": 3.82,
+              "new": 3.83
+            }
+          }
+        },
+        {
+          "name": "ADONIS",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-adonis/6225058",
+          "changes": {
+            "rating": {
+              "old": 3.91,
+              "new": 3.92
+            }
+          }
+        },
+        {
+          "name": "STRATASPHERE",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-stratasphere/6560662",
+          "changes": {
+            "rating": {
+              "old": 3.94,
+              "new": 3.95
+            }
+          }
+        },
+        {
+          "name": "Sticky Business: Espresso Martini",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
+          "changes": {
+            "rating": {
+              "old": 3.52,
+              "new": 3.53
+            }
+          }
+        },
+        {
+          "name": "Instant Krush",
+          "beer_url": "https://untappd.com/b/jopen-instant-krush/6557905",
+          "changes": {
+            "rating": {
+              "old": 3.6,
+              "new": 3.61
+            }
+          }
+        },
+        {
+          "name": "The Matrix - BLUE PILL",
+          "beer_url": "https://untappd.com/b/mad-scientist-the-matrix-blue-pill/6503566",
+          "changes": {
+            "rating": {
+              "old": 3.56,
+              "new": 3.57
+            }
+          }
+        },
+        {
+          "name": "Mad Treasure",
+          "beer_url": "https://untappd.com/b/mead-scientist-mad-treasure/6399973",
+          "changes": {
+            "rating": {
+              "old": 3.64,
+              "new": 3.62
+            }
+          }
+        },
+        {
+          "name": "Blueprints: Moon Boots",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-moon-boots/6557270",
+          "changes": {
+            "rating": {
+              "old": 3.94,
+              "new": 3.93
+            }
+          }
+        },
+        {
+          "name": "Barrel Collab Series #2 - Imperial Fruited Sour",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-imperial-fruited-sour/6482956",
+          "changes": {
+            "rating": {
+              "old": 3.47,
+              "new": 3.46
+            }
+          }
+        },
+        {
+          "name": "Frontman",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-frontman/6559081",
+          "changes": {
+            "rating": {
+              "old": 3.25,
+              "new": 3.26
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi Rabarber / Rhubarb",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Ex-Girlfriend 4-Granen Eisbock 2025: Barrel Aged on Tawny Port",
+          "beer_url": "https://untappd.com/b/jopen-ex-girlfriend-ba-tawny-port/6513024",
+          "changes": {
+            "rating": {
+              "old": 3.87,
+              "new": 3.86
+            }
+          }
+        },
+        {
+          "name": "Oude Kriek Jart-Elle (2022)",
+          "beer_url": "https://untappd.com/b/lambiek-fabriek-oude-kriek-jart-elle-2022/4822501",
+          "changes": {
+            "rating": {
+              "old": 3.88,
+              "new": 3.89
+            }
+          }
+        },
+        {
+          "name": "Oude Kriek Cuvée René",
+          "beer_url": "https://untappd.com/b/brouwerij-lindemans-oude-kriek-cuvee-rene/39549",
+          "changes": {
+            "rating": {
+              "old": 3.81,
+              "new": 3.8
+            }
+          }
+        },
+        {
+          "name": "Paix Dieu Nova",
+          "beer_url": "https://untappd.com/b/brasserie-caulier-paix-dieu-nova/6029817",
+          "changes": {
+            "rating": {
+              "old": 3.61,
+              "new": 3.6
+            }
+          }
+        },
+        {
+          "name": "Special Extra Export Stout",
+          "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-special-extra-export-stout/1022",
+          "changes": {
+            "rating": {
+              "old": 3.6,
+              "new": 3.59
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-02-14T12:13:34.578Z",
       "summary": {
         "added": 0,
@@ -5506,233 +5839,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi Rabarber / Rhubarb",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-02-04T18:18:41.968Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 19,
-        "total_beers": 405
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Goliath MCLXI",
-          "beer_url": "https://untappd.com/b/brasserie-des-legendes-goliath-mclxi/6372909",
-          "changes": {
-            "rating": {
-              "old": 3.55,
-              "new": 3.56
-            }
-          }
-        },
-        {
-          "name": "Blurred Lines",
-          "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Camaraderie",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
-          "changes": {
-            "category": {
-              "old": "Op=Op kaart",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gouden Carolus Classic",
-          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-classic/9087",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Aubel Triple",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-triple/304329",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tynt Meadow Blond",
-          "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow-blond/5571049",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Sour Framboise/Passion",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-sour-framboise-passion/6514603",
-          "changes": {
-            "rating": {
-              "old": 3.7,
-              "new": 3.71
-            }
-          }
-        },
-        {
-          "name": "Talk To Me Goose",
-          "beer_url": "https://untappd.com/b/brewski-talk-to-me-goose/6515493",
-          "changes": {
-            "rating": {
-              "old": 3.61,
-              "new": 3.63
-            }
-          }
-        },
-        {
-          "name": "Export Porter 1750",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-export-porter-1750/1072271",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Famous Pastries: Crepe Suzette",
-          "beer_url": "https://untappd.com/b/dutch-bargain-famous-pastries-crepe-suzette/6516516",
-          "changes": {
-            "rating": {
-              "old": 3.91,
-              "new": 3.92
-            }
-          }
-        },
-        {
-          "name": "Blueprints: Moon Boots",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-moon-boots/6557270",
-          "changes": {
-            "rating": {
-              "old": 3.9,
-              "new": 3.91
-            }
-          }
-        },
-        {
-          "name": "Loveship",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-loveship/6534884",
-          "changes": {
-            "rating": {
-              "old": 3.83,
-              "new": 3.81
             }
           }
         },
