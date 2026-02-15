@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-14T18:09:15.698Z",
+  "fetched_at": "2026-02-15T06:21:02.643Z",
   "count": 407,
-  "scrape_duration_seconds": 2.52,
+  "scrape_duration_seconds": 2.35,
   "stats": {
     "total_fetched": 407,
     "total_valid": 407,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 82,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Val-Dieu Blonde",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+      "image_url": "https://labels.untappd.com/40880",
+      "style": "Belgian Blonde",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 18,
+      "rating": 3.46,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Bolleke De Koninck (APA)",
       "beer_url": "https://untappd.com/b/brouwerij-de-koninck-bolleke-de-koninck-apa/13211",
@@ -88,21 +103,6 @@
       "abv": 5,
       "ibu": 29,
       "rating": 3.38,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Val-Dieu Grand Cru",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-grand-cru/352",
-      "image_url": "https://labels.untappd.com/352",
-      "style": "Belgian Quadrupel",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 20,
-      "rating": 3.78,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
