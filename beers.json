@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-15T06:21:02.643Z",
+  "fetched_at": "2026-02-15T12:14:16.343Z",
   "count": 407,
-  "scrape_duration_seconds": 2.35,
+  "scrape_duration_seconds": 2.16,
   "stats": {
     "total_fetched": 407,
     "total_valid": 407,
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +837,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3080,7 +3080,7 @@
       "name": "Tempelier Strong Amber",
       "beer_url": "https://untappd.com/b/brouwerij-corsendonk-tempelier-strong-amber/5211960",
       "image_url": "https://labels.untappd.com/5211960",
-      "style": "Pale Ale - Belgian",
+      "style": "Belgian Strong Dark Ale",
       "brewery": "Brouwerij Corsendonk",
       "brewery_url": "https://untappd.com/w/brouwerij-corsendonk/246",
       "category": "Bierbijbel",
@@ -4437,7 +4437,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10.7,
       "ibu": 17,
-      "rating": 3.9,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
