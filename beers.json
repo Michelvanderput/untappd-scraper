@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-17T12:20:09.335Z",
+  "fetched_at": "2026-02-17T18:22:21.921Z",
   "count": 407,
-  "scrape_duration_seconds": 2.92,
+  "scrape_duration_seconds": 3.11,
   "stats": {
     "total_fetched": 407,
     "total_valid": 407,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 82,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 297
     }
   },
   "beers": [
+    {
+      "name": "Marble Cake",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-marble-cake/6456770",
+      "image_url": "https://labels.untappd.com/6456770",
+      "style": "Porter - Imperial / Double Baltic",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10.5,
+      "ibu": 35,
+      "rating": 3.84,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Val-Dieu Blonde",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
@@ -58,21 +73,6 @@
       "abv": 7.1,
       "ibu": 35,
       "rating": 3.55,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "No Way Out",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-no-way-out/5678825",
-      "image_url": "https://labels.untappd.com/5678825",
-      "style": "Barleywine - Other",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 36,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.76,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -642,7 +642,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": 17,
-      "rating": 3.35,
+      "rating": 3.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -762,7 +762,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.53,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -942,7 +942,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.93,
+      "rating": 3.94,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1167,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 15,
-      "rating": 3.9,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
