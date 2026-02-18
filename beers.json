@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-18T06:26:29.923Z",
-  "count": 407,
-  "scrape_duration_seconds": 1.93,
+  "fetched_at": "2026-02-18T12:20:14.325Z",
+  "count": 406,
+  "scrape_duration_seconds": 2.12,
   "stats": {
-    "total_fetched": 407,
-    "total_valid": 407,
+    "total_fetched": 406,
+    "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
       "Op=Op kaart": 82,
       "Vaste bieren van de tap": 11,
-      "Bierbijbel": 297
+      "Bierbijbel": 296
     }
   },
   "beers": [
@@ -3854,21 +3854,6 @@
       "ibu": 36,
       "rating": 3.67,
       "container": "33cl Bottle",
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
-    },
-    {
-      "name": "Oude Orval",
-      "beer_url": "https://untappd.com/b/brasserie-d-orval-oude-orval/6583405",
-      "image_url": "https://labels.untappd.com/6583405",
-      "style": "Pale Ale - Belgian",
-      "brewery": "Brasserie d'Orval",
-      "brewery_url": "https://untappd.com/w/brasserie-d-orval/169",
-      "category": "Bierbijbel",
-      "subcategory": "Trappistenbieren",
-      "abv": 6.2,
-      "ibu": 36,
-      "rating": 0,
-      "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
