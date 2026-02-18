@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-18T12:20:14.325Z",
-  "count": 406,
-  "scrape_duration_seconds": 2.12,
+  "fetched_at": "2026-02-18T18:18:46.085Z",
+  "count": 407,
+  "scrape_duration_seconds": 4.04,
   "stats": {
-    "total_fetched": 406,
-    "total_valid": 406,
+    "total_fetched": 407,
+    "total_valid": 407,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
+      "Wisseltap bieren": 18,
       "Op=Op kaart": 82,
       "Vaste bieren van de tap": 11,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "La Corne Du Bois Des Pendus Triple",
+      "beer_url": "https://untappd.com/b/brasserie-des-legendes-la-corne-du-bois-des-pendus-triple/5780058",
+      "image_url": "https://labels.untappd.com/5780058",
+      "style": "Belgian Tripel",
+      "brewery": "Brasserie des Légendes",
+      "brewery_url": "https://untappd.com/w/brasserie-des-legendes/191",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 35,
+      "rating": 3.67,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "No Way Out",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-no-way-out/5678825",
+      "image_url": "https://labels.untappd.com/5678825",
+      "style": "Barleywine - Other",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 36,
+      "rating": 3.82,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Marble Cake",
       "beer_url": "https://untappd.com/b/brouwerij-kees-marble-cake/6456770",
@@ -182,21 +212,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Bliss Point",
-      "beer_url": "https://untappd.com/b/thornbridge-brewery-bliss-point/3028613",
-      "image_url": "https://labels.untappd.com/3028613",
-      "style": "Pale Ale - New England / Hazy",
-      "brewery": "Thornbridge Brewery",
-      "brewery_url": "https://untappd.com/w/thornbridge-brewery/2047",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": null,
-      "rating": 3.57,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Stormbock (2025)",
       "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-stormbock-2025/6147377",
       "image_url": "https://labels.untappd.com/6147377",
@@ -207,7 +222,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 3.76,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -627,7 +642,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.88,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -762,7 +777,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.54,
+      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1062,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.48,
+      "rating": 3.47,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1062,7 +1077,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 7,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1107,7 +1122,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.27,
+      "rating": 3.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
