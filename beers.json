@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-19T06:25:49.858Z",
-  "count": 407,
-  "scrape_duration_seconds": 2.19,
+  "fetched_at": "2026-02-19T12:21:10.985Z",
+  "count": 408,
+  "scrape_duration_seconds": 1.88,
   "stats": {
-    "total_fetched": 407,
-    "total_valid": 407,
+    "total_fetched": 408,
+    "total_valid": 408,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 18,
       "Op=Op kaart": 82,
+      "Wisseltap bieren": 19,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Tynt Meadow",
+      "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow/2718730",
+      "image_url": "https://labels.untappd.com/2718730",
+      "style": "Strong Ale - English",
+      "brewery": "Mount Saint Bernard Abbey",
+      "brewery_url": "https://untappd.com/w/mount-saint-bernard-abbey/397470",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.4,
+      "ibu": 38,
+      "rating": 3.65,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "La Corne Du Bois Des Pendus Triple",
       "beer_url": "https://untappd.com/b/brasserie-des-legendes-la-corne-du-bois-des-pendus-triple/5780058",
@@ -1122,7 +1137,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.28,
+      "rating": 3.27,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5982,7 +5997,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.4,
       "ibu": 12,
-      "rating": 3.12,
+      "rating": 3.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
