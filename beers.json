@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-19T12:21:10.985Z",
-  "count": 408,
-  "scrape_duration_seconds": 1.88,
+  "fetched_at": "2026-02-19T18:21:07.881Z",
+  "count": 406,
+  "scrape_duration_seconds": 2.51,
   "stats": {
-    "total_fetched": 408,
-    "total_valid": 408,
+    "total_fetched": 406,
+    "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 82,
-      "Wisseltap bieren": 19,
+      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 82,
       "Bierbijbel": 296
     }
   },
@@ -43,21 +43,6 @@
       "abv": 10,
       "ibu": 35,
       "rating": 3.67,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "No Way Out",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-no-way-out/5678825",
-      "image_url": "https://labels.untappd.com/5678825",
-      "style": "Barleywine - Other",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 36,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -238,21 +223,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.77,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Vlierbeek Dark Suisse Grand Cru",
-      "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-vlierbeek-dark-suisse-grand-cru/5576297",
-      "image_url": "https://labels.untappd.com/5576297",
-      "style": "Dark Ale",
-      "brewery": "Brouwerij Broeder Jacob",
-      "brewery_url": "https://untappd.com/w/brouwerij-broeder-jacob/10514",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 9,
-      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -657,7 +627,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -687,7 +657,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 38,
-      "rating": 3.65,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -867,7 +837,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 60,
-      "rating": 3.6,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -912,7 +882,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.52,
+      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
