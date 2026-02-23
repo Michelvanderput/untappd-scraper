@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-22T18:10:16.243Z",
-  "count": 406,
-  "scrape_duration_seconds": 2.46,
+  "fetched_at": "2026-02-23T06:28:20.286Z",
+  "count": 404,
+  "scrape_duration_seconds": 2.62,
   "stats": {
-    "total_fetched": 406,
-    "total_valid": 406,
+    "total_fetched": 404,
+    "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 82,
       "Wisseltap bieren": 17,
+      "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
@@ -482,21 +482,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Export Porter 1750",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-export-porter-1750/1072271",
-      "image_url": "https://labels.untappd.com/1072271",
-      "style": "Porter - Imperial / Double",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 108,
-      "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Frostbite",
       "beer_url": "https://untappd.com/b/brouwerij-kees-frostbite/6506449",
       "image_url": "https://labels.untappd.com/6506449",
@@ -583,21 +568,6 @@
       "abv": 8,
       "ibu": 41,
       "rating": 3.95,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Piraat Triple Hop",
-      "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-piraat-triple-hop/295125",
-      "image_url": "https://labels.untappd.com/295125",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Van Steenberge",
-      "brewery_url": "https://untappd.com/w/brouwerij-van-steenberge/7778",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 35,
-      "rating": 3.53,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
