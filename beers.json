@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-23T06:28:20.286Z",
+  "fetched_at": "2026-02-23T12:21:31.918Z",
   "count": 404,
-  "scrape_duration_seconds": 2.62,
+  "scrape_duration_seconds": 3.27,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -4392,7 +4392,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10.7,
       "ibu": 17,
-      "rating": 3.91,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
