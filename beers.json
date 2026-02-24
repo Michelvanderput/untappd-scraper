@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-23T18:24:30.417Z",
+  "fetched_at": "2026-02-24T06:24:59.419Z",
   "count": 404,
-  "scrape_duration_seconds": 2.56,
+  "scrape_duration_seconds": 2.11,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 80,
       "Wisseltap bieren": 17,
-      "Bierbijbel": 296,
-      "Vaste bieren van de tap": 11
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 80,
+      "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "I Feel Superdelic",
+      "beer_url": "https://untappd.com/b/jopen-i-feel-superdelic/6456744",
+      "image_url": "https://labels.untappd.com/6456744",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": null,
+      "rating": 3.72,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Koene Ridder",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-koene-ridder/643072",
+      "image_url": "https://labels.untappd.com/643072",
+      "style": "Belgian Tripel",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.2,
+      "ibu": 30,
+      "rating": 3.49,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tynt Meadow",
       "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow/2718730",
@@ -223,36 +253,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.77,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blurred Lines",
-      "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
-      "image_url": "https://labels.untappd.com/3322269",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Jopen",
-      "brewery_url": "https://untappd.com/w/jopen/620",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.3,
-      "ibu": 20,
-      "rating": 3.64,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Camaraderie",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
-      "image_url": "https://labels.untappd.com/6479996",
-      "style": "Farmhouse Ale - Saison",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7.5,
-      "ibu": 51,
-      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
