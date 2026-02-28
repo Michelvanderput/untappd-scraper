@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-02-27T18:13:43.919Z",
+  "fetched_at": "2026-02-28T06:10:56.289Z",
   "count": 404,
-  "scrape_duration_seconds": 2.5,
+  "scrape_duration_seconds": 2,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Korenwolf",
+      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
+      "image_url": "https://labels.untappd.com/33861",
+      "style": "Wheat Beer - Witbier / Blanche",
+      "brewery": "Gulpener Bierbrouwerij",
+      "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.42,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Exotic Getaway - Mango Guave Passionfruit Sour",
       "beer_url": "https://untappd.com/b/two-chefs-brewing-exotic-getaway-mango-guave-passionfruit-sour/6144114",
@@ -133,21 +148,6 @@
       "abv": 6,
       "ibu": 18,
       "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Bolleke De Koninck (APA)",
-      "beer_url": "https://untappd.com/b/brouwerij-de-koninck-bolleke-de-koninck-apa/13211",
-      "image_url": "https://labels.untappd.com/13211",
-      "style": "Pale Ale - Belgian",
-      "brewery": "Brouwerij De Koninck",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-koninck/4053",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.2,
-      "ibu": 23,
-      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1100,7 +1100,7 @@
       "name": "Toffee Nut Latte",
       "beer_url": "https://untappd.com/b/vault-city-brewing-toffee-nut-latte/6426812",
       "image_url": "https://labels.untappd.com/6426812",
-      "style": "Stout - Imperial / Double",
+      "style": "Stout - Imperial / Double Coffee",
       "brewery": "Vault City Brewing",
       "brewery_url": "https://untappd.com/w/vault-city-brewing/399292",
       "category": "Op=Op kaart",
