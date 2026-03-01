@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-01T06:17:54.120Z",
+  "fetched_at": "2026-03-01T12:14:20.114Z",
   "count": 404,
-  "scrape_duration_seconds": 1.9,
+  "scrape_duration_seconds": 2.32,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.27,
+      "rating": 3.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1827,7 +1827,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 7.5,
       "ibu": 29,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4392,7 +4392,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10.7,
       "ibu": 17,
-      "rating": 3.91,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
