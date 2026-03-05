@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-05T12:19:38.389Z",
+  "fetched_at": "2026-03-05T18:39:08.336Z",
   "count": 404,
-  "scrape_duration_seconds": 2.3,
+  "scrape_duration_seconds": 2.28,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Radler - Pear, Lime & Elderberry",
+      "beer_url": "https://untappd.com/b/vault-city-brewing-radler-pear-lime-and-elderberry/6398418",
+      "image_url": "https://labels.untappd.com/6398418",
+      "style": "Shandy / Radler",
+      "brewery": "Vault City Brewing",
+      "brewery_url": "https://untappd.com/w/vault-city-brewing/399292",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 3.4,
+      "ibu": null,
+      "rating": 3.61,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "La Corne du Bois des Pendus Blonde / Blond",
+      "beer_url": "https://untappd.com/b/brasserie-des-legendes-la-corne-du-bois-des-pendus-blonde-blond/49459",
+      "image_url": "https://labels.untappd.com/49459",
+      "style": "Belgian Blonde",
+      "brewery": "Brasserie des Légendes",
+      "brewery_url": "https://untappd.com/w/brasserie-des-legendes/191",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.9,
+      "ibu": 20,
+      "rating": 3.37,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "La Trappe Isid'or",
       "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
@@ -77,21 +107,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Exotic Getaway - Mango Guave Passionfruit Sour",
-      "beer_url": "https://untappd.com/b/two-chefs-brewing-exotic-getaway-mango-guave-passionfruit-sour/6144114",
-      "image_url": "https://labels.untappd.com/6144114",
-      "style": "Sour - Fruited",
-      "brewery": "Two Chefs Brewing",
-      "brewery_url": "https://untappd.com/w/two-chefs-brewing/43977",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.36,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Koene Ridder",
       "beer_url": "https://untappd.com/b/rock-city-brewing-koene-ridder/643072",
       "image_url": "https://labels.untappd.com/643072",
@@ -118,21 +133,6 @@
       "abv": 7.4,
       "ibu": 38,
       "rating": 3.65,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "La Corne Du Bois Des Pendus Triple",
-      "beer_url": "https://untappd.com/b/brasserie-des-legendes-la-corne-du-bois-des-pendus-triple/5780058",
-      "image_url": "https://labels.untappd.com/5780058",
-      "style": "Belgian Tripel",
-      "brewery": "Brasserie des Légendes",
-      "brewery_url": "https://untappd.com/w/brasserie-des-legendes/191",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 35,
-      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.86,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -462,7 +462,7 @@
       "subcategory": null,
       "abv": 5.8,
       "ibu": null,
-      "rating": 3.69,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -822,7 +822,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 30,
-      "rating": 3.53,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1422,7 +1422,7 @@
       "subcategory": null,
       "abv": 11.5,
       "ibu": 37,
-      "rating": 4.25,
+      "rating": 4.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1782,7 +1782,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
