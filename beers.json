@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-05T18:39:08.336Z",
+  "fetched_at": "2026-03-06T06:18:39.579Z",
   "count": 404,
-  "scrape_duration_seconds": 2.28,
+  "scrape_duration_seconds": 2.08,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Gouden Carolus Whisky Infused Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-whisky-infused-blond/6526045",
+      "image_url": "https://labels.untappd.com/6526045",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10.7,
+      "ibu": 17,
+      "rating": 3.92,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Radler - Pear, Lime & Elderberry",
       "beer_url": "https://untappd.com/b/vault-city-brewing-radler-pear-lime-and-elderberry/6398418",
@@ -223,21 +238,6 @@
       "abv": 9.5,
       "ibu": null,
       "rating": 3.68,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouden Carolus Tripel",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
-      "image_url": "https://labels.untappd.com/356",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 30,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
