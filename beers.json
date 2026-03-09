@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-08T18:08:37.464Z",
+  "fetched_at": "2026-03-09T06:25:41.008Z",
   "count": 404,
-  "scrape_duration_seconds": 2.38,
+  "scrape_duration_seconds": 1.95,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Petrus Tripel",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-tripel/76",
+      "image_url": "https://labels.untappd.com/76",
+      "style": "Belgian Tripel",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 26,
+      "rating": 3.47,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Pêche Mel Bush",
       "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
@@ -103,21 +118,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 4.07,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tripel Karmeliet",
-      "beer_url": "https://untappd.com/b/brouwerij-bosteels-tripel-karmeliet/6511",
-      "image_url": "https://labels.untappd.com/6511",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Bosteels",
-      "brewery_url": "https://untappd.com/w/brouwerij-bosteels/269",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.4,
-      "ibu": 16,
-      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
