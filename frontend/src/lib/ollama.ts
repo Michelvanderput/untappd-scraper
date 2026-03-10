@@ -131,6 +131,7 @@ VOORBEELD GOED ANTWOORD:
 
 VOORBEELD FOUT ANTWOORD (TE LANG, TE VEEL DETAIL, VERZINNEN):
 "### 1. Oude Geuze - **Brouwerij:** Oud Beersel - **ABV:** 6.5% - **Stijl:** Zure, fruitige geuze met een subtiele zuurheid en een warme, vloeibare smaak..."`;
+}
 
 function isValidResponse(text: string): boolean {
   // Check for repetitive patterns (e.g., "wat wat wat wat...")
