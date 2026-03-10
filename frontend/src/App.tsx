@@ -8,6 +8,7 @@ import { FavoritesProvider } from './contexts/FavoritesContext';
 import { ComparisonProvider } from './contexts/ComparisonContext';
 import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
+import AIChatbot from './components/AIChatbot';
 import ComparisonBar from './components/ComparisonBar';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import './App.css';
@@ -205,6 +206,7 @@ function App() {
               
               <ComparisonBar />
               <UpdateNotification />
+              <AIChatbot />
             </div>
           </BrowserRouter>
         </ComparisonProvider>

@@ -73,13 +73,26 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     }
   };
 
+  const getSecureRandomIndex = (max: number): number => {
+    const randomBuffer = new Uint32Array(1);
+    crypto.getRandomValues(randomBuffer);
+    return randomBuffer[0] % max;
+  };
+
   const randomizeBeer = () => {
     const filteredBeers = getFilteredBeers(mode);
     
     if (filteredBeers.length === 0 || isRandomizing) return;
     
-    const finalIndex = Math.floor(Math.random() * filteredBeers.length);
-    const finalBeer = filteredBeers[finalIndex];
+    // Exclude recently shown beers from history to avoid repetition
+    const recentUrls = new Set(history.slice(0, Math.min(10, Math.floor(filteredBeers.length / 3))).map(b => b.beer_url));
+    const availableBeers = filteredBeers.filter(b => !recentUrls.has(b.beer_url));
+    
+    // If all beers have been shown recently, reset and use full list
+    const poolToUse = availableBeers.length > 0 ? availableBeers : filteredBeers;
+    
+    const finalIndex = getSecureRandomIndex(poolToUse.length);
+    const finalBeer = poolToUse[finalIndex];
     
     // Immediately hide existing content before state update
     if (currentBeer) {

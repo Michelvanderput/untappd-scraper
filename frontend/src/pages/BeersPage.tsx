@@ -27,6 +27,9 @@ export default function BeersPage() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [activeSmartTag, setActiveSmartTag] = useState<SmartTag | null>(null);
+  const [abvRange, setAbvRange] = useState<[number, number]>([0, 15]);
+  const [ibuRange, setIbuRange] = useState<[number, number]>([0, 120]);
+  const [minRating, setMinRating] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   const [displayCount, setDisplayCount] = useState(24);
@@ -217,8 +220,29 @@ export default function BeersPage() {
       filtered = searchBeers(filtered, debouncedSearchTerm);
     }
 
+    // ABV filter
+    if (abvRange[0] > 0 || abvRange[1] < 15) {
+      filtered = filtered.filter(b => {
+        const abv = b.abv || 0;
+        return abv >= abvRange[0] && abv <= abvRange[1];
+      });
+    }
+
+    // IBU filter
+    if (ibuRange[0] > 0 || ibuRange[1] < 120) {
+      filtered = filtered.filter(b => {
+        const ibu = b.ibu || 0;
+        return ibu >= ibuRange[0] && ibu <= ibuRange[1];
+      });
+    }
+
+    // Rating filter
+    if (minRating > 0) {
+      filtered = filtered.filter(b => (b.rating || 0) >= minRating);
+    }
+
     return filtered;
-  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, activeSmartTag]);
+  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, activeSmartTag, abvRange, ibuRange, minRating]);
 
   useEffect(() => {
     setFilteredBeers(filteredBeersResult);
@@ -238,6 +262,9 @@ export default function BeersPage() {
     setSelectedCategory('');
     setSelectedSubcategory('');
     setActiveSmartTag(null);
+    setAbvRange([0, 15]);
+    setIbuRange([0, 120]);
+    setMinRating(0);
   };
 
   const handleBeerClick = useCallback((beer: BeerData) => {
@@ -366,7 +393,7 @@ export default function BeersPage() {
                   transition={{ duration: 0.3, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-gray-200 dark:border-gray-700/50">
+                  <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-gray-200 dark:border-gray-700/50 max-h-[60vh] overflow-y-auto pr-2">
                     <div className="space-y-2">
                       <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
                         Categorie
@@ -413,7 +440,93 @@ export default function BeersPage() {
                       </div>
                     </div>
 
-                    {(searchTerm || selectedCategory || selectedSubcategory || activeSmartTag) && (
+                    {/* ABV Range Filter */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
+                        <span>Alcohol % (ABV)</span>
+                        <span className="text-xs text-amber-600 dark:text-amber-400 font-bold">
+                          {abvRange[0]}% - {abvRange[1]}%
+                        </span>
+                      </label>
+                      <div className="px-2 space-y-2">
+                        <input
+                          type="range"
+                          min="0"
+                          max="15"
+                          step="0.5"
+                          value={abvRange[0]}
+                          onChange={(e) => setAbvRange([parseFloat(e.target.value), abvRange[1]])}
+                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                        />
+                        <input
+                          type="range"
+                          min="0"
+                          max="15"
+                          step="0.5"
+                          value={abvRange[1]}
+                          onChange={(e) => setAbvRange([abvRange[0], parseFloat(e.target.value)])}
+                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* IBU Range Filter */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
+                        <span>Bitterheid (IBU)</span>
+                        <span className="text-xs text-green-600 dark:text-green-400 font-bold">
+                          {ibuRange[0]} - {ibuRange[1]}
+                        </span>
+                      </label>
+                      <div className="px-2 space-y-2">
+                        <input
+                          type="range"
+                          min="0"
+                          max="120"
+                          step="5"
+                          value={ibuRange[0]}
+                          onChange={(e) => setIbuRange([parseInt(e.target.value), ibuRange[1]])}
+                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
+                        />
+                        <input
+                          type="range"
+                          min="0"
+                          max="120"
+                          step="5"
+                          value={ibuRange[1]}
+                          onChange={(e) => setIbuRange([ibuRange[0], parseInt(e.target.value)])}
+                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Rating Filter */}
+                    <div className="space-y-2 md:col-span-2">
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
+                        <span>Minimale Rating</span>
+                        <span className="text-xs text-yellow-600 dark:text-yellow-400 font-bold">
+                          {minRating > 0 ? `★ ${minRating.toFixed(1)}+` : 'Alle ratings'}
+                        </span>
+                      </label>
+                      <div className="px-2">
+                        <input
+                          type="range"
+                          min="0"
+                          max="5"
+                          step="0.1"
+                          value={minRating}
+                          onChange={(e) => setMinRating(parseFloat(e.target.value))}
+                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500"
+                        />
+                        <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500 mt-1">
+                          <span>0</span>
+                          <span>2.5</span>
+                          <span>5.0</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {(searchTerm || selectedCategory || selectedSubcategory || activeSmartTag || abvRange[0] > 0 || abvRange[1] < 15 || ibuRange[0] > 0 || ibuRange[1] < 120 || minRating > 0) && (
                       <div className="md:col-span-2 flex justify-end">
                         <button
                           onClick={clearFilters}
