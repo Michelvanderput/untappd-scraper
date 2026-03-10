@@ -215,4 +215,3 @@ export async function chatWithAI(messages: ChatMessage[], retryCount = 0): Promi
   
   return cleanedContent;
 }
-}
