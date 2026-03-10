@@ -135,7 +135,7 @@ VOORBEELD FOUT ANTWOORD (markdown, te lang, verzinnen):
 }
 
 function stripMarkdown(text: string): string {
-  // Remove all markdown formatting
+  // Remove all markdown formatting while preserving readability
   return text
     // Remove bold (**text** or __text__)
     .replace(/\*\*(.+?)\*\*/g, '$1')
@@ -143,14 +143,19 @@ function stripMarkdown(text: string): string {
     // Remove italic (*text* or _text_)
     .replace(/\*(.+?)\*/g, '$1')
     .replace(/_(.+?)_/g, '$1')
-    // Remove headers (### text)
-    .replace(/^#{1,6}\s+/gm, '')
-    // Remove bullet points (- text or * text)
-    .replace(/^[\*\-]\s+/gm, '')
-    // Remove numbered lists (1. text)
-    .replace(/^\d+\.\s+/gm, '')
+    // Remove headers (### text) but keep line break after
+    .replace(/^#{1,6}\s+(.+)$/gm, '$1')
+    // Convert bullet points to line breaks with dash
+    .replace(/^[\*]\s+/gm, '\n- ')
+    .replace(/^-\s+/gm, '\n- ')
+    // Convert numbered lists to line breaks
+    .replace(/^\d+\.\s+/gm, '\n')
     // Clean up any remaining asterisks
     .replace(/\*/g, '')
+    // Normalize multiple line breaks to max 2
+    .replace(/\n{3,}/g, '\n\n')
+    // Clean up spaces
+    .replace(/[ \t]+/g, ' ')
     .trim();
 }
 
