@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-10T12:19:44.250Z",
+  "fetched_at": "2026-03-10T18:19:46.327Z",
   "count": 404,
-  "scrape_duration_seconds": 2.32,
+  "scrape_duration_seconds": 2.25,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.86,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1197,7 +1197,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 9,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2142,7 +2142,7 @@
       "subcategory": "Geuzes - Wild Ales - Sours",
       "abv": 8,
       "ibu": 9,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
