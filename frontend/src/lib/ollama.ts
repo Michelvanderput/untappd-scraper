@@ -134,6 +134,26 @@ VOORBEELD FOUT ANTWOORD (markdown, te lang, verzinnen):
 "Met de huidige bierkaart is **Trappist Westvleteren 12** (10.2% ABV) het sterkste bier... ### 1. Oude Geuze - **Brouwerij:** Oud Beersel - met een subtiele zuurheid en warme, vloeibare smaak..."`;
 }
 
+function stripMarkdown(text: string): string {
+  // Remove all markdown formatting
+  return text
+    // Remove bold (**text** or __text__)
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/__(.+?)__/g, '$1')
+    // Remove italic (*text* or _text_)
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/_(.+?)_/g, '$1')
+    // Remove headers (### text)
+    .replace(/^#{1,6}\s+/gm, '')
+    // Remove bullet points (- text or * text)
+    .replace(/^[\*\-]\s+/gm, '')
+    // Remove numbered lists (1. text)
+    .replace(/^\d+\.\s+/gm, '')
+    // Clean up any remaining asterisks
+    .replace(/\*/g, '')
+    .trim();
+}
+
 function isValidResponse(text: string): boolean {
   // Check for repetitive patterns (e.g., "wat wat wat wat...")
   const words = text.toLowerCase().split(/\s+/);
@@ -193,10 +213,13 @@ export async function chatWithAI(messages: ChatMessage[], retryCount = 0): Promi
   const content = data.message?.content;
   if (!content) throw new Error('Geen antwoord van AI');
 
-  const cleanedContent = content
+  let cleanedContent = content
     .replace(/```json\s*/g, '')
     .replace(/```\s*/g, '')
     .trim();
+  
+  // Strip all markdown formatting
+  cleanedContent = stripMarkdown(cleanedContent);
   
   // Validate response quality
   if (!isValidResponse(cleanedContent)) {
