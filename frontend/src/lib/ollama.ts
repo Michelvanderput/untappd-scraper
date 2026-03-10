@@ -8,78 +8,122 @@ export interface ChatMessage {
   content: string;
 }
 
-export function buildBeerContext(beers: BeerData[]): string {
-  const lines = beers.map(beer => {
-    const parts: string[] = [];
-    parts.push(beer.name);
-    if (beer.brewery) parts.push(`(${beer.brewery})`);
-
-    const details: string[] = [];
-    if (beer.style || beer.category) details.push(beer.style || beer.category || '');
-    if (beer.abv !== null) details.push(`${beer.abv}% ABV`);
-    if (beer.ibu !== null) details.push(`${beer.ibu} IBU`);
-    if (beer.rating !== null) details.push(`★${beer.rating.toFixed(1)}`);
-    if (beer.container) details.push(beer.container);
-
-    return `• ${parts.join(' ')} | ${details.join(' | ')}`;
-  });
-
-  return lines.join('\n');
+export interface WeatherData {
+  temperature: number;
+  feels_like: number;
+  humidity: number;
+  wind_speed: number;
+  wind_gusts: number;
+  weather_code: number;
+  description: string;
+  location: string;
+  timestamp: string;
 }
 
-function getContextualInfo(): string {
+export async function fetchWeather(): Promise<WeatherData | null> {
+  try {
+    const response = await fetch('/api/weather');
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+export function buildBeerContext(beers: BeerData[]): string {
+  // Group beers by category
+  const grouped = new Map<string, BeerData[]>();
+  beers.forEach(beer => {
+    const cat = beer.category || 'Overig';
+    if (!grouped.has(cat)) grouped.set(cat, []);
+    grouped.get(cat)!.push(beer);
+  });
+
+  const sections: string[] = [];
+  grouped.forEach((categoryBeers, category) => {
+    const lines = categoryBeers.map(beer => {
+      const details: string[] = [];
+      if (beer.style) details.push(beer.style);
+      if (beer.brewery) details.push(`Brouwerij: ${beer.brewery}`);
+      if (beer.abv !== null) details.push(`${beer.abv}% ABV`);
+      if (beer.ibu !== null) details.push(`${beer.ibu} IBU`);
+      if (beer.rating !== null) details.push(`★${beer.rating.toFixed(1)}`);
+      if (beer.container) details.push(beer.container);
+      if (beer.subcategory) details.push(`Sub: ${beer.subcategory}`);
+      return `  • ${beer.name} | ${details.join(' | ')}`;
+    });
+    sections.push(`=== ${category.toUpperCase()} (${categoryBeers.length} bieren) ===\n${lines.join('\n')}`);
+  });
+
+  return sections.join('\n\n');
+}
+
+function getContextualInfo(weather: WeatherData | null): string {
   const now = new Date();
-  const month = now.getMonth(); // 0-11
+  const month = now.getMonth();
   const hour = now.getHours();
   const day = now.toLocaleDateString('nl-NL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   
-  // Seasonal context
   let season = '';
   if (month >= 2 && month <= 4) season = 'lente';
   else if (month >= 5 && month <= 7) season = 'zomer';
   else if (month >= 8 && month <= 10) season = 'herfst';
   else season = 'winter';
   
-  // Time of day
   let timeContext = '';
   if (hour >= 5 && hour < 12) timeContext = 'ochtend';
   else if (hour >= 12 && hour < 17) timeContext = 'middag';
   else if (hour >= 17 && hour < 22) timeContext = 'avond';
   else timeContext = 'nacht';
+
+  let weatherInfo = '';
+  if (weather) {
+    weatherInfo = `\n\nACTUEEL WEER IN MAASTRICHT:
+- Weer: ${weather.description}
+- Temperatuur: ${weather.temperature}°C (voelt als ${weather.feels_like}°C)
+- Luchtvochtigheid: ${weather.humidity}%
+- Wind: ${weather.wind_speed} km/u (windstoten tot ${weather.wind_gusts} km/u)
+- Gebruik dit weer ACTIEF in je aanbevelingen. Bijvoorbeeld:
+  * Warm weer (>20°C) → fris, licht bier, witbier, pilsner
+  * Koud weer (<10°C) → donker, zwaar bier, stout, porter, tripel
+  * Regenachtig → gezellig, troostbier, Belgisch dubbel
+  * Zonnig → terrasbiertjes, IPA, blond`;
+  }
   
   return `HUIDIGE CONTEXT:
 - Datum: ${day}
 - Seizoen: ${season}
-- Moment: ${timeContext}
-- Tip: Houd rekening met het seizoen en tijdstip bij aanbevelingen (bijv. lichte bieren in de zomer, zwaardere bieren in de winter)`;
+- Moment: ${timeContext}${weatherInfo}`;
 }
 
-export function buildSystemPrompt(beers: BeerData[]): string {
+export function buildSystemPrompt(beers: BeerData[], weather: WeatherData | null = null): string {
   const beerList = buildBeerContext(beers);
-  const context = getContextualInfo();
-  return `Je bent BeerBot, een enthousiaste en deskundige bierexpert die bezoekers helpt het perfecte biertje te vinden op onze bierkaart. Je kent elk bier op de kaart door en door.
+  const context = getContextualInfo(weather);
+  return `Je bent BeerBot, de bierexpert van Biertaverne De Gouverneur in Maastricht. Je kent de VOLLEDIGE bierkaart uit je hoofd, inclusief welk bier bij welke categorie hoort.
 
 ${context}
 
-BESCHIKBARE BIEREN OP DE KAART:
+DE BIERKAART IS INGEDEELD IN CATEGORIEËN. LET OP: elke categorie is STRIKT gescheiden:
 ${beerList}
 
 JOUW TAKEN:
-- Persoonlijke aanbevelingen doen op basis van smaakvoorkeuren (zoet, bitter, licht, zwaar, fruitig, etc.)
-- Vragen beantwoorden over specifieke bieren (ABV, IBU, stijl, brouwerij, etc.)
+- Vragen beantwoorden over specifieke bieren EN hun categorie (Wisseltap, Vaste tap, Op=Op, Bierbijbel)
+- Persoonlijke aanbevelingen doen op basis van smaakvoorkeuren
 - Bieren vergelijken met elkaar
-- Het perfecte bier adviseren voor een bepaalde gelegenheid of maaltijd
-- Uitleg geven over bierstijlen, brouwtechnieken en smaaknuances
+- Het perfecte bier adviseren voor een gelegenheid of maaltijd
+- Uitleg geven over bierstijlen en smaaknuances
 
-RICHTLIJNEN:
+STRICTE REGELS:
+- NOOIT informatie verzinnen. Als je iets niet zeker weet, zeg dat eerlijk.
 - Antwoord ALTIJD in het Nederlands
-- Wees enthousiast en vriendelijk, maar professioneel
-- Houd antwoorden beknopt (max 3-4 zinnen per aanbeveling), tenzij de gebruiker meer wil weten
 - Noem biernamen EXACT zoals ze op de kaart staan
-- Als iemand vraagt om een aanbeveling, stel dan altijd 1-3 specifieke bieren voor met een korte uitleg waarom
-- Verwijs nooit naar bieren die NIET op onze kaart staan
-- Als je een bier aanbeveelt, noem dan de relevante details (ABV, stijl, smaakprofiel)
-- Houd rekening met het seizoen en tijdstip voor contextgerichte aanbevelingen
+- Als iemand vraagt over een specifieke categorie (bijv. "Wisseltap" of "Op=Op"), geef dan ALLEEN bieren uit DIE categorie. Meng NOOIT bieren van verschillende categorieën.
+- Als iemand vraagt "wat staat er op de wisseltap?", geef dan ALLE bieren uit de categorie "Wisseltap bieren" en GEEN bieren uit andere categorieën.
+- Als iemand vraagt om een aanbeveling, stel 1-3 specifieke bieren voor met details (ABV, stijl, categorie)
+- Verwijs nooit naar bieren die NIET op de kaart staan
+- Houd rekening met het ACTUELE WEER, seizoen en tijdstip
+- Als je het weer noemt, doe dit natuurlijk (bijv. "Met dit weer zou ik...")
+- Houd antwoorden beknopt, tenzij de gebruiker meer wil weten
 - BELANGRIJK: Geef ALTIJD een coherent en volledig antwoord. Herhaal nooit dezelfde woorden of zinsdelen`;
 }
 

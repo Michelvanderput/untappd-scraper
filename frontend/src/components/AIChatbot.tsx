@@ -2,8 +2,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { MessageCircle, Send, Bot, Beer, Loader2, ChevronDown } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
-import type { ChatMessage } from '../lib/ollama';
-import { chatWithAI, buildSystemPrompt } from '../lib/ollama';
+import type { ChatMessage, WeatherData } from '../lib/ollama';
+import { chatWithAI, buildSystemPrompt, fetchWeather } from '../lib/ollama';
 
 interface Message {
   id: string;
@@ -12,10 +12,10 @@ interface Message {
 }
 
 const QUICK_SUGGESTIONS = [
+  'Welk bier past bij dit weer?',
   'Welk bier is geschikt voor beginners?',
   'Wat is jullie sterkste bier?',
   'Aanbeveling voor een IPA liefhebber',
-  'Lekker licht en fris biertje?',
   'Wat past goed bij een hamburger?',
 ];
 
@@ -32,6 +32,7 @@ export default function AIChatbot() {
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [beersReady, setBeersReady] = useState(false);
   const [hasUnread, setHasUnread] = useState(false);
+  const [weather, setWeather] = useState<WeatherData | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -70,7 +71,15 @@ export default function AIChatbot() {
         setBeersReady(true);
       }
     };
+    const loadWeather = async () => {
+      const data = await fetchWeather();
+      setWeather(data);
+    };
     fetchBeers();
+    loadWeather();
+    // Refresh weather every 10 minutes
+    const weatherInterval = setInterval(loadWeather, 10 * 60 * 1000);
+    return () => clearInterval(weatherInterval);
   }, []);
 
   const buildConversationHistory = useCallback(
@@ -78,7 +87,7 @@ export default function AIChatbot() {
       const history: ChatMessage[] = [];
 
       if (beers.length > 0) {
-        history.push({ role: 'system', content: buildSystemPrompt(beers) });
+        history.push({ role: 'system', content: buildSystemPrompt(beers, weather) });
       }
 
       userMessages.forEach(msg => {
@@ -89,7 +98,7 @@ export default function AIChatbot() {
 
       return history;
     },
-    [beers]
+    [beers, weather]
   );
 
   const sendMessage = useCallback(
@@ -197,9 +206,11 @@ export default function AIChatbot() {
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="text-white font-bold text-sm leading-tight">BeerBot</h3>
-                <p className="text-amber-100 text-xs">
+                <p className="text-amber-100 text-xs truncate">
                   {beersReady
-                    ? `${beers.length} bieren op de kaart`
+                    ? weather
+                      ? `${weather.description} · ${weather.temperature}°C · ${beers.length} bieren`
+                      : `${beers.length} bieren op de kaart`
                     : 'Kaart wordt geladen…'}
                 </p>
               </div>
