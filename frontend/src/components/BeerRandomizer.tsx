@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react';
-import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon, RotateCcw, ArrowLeft } from 'lucide-react';
+import { useState, useRef, useMemo } from 'react';
+import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon, RotateCcw, ArrowLeft, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import type { BeerData, RandomizerMode } from '../types/beer';
@@ -22,14 +22,34 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const [history, setHistory] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
   const [isRandomizing, setIsRandomizing] = useState(false);
+  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set());
   
   const resultRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Get unique beer styles from all beers
+  const availableStyles = useMemo(() => {
+    const styles = new Set<string>();
+    beers.forEach(beer => {
+      const style = beer.style || beer.category;
+      if (style) styles.add(style);
+    });
+    return Array.from(styles).sort();
+  }, [beers]);
+
   const getFilteredBeers = (selectedMode: RandomizerMode): BeerData[] => {
     let filtered = [...beers];
     
+    // Filter by excluded styles first
+    if (excludedStyles.size > 0) {
+      filtered = filtered.filter(b => {
+        const style = b.style || b.category;
+        return !excludedStyles.has(style);
+      });
+    }
+    
+    // Then apply mode filters
     switch (selectedMode) {
       case 'high-abv':
         filtered = filtered.filter(b => b.abv && b.abv >= 7);
@@ -155,6 +175,22 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     setIsRandomizing(false);
   };
 
+  const toggleStyleExclusion = (style: string) => {
+    setExcludedStyles(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(style)) {
+        newSet.delete(style);
+      } else {
+        newSet.add(style);
+      }
+      return newSet;
+    });
+  };
+
+  const clearExcludedStyles = () => {
+    setExcludedStyles(new Set());
+  };
+
   return (
     <div className="space-y-8" ref={containerRef}>
       <AnimatePresence mode="wait">
@@ -167,6 +203,50 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 transition={{ duration: 0.3 }}
                 className="space-y-8"
             >
+                {/* Style Exclusion Filter */}
+                <div className="glass-panel rounded-2xl p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                      <BeerIcon className="w-4 h-4 text-amber-600" />
+                      Sluit bierstijlen uit
+                    </h3>
+                    {excludedStyles.size > 0 && (
+                      <button
+                        onClick={clearExcludedStyles}
+                        className="text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-1"
+                      >
+                        <X className="w-3 h-3" />
+                        Wis alles
+                      </button>
+                    )}
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {availableStyles.map((style) => {
+                      const isExcluded = excludedStyles.has(style);
+                      return (
+                        <motion.button
+                          key={style}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={() => toggleStyleExclusion(style)}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                            isExcluded
+                              ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 line-through border border-red-300 dark:border-red-700'
+                              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+                          }`}
+                        >
+                          {style}
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+                  {excludedStyles.size > 0 && (
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-3">
+                      {excludedStyles.size} stijl{excludedStyles.size !== 1 ? 'en' : ''} uitgesloten
+                    </p>
+                  )}
+                </div>
+
                 {/* Mode Selection */}
                 <div className="flex flex-wrap md:justify-center gap-3 overflow-x-auto pb-4 md:pb-0 px-2 -mx-2 no-scrollbar touch-pan-x">
                     {MODES.map((m) => {
