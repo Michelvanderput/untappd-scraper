@@ -190,8 +190,8 @@ export default async function handler(req, res) {
       const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}/${offset}?sort=date`;
 
       try {
-        // Add delay to be respectful
-        await new Promise(resolve => setTimeout(resolve, 600));
+        // Add delay to be respectful (reduced for faster scraping)
+        await new Promise(resolve => setTimeout(resolve, 400));
 
         console.log(`Fetching page ${pageCount + 1}, offset ${offset}...`);
         const nextRes = await fetchWithTimeout(nextUrl, { 
