@@ -158,9 +158,8 @@ export default async function handler(req, res) {
     }
 
     // Now fetch the beers page with offset
-    const beersPageUrl = offset === 0 
-      ? `https://untappd.com/user/${cleanUsername}/beers`
-      : `https://untappd.com/user/${cleanUsername}/beers?offset=${offset}`;
+    // Note: offset must be in query string, and we need sort=date for consistent ordering
+    const beersPageUrl = `https://untappd.com/user/${cleanUsername}/beers?sort=date${offset > 0 ? `&offset=${offset}` : ''}`;
     const beersRes = await fetchWithTimeout(beersPageUrl, { headers: HEADERS });
 
     if (!beersRes.ok) {
