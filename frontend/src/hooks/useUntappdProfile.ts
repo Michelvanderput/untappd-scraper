@@ -53,7 +53,6 @@ export function useUntappdProfile(): UseUntappdProfileReturn {
     setError(null);
 
     try {
-      // Fetch first page to get total count
       const response = await fetch(`/api/user-beers?username=${encodeURIComponent(username)}`);
 
       if (!response.ok) {
@@ -62,43 +61,14 @@ export function useUntappdProfile(): UseUntappdProfileReturn {
 
       const data = await response.json();
 
-      // Start with first page beers
-      let allBeerUrls = [...data.beer_urls];
-      const totalUnique = data.total_unique;
-      const beersPerPage = 25;
-
-      // Calculate how many more pages we need
-      const totalPages = Math.ceil(totalUnique / beersPerPage);
-
-      // Fetch remaining pages if needed
-      if (totalPages > 1) {
-        const pagePromises = [];
-
-        for (let page = 2; page <= totalPages; page++) {
-          const offset = (page - 1) * beersPerPage;
-          pagePromises.push(
-            fetch(`/api/user-beers?username=${encodeURIComponent(username)}&offset=${offset}`)
-              .then(res => res.ok ? res.json() : null)
-              .then(pageData => pageData?.beer_urls || [])
-          );
-        }
-
-        // Wait for all pages to complete
-        const additionalPages = await Promise.all(pagePromises);
-
-        // Combine all beer URLs (remove duplicates)
-        const allUrls = new Set([...allBeerUrls, ...additionalPages.flat()]);
-        allBeerUrls = Array.from(allUrls);
-      }
-
       const newProfile: UntappdProfile = {
         username: data.username,
         displayName: data.display_name,
         avatarUrl: data.avatar_url,
         totalCheckins: data.total_checkins,
         totalUnique: data.total_unique,
-        beerUrls: allBeerUrls,
-        fetchedAt: new Date().toISOString(),
+        beerUrls: data.beer_urls,
+        fetchedAt: data.fetched_at,
       };
 
       setProfile(newProfile);

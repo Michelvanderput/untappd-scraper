@@ -2,12 +2,20 @@ import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 
 const HEADERS = {
-  "User-Agent": "BeerMenuBot/1.0 (contact: you@example.com)",
-  "Accept-Language": "nl-NL,nl;q=0.9,en;q=0.8",
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'nl-NL,nl;q=0.9,en;q=0.8',
+};
+
+const AJAX_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Accept': 'text/html, */*; q=0.01',
+  'Accept-Language': 'nl-NL,nl;q=0.9,en;q=0.8',
+  'X-Requested-With': 'XMLHttpRequest',
 };
 
 const FETCH_TIMEOUT = 30000;
-const MAX_PAGES = 20; // Safety limit: max 20 pages (25 beers per page = ~500 beers)
+const MAX_PAGES = 20;
 
 async function fetchWithTimeout(url, options = {}) {
   const controller = new AbortController();
@@ -31,11 +39,8 @@ function extractBeersFromPage(html) {
   const beers = [];
   const seenUrls = new Set();
 
-  // Find all beer-item divs (the main container for each beer)
   $('.beer-item').each((_, item) => {
     const $item = $(item);
-    
-    // Get the beer link from beer-details
     const beerLink = $item.find('.beer-details .name a').first();
     if (!beerLink.length) return;
     
@@ -43,53 +48,33 @@ function extractBeersFromPage(html) {
     if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
     
     const beerUrl = new URL(href, 'https://untappd.com').toString();
-    
-    // Skip duplicates
     if (seenUrls.has(beerUrl)) return;
     seenUrls.add(beerUrl);
     
     const beerName = beerLink.text().trim();
     if (!beerName || beerName.length < 2) return;
     
-    // Get brewery
     const breweryLink = $item.find('.beer-details .brewery a').first();
     const brewery = breweryLink.length ? breweryLink.text().trim() : null;
     
-    // Get style
     const styleP = $item.find('.beer-details .style').first();
     const style = styleP.length ? styleP.text().trim() : null;
     
-    // Get ABV from details section
     const detailsText = $item.find('.details').text();
     const abvMatch = detailsText.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
     const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
     
-    // Get IBU
     const ibuMatch = detailsText.match(/(\d+(?:\.\d+)?)\s*IBU/i);
     const ibu = ibuMatch ? parseFloat(ibuMatch[1]) : null;
     
-    // Get user rating
-    const ratingMatch = detailsText.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
+    const ratingText = $item.text();
+    const ratingMatch = ratingText.match(/(?:Their|You) Rating\s*\((\d+(?:\.\d+)?)\)/i);
     const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
     
-    beers.push({
-      name: beerName,
-      beer_url: beerUrl,
-      brewery,
-      style,
-      abv,
-      ibu,
-      user_rating: userRating,
-    });
+    beers.push({ name: beerName, beer_url: beerUrl, brewery, style, abv, ibu, user_rating: userRating });
   });
 
   return beers;
-}
-
-function hasNextPage($) {
-  // Check for "Show More" button or next page link
-  const showMore = $('a.more-list, .more_checkins a, a[href*="offset="], .show-more a, a.show_more_beers').first();
-  return showMore.length > 0;
 }
 
 export default async function handler(req, res) {
@@ -101,84 +86,135 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const { username, offset: offsetParam } = req.query;
+  const { username } = req.query;
 
   if (!username || typeof username !== 'string') {
     return res.status(400).json({ error: 'Username is required' });
   }
 
-  // Sanitize username
   const cleanUsername = username.trim().replace(/[^a-zA-Z0-9_-]/g, '');
   if (!cleanUsername) {
     return res.status(400).json({ error: 'Invalid username' });
   }
 
-  // Parse offset parameter (default to 0 for first page)
-  const offset = offsetParam ? parseInt(String(offsetParam), 10) : 0;
-
   try {
     const allBeers = [];
     const seenUrls = new Set();
-    let pageCount = 0;
-    let totalUnique = 0;
-    let displayName = '';
-    let avatarUrl = null;
-    let totalCheckins = null;
 
-    // Determine which page to fetch
-    const isFirstPage = offset === 0;
-    
-    // First, fetch the profile page to verify the user exists and get total count (only on first page)
-    if (isFirstPage) {
-      const profileUrl = `https://untappd.com/user/${cleanUsername}`;
-      const profileRes = await fetchWithTimeout(profileUrl, { headers: HEADERS });
+    // Step 1: Fetch the profile page to get user info + total count
+    const profileUrl = `https://untappd.com/user/${cleanUsername}`;
+    const profileRes = await fetchWithTimeout(profileUrl, { headers: HEADERS });
 
-      if (!profileRes.ok) {
-        if (profileRes.status === 404) {
-          return res.status(404).json({ error: 'User not found', username: cleanUsername });
-        }
-        return res.status(502).json({ error: `Untappd returned status ${profileRes.status}` });
+    if (!profileRes.ok) {
+      if (profileRes.status === 404) {
+        return res.status(404).json({ error: 'User not found', username: cleanUsername });
       }
-
-      const profileHtml = await profileRes.text();
-      const $profile = cheerio.load(profileHtml);
-
-      // Extract user stats
-      const statsText = $profile('.stats').text();
-      const totalMatch = statsText.match(/([\d,]+)\s*Total/i);
-      const uniqueMatch = statsText.match(/([\d,]+)\s*Unique/i);
-      totalCheckins = totalMatch ? parseInt(totalMatch[1].replace(/,/g, '')) : null;
-      totalUnique = uniqueMatch ? parseInt(uniqueMatch[1].replace(/,/g, '')) : null;
-
-      // Extract user display name and avatar
-      displayName = $profile('.user .info h1').first().text().trim() ||
-                    $profile('h1').first().text().trim() ||
-                    cleanUsername;
-      avatarUrl = $profile('.user .avatar img, .user-avatar img').first().attr('src') || null;
+      return res.status(502).json({ error: `Untappd returned status ${profileRes.status}` });
     }
 
-    // Now fetch the beers page with offset
-    // Note: offset must be in query string, and we need sort=date for consistent ordering
-    const beersPageUrl = `https://untappd.com/user/${cleanUsername}/beers?sort=date${offset > 0 ? `&offset=${offset}` : ''}`;
+    const profileHtml = await profileRes.text();
+    const $profile = cheerio.load(profileHtml);
+
+    const statsText = $profile('.stats').text();
+    const totalMatch = statsText.match(/([\d,]+)\s*Total/i);
+    const uniqueMatch = statsText.match(/([\d,]+)\s*Unique/i);
+    const totalCheckins = totalMatch ? parseInt(totalMatch[1].replace(/,/g, '')) : null;
+    const totalUnique = uniqueMatch ? parseInt(uniqueMatch[1].replace(/,/g, '')) : 0;
+
+    const displayName = $profile('.user .info h1').first().text().trim() ||
+                        $profile('h1').first().text().trim() ||
+                        cleanUsername;
+    const avatarUrl = $profile('.user .avatar img, .user-avatar img').first().attr('src') || null;
+
+    // Step 2: Fetch first beers page (always returns 25 beers)
+    const beersPageUrl = `https://untappd.com/user/${cleanUsername}/beers`;
     const beersRes = await fetchWithTimeout(beersPageUrl, { headers: HEADERS });
 
     if (!beersRes.ok) {
       return res.status(502).json({ error: `Failed to fetch beers page: ${beersRes.status}` });
     }
 
-    const beersHtml = await beersRes.text();
-    const beersFromFirstPage = extractBeersFromPage(beersHtml);
+    // Grab cookies from the beers page response for AJAX requests
+    const cookies = beersRes.headers.raw()['set-cookie'];
+    const cookieString = cookies ? cookies.map(c => c.split(';')[0]).join('; ') : '';
 
-    for (const beer of beersFromFirstPage) {
+    const beersHtml = await beersRes.text();
+    const firstPageBeers = extractBeersFromPage(beersHtml);
+
+    for (const beer of firstPageBeers) {
       if (!seenUrls.has(beer.beer_url)) {
         seenUrls.add(beer.beer_url);
         allBeers.push(beer);
       }
     }
-    pageCount = 1;
 
-    // Note: Server-side pagination doesn't work because Untappd's AJAX endpoint
-    // requires authentication. Client will handle pagination by making multiple requests.
+    console.log(`First page: ${allBeers.length} beers. Total unique: ${totalUnique}. Cookies: ${cookieString ? 'yes' : 'no'}`);
+
+    // Step 3: Fetch remaining pages via AJAX endpoint using cookies from step 2
+    if (allBeers.length < totalUnique) {
+      let offset = 25;
+      let consecutiveEmpty = 0;
+      let pageCount = 1;
+
+      while (offset < totalUnique && pageCount < MAX_PAGES && consecutiveEmpty < 3) {
+        const ajaxUrl = `https://untappd.com/profile/more_beer/${cleanUsername}/${offset}?sort=date`;
+        
+        try {
+          await new Promise(resolve => setTimeout(resolve, 300));
+
+          const ajaxRes = await fetchWithTimeout(ajaxUrl, {
+            headers: {
+              ...AJAX_HEADERS,
+              'Referer': `https://untappd.com/user/${cleanUsername}/beers`,
+              ...(cookieString ? { 'Cookie': cookieString } : {}),
+            }
+          });
+
+          if (!ajaxRes.ok) {
+            console.log(`AJAX page offset=${offset} status: ${ajaxRes.status}`);
+            consecutiveEmpty++;
+            offset += 25;
+            continue;
+          }
+
+          const ajaxHtml = await ajaxRes.text();
+          
+          if (!ajaxHtml || ajaxHtml.length < 50) {
+            console.log(`AJAX page offset=${offset} empty (${ajaxHtml.length} chars)`);
+            consecutiveEmpty++;
+            offset += 25;
+            continue;
+          }
+
+          const pageBeers = extractBeersFromPage(ajaxHtml);
+          
+          if (pageBeers.length === 0) {
+            console.log(`AJAX page offset=${offset} - no beers parsed from ${ajaxHtml.length} chars`);
+            consecutiveEmpty++;
+            offset += 25;
+            continue;
+          }
+
+          consecutiveEmpty = 0;
+          let newCount = 0;
+          for (const beer of pageBeers) {
+            if (!seenUrls.has(beer.beer_url)) {
+              seenUrls.add(beer.beer_url);
+              allBeers.push(beer);
+              newCount++;
+            }
+          }
+
+          console.log(`AJAX offset=${offset}: ${pageBeers.length} beers, ${newCount} new. Total: ${allBeers.length}/${totalUnique}`);
+          pageCount++;
+          offset += 25;
+        } catch (error) {
+          console.error(`AJAX error offset=${offset}:`, error.message);
+          consecutiveEmpty++;
+          offset += 25;
+        }
+      }
+    }
 
     return res.status(200).json({
       username: cleanUsername,
@@ -187,17 +223,9 @@ export default async function handler(req, res) {
       total_checkins: totalCheckins,
       total_unique: totalUnique,
       fetched_beers: allBeers.length,
-      pages_fetched: pageCount,
       beer_urls: allBeers.map(b => b.beer_url),
       beers: allBeers,
       fetched_at: new Date().toISOString(),
-      debug: {
-        offset: offset,
-        expected_unique: totalUnique,
-        actual_fetched: allBeers.length,
-        coverage_percentage: totalUnique ? Math.round((allBeers.length / totalUnique) * 100) : null,
-        pages_scraped: pageCount
-      }
     });
   } catch (error) {
     console.error('Error fetching user beers:', error);
