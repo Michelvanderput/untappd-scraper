@@ -183,7 +183,7 @@ export default async function handler(req, res) {
 
       offset += 25; // Untappd uses 25 beers per page
       // Use Untappd's AJAX API endpoint for pagination
-      const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}?offset=${offset}&type=distinct`;
+      const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}/${offset}?sort=date`;
 
       try {
         // Add delay to be respectful
