@@ -208,6 +208,9 @@ export default async function handler(req, res) {
         }
 
         const nextHtml = await nextRes.text();
+        console.log(`Page ${pageCount + 1} HTML length: ${nextHtml.length} chars`);
+        console.log(`Page ${pageCount + 1} HTML preview: ${nextHtml.substring(0, 500)}`);
+        
         const nextBeers = extractBeersFromPage(nextHtml);
 
         console.log(`Page ${pageCount + 1}: Found ${nextBeers.length} beers on page`);
