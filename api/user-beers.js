@@ -172,9 +172,12 @@ export default async function handler(req, res) {
     const maxConsecutiveEmpty = 3;
 
     console.log(`Starting pagination. Total unique: ${totalUnique}, First page beers: ${allBeers.length}`);
+    console.log(`Initial state: pageCount=${pageCount}, MAX_PAGES=${MAX_PAGES}, consecutiveEmptyPages=${consecutiveEmptyPages}`);
 
     // Keep fetching pages until we reach the total unique count or max pages
     while (pageCount < MAX_PAGES && consecutiveEmptyPages < maxConsecutiveEmpty) {
+      console.log(`While loop iteration ${pageCount}: allBeers.length=${allBeers.length}, totalUnique=${totalUnique}`);
+      
       // If we know the total and have reached it, stop
       if (totalUnique && allBeers.length >= totalUnique) {
         console.log(`Reached target: ${allBeers.length}/${totalUnique} beers`);
@@ -182,6 +185,7 @@ export default async function handler(req, res) {
       }
 
       offset += 25; // Untappd uses 25 beers per page
+      console.log(`Next offset will be: ${offset}`);
       // Use Untappd's AJAX API endpoint for pagination
       const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}/${offset}?sort=date`;
 
