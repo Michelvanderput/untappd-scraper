@@ -171,10 +171,13 @@ export default async function handler(req, res) {
     let consecutiveEmptyPages = 0;
     const maxConsecutiveEmpty = 3;
 
+    console.log(`Starting pagination. Total unique: ${totalUnique}, First page beers: ${allBeers.length}`);
+
     // Keep fetching pages until we reach the total unique count or max pages
     while (pageCount < MAX_PAGES && consecutiveEmptyPages < maxConsecutiveEmpty) {
       // If we know the total and have reached it, stop
       if (totalUnique && allBeers.length >= totalUnique) {
+        console.log(`Reached target: ${allBeers.length}/${totalUnique} beers`);
         break;
       }
 
@@ -183,10 +186,12 @@ export default async function handler(req, res) {
 
       try {
         // Add delay to be respectful
-        await new Promise(resolve => setTimeout(resolve, 800));
+        await new Promise(resolve => setTimeout(resolve, 600));
 
+        console.log(`Fetching page ${pageCount + 1}, offset ${offset}...`);
         const nextRes = await fetchWithTimeout(nextUrl, { headers: HEADERS });
         if (!nextRes.ok) {
+          console.log(`Page ${pageCount + 1} returned status ${nextRes.status}`);
           consecutiveEmptyPages++;
           continue;
         }
@@ -194,8 +199,11 @@ export default async function handler(req, res) {
         const nextHtml = await nextRes.text();
         const nextBeers = extractBeersFromPage(nextHtml);
 
+        console.log(`Page ${pageCount + 1}: Found ${nextBeers.length} beers on page`);
+
         if (nextBeers.length === 0) {
           consecutiveEmptyPages++;
+          console.log(`Empty page ${consecutiveEmptyPages}/${maxConsecutiveEmpty}`);
           continue;
         }
 
@@ -211,9 +219,12 @@ export default async function handler(req, res) {
           }
         }
 
+        console.log(`Page ${pageCount + 1}: ${newBeersFound} new beers added. Total: ${allBeers.length}/${totalUnique}`);
+
         // If no new beers were found on this page, increment empty counter
         if (newBeersFound === 0) {
           consecutiveEmptyPages++;
+          console.log(`No new beers on page ${pageCount + 1}. Empty count: ${consecutiveEmptyPages}`);
         }
 
         pageCount++;
@@ -222,6 +233,8 @@ export default async function handler(req, res) {
         consecutiveEmptyPages++;
       }
     }
+
+    console.log(`Pagination complete. Fetched ${allBeers.length}/${totalUnique} beers across ${pageCount} pages`);
 
     return res.status(200).json({
       username: cleanUsername,
