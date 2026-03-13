@@ -53,17 +53,43 @@ export function useUntappdProfile(): UseUntappdProfileReturn {
     setError(null);
 
     try {
+      // Fetch first page to get total count
       const response = await fetch(`/api/user-beers?username=${encodeURIComponent(username)}`);
 
       if (!response.ok) {
-        const data = await response.json();
-        if (response.status === 404) {
-          throw new Error(`Gebruiker "${username}" niet gevonden. Controleer of het profiel publiek is.`);
-        }
-        throw new Error(data.error || 'Er is iets misgegaan bij het ophalen van je profiel.');
+        throw new Error('Failed to fetch user beers');
       }
 
       const data = await response.json();
+
+      // Start with first page beers
+      let allBeerUrls = [...data.beer_urls];
+      const totalUnique = data.total_unique;
+      const beersPerPage = 25;
+
+      // Calculate how many more pages we need
+      const totalPages = Math.ceil(totalUnique / beersPerPage);
+
+      // Fetch remaining pages if needed
+      if (totalPages > 1) {
+        const pagePromises = [];
+
+        for (let page = 2; page <= totalPages; page++) {
+          const offset = (page - 1) * beersPerPage;
+          pagePromises.push(
+            fetch(`/api/user-beers?username=${encodeURIComponent(username)}&offset=${offset}`)
+              .then(res => res.ok ? res.json() : null)
+              .then(pageData => pageData?.beer_urls || [])
+          );
+        }
+
+        // Wait for all pages to complete
+        const additionalPages = await Promise.all(pagePromises);
+
+        // Combine all beer URLs (remove duplicates)
+        const allUrls = new Set([...allBeerUrls, ...additionalPages.flat()]);
+        allBeerUrls = Array.from(allUrls);
+      }
 
       const newProfile: UntappdProfile = {
         username: data.username,
@@ -71,15 +97,15 @@ export function useUntappdProfile(): UseUntappdProfileReturn {
         avatarUrl: data.avatar_url,
         totalCheckins: data.total_checkins,
         totalUnique: data.total_unique,
-        beerUrls: data.beer_urls || [],
-        fetchedAt: data.fetched_at,
+        beerUrls: allBeerUrls,
+        fetchedAt: new Date().toISOString(),
       };
 
       setProfile(newProfile);
-    } catch (e) {
-      const message = e instanceof Error ? e.message : 'Onbekende fout';
-      setError(message);
-      throw e;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(newProfile));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+      throw err;
     } finally {
       setIsLoading(false);
     }

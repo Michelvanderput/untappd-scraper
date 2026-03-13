@@ -101,7 +101,7 @@ export default async function handler(req, res) {
     return res.status(200).end();
   }
 
-  const { username } = req.query;
+  const { username, offset: offsetParam } = req.query;
 
   if (!username || typeof username !== 'string') {
     return res.status(400).json({ error: 'Username is required' });
@@ -113,42 +113,54 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Invalid username' });
   }
 
+  // Parse offset parameter (default to 0 for first page)
+  const offset = offsetParam ? parseInt(String(offsetParam), 10) : 0;
+
   try {
     const allBeers = [];
     const seenUrls = new Set();
-    let offset = 0;
     let pageCount = 0;
     let totalUnique = 0;
+    let displayName = '';
+    let avatarUrl = null;
+    let totalCheckins = null;
 
-    // First, fetch the profile page to verify the user exists and get total count
-    const profileUrl = `https://untappd.com/user/${cleanUsername}`;
-    const profileRes = await fetchWithTimeout(profileUrl, { headers: HEADERS });
+    // Determine which page to fetch
+    const isFirstPage = offset === 0;
+    
+    // First, fetch the profile page to verify the user exists and get total count (only on first page)
+    if (isFirstPage) {
+      const profileUrl = `https://untappd.com/user/${cleanUsername}`;
+      const profileRes = await fetchWithTimeout(profileUrl, { headers: HEADERS });
 
-    if (!profileRes.ok) {
-      if (profileRes.status === 404) {
-        return res.status(404).json({ error: 'User not found', username: cleanUsername });
+      if (!profileRes.ok) {
+        if (profileRes.status === 404) {
+          return res.status(404).json({ error: 'User not found', username: cleanUsername });
+        }
+        return res.status(502).json({ error: `Untappd returned status ${profileRes.status}` });
       }
-      return res.status(502).json({ error: `Untappd returned status ${profileRes.status}` });
+
+      const profileHtml = await profileRes.text();
+      const $profile = cheerio.load(profileHtml);
+
+      // Extract user stats
+      const statsText = $profile('.stats').text();
+      const totalMatch = statsText.match(/([\d,]+)\s*Total/i);
+      const uniqueMatch = statsText.match(/([\d,]+)\s*Unique/i);
+      totalCheckins = totalMatch ? parseInt(totalMatch[1].replace(/,/g, '')) : null;
+      totalUnique = uniqueMatch ? parseInt(uniqueMatch[1].replace(/,/g, '')) : null;
+
+      // Extract user display name and avatar
+      displayName = $profile('.user .info h1').first().text().trim() ||
+                    $profile('h1').first().text().trim() ||
+                    cleanUsername;
+      avatarUrl = $profile('.user .avatar img, .user-avatar img').first().attr('src') || null;
     }
 
-    const profileHtml = await profileRes.text();
-    const $profile = cheerio.load(profileHtml);
-
-    // Extract user stats
-    const statsText = $profile('.stats').text();
-    const totalMatch = statsText.match(/([\d,]+)\s*Total/i);
-    const uniqueMatch = statsText.match(/([\d,]+)\s*Unique/i);
-    const totalCheckins = totalMatch ? parseInt(totalMatch[1].replace(/,/g, '')) : null;
-    totalUnique = uniqueMatch ? parseInt(uniqueMatch[1].replace(/,/g, '')) : null;
-
-    // Extract user display name and avatar
-    const displayName = $profile('.user .info h1').first().text().trim() ||
-                        $profile('h1').first().text().trim() ||
-                        cleanUsername;
-    const avatarUrl = $profile('.user .avatar img, .user-avatar img').first().attr('src') || null;
-
-    // Now fetch the beers page(s)
-    const beersPageUrl = `https://untappd.com/user/${cleanUsername}/beers`;
+    // Now fetch the beers page with offset
+    const beersPageUrl = offset === 0 
+      ? `https://untappd.com/user/${cleanUsername}/beers`
+      : `https://untappd.com/user/${cleanUsername}/beers?offset=${offset}`;
     const beersRes = await fetchWithTimeout(beersPageUrl, { headers: HEADERS });
 
     if (!beersRes.ok) {
@@ -166,89 +178,8 @@ export default async function handler(req, res) {
     }
     pageCount = 1;
 
-    // The beers page uses AJAX pagination with offset parameter
-    // Continue fetching until we have all beers or hit the limit
-    let consecutiveEmptyPages = 0;
-    const maxConsecutiveEmpty = 3;
-
-    console.log(`Starting pagination. Total unique: ${totalUnique}, First page beers: ${allBeers.length}`);
-    console.log(`Initial state: pageCount=${pageCount}, MAX_PAGES=${MAX_PAGES}, consecutiveEmptyPages=${consecutiveEmptyPages}`);
-
-    // Keep fetching pages until we reach the total unique count or max pages
-    while (pageCount < MAX_PAGES && consecutiveEmptyPages < maxConsecutiveEmpty) {
-      console.log(`While loop iteration ${pageCount}: allBeers.length=${allBeers.length}, totalUnique=${totalUnique}`);
-      
-      // If we know the total and have reached it, stop
-      if (totalUnique && allBeers.length >= totalUnique) {
-        console.log(`Reached target: ${allBeers.length}/${totalUnique} beers`);
-        break;
-      }
-
-      offset += 25; // Untappd uses 25 beers per page
-      console.log(`Next offset will be: ${offset}`);
-      // Use Untappd's AJAX API endpoint for pagination
-      const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}/${offset}?sort=date`;
-
-      try {
-        // Add delay to be respectful (reduced for faster scraping)
-        await new Promise(resolve => setTimeout(resolve, 400));
-
-        console.log(`Fetching page ${pageCount + 1}, offset ${offset}...`);
-        const nextRes = await fetchWithTimeout(nextUrl, { 
-          headers: {
-            ...HEADERS,
-            'X-Requested-With': 'XMLHttpRequest',
-            'Accept': 'text/html, */*; q=0.01'
-          }
-        });
-        if (!nextRes.ok) {
-          console.log(`Page ${pageCount + 1} returned status ${nextRes.status}`);
-          consecutiveEmptyPages++;
-          continue;
-        }
-
-        const nextHtml = await nextRes.text();
-        console.log(`Page ${pageCount + 1} HTML length: ${nextHtml.length} chars`);
-        console.log(`Page ${pageCount + 1} HTML preview: ${nextHtml.substring(0, 500)}`);
-        
-        const nextBeers = extractBeersFromPage(nextHtml);
-
-        console.log(`Page ${pageCount + 1}: Found ${nextBeers.length} beers on page`);
-
-        if (nextBeers.length === 0) {
-          consecutiveEmptyPages++;
-          console.log(`Empty page ${consecutiveEmptyPages}/${maxConsecutiveEmpty}`);
-          continue;
-        }
-
-        // Reset empty page counter if we found beers
-        consecutiveEmptyPages = 0;
-
-        let newBeersFound = 0;
-        for (const beer of nextBeers) {
-          if (!seenUrls.has(beer.beer_url)) {
-            seenUrls.add(beer.beer_url);
-            allBeers.push(beer);
-            newBeersFound++;
-          }
-        }
-
-        console.log(`Page ${pageCount + 1}: ${newBeersFound} new beers added. Total: ${allBeers.length}/${totalUnique}`);
-
-        // If no new beers were found on this page, increment empty counter
-        if (newBeersFound === 0) {
-          consecutiveEmptyPages++;
-          console.log(`No new beers on page ${pageCount + 1}. Empty count: ${consecutiveEmptyPages}`);
-        }
-
-        pageCount++;
-      } catch (error) {
-        console.error(`Error fetching page ${pageCount + 1}:`, error.message);
-        consecutiveEmptyPages++;
-      }
-    }
-
-    console.log(`Pagination complete. Fetched ${allBeers.length}/${totalUnique} beers across ${pageCount} pages`);
+    // Note: Server-side pagination doesn't work because Untappd's AJAX endpoint
+    // requires authentication. Client will handle pagination by making multiple requests.
 
     return res.status(200).json({
       username: cleanUsername,
@@ -262,15 +193,11 @@ export default async function handler(req, res) {
       beers: allBeers,
       fetched_at: new Date().toISOString(),
       debug: {
+        offset: offset,
         expected_unique: totalUnique,
         actual_fetched: allBeers.length,
         coverage_percentage: totalUnique ? Math.round((allBeers.length / totalUnique) * 100) : null,
-        pages_scraped: pageCount,
-        stopped_reason: consecutiveEmptyPages >= maxConsecutiveEmpty 
-          ? 'consecutive_empty_pages' 
-          : (totalUnique && allBeers.length >= totalUnique) 
-            ? 'all_beers_fetched' 
-            : 'max_pages_reached'
+        pages_scraped: pageCount
       }
     });
   } catch (error) {
