@@ -182,14 +182,21 @@ export default async function handler(req, res) {
       }
 
       offset += 25; // Untappd uses 25 beers per page
-      const nextUrl = `https://untappd.com/user/${cleanUsername}/beers?offset=${offset}&type=distinct`;
+      // Use Untappd's AJAX API endpoint for pagination
+      const nextUrl = `https://untappd.com/profile/more_beer/${cleanUsername}?offset=${offset}&type=distinct`;
 
       try {
         // Add delay to be respectful
         await new Promise(resolve => setTimeout(resolve, 600));
 
         console.log(`Fetching page ${pageCount + 1}, offset ${offset}...`);
-        const nextRes = await fetchWithTimeout(nextUrl, { headers: HEADERS });
+        const nextRes = await fetchWithTimeout(nextUrl, { 
+          headers: {
+            ...HEADERS,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'text/html, */*; q=0.01'
+          }
+        });
         if (!nextRes.ok) {
           console.log(`Page ${pageCount + 1} returned status ${nextRes.status}`);
           consecutiveEmptyPages++;
