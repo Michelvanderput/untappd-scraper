@@ -29,89 +29,69 @@ async function fetchWithTimeout(url, options = {}) {
 function extractBeersFromPage(html) {
   const $ = cheerio.load(html);
   const beers = [];
+  const seenUrls = new Set();
 
-  // Try multiple selectors for beer items
-  const selectors = [
-    '.beer-item',
-    '.distinct-list .item',
-    '.beer-details',
-    'div[class*="beer"]',
-  ];
+  // Simply find all links to beers (format: /b/beer-name/12345)
+  $('a[href*="/b/"]').each((_, link) => {
+    const $link = $(link);
+    const href = $link.attr('href');
+    
+    // Must match the pattern /b/something/number
+    if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
 
-  let foundItems = $();
-  for (const selector of selectors) {
-    const items = $(selector);
-    if (items.length > 0) {
-      foundItems = items;
-      break;
+    const beerUrl = new URL(href, 'https://untappd.com').toString();
+    
+    // Skip duplicates
+    if (seenUrls.has(beerUrl)) return;
+    seenUrls.add(beerUrl);
+
+    const beerName = $link.text().trim();
+    if (!beerName || beerName.length < 2) return;
+
+    // Try to find the parent container to get more info
+    const container = $link.closest('div, li, article, section');
+    const containerText = container.text();
+
+    // Get brewery - look for links to breweries near this beer link
+    let brewery = null;
+    const breweryLink = container.find('a[href*="/w/"], a[href*="/brewery/"], a[href*="untappd.com/w/"]').first();
+    if (breweryLink.length && breweryLink.attr('href') !== href) {
+      brewery = breweryLink.text().trim();
     }
-  }
 
-  // If no items found with specific selectors, try finding all links to beers
-  if (foundItems.length === 0) {
-    $('a[href*="/b/"]').each((_, link) => {
-      const $link = $(link);
-      const href = $link.attr('href');
-      if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
+    // Get ABV from surrounding text
+    const abvMatch = containerText.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
+    const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
 
-      const beerUrl = new URL(href, 'https://untappd.com').toString();
-      const beerName = $link.text().trim();
+    // Get IBU from surrounding text
+    const ibuMatch = containerText.match(/(\d+(?:\.\d+)?)\s*IBU/i);
+    const ibu = ibuMatch ? parseFloat(ibuMatch[1]) : null;
 
-      if (beerName && beerUrl && !beers.find(b => b.beer_url === beerUrl)) {
-        beers.push({
-          name: beerName,
-          beer_url: beerUrl,
-          brewery: null,
-          style: null,
-          abv: null,
-          user_rating: null,
-        });
+    // Get user rating
+    const ratingMatch = containerText.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
+    const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
+
+    // Get style - usually in italics or em tags
+    let style = null;
+    const styleEm = container.find('em').first();
+    if (styleEm.length) {
+      const styleText = styleEm.text().trim();
+      // Make sure it's not a date or other metadata
+      if (styleText && !styleText.match(/\d{4}/) && styleText.length < 50) {
+        style = styleText;
       }
+    }
+
+    beers.push({
+      name: beerName,
+      beer_url: beerUrl,
+      brewery,
+      style,
+      abv,
+      ibu,
+      user_rating: userRating,
     });
-  } else {
-    // Process found items
-    foundItems.each((_, item) => {
-      const el = $(item);
-
-      // Get beer link - try multiple selectors
-      const beerLink = el.find('a[href*="/b/"]').first();
-      if (!beerLink.length) return;
-
-      const href = beerLink.attr('href');
-      if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
-
-      const beerUrl = new URL(href, 'https://untappd.com').toString();
-      const beerName = beerLink.text().trim();
-
-      // Get brewery
-      const breweryLink = el.find('a[href*="/w/"], a[href^="/brewery/"]').first();
-      const brewery = breweryLink.length ? breweryLink.text().trim() : null;
-
-      // Get style
-      const styleText = el.find('.style, .beer-style, em').first().text().trim();
-      const style = styleText || null;
-
-      // Get ABV
-      const text = el.text();
-      const abvMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
-      const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
-
-      // Get user rating
-      const ratingMatch = text.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
-      const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
-
-      if (beerName && beerUrl) {
-        beers.push({
-          name: beerName,
-          beer_url: beerUrl,
-          brewery,
-          style,
-          abv,
-          user_rating: userRating,
-        });
-      }
-    });
-  }
+  });
 
   return beers;
 }
