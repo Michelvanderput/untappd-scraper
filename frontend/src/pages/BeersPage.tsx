@@ -1,11 +1,12 @@
 import { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
-import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame } from 'lucide-react';
+import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
 import { useDebounce } from '../hooks/useDebounce';
 import { beerCache } from '../utils/cache';
 import SEO from '../components/SEO';
+import { useUntappdProfileContext } from '../contexts/UntappdProfileContext';
 import { animatePageHeader, animateFadeIn, animateGrid } from '../utils/animations';
 
 const BeerModal = lazy(() => import('../components/BeerModal'));
@@ -20,6 +21,7 @@ const SMART_TAGS = [
 ];
 
 export default function BeersPage() {
+  const { profile, hasDrunk } = useUntappdProfileContext();
   const [beers, setBeers] = useState<BeerData[]>([]);
   const [filteredBeers, setFilteredBeers] = useState<BeerData[]>([]);
   const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
@@ -549,7 +551,12 @@ export default function BeersPage() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
           >
             {displayedBeers.map((beer) => (
-              <div key={beer.beer_url} className="h-full">
+              <div key={beer.beer_url} className="h-full relative">
+                {profile && hasDrunk(beer.beer_url) && (
+                  <div className="absolute top-2 left-2 z-20 bg-green-500 text-white rounded-full p-1 shadow-lg" title="Al geproefd">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </div>
+                )}
                 <BeerCard
                   beer={beer}
                   onClick={() => handleBeerClick(beer)}

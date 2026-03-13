@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download, Loader2 } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download, Loader2, User } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -10,6 +10,7 @@ import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
 import AIChatbot from './components/AIChatbot';
 import ComparisonBar from './components/ComparisonBar';
+import { UntappdProfileProvider } from './contexts/UntappdProfileContext';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import './App.css';
 
@@ -21,6 +22,7 @@ const BeerdlePage = lazy(() => import('./pages/BeerdlePage'));
 const SurprisePage = lazy(() => import('./pages/SurprisePage'));
 const InstallPage = lazy(() => import('./pages/InstallPage'));
 const ComparePage = lazy(() => import('./pages/ComparePage'));
+const ProfilePage = lazy(() => import('./pages/ProfilePage'));
 
 function LoadingSpinner() {
   return (
@@ -43,6 +45,7 @@ function Navigation() {
     { path: '/menu-builder', icon: Sparkles, label: 'Menu', color: 'from-purple-500 to-pink-500' },
     { path: '/surprise', icon: Shuffle, label: 'Surprise', color: 'from-green-500 to-emerald-500' },
     { path: '/beerdle', icon: Gamepad2, label: 'Beerdle', color: 'from-red-500 to-orange-500' },
+    { path: '/profiel', icon: User, label: 'Profiel', color: 'from-indigo-500 to-purple-500' },
   ];
 
   const handleNavClick = () => {
@@ -188,6 +191,7 @@ function App() {
     <ThemeProvider>
       <FavoritesProvider>
         <ComparisonProvider>
+          <UntappdProfileProvider>
           <BrowserRouter>
             <div className="min-h-screen bg-amber-50 dark:bg-gray-900 transition-colors pt-20">
               <Navigation />
@@ -201,6 +205,7 @@ function App() {
                   <Route path="/beerdle" element={<BeerdlePage />} />
                   <Route path="/install" element={<InstallPage />} />
                   <Route path="/compare" element={<ComparePage />} />
+                  <Route path="/profiel" element={<ProfilePage />} />
                 </Routes>
               </Suspense>
               
@@ -209,6 +214,7 @@ function App() {
               <AIChatbot />
             </div>
           </BrowserRouter>
+          </UntappdProfileProvider>
         </ComparisonProvider>
       </FavoritesProvider>
     </ThemeProvider>
