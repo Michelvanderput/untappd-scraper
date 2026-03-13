@@ -31,57 +31,47 @@ function extractBeersFromPage(html) {
   const beers = [];
   const seenUrls = new Set();
 
-  // Simply find all links to beers (format: /b/beer-name/12345)
-  $('a[href*="/b/"]').each((_, link) => {
-    const $link = $(link);
-    const href = $link.attr('href');
+  // Find all beer-item divs (the main container for each beer)
+  $('.beer-item').each((_, item) => {
+    const $item = $(item);
     
-    // Must match the pattern /b/something/number
+    // Get the beer link from beer-details
+    const beerLink = $item.find('.beer-details .name a').first();
+    if (!beerLink.length) return;
+    
+    const href = beerLink.attr('href');
     if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
-
+    
     const beerUrl = new URL(href, 'https://untappd.com').toString();
     
     // Skip duplicates
     if (seenUrls.has(beerUrl)) return;
     seenUrls.add(beerUrl);
-
-    const beerName = $link.text().trim();
+    
+    const beerName = beerLink.text().trim();
     if (!beerName || beerName.length < 2) return;
-
-    // Try to find the parent container to get more info
-    const container = $link.closest('div, li, article, section');
-    const containerText = container.text();
-
-    // Get brewery - look for links to breweries near this beer link
-    let brewery = null;
-    const breweryLink = container.find('a[href*="/w/"], a[href*="/brewery/"], a[href*="untappd.com/w/"]').first();
-    if (breweryLink.length && breweryLink.attr('href') !== href) {
-      brewery = breweryLink.text().trim();
-    }
-
-    // Get ABV from surrounding text
-    const abvMatch = containerText.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
+    
+    // Get brewery
+    const breweryLink = $item.find('.beer-details .brewery a').first();
+    const brewery = breweryLink.length ? breweryLink.text().trim() : null;
+    
+    // Get style
+    const styleP = $item.find('.beer-details .style').first();
+    const style = styleP.length ? styleP.text().trim() : null;
+    
+    // Get ABV from details section
+    const detailsText = $item.find('.details').text();
+    const abvMatch = detailsText.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
     const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
-
-    // Get IBU from surrounding text
-    const ibuMatch = containerText.match(/(\d+(?:\.\d+)?)\s*IBU/i);
+    
+    // Get IBU
+    const ibuMatch = detailsText.match(/(\d+(?:\.\d+)?)\s*IBU/i);
     const ibu = ibuMatch ? parseFloat(ibuMatch[1]) : null;
-
+    
     // Get user rating
-    const ratingMatch = containerText.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
+    const ratingMatch = detailsText.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
     const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
-
-    // Get style - usually in italics or em tags
-    let style = null;
-    const styleEm = container.find('em').first();
-    if (styleEm.length) {
-      const styleText = styleEm.text().trim();
-      // Make sure it's not a date or other metadata
-      if (styleText && !styleText.match(/\d{4}/) && styleText.length < 50) {
-        style = styleText;
-      }
-    }
-
+    
     beers.push({
       name: beerName,
       beer_url: beerUrl,
