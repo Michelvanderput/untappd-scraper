@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-13T06:20:31.721Z",
-  "count": 405,
-  "scrape_duration_seconds": 2.46,
+  "fetched_at": "2026-03-13T12:18:18.999Z",
+  "count": 404,
+  "scrape_duration_seconds": 4.43,
   "stats": {
-    "total_fetched": 405,
-    "total_valid": 405,
+    "total_fetched": 404,
+    "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 81,
-      "Bierbijbel": 296
+      "Wisseltap bieren": 16,
+      "Bierbijbel": 296,
+      "Op=Op kaart": 81
     }
   },
   "beers": [
+    {
+      "name": "Zeeuwse Lust",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-zeeuwse-lust/5215695",
+      "image_url": "https://labels.untappd.com/5215695",
+      "style": "Wheat Beer - Hefeweizen",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 12,
+      "rating": 3.34,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Vuurdoop",
       "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-vuurdoop/6583393",
@@ -182,21 +197,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Marble Cake",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-marble-cake/6456770",
-      "image_url": "https://labels.untappd.com/6456770",
-      "style": "Porter - Imperial / Double Baltic",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 35,
-      "rating": 3.85,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Armand Ter Dolen",
       "beer_url": "https://untappd.com/b/ter-dolen-armand-ter-dolen/76969",
       "image_url": "https://labels.untappd.com/76969",
@@ -223,21 +223,6 @@
       "abv": 8,
       "ibu": 30,
       "rating": 3.59,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Achel Superior Winter",
-      "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-superior-winter/5619249",
-      "image_url": "https://labels.untappd.com/5619249",
-      "style": "Winter Ale",
-      "brewery": "De Achelse Kluis",
-      "brewery_url": "https://untappd.com/w/de-achelse-kluis/280",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": null,
-      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
