@@ -30,48 +30,88 @@ function extractBeersFromPage(html) {
   const $ = cheerio.load(html);
   const beers = [];
 
-  // Each beer item in the beer list
-  $('.beer-item, .distinct-list-list .beer-details').each((_, item) => {
-    const el = $(item);
+  // Try multiple selectors for beer items
+  const selectors = [
+    '.beer-item',
+    '.distinct-list .item',
+    '.beer-details',
+    'div[class*="beer"]',
+  ];
 
-    // Get beer link - try multiple selectors
-    const beerLink = el.find('a[href*="/b/"]').first();
-    if (!beerLink.length) return;
-
-    const href = beerLink.attr('href');
-    if (!href) return;
-
-    const beerUrl = new URL(href, 'https://untappd.com').toString();
-    const beerName = beerLink.text().trim();
-
-    // Get brewery
-    const breweryLink = el.find('a[href*="/w/"], a[href^="/brewery/"]').first();
-    const brewery = breweryLink.length ? breweryLink.text().trim() : null;
-
-    // Get style
-    const styleText = el.find('.style, .beer-style').first().text().trim();
-    const style = styleText || null;
-
-    // Get ABV
-    const text = el.text();
-    const abvMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
-    const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
-
-    // Get user rating
-    const ratingMatch = text.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
-    const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
-
-    if (beerName && beerUrl) {
-      beers.push({
-        name: beerName,
-        beer_url: beerUrl,
-        brewery,
-        style,
-        abv,
-        user_rating: userRating,
-      });
+  let foundItems = $();
+  for (const selector of selectors) {
+    const items = $(selector);
+    if (items.length > 0) {
+      foundItems = items;
+      break;
     }
-  });
+  }
+
+  // If no items found with specific selectors, try finding all links to beers
+  if (foundItems.length === 0) {
+    $('a[href*="/b/"]').each((_, link) => {
+      const $link = $(link);
+      const href = $link.attr('href');
+      if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
+
+      const beerUrl = new URL(href, 'https://untappd.com').toString();
+      const beerName = $link.text().trim();
+
+      if (beerName && beerUrl && !beers.find(b => b.beer_url === beerUrl)) {
+        beers.push({
+          name: beerName,
+          beer_url: beerUrl,
+          brewery: null,
+          style: null,
+          abv: null,
+          user_rating: null,
+        });
+      }
+    });
+  } else {
+    // Process found items
+    foundItems.each((_, item) => {
+      const el = $(item);
+
+      // Get beer link - try multiple selectors
+      const beerLink = el.find('a[href*="/b/"]').first();
+      if (!beerLink.length) return;
+
+      const href = beerLink.attr('href');
+      if (!href || !href.match(/\/b\/[^/]+\/\d+/)) return;
+
+      const beerUrl = new URL(href, 'https://untappd.com').toString();
+      const beerName = beerLink.text().trim();
+
+      // Get brewery
+      const breweryLink = el.find('a[href*="/w/"], a[href^="/brewery/"]').first();
+      const brewery = breweryLink.length ? breweryLink.text().trim() : null;
+
+      // Get style
+      const styleText = el.find('.style, .beer-style, em').first().text().trim();
+      const style = styleText || null;
+
+      // Get ABV
+      const text = el.text();
+      const abvMatch = text.match(/(\d+(?:\.\d+)?)\s*%\s*ABV/i);
+      const abv = abvMatch ? parseFloat(abvMatch[1]) : null;
+
+      // Get user rating
+      const ratingMatch = text.match(/Their Rating\s*\((\d+(?:\.\d+)?)\)/i);
+      const userRating = ratingMatch ? parseFloat(ratingMatch[1]) : null;
+
+      if (beerName && beerUrl) {
+        beers.push({
+          name: beerName,
+          beer_url: beerUrl,
+          brewery,
+          style,
+          abv,
+          user_rating: userRating,
+        });
+      }
+    });
+  }
 
   return beers;
 }
@@ -157,38 +197,59 @@ export default async function handler(req, res) {
     pageCount = 1;
 
     // The beers page uses AJAX pagination with offset parameter
-    // We'll fetch additional pages if needed
-    const $beersPage = cheerio.load(beersHtml);
-    let hasMore = hasNextPage($beersPage);
+    // Continue fetching until we have all beers or hit the limit
+    let consecutiveEmptyPages = 0;
+    const maxConsecutiveEmpty = 3;
 
-    while (hasMore && pageCount < MAX_PAGES) {
+    // Keep fetching pages until we reach the total unique count or max pages
+    while (pageCount < MAX_PAGES && consecutiveEmptyPages < maxConsecutiveEmpty) {
+      // If we know the total and have reached it, stop
+      if (totalUnique && allBeers.length >= totalUnique) {
+        break;
+      }
+
       offset += 25; // Untappd uses 25 beers per page
       const nextUrl = `https://untappd.com/user/${cleanUsername}/beers?offset=${offset}&type=distinct`;
 
       try {
         // Add delay to be respectful
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 800));
 
         const nextRes = await fetchWithTimeout(nextUrl, { headers: HEADERS });
-        if (!nextRes.ok) break;
+        if (!nextRes.ok) {
+          consecutiveEmptyPages++;
+          continue;
+        }
 
         const nextHtml = await nextRes.text();
         const nextBeers = extractBeersFromPage(nextHtml);
 
-        if (nextBeers.length === 0) break;
+        if (nextBeers.length === 0) {
+          consecutiveEmptyPages++;
+          continue;
+        }
 
+        // Reset empty page counter if we found beers
+        consecutiveEmptyPages = 0;
+
+        let newBeersFound = 0;
         for (const beer of nextBeers) {
           if (!seenUrls.has(beer.beer_url)) {
             seenUrls.add(beer.beer_url);
             allBeers.push(beer);
+            newBeersFound++;
           }
         }
 
+        // If no new beers were found on this page, increment empty counter
+        if (newBeersFound === 0) {
+          consecutiveEmptyPages++;
+        }
+
         pageCount++;
-        const $next = cheerio.load(nextHtml);
-        hasMore = hasNextPage($next) && nextBeers.length >= 25;
-      } catch {
-        break;
+      } catch (error) {
+        console.error(`Error fetching page ${pageCount + 1}:`, error.message);
+        consecutiveEmptyPages++;
       }
     }
 
@@ -203,6 +264,17 @@ export default async function handler(req, res) {
       beer_urls: allBeers.map(b => b.beer_url),
       beers: allBeers,
       fetched_at: new Date().toISOString(),
+      debug: {
+        expected_unique: totalUnique,
+        actual_fetched: allBeers.length,
+        coverage_percentage: totalUnique ? Math.round((allBeers.length / totalUnique) * 100) : null,
+        pages_scraped: pageCount,
+        stopped_reason: consecutiveEmptyPages >= maxConsecutiveEmpty 
+          ? 'consecutive_empty_pages' 
+          : (totalUnique && allBeers.length >= totalUnique) 
+            ? 'all_beers_fetched' 
+            : 'max_pages_reached'
+      }
     });
   } catch (error) {
     console.error('Error fetching user beers:', error);
