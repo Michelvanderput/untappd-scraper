@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-13T12:18:18.999Z",
-  "count": 404,
-  "scrape_duration_seconds": 4.43,
+  "fetched_at": "2026-03-13T18:13:53.391Z",
+  "count": 405,
+  "scrape_duration_seconds": 3.23,
   "stats": {
-    "total_fetched": 404,
-    "total_valid": 404,
+    "total_fetched": 405,
+    "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
-      "Bierbijbel": 296,
-      "Op=Op kaart": 81
+      "Op=Op kaart": 81,
+      "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Leffe Blonde / Blond",
+      "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
+      "image_url": "https://labels.untappd.com/5940",
+      "style": "Belgian Blonde",
+      "brewery": "Abbaye de Leffe",
+      "brewery_url": "https://untappd.com/w/abbaye-de-leffe/5",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 20,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Trignac XII",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-trignac-xii/342771",
+      "image_url": "https://labels.untappd.com/342771",
+      "style": "Belgian Tripel",
+      "brewery": "Kasteel Brouwerij Vanhonsebrouck",
+      "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 12,
+      "ibu": null,
+      "rating": 4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Zeeuwse Lust",
       "beer_url": "https://untappd.com/b/brouwerij-kees-zeeuwse-lust/5215695",
@@ -227,21 +257,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Stormbock (2025)",
-      "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-stormbock-2025/6147377",
-      "image_url": "https://labels.untappd.com/6147377",
-      "style": "Bock - Doppelbock",
-      "brewery": "Texelse Bierbrouwerij",
-      "brewery_url": "https://untappd.com/w/texelse-bierbrouwerij/2245",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 3.77,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Tripel LeFort",
       "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
       "image_url": "https://labels.untappd.com/1533976",
@@ -297,7 +312,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -342,7 +357,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.87,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -507,7 +522,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 40,
-      "rating": 3.59,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1062,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 7,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1092,7 +1107,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.25,
+      "rating": 3.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2742,7 +2757,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": 5,
-      "rating": 3.12,
+      "rating": 3.11,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
