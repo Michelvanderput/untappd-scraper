@@ -103,17 +103,26 @@ export function useUntappdProfile(): UseUntappdProfileReturn {
 
   const hasDrunk = useCallback((beerUrl: string) => {
     if (!profile?.beerUrls) return false;
-    // Normalize URLs for comparison - strip trailing slashes and compare paths
-    const normalizeUrl = (url: string) => {
+    
+    // Extract beer ID from URL (the number at the end)
+    // Example: https://untappd.com/b/brewery-name-beer-name/12345 -> 12345
+    const extractBeerId = (url: string): string | null => {
       try {
-        const parsed = new URL(url);
-        return parsed.pathname.replace(/\/$/, '').toLowerCase();
+        const match = url.match(/\/b\/[^/]+\/(\d+)/);
+        return match ? match[1] : null;
       } catch {
-        return url.replace(/\/$/, '').toLowerCase();
+        return null;
       }
     };
-    const normalizedTarget = normalizeUrl(beerUrl);
-    return profile.beerUrls.some(url => normalizeUrl(url) === normalizedTarget);
+    
+    const targetId = extractBeerId(beerUrl);
+    if (!targetId) return false;
+    
+    // Check if any of the user's beers has the same ID
+    return profile.beerUrls.some(url => {
+      const id = extractBeerId(url);
+      return id === targetId;
+    });
   }, [profile?.beerUrls]);
 
   return {
