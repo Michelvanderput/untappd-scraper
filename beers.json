@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-14T06:18:36.822Z",
-  "count": 405,
-  "scrape_duration_seconds": 3.99,
+  "fetched_at": "2026-03-14T12:14:46.657Z",
+  "count": 406,
+  "scrape_duration_seconds": 3.16,
   "stats": {
-    "total_fetched": 405,
-    "total_valid": 405,
+    "total_fetched": 406,
+    "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 81,
+      "Op=Op kaart": 82,
       "Bierbijbel": 296
     }
   },
@@ -272,6 +272,36 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V6 - Whippedcream, Salted Caramel Popcorndrip, Hazelnut Sprinkle",
+      "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v6-whippedcream-salted-caramel-popcorndrip-hazelnut-sprinkle/6490452",
+      "image_url": "https://labels.untappd.com/6490452",
+      "style": "Freeze-Distilled Beer",
+      "brewery": "Dutch Bargain",
+      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 18,
+      "ibu": 45,
+      "rating": 3.97,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V5 - Cottoncandy, Strawberry, Vanilla, Unicorn Sprinkle",
+      "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v5-cottoncandy-strawberry-vanilla-unicorn-sprinkle/6490450",
+      "image_url": "https://labels.untappd.com/6490450",
+      "style": "Freeze-Distilled Beer",
+      "brewery": "Dutch Bargain",
+      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 18,
+      "ibu": 45,
+      "rating": 3.91,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Boskeun",
       "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-boskeun/351",
       "image_url": "https://labels.untappd.com/351",
@@ -342,7 +372,7 @@
       "subcategory": null,
       "abv": 6.7,
       "ibu": 43,
-      "rating": 4.08,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -748,21 +778,6 @@
       "abv": 7.5,
       "ibu": 65,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Iced Coffee Connaisseur, Moi? Frappuccino Editions - V3: Marshmallow, Pandan, Coconut S'mores",
-      "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v3-marshmallow-pandan-coconut-s-mores/5633847",
-      "image_url": "https://labels.untappd.com/5633847",
-      "style": "Freeze-Distilled Beer",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 18,
-      "ibu": 50,
-      "rating": 4.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5982,7 +5997,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": 20,
-      "rating": 3.32,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
