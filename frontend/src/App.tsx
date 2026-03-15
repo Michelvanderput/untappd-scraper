@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Shuffle, Menu, X, Download, Loader2 } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Shuffle, Menu, X, Download, Loader2, Instagram } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -188,9 +188,10 @@ function App() {
       <FavoritesProvider>
         <ComparisonProvider>
           <BrowserRouter>
-            <div className="min-h-screen bg-amber-50 dark:bg-gray-900 transition-colors pt-20">
+            <div className="min-h-screen flex flex-col bg-amber-50 dark:bg-gray-900 transition-colors pt-20">
               <Navigation />
-              
+
+              <main className="flex-1">
               <Suspense fallback={<LoadingSpinner />}>
                 <ErrorBoundary>
                   <Routes>
@@ -204,9 +205,25 @@ function App() {
                   </Routes>
                 </ErrorBoundary>
               </Suspense>
-              
+              </main>
+
               <ComparisonBar />
               <UpdateNotification />
+
+              <footer className="mt-auto py-6 px-4 border-t border-amber-200/50 dark:border-gray-800">
+                <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                  <span>Gemaakt door</span>
+                  <a
+                    href="https://instagram.com/michelvdput"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 font-medium text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    @michelvdput
+                  </a>
+                </div>
+              </footer>
             </div>
           </BrowserRouter>
         </ComparisonProvider>
