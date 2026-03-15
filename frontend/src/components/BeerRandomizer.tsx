@@ -26,7 +26,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const [liveList, setLiveList] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
   const [isRandomizing, setIsRandomizing] = useState(false);
-  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set()); // category names to exclude
+  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set()); // family names to exclude (e.g. "Stout", "IPA")
   
   const resultRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
@@ -50,11 +50,21 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     return () => clearInterval(interval);
   }, [fetchLiveRegister]);
 
-  // Unieke menu-categorieën (geen stijlen, voorkomt dubbele/overlappende namen)
-  const availableCategories = useMemo(() => {
+  // Bierfamilie: eerste deel van stijl ("Stout - Imperial" → "Stout"), anders categorie
+  const getBeerFamily = (beer: BeerData): string => {
+    if (beer.style) {
+      const part = beer.style.split(' - ')[0].trim();
+      return part || beer.category || '';
+    }
+    return beer.category || '';
+  };
+
+  // Unieke families (Stout, IPA, Bierbijbel, etc.) – geen "Stout - ..." en "Stout - ..." dubbel
+  const availableFamilies = useMemo(() => {
     const set = new Set<string>();
     beers.forEach(beer => {
-      if (beer.category) set.add(beer.category);
+      const family = beer.style ? (beer.style.split(' - ')[0].trim() || beer.category) : beer.category;
+      if (family) set.add(family);
     });
     return Array.from(set).sort();
   }, [beers]);
@@ -62,7 +72,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const getFilteredBeers = (selectedMode: RandomizerMode): BeerData[] => {
     let filtered = [...beers];
     if (excludedStyles.size > 0) {
-      filtered = filtered.filter(b => !excludedStyles.has(b.category));
+      filtered = filtered.filter(b => !excludedStyles.has(getBeerFamily(b)));
     }
     
     // Then apply mode filters
@@ -193,16 +203,16 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     setIsRandomizing(false);
   };
 
-  const toggleCategoryExclusion = (category: string) => {
+  const toggleFamilyExclusion = (family: string) => {
     setExcludedStyles(prev => {
       const next = new Set(prev);
-      if (next.has(category)) next.delete(category);
-      else next.add(category);
+      if (next.has(family)) next.delete(family);
+      else next.add(family);
       return next;
     });
   };
 
-  const clearExcludedCategories = () => setExcludedStyles(new Set());
+  const clearExcludedFamilies = () => setExcludedStyles(new Set());
 
   return (
     <div className="space-y-8" ref={containerRef}>
@@ -216,49 +226,49 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 transition={{ duration: 0.3 }}
                 className="space-y-8"
             >
-                {/* Categorieën uitsluiten (alleen menu's, geen dubbele namen) */}
-                {availableCategories.length > 0 && (
+                {/* Stijlen/categorieën uitsluiten (gegroepeerd: alle Stout-* onder "Stout") */}
+                {availableFamilies.length > 0 && (
                   <div className="glass-panel rounded-2xl p-4">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
                         <BeerIcon className="w-4 h-4 text-amber-600" />
-                        Sluit menu&apos;s uit
+                        Sluit bierstijlen uit
                       </h3>
                       {excludedStyles.size > 0 && (
                         <button
                           type="button"
-                          onClick={clearExcludedCategories}
+                          onClick={clearExcludedFamilies}
                           className="text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-1"
                         >
                           <X className="w-3 h-3" />
-                          Wis
+                          Wis alles
                         </button>
                       )}
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {availableCategories.map((category) => {
-                        const isExcluded = excludedStyles.has(category);
+                      {availableFamilies.map((family) => {
+                        const isExcluded = excludedStyles.has(family);
                         return (
                           <motion.button
-                            key={category}
+                            key={family}
                             type="button"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.98 }}
-                            onClick={() => toggleCategoryExclusion(category)}
+                            onClick={() => toggleFamilyExclusion(family)}
                             className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
                               isExcluded
                                 ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 line-through border border-red-300 dark:border-red-700'
                                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
                             }`}
                           >
-                            {category}
+                            {family}
                           </motion.button>
                         );
                       })}
                     </div>
                     {excludedStyles.size > 0 && (
                       <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                        {excludedStyles.size === 1 ? '1 menu uitgesloten' : `${excludedStyles.size} menu's uitgesloten`}
+                        {excludedStyles.size === 1 ? '1 stijl uitgesloten' : `${excludedStyles.size} stijlen uitgesloten`}
                       </p>
                     )}
                   </div>
