@@ -6,6 +6,7 @@ import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
+import SectionHeading from '../components/SectionHeading';
 
 export default function TrendsPage() {
   const [changelog, setChangelog] = useState<Changelog | null>(null);
@@ -234,8 +235,13 @@ export default function TrendsPage() {
 
   return (
     <PageLayout title="Trends & Updates" subtitle="Ontdek de trends, top bieren en interessante statistieken">
-      {/* Stats Overview */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+      <SectionHeading
+        title="Overzicht"
+        description="Snel inzicht in het menu"
+        icon={BarChart3}
+        className="mb-6"
+      />
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
         <Card className="bg-gradient-to-br from-amber-500 to-orange-500 p-6 text-white border-none transform hover:-translate-y-1 transition-transform">
           <div className="flex items-center justify-between mb-2">
             <BarChart3 className="w-8 h-8 opacity-80" />
@@ -277,9 +283,12 @@ export default function TrendsPage() {
         </Card>
       </div>
 
-      {/* DASHBOARD CHARTS */}
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center font-heading">📊 Data Dashboard</h2>
-      
+      <SectionHeading
+        title="Data dashboard"
+        description="Verdeling per categorie, ABV en populaire brouwerijen"
+        icon={PieChart}
+        className="mb-6 mt-4"
+      />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
         {/* Category Distribution */}
         <Card className="p-6" hoverable={false}>
@@ -391,8 +400,13 @@ export default function TrendsPage() {
         </Card>
       </div>
 
-      {/* Period Selector */}
-      <div className="flex flex-wrap justify-center gap-3 mb-8">
+      <SectionHeading
+        title="Periode"
+        description="Kies voor welke periode je wijzigingen wilt zien"
+        icon={Calendar}
+        className="mb-4"
+      />
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
         {[
           { id: 'latest' as const, label: 'Laatste Update' },
           { id: 'week' as const, label: 'Deze Week' },
@@ -413,17 +427,13 @@ export default function TrendsPage() {
         ))}
       </div>
 
-      {/* Top Rated Beers */}
-      <Card className="p-6 mb-8" hoverable={false}>
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl shadow-lg shadow-amber-500/20">
-            <Trophy className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800 dark:text-white font-heading">Top Rated Bieren</h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400">De hoogst gewaardeerde bieren in het assortiment</p>
-          </div>
-        </div>
+      <SectionHeading
+        title="Top rated bieren"
+        description="Hoogst gewaardeerde bieren in het assortiment"
+        icon={Trophy}
+        className="mb-6"
+      />
+      <Card className="p-6 mb-10" hoverable={false}>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {topRated.map((beer) => (
@@ -458,8 +468,12 @@ export default function TrendsPage() {
         </div>
       </Card>
 
-      <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6 text-center font-heading">📈 Trends & Changelog</h2>
-
+      <SectionHeading
+        title="Trends & changelog"
+        description="Stijgers, dalers en nieuw toegevoegde bieren"
+        icon={TrendingUp}
+        className="mb-6"
+      />
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Biggest Risers */}
         <Card className="p-6 h-full" hoverable={false}>

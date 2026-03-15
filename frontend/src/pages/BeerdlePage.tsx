@@ -235,16 +235,18 @@ export default function BeerdlePage() {
             <div className="flex gap-2">
               <button
                 onClick={() => setShowHelp(true)}
-                className="p-2 hover:bg-white/50 dark:hover:bg-white/10 rounded-full transition-colors"
-                title="Help"
+                className="p-2.5 hover:bg-white/50 dark:hover:bg-white/10 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                title="Uitleg"
+                aria-label="Toon uitleg"
               >
                 <HelpCircle className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               </button>
               {gameState.completed && (
                 <button
                   onClick={() => setShowResults(true)}
-                  className="p-2 hover:bg-white/50 dark:hover:bg-white/10 rounded-full transition-colors"
+                  className="p-2.5 hover:bg-white/50 dark:hover:bg-white/10 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   title="Statistieken"
+                  aria-label="Toon resultaten"
                 >
                   <BarChart3 className="w-6 h-6 text-gray-600 dark:text-gray-400" />
                 </button>

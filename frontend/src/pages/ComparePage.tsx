@@ -4,31 +4,29 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
+import EmptyState from '../components/EmptyState';
+import SectionHeading from '../components/SectionHeading';
 
 export default function ComparePage() {
   const { comparisonBeers, clearComparison, removeFromComparison } = useComparison();
 
   if (comparisonBeers.length === 0) {
     return (
-      <PageLayout title="Vergelijken" subtitle="Vergelijk je favoriete bieren">
-        <div className="flex flex-col items-center justify-center py-20 text-center">
-          <div className="w-24 h-24 bg-amber-100 dark:bg-amber-900/20 rounded-full flex items-center justify-center mb-6">
-            <Beer className="w-12 h-12 text-amber-600 dark:text-amber-500 opacity-50" />
-          </div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-heading">
-            Geen bieren geselecteerd
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md">
-            Selecteer minimaal 2 bieren uit de lijst om ze naast elkaar te vergelijken.
-          </p>
-          <Link
-            to="/"
-            className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl font-bold shadow-lg hover:shadow-amber-500/25 hover:scale-105 active:scale-95 transition-all flex items-center gap-2"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Terug naar bieren
-          </Link>
-        </div>
+      <PageLayout title="Vergelijken" subtitle="Vergelijk je favoriete bieren" contentWidth="narrow">
+        <EmptyState
+          icon={Beer}
+          title="Geen bieren geselecteerd"
+          description="Selecteer minimaal 2 bieren uit de bierenlijst om ze naast elkaar te vergelijken. Gebruik de vergelijk-knop op een bierkaart."
+          action={
+            <Link
+              to="/"
+              className="btn-primary inline-flex items-center gap-2 min-h-[48px]"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Naar bieren
+            </Link>
+          }
+        />
       </PageLayout>
     );
   }
@@ -46,7 +44,12 @@ export default function ComparePage() {
 
   return (
     <PageLayout title="Bier Vergelijking" subtitle={`Je vergelijkt ${comparisonBeers.length} bieren`}>
-      <div className="mb-8 flex justify-between items-center">
+      <SectionHeading
+        title="Vergelijking"
+        description={`${comparisonBeers.length} bieren naast elkaar`}
+        className="mb-6"
+      />
+      <div className="mb-8 flex flex-wrap justify-between items-center gap-4">
         <Link
           to="/"
           className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"

@@ -66,6 +66,7 @@
     @apply px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl 
            font-bold shadow-lg shadow-amber-500/20 
            hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] 
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900
            transition-all duration-200 ease-out;
   }
 
@@ -73,6 +74,7 @@
     @apply px-6 py-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-xl
            font-semibold border border-gray-200 dark:border-gray-700
            hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900
            active:scale-[0.98] transition-all duration-200 ease-out;
   }
 

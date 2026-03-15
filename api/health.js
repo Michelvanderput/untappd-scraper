@@ -52,9 +52,10 @@ export default function handler(req, res) {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({
       status: 'error',
-      error: error.message,
+      error: 'Health check failed',
       timestamp: new Date().toISOString()
     });
   }

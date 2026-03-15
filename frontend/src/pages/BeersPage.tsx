@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
-import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame } from 'lucide-react';
+import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame, RefreshCw } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
@@ -31,6 +31,7 @@ export default function BeersPage() {
   const [ibuRange, setIbuRange] = useState<[number, number]>([0, 120]);
   const [minRating, setMinRating] = useState<number>(0);
   const [loading, setLoading] = useState(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
   const [displayCount, setDisplayCount] = useState(24);
   
@@ -88,52 +89,54 @@ export default function BeersPage() {
     return () => observer.disconnect();
   }, [displayCount, filteredBeers.length]);
 
-  // Fetch beers from API or local JSON with caching
+  const fetchAndCache = useCallback(async () => {
+    setFetchError(null);
+    try {
+      let response;
+      try {
+        response = await fetch('/api/beers?limit=1000');
+      } catch {
+        response = await fetch('/beers.json');
+      }
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const data = await response.json();
+      const beersList = data.beers || [];
+
+      setBeers(beersList);
+      setFilteredBeers(beersList);
+      await beerCache.set('beers', beersList);
+    } catch (error) {
+      console.error('Failed to fetch beers:', error);
+      setFetchError('De bieren konden niet worden geladen. Controleer je internetverbinding.');
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     const fetchBeers = async () => {
+      setLoading(true);
+      setFetchError(null);
       try {
         const cached = await beerCache.get<BeerData[]>('beers');
         if (cached) {
           setBeers(cached);
           setFilteredBeers(cached);
           setLoading(false);
-          
           fetchAndCache();
           return;
         }
-
         await fetchAndCache();
       } catch (error) {
         console.error('Failed to fetch beers:', error);
-        setLoading(false);
-      }
-    };
-
-    const fetchAndCache = async () => {
-      try {
-        let response;
-        try {
-          response = await fetch('/api/beers?limit=1000');
-        } catch {
-          response = await fetch('/beers.json');
-        }
-        
-        const data = await response.json();
-        const beersList = data.beers || [];
-        
-        setBeers(beersList);
-        setFilteredBeers(beersList);
-        setLoading(false);
-        
-        await beerCache.set('beers', beersList);
-      } catch (error) {
-        console.error('Failed to fetch beers:', error);
+        setFetchError('De bieren konden niet worden geladen. Controleer je internetverbinding.');
         setLoading(false);
       }
     };
 
     fetchBeers();
-  }, []);
+  }, [fetchAndCache]);
 
   const deduplicateBeers = (beerList: BeerData[]) => {
     const seen = new Map<string, BeerData>();
@@ -278,12 +281,33 @@ export default function BeersPage() {
   const displayedBeers = filteredBeers.slice(0, displayCount);
   const hasMore = displayCount < filteredBeers.length;
 
-  if (loading) {
+  if (loading && beers.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
         <div className="text-center">
           <Beer className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce mx-auto mb-4" />
           <p className="text-xl text-gray-700 dark:text-gray-300 font-heading">Bieren laden...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (fetchError && beers.length === 0) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
+        <div className="text-center max-w-md">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-4">
+            <Beer className="w-8 h-8" aria-hidden />
+          </div>
+          <p className="text-xl text-gray-700 dark:text-gray-300 font-medium mb-2">{fetchError}</p>
+          <button
+            type="button"
+            onClick={() => { setLoading(true); fetchAndCache(); }}
+            className="btn-primary inline-flex items-center gap-2 mt-4"
+          >
+            <RefreshCw className="w-5 h-5" />
+            Opnieuw proberen
+          </button>
         </div>
       </div>
     );

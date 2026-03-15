@@ -8,9 +8,17 @@ interface PageLayoutProps {
   subtitle?: string;
   children: ReactNode;
   showDivider?: boolean;
+  /** Max width of content: 'default' (max-w-7xl) | 'narrow' (max-w-4xl) | 'compact' (max-w-2xl) */
+  contentWidth?: 'default' | 'narrow' | 'compact';
 }
 
-export default function PageLayout({ title, subtitle, children, showDivider = true }: PageLayoutProps) {
+const widthClass = {
+  default: 'max-w-7xl',
+  narrow: 'max-w-4xl',
+  compact: 'max-w-2xl',
+};
+
+export default function PageLayout({ title, subtitle, children, showDivider = true, contentWidth = 'default' }: PageLayoutProps) {
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -72,7 +80,7 @@ export default function PageLayout({ title, subtitle, children, showDivider = tr
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }} />
       </div>
 
-      <div className="container mx-auto px-4 py-8 max-w-7xl relative z-10">
+      <div className={`container mx-auto px-4 py-8 ${widthClass[contentWidth]} relative z-10`}>
         {/* Header */}
         <div ref={headerRef} className="text-center mb-12">
           <h1 

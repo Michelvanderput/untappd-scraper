@@ -6,6 +6,7 @@ import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type 
 import BeerCard from '../components/BeerCard';
 import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
+import SectionHeading from '../components/SectionHeading';
 import { beerCache } from '../utils/cache';
 
 const BeerModal = lazy(() => import('../components/BeerModal'));
@@ -200,20 +201,27 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
   const selectedMode = GENERATION_MODES.find(m => m.id === mode);
 
   return (
-    <PageLayout title="Menu Builder" subtitle={viewState === 'setup' ? "Stel je perfecte bier menu samen" : generatedMenu?.theme || "Menu"}>
-      
+    <PageLayout
+      title="Menu Builder"
+      subtitle={viewState === 'setup' ? "Stel je perfecte bier menu samen" : generatedMenu?.theme || "Menu"}
+      contentWidth={viewState === 'setup' ? 'compact' : 'default'}
+    >
       {/* SETUP VIEW */}
       {viewState === 'setup' && (
-        <motion.div 
+        <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="max-w-2xl mx-auto"
         >
-            <Card className="p-6 relative overflow-hidden" hoverable={false}>
-                {/* Mode Selection - Compact */}
+            <SectionHeading
+              title="Kies een sfeer"
+              description="Welk type menu past bij je?"
+              icon={Sparkles}
+              className="mb-4"
+            />
+            <Card className="p-6 relative overflow-hidden mb-8" hoverable={false}>
                 <div className="mb-6">
-                    <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 block">Kies een sfeer</label>
+                    <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 block">Sfeer</label>
                     <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                         {GENERATION_MODES.map(modeOption => {
                         const isSelected = mode === modeOption.id;
@@ -240,10 +248,9 @@ ${generatePairingSuggestions(generatedMenu).join('\n')}
                     )}
                 </div>
 
-                {/* Size Selection - Compact */}
-                <div className="mb-6">
+                <div className="mb-6 pt-2 border-t border-gray-100 dark:border-gray-700">
                     <div className="flex justify-between items-center mb-2">
-                        <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Aantal Gangen</label>
+                        <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Aantal bieren</label>
                         <span className="text-xl font-bold text-amber-600 dark:text-amber-500">{menuSize}</span>
                     </div>
                     <input

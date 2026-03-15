@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fffbeb",
-  "theme_color": "#d97706",
+  "theme_color": "#f59e0b",
   "orientation": "any",
   "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "icons": [
@@ -24,14 +24,14 @@
       "short_name": "Bieren",
       "description": "Bekijk alle bieren",
       "url": "/",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
     },
     {
       "name": "Trends",
       "short_name": "Trends",
       "description": "Bekijk trends en wijzigingen",
       "url": "/trends",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
     }
   ]
 }

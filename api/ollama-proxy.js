@@ -31,7 +31,6 @@ export default async function handler(req, res) {
       console.error('Ollama API error:', response.status, errorText);
       return res.status(response.status).json({
         error: 'Ollama API request failed',
-        details: errorText,
       });
     }
 
@@ -41,7 +40,6 @@ export default async function handler(req, res) {
     console.error('Proxy error:', error);
     return res.status(500).json({
       error: 'Failed to proxy request to Ollama',
-      details: error instanceof Error ? error.message : 'Unknown error',
     });
   }
 }

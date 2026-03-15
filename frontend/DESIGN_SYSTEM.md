@@ -137,12 +137,18 @@ ease: {
 
 ### Page Structure
 ```tsx
-<PageLayout title="Title" subtitle="Subtitle">
+<PageLayout title="Title" subtitle="Subtitle" contentWidth="default|narrow|compact">
+  <SectionHeading title="Section" description="Optional" icon={Icon} />
   <Card className="p-6 mb-8">
     {/* Content */}
   </Card>
 </PageLayout>
 ```
+
+- **PageLayout** `contentWidth`: `default` (max-w-7xl), `narrow` (max-w-4xl), `compact` (max-w-2xl). Use narrow/compact for form or text-heavy pages.
+- **PageIntro**: Optional; use for a clear title + one-line description at the top of content.
+- **SectionHeading**: H2 with optional icon and description; use to separate logical sections (e.g. "Overzicht", "Hoe installeer ik?").
+- **EmptyState**: Icon, title, description and primary CTA; use when a page has no data (e.g. Compare with 0 beers).
 
 ### Grid Layouts
 - **2 Columns**: `grid-cols-1 md:grid-cols-2`

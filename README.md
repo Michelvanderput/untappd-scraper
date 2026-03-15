@@ -19,6 +19,16 @@ Automatische scraper voor het biermenu van Biertaverne De Gouverneur op Untappd,
 
 ## Setup
 
+### 0. Environment variables (optioneel)
+
+Voor de **AI-chatbot (BeerBot)** is een Ollama Cloud API key nodig. Zonder key werkt de rest van de app gewoon; alleen de chatbot is dan uitgeschakeld.
+
+1. Kopieer `.env.example` naar `.env`: `cp .env.example .env`
+2. Vul `VITE_OLLAMA_API_KEY` in (haal een key op via [Ollama Cloud](https://ollama.com))
+3. Voor **Vercel**: voeg dezelfde key toe in Project → Settings → Environment Variables als `VITE_OLLAMA_API_KEY`
+
+Zie `.env.example` voor alle optionele variabelen.
+
 ### 1. GitHub Repository
 
 1. Maak een nieuwe GitHub repository
@@ -382,6 +392,15 @@ Het systeem houdt automatisch bij:
 - 🔄 **Gewijzigde bieren** - Updates in ABV, IBU, rating, container, of categorie
 
 Alle wijzigingen worden opgeslagen met timestamp in `changelog.json`.
+
+## Production checklist (verkoop / live)
+
+- [ ] **Environment**: `.env` lokaal en op Vercel ingevuld (minimaal `VITE_OLLAMA_API_KEY` als je de chatbot wilt gebruiken).
+- [ ] **GitHub Actions**: Workflow permissions op "Read and write" gezet zodat de scraper kan committen.
+- [ ] **Health check**: Controleer regelmatig `/api/health`; bij `degraded` of `unhealthy` is de data >48u oud of ontbreekt.
+- [ ] **Scraper falen**: Als de scraper in CI faalt, kijk in Actions logs en in `scrape-log.json`; Untappd kan tijdelijk rate-limiten of de HTML-structuur wijzigen.
+- [ ] **CORS**: API staat nu op `Access-Control-Allow-Origin: *`. Voor een vaste domeinnaam kun je in Vercel (of via headers) de origin beperken.
+- [ ] **Audit**: Zie `PRODUCTION_AUDIT.md` voor een uitgebreide audit en aanbevelingen.
 
 ## Licentie
 

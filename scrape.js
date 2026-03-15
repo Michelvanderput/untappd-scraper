@@ -12,7 +12,7 @@ const MENUS = [
 ];
 
 const HEADERS = {
-  "User-Agent": "BeerMenuBot/1.0 (contact: you@example.com)",
+  "User-Agent": `BeerMenuBot/1.0 (${process.env.SCRAPER_CONTACT_EMAIL || "beermenu-scraper"})`,
   "Accept-Language": "nl-NL,nl;q=0.9,en;q=0.8",
 };
 

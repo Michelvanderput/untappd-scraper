@@ -11,7 +11,7 @@ interface SEOProps {
 export default function SEO({
   title = 'BeerMenu - Ontdek de Beste Bieren',
   description = 'Ontdek het complete biermenu met alle informatie over stijlen, ABV, en meer. Speel Beerdle en bouw je eigen biermenu!',
-  image = '/icon-512.png',
+  image = '/icon.svg',
   url,
   type = 'website'
 }: SEOProps) {

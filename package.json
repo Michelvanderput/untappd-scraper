@@ -5,10 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["untappd", "scraper", "beer", "menu", "api"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Untappd beer menu scraper with daily updates, REST API and PWA frontend",
   "type": "module",
   "dependencies": {
     "cheerio": "^1.1.2",

@@ -18,11 +18,11 @@ function sortBeers(beers, sortBy, order = 'asc') {
 }
 
 export default function handler(req, res) {
-  const { 
-    category, 
-    subcategory, 
-    search, 
-    sort = 'name', 
+  const {
+    category,
+    subcategory,
+    search,
+    sort = 'name',
     order = 'asc',
     page = '1',
     limit = '50',
@@ -33,7 +33,11 @@ export default function handler(req, res) {
     rating_min,
     rating_max
   } = req.query;
-  
+
+  const ALLOWED_SORT = ['name', 'brewery', 'abv', 'ibu', 'rating', 'style'];
+  const sortBy = ALLOWED_SORT.includes(sort) ? sort : 'name';
+  const orderBy = order === 'desc' ? 'desc' : 'asc';
+
   try {
     const beersPath = path.join(process.cwd(), 'beers.json');
     const data = JSON.parse(fs.readFileSync(beersPath, 'utf-8'));
@@ -91,7 +95,7 @@ export default function handler(req, res) {
     }
     
     // Sorteer resultaten
-    beers = sortBeers(beers, sort, order);
+    beers = sortBeers(beers, sortBy, orderBy);
     
     // Paginatie
     const pageNum = Math.max(1, parseInt(page));
@@ -128,13 +132,14 @@ export default function handler(req, res) {
         rating_max
       },
       sort: {
-        by: sort,
-        order
+        by: sortBy,
+        order: orderBy
       },
       total_beers: data.count,
       beers: paginatedBeers
     });
   } catch (error) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(500).json({ error: 'Failed to load beer data' });
   }
 }

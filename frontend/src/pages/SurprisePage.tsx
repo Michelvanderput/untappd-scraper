@@ -64,7 +64,10 @@ export default function SurprisePage() {
   }
 
   return (
-    <PageLayout title="Surprise" subtitle="Laat het lot beslissen! 🎲">
+    <PageLayout title="Surprise" subtitle="Laat het lot beslissen! 🎲" contentWidth="narrow">
+      <p className="text-center text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
+        Klik op de knop en krijg een willekeurig bier uit onze kaart. Ideaal als je even geen keuze kunt maken.
+      </p>
       <BeerRandomizer beers={beers} />
     </PageLayout>
   );
