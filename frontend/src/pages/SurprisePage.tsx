@@ -32,7 +32,7 @@ export default function SurprisePage() {
       try {
         let response;
         try {
-          response = await fetch('/api/beers');
+          response = await fetch('/api/beers?limit=5000');
         } catch {
           response = await fetch('/beers.json');
         }

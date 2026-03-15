@@ -94,18 +94,17 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     }
   };
 
+  const poolSize = useMemo(() => getFilteredBeers(mode).length, [beers, mode, excludedStyles]);
+
   const randomizeBeer = () => {
     const filteredBeers = getFilteredBeers(mode);
     
     if (filteredBeers.length === 0 || isRandomizing) return;
     
-    // Exclude recently shown beers from history to avoid repetition
-    const recentUrls = new Set(history.slice(0, Math.min(10, Math.floor(filteredBeers.length / 3))).map(b => b.beer_url));
+    // Exclude last 10 shown from pool to reduce immediate repeats (then pick from full pool if needed)
+    const recentUrls = new Set(history.slice(0, 10).map(b => b.beer_url));
     const availableBeers = filteredBeers.filter(b => !recentUrls.has(b.beer_url));
-    
-    // If all beers have been shown recently, reset and use full list
     const poolToUse = availableBeers.length > 0 ? availableBeers : filteredBeers;
-    // Shuffle pool so selection is unbiased over the whole list (not just random index into original order)
     const shuffledPool = shuffled(poolToUse);
     const finalIndex = secureRandomIndex(shuffledPool.length);
     const finalBeer = shuffledPool[finalIndex];
@@ -135,7 +134,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       onComplete: () => {
         setHistory(prev => {
             if (prev.some(b => b.beer_url === beer.beer_url)) return prev;
-            return [beer, ...prev.slice(0, 4)];
+            return [beer, ...prev.slice(0, 9)];
         });
         setIsRandomizing(false);
         createConfetti();
@@ -267,8 +266,11 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     })}
                 </div>
 
-                {/* Main Randomizer Button */}
-                <div className="flex justify-center">
+                {/* Pool size + Main Randomizer Button */}
+                <div className="flex flex-col items-center gap-3">
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                        Je randomize uit <span className="font-semibold text-amber-600 dark:text-amber-400">{poolSize}</span> bieren
+                    </p>
                     <motion.button
                     whileHover={{ scale: isRandomizing ? 1 : 1.05 }}
                     whileTap={{ scale: isRandomizing ? 1 : 0.95 }}
@@ -394,17 +396,18 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         )}
       </AnimatePresence>
 
-      {/* History - Grid Scrollable on mobile */}
+      {/* Laatste 10 verrassingen - live register */}
       {history.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="glass-panel rounded-2xl p-6"
         >
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-amber-600" />
-            Eerder Gevonden
+            Laatste 10 verrassingen
           </h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Recent gegenereerde bieren (nieuwste eerst)</p>
           <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto pb-4 md:pb-0 -mx-2 px-2 no-scrollbar snap-x">
             {history.map((beer, index) => (
               <motion.button

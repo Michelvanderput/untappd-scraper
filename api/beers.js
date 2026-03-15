@@ -99,7 +99,7 @@ export default function handler(req, res) {
     
     // Paginatie
     const pageNum = Math.max(1, parseInt(page));
-    const limitNum = Math.min(500, Math.max(1, parseInt(limit)));
+    const limitNum = Math.min(5000, Math.max(1, parseInt(limit)));
     const totalResults = beers.length;
     const totalPages = Math.ceil(totalResults / limitNum);
     const startIndex = (pageNum - 1) * limitNum;
