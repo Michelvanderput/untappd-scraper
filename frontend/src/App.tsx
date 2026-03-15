@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Gamepad2, Shuffle, Menu, X, Download, Loader2 } from 'lucide-react';
+import { Beer, TrendingUp, Sparkles, Shuffle, Menu, X, Download, Loader2 } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -8,7 +8,6 @@ import { FavoritesProvider } from './contexts/FavoritesContext';
 import { ComparisonProvider } from './contexts/ComparisonContext';
 import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
-import AIChatbot from './components/AIChatbot';
 import ComparisonBar from './components/ComparisonBar';
 import ErrorBoundary from './components/ErrorBoundary';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
@@ -18,7 +17,6 @@ import './App.css';
 const BeersPage = lazy(() => import('./pages/BeersPage'));
 const TrendsPage = lazy(() => import('./pages/TrendsPage'));
 const MenuBuilderPage = lazy(() => import('./pages/MenuBuilderPage'));
-const BeerdlePage = lazy(() => import('./pages/BeerdlePage'));
 const SurprisePage = lazy(() => import('./pages/SurprisePage'));
 const InstallPage = lazy(() => import('./pages/InstallPage'));
 const ComparePage = lazy(() => import('./pages/ComparePage'));
@@ -44,7 +42,6 @@ function Navigation() {
     { path: '/trends', icon: TrendingUp, label: 'Trends', color: 'from-blue-500 to-cyan-500' },
     { path: '/menu-builder', icon: Sparkles, label: 'Menu', color: 'from-purple-500 to-pink-500' },
     { path: '/surprise', icon: Shuffle, label: 'Surprise', color: 'from-green-500 to-emerald-500' },
-    { path: '/beerdle', icon: Gamepad2, label: 'Beerdle', color: 'from-red-500 to-orange-500' },
   ];
 
   const handleNavClick = () => {
@@ -200,9 +197,8 @@ function App() {
                     <Route path="/" element={<BeersPage />} />
                     <Route path="/trends" element={<TrendsPage />} />
                     <Route path="/menu-builder" element={<MenuBuilderPage />} />
-                    <Route path="/surprise" element={<SurprisePage />} />
-                    <Route path="/beerdle" element={<BeerdlePage />} />
-                    <Route path="/install" element={<InstallPage />} />
+                  <Route path="/surprise" element={<SurprisePage />} />
+                  <Route path="/install" element={<InstallPage />} />
                     <Route path="/compare" element={<ComparePage />} />
                     <Route path="*" element={<NotFoundPage />} />
                   </Routes>
@@ -211,7 +207,6 @@ function App() {
               
               <ComparisonBar />
               <UpdateNotification />
-              <AIChatbot />
             </div>
           </BrowserRouter>
         </ComparisonProvider>

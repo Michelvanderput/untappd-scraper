@@ -1,4 +1,5 @@
 import type { BeerData } from '../types/beer';
+import { secureRandomIndex, shuffled } from './random';
 
 // Beer style categories for smart pairing
 const STYLE_CATEGORIES = {
@@ -42,26 +43,9 @@ function getStyleCategory(beer: BeerData): string[] {
   return categories.length > 0 ? categories : ['other'];
 }
 
-// Secure random number generator
-function getSecureRandom(max: number): number {
-  const randomBuffer = new Uint32Array(1);
-  crypto.getRandomValues(randomBuffer);
-  return randomBuffer[0] % max;
-}
-
-// Shuffle array using Fisher-Yates with cryptographically secure random
-function shuffle<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = getSecureRandom(i + 1);
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
-// Generate completely random menu
+// Generate completely random menu (unbiased shuffle, then take first N)
 function generateRandomMenu(beers: BeerData[], size: number): GeneratedMenu {
-  const selected = shuffle(beers).slice(0, size);
+  const selected = shuffled(beers).slice(0, size);
   
   return {
     beers: selected,
@@ -76,27 +60,28 @@ function generateBalancedMenu(beers: BeerData[], size: number): GeneratedMenu {
   const beersPerCategory = Math.floor(size / categories.length);
   const selected: BeerData[] = [];
 
-  // Get beers from each category
+  // Get beers from each category (shuffle so we don't always pick same ones)
   for (const category of categories) {
     const categoryBeers = beers.filter(beer => 
       getStyleCategory(beer).includes(category)
     );
     
     if (categoryBeers.length > 0) {
-      const picks = shuffle(categoryBeers).slice(0, beersPerCategory);
+      const picks = shuffled(categoryBeers).slice(0, beersPerCategory);
       selected.push(...picks);
     }
   }
 
-  // Fill remaining slots with random beers
+  // Fill remaining slots with random beers (unbiased pick)
   while (selected.length < size) {
     const remaining = beers.filter(b => !selected.includes(b));
     if (remaining.length === 0) break;
-    selected.push(remaining[Math.floor(Math.random() * remaining.length)]);
+    const idx = secureRandomIndex(remaining.length);
+    selected.push(remaining[idx]);
   }
 
   return {
-    beers: shuffle(selected).slice(0, size),
+    beers: shuffled(selected).slice(0, size),
     theme: '⚖️ Gebalanceerd Menu',
     description: 'Een perfecte mix van licht, hoppy, donker en speciaal bier!',
     pairingNotes: [
@@ -111,13 +96,17 @@ function generateBalancedMenu(beers: BeerData[], size: number): GeneratedMenu {
 function generateJourneyMenu(beers: BeerData[], size: number): GeneratedMenu {
   const sortedByABV = [...beers].sort((a, b) => (a.abv || 0) - (b.abv || 0));
   
-  // Pick evenly distributed beers across ABV range
-  const step = Math.floor(sortedByABV.length / size);
+  // Pick evenly distributed beers across ABV range (one random from each bucket)
+  const step = Math.max(1, Math.floor(sortedByABV.length / size));
   const selected: BeerData[] = [];
   
   for (let i = 0; i < size; i++) {
-    const index = Math.min(i * step + Math.floor(Math.random() * step), sortedByABV.length - 1);
-    selected.push(sortedByABV[index]);
+    const start = i * step;
+    const end = Math.min(start + step, sortedByABV.length);
+    const bucketSize = end - start;
+    if (bucketSize <= 0) break;
+    const idx = start + secureRandomIndex(bucketSize);
+    selected.push(sortedByABV[idx]);
   }
 
   return {
@@ -143,7 +132,7 @@ function generatePartyMenu(beers: BeerData[], size: number): GeneratedMenu {
     )
     .sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
-  const selected = shuffle(partyBeers).slice(0, size);
+  const selected = shuffled(partyBeers).slice(0, size);
 
   return {
     beers: selected,
@@ -172,7 +161,7 @@ function generateExpertMenu(beers: BeerData[], size: number): GeneratedMenu {
       return scoreB - scoreA;
     });
 
-  const selected = shuffle(expertBeers).slice(0, size);
+  const selected = shuffled(expertBeers).slice(0, size);
 
   return {
     beers: selected,

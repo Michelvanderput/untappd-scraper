@@ -3,6 +3,7 @@ import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as 
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import type { BeerData, RandomizerMode } from '../types/beer';
+import { secureRandomIndex, shuffled } from '../utils/random';
 
 interface BeerRandomizerProps {
   beers: BeerData[];
@@ -93,12 +94,6 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     }
   };
 
-  const getSecureRandomIndex = (max: number): number => {
-    const randomBuffer = new Uint32Array(1);
-    crypto.getRandomValues(randomBuffer);
-    return randomBuffer[0] % max;
-  };
-
   const randomizeBeer = () => {
     const filteredBeers = getFilteredBeers(mode);
     
@@ -110,9 +105,10 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     
     // If all beers have been shown recently, reset and use full list
     const poolToUse = availableBeers.length > 0 ? availableBeers : filteredBeers;
-    
-    const finalIndex = getSecureRandomIndex(poolToUse.length);
-    const finalBeer = poolToUse[finalIndex];
+    // Shuffle pool so selection is unbiased over the whole list (not just random index into original order)
+    const shuffledPool = shuffled(poolToUse);
+    const finalIndex = secureRandomIndex(shuffledPool.length);
+    const finalBeer = shuffledPool[finalIndex];
     
     // Immediately hide existing content before state update
     if (currentBeer) {

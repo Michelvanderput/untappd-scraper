@@ -10,7 +10,7 @@ interface SEOProps {
 
 export default function SEO({
   title = 'BeerMenu - Ontdek de Beste Bieren',
-  description = 'Ontdek het complete biermenu met alle informatie over stijlen, ABV, en meer. Speel Beerdle en bouw je eigen biermenu!',
+  description = 'Ontdek het complete biermenu met alle informatie over stijlen, ABV, en meer. Bouw je eigen biermenu of laat je verrassen!',
   image = '/icon.svg',
   url,
   type = 'website'
@@ -53,7 +53,7 @@ export default function SEO({
     updateMetaTag('twitter:image', image);
     
     // Additional SEO tags
-    updateMetaTag('keywords', 'bier, beer, biermenu, craft beer, bierkaart, beerdle, beer game');
+    updateMetaTag('keywords', 'bier, beer, biermenu, craft beer, bierkaart');
     updateMetaTag('author', 'BeerMenu');
     updateMetaTag('robots', 'index, follow');
   }, [title, description, image, url, type]);
