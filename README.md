@@ -395,7 +395,7 @@ Alle wijzigingen worden opgeslagen met timestamp in `changelog.json`.
 
 ## Production checklist (verkoop / live)
 
-- [ ] **Environment**: `.env` lokaal en op Vercel ingevuld (minimaal `VITE_OLLAMA_API_KEY` als je de chatbot wilt gebruiken).
+- [ ] **Environment**: `.env` lokaal en op Vercel ingevuld. Voor het **live register** op de Surprise-pagina (laatste 10 verrassingen van iedereen): maak een [Upstash Redis](https://console.upstash.com/) database (gratis), kopieer REST URL en token naar `UPSTASH_REDIS_REST_URL` en `UPSTASH_REDIS_REST_TOKEN` in Vercel.
 - [ ] **GitHub Actions**: Workflow permissions op "Read and write" gezet zodat de scraper kan committen.
 - [ ] **Health check**: Controleer regelmatig `/api/health`; bij `degraded` of `unhealthy` is de data >48u oud of ontbreekt.
 - [ ] **Scraper falen**: Als de scraper in CI faalt, kijk in Actions logs en in `scrape-log.json`; Untappd kan tijdelijk rate-limiten of de HTML-structuur wijzigen.

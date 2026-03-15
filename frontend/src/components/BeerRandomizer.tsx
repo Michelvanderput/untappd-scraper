@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon, RotateCcw, ArrowLeft, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
@@ -18,36 +18,51 @@ const MODES = [
   { id: 'high-ibu' as RandomizerMode, label: 'Bitter', icon: Zap, color: 'from-green-500 to-emerald-500' },
 ];
 
+const LIVE_REGISTER_URL = '/api/last-randomized';
+
 export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerProps) {
   const [currentBeer, setCurrentBeer] = useState<BeerData | null>(null);
   const [history, setHistory] = useState<BeerData[]>([]);
+  const [liveList, setLiveList] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
   const [isRandomizing, setIsRandomizing] = useState(false);
-  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set());
+  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set()); // category names to exclude
   
   const resultRef = useRef<HTMLDivElement>(null);
   const confettiRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Get unique beer styles from all beers
-  const availableStyles = useMemo(() => {
-    const styles = new Set<string>();
+  const fetchLiveRegister = useCallback(async () => {
+    try {
+      const res = await fetch(LIVE_REGISTER_URL, { cache: 'no-store' });
+      if (res.ok) {
+        const data = await res.json();
+        setLiveList(Array.isArray(data.list) ? data.list : []);
+      }
+    } catch {
+      setLiveList([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchLiveRegister();
+    const interval = setInterval(fetchLiveRegister, 30000);
+    return () => clearInterval(interval);
+  }, [fetchLiveRegister]);
+
+  // Unieke menu-categorieën (geen stijlen, voorkomt dubbele/overlappende namen)
+  const availableCategories = useMemo(() => {
+    const set = new Set<string>();
     beers.forEach(beer => {
-      const style = beer.style || beer.category;
-      if (style) styles.add(style);
+      if (beer.category) set.add(beer.category);
     });
-    return Array.from(styles).sort();
+    return Array.from(set).sort();
   }, [beers]);
 
   const getFilteredBeers = (selectedMode: RandomizerMode): BeerData[] => {
     let filtered = [...beers];
-    
-    // Filter by excluded styles first
     if (excludedStyles.size > 0) {
-      filtered = filtered.filter(b => {
-        const style = b.style || b.category;
-        return !excludedStyles.has(style);
-      });
+      filtered = filtered.filter(b => !excludedStyles.has(b.category));
     }
     
     // Then apply mode filters
@@ -139,6 +154,14 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         setIsRandomizing(false);
         createConfetti();
         if (onBeerSelect) onBeerSelect(beer);
+        fetch(LIVE_REGISTER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ beer: { name: beer.name, beer_url: beer.beer_url, brewery: beer.brewery, image_url: beer.image_url, rating: beer.rating, style: beer.style, category: beer.category, abv: beer.abv } }),
+        })
+          .then((r) => r.ok ? r.json() : null)
+          .then((data) => { if (data?.list) setLiveList(data.list); })
+          .catch(() => {});
       }
     });
     
@@ -170,21 +193,16 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     setIsRandomizing(false);
   };
 
-  const toggleStyleExclusion = (style: string) => {
+  const toggleCategoryExclusion = (category: string) => {
     setExcludedStyles(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(style)) {
-        newSet.delete(style);
-      } else {
-        newSet.add(style);
-      }
-      return newSet;
+      const next = new Set(prev);
+      if (next.has(category)) next.delete(category);
+      else next.add(category);
+      return next;
     });
   };
 
-  const clearExcludedStyles = () => {
-    setExcludedStyles(new Set());
-  };
+  const clearExcludedCategories = () => setExcludedStyles(new Set());
 
   return (
     <div className="space-y-8" ref={containerRef}>
@@ -198,49 +216,53 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                 transition={{ duration: 0.3 }}
                 className="space-y-8"
             >
-                {/* Style Exclusion Filter */}
-                <div className="glass-panel rounded-2xl p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                      <BeerIcon className="w-4 h-4 text-amber-600" />
-                      Sluit bierstijlen uit
-                    </h3>
+                {/* Categorieën uitsluiten (alleen menu's, geen dubbele namen) */}
+                {availableCategories.length > 0 && (
+                  <div className="glass-panel rounded-2xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                        <BeerIcon className="w-4 h-4 text-amber-600" />
+                        Sluit menu&apos;s uit
+                      </h3>
+                      {excludedStyles.size > 0 && (
+                        <button
+                          type="button"
+                          onClick={clearExcludedCategories}
+                          className="text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-1"
+                        >
+                          <X className="w-3 h-3" />
+                          Wis
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {availableCategories.map((category) => {
+                        const isExcluded = excludedStyles.has(category);
+                        return (
+                          <motion.button
+                            key={category}
+                            type="button"
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.98 }}
+                            onClick={() => toggleCategoryExclusion(category)}
+                            className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                              isExcluded
+                                ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 line-through border border-red-300 dark:border-red-700'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+                            }`}
+                          >
+                            {category}
+                          </motion.button>
+                        );
+                      })}
+                    </div>
                     {excludedStyles.size > 0 && (
-                      <button
-                        onClick={clearExcludedStyles}
-                        className="text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-1"
-                      >
-                        <X className="w-3 h-3" />
-                        Wis alles
-                      </button>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                        {excludedStyles.size === 1 ? '1 menu uitgesloten' : `${excludedStyles.size} menu's uitgesloten`}
+                      </p>
                     )}
                   </div>
-                  <div className="flex flex-wrap gap-2">
-                    {availableStyles.map((style) => {
-                      const isExcluded = excludedStyles.has(style);
-                      return (
-                        <motion.button
-                          key={style}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          onClick={() => toggleStyleExclusion(style)}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                            isExcluded
-                              ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 line-through border border-red-300 dark:border-red-700'
-                              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
-                          }`}
-                        >
-                          {style}
-                        </motion.button>
-                      );
-                    })}
-                  </div>
-                  {excludedStyles.size > 0 && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-3">
-                      {excludedStyles.size} stijl{excludedStyles.size !== 1 ? 'en' : ''} uitgesloten
-                    </p>
-                  )}
-                </div>
+                )}
 
                 {/* Mode Selection */}
                 <div className="flex flex-wrap md:justify-center gap-3 overflow-x-auto pb-4 md:pb-0 px-2 -mx-2 no-scrollbar touch-pan-x">
@@ -396,38 +418,33 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
         )}
       </AnimatePresence>
 
-      {/* Laatste 10 verrassingen - live register */}
-      {history.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="glass-panel rounded-2xl p-6"
-        >
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
-            <TrendingUp className="w-5 h-5 text-amber-600" />
-            Laatste 10 verrassingen
-          </h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Recent gegenereerde bieren (nieuwste eerst)</p>
+      {/* Live register: laatste 10 verrassingen van iedereen */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="glass-panel rounded-2xl p-6"
+      >
+        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-amber-600" />
+          Laatste 10 verrassingen <span className="text-sm font-normal text-amber-600 dark:text-amber-400">(live)</span>
+        </h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Bieren die iedereen zojuist heeft gegenereerd</p>
+        {liveList.length === 0 ? (
+          <p className="text-sm text-gray-500 dark:text-gray-400 py-6 text-center">Nog geen verrassingen gedeeld. Gebruik &quot;Verras Me!&quot; om de eerste te zijn.</p>
+        ) : (
           <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto pb-4 md:pb-0 -mx-2 px-2 no-scrollbar snap-x">
-            {history.map((beer, index) => (
-              <motion.button
+            {liveList.map((beer, index) => (
+              <a
                 key={`${beer.beer_url}-${index}`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                onClick={() => {
-                   setCurrentBeer(beer);
-                   // Immediate reveal for history items
-                   setTimeout(() => {
-                        gsap.set('.reveal-item', { opacity: 1, y: 0, scale: 1 });
-                   }, 50);
-                }}
-                className="flex-shrink-0 w-32 md:w-auto snap-center bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-lg transition-all group"
+                href={beer.beer_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 w-32 md:w-auto snap-center bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-lg transition-all group block"
               >
                 {beer.image_url ? (
                   <img
                     src={beer.image_url}
-                    alt={beer.name}
+                    alt=""
                     className="w-full h-24 object-contain mb-3 group-hover:scale-110 transition-transform duration-300"
                   />
                 ) : (
@@ -439,13 +456,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   {beer.name}
                 </p>
                 <p className="text-[10px] text-gray-500 truncate">
-                  {beer.brewery}
+                  {beer.brewery ?? ''}
                 </p>
-              </motion.button>
+              </a>
             ))}
           </div>
-        </motion.div>
-      )}
+        )}
+      </motion.div>
     </div>
   );
 }
