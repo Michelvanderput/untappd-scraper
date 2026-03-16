@@ -1,36 +1,21 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-16T06:36:26.133Z",
-  "count": 407,
-  "scrape_duration_seconds": 2.61,
+  "fetched_at": "2026-03-16T12:25:12.895Z",
+  "count": 406,
+  "scrape_duration_seconds": 2.55,
   "stats": {
-    "total_fetched": 407,
-    "total_valid": 407,
+    "total_fetched": 406,
+    "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 18,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 82,
       "Bierbijbel": 296
     }
   },
   "beers": [
-    {
-      "name": "India Pale Ale",
-      "beer_url": "https://untappd.com/b/nogne-o-india-pale-ale-ipa/15929",
-      "image_url": "https://labels.untappd.com/15929",
-      "style": "IPA - American",
-      "brewery": "Nøgne Ø",
-      "brewery_url": "https://untappd.com/w/nogne-o/923",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7.5,
-      "ibu": 60,
-      "rating": 3.7,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
     {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
@@ -387,7 +372,7 @@
       "subcategory": null,
       "abv": 6.7,
       "ibu": 43,
-      "rating": 4.05,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2667,7 +2652,7 @@
       "subcategory": "Fruitbieren",
       "abv": 7,
       "ibu": 6,
-      "rating": 3.54,
+      "rating": 3.53,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
