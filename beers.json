@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-17T12:23:55.478Z",
+  "fetched_at": "2026-03-17T18:23:44.246Z",
   "count": 404,
-  "scrape_duration_seconds": 2.71,
+  "scrape_duration_seconds": 4.14,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Bruin",
+      "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-bruin/73886",
+      "image_url": "https://labels.untappd.com/73886",
+      "style": "Brown Ale - Belgian",
+      "brewery": "Brouwerij Broeder Jacob",
+      "brewery_url": "https://untappd.com/w/brouwerij-broeder-jacob/10514",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.5,
+      "ibu": null,
+      "rating": 3.27,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
@@ -227,21 +242,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Tynt Meadow",
-      "beer_url": "https://untappd.com/b/mount-saint-bernard-abbey-tynt-meadow/2718730",
-      "image_url": "https://labels.untappd.com/2718730",
-      "style": "Strong Ale - English",
-      "brewery": "Mount Saint Bernard Abbey",
-      "brewery_url": "https://untappd.com/w/mount-saint-bernard-abbey/397470",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7.4,
-      "ibu": 38,
-      "rating": 3.65,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Gouden Carolus Hopsinjoor",
       "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-hopsinjoor/5646",
       "image_url": "https://labels.untappd.com/5646",
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.86,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -942,7 +942,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.57,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": null,
-      "rating": 3.83,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2607,7 +2607,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8.5,
       "ibu": 16,
-      "rating": 3.33,
+      "rating": 3.32,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5922,7 +5922,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.32,
+      "rating": 3.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
