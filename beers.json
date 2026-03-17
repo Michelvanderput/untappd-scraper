@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-17T06:26:24.864Z",
-  "count": 406,
-  "scrape_duration_seconds": 6.87,
+  "fetched_at": "2026-03-17T12:23:55.478Z",
+  "count": 404,
+  "scrape_duration_seconds": 2.71,
   "stats": {
-    "total_fetched": 406,
-    "total_valid": 406,
+    "total_fetched": 404,
+    "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 82,
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
@@ -553,21 +553,6 @@
       "abv": 7.5,
       "ibu": 40,
       "rating": 3.59,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Talk To Me Goose",
-      "beer_url": "https://untappd.com/b/brewski-talk-to-me-goose/6515493",
-      "image_url": "https://labels.untappd.com/6515493",
-      "style": "Cider - Other Fruit",
-      "brewery": "Brewski",
-      "brewery_url": "https://untappd.com/w/brewski/167487",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": null,
-      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1288,21 +1273,6 @@
       "abv": 11.8,
       "ibu": 29,
       "rating": 3.98,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Bake My Day - Oloroso & Ledaig",
-      "beer_url": "https://untappd.com/b/jopen-bake-my-day-oloroso-and-leidag/5596649",
-      "image_url": "https://labels.untappd.com/5596649",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Jopen",
-      "brewery_url": "https://untappd.com/w/jopen/620",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10.8,
-      "ibu": null,
-      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2652,7 +2622,7 @@
       "subcategory": "Fruitbieren",
       "abv": 7,
       "ibu": 6,
-      "rating": 3.53,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
