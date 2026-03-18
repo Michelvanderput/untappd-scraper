@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-18T12:25:12.916Z",
+  "fetched_at": "2026-03-18T18:23:51.296Z",
   "count": 404,
-  "scrape_duration_seconds": 2.94,
+  "scrape_duration_seconds": 2.76,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
@@ -10,24 +10,24 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 80,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 296
     }
   },
   "beers": [
     {
-      "name": "Excellence du Val-Dieu Pere Magloire Calvados Oak BA (2025)",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-excellence-2025-calvados/6420671",
-      "image_url": "https://labels.untappd.com/6420671",
-      "style": "Belgian Tripel",
+      "name": "Val-Dieu Blonde",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+      "image_url": "https://labels.untappd.com/40880",
+      "style": "Belgian Blonde",
       "brewery": "Brasserie de l'Abbaye du Val-Dieu",
       "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
       "category": "Wisseltap bieren",
       "subcategory": null,
-      "abv": 11.5,
-      "ibu": null,
-      "rating": 3.99,
+      "abv": 6,
+      "ibu": 18,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -807,7 +807,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": null,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2802,7 +2802,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": 22,
-      "rating": 3.5,
+      "rating": 3.49,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
