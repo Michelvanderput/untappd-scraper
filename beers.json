@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-17T18:23:44.246Z",
+  "fetched_at": "2026-03-18T06:27:19.611Z",
   "count": 404,
-  "scrape_duration_seconds": 4.14,
+  "scrape_duration_seconds": 2.39,
   "stats": {
     "total_fetched": 404,
     "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Excellence du Val-Dieu Pere Magloire Calvados Oak BA (2025)",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-excellence-2025-calvados/6420671",
+      "image_url": "https://labels.untappd.com/6420671",
+      "style": "Belgian Tripel",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 11.5,
+      "ibu": null,
+      "rating": 3.99,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Bruin",
       "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-bruin/73886",
@@ -118,21 +133,6 @@
       "abv": 10.7,
       "ibu": 17,
       "rating": 3.92,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Val-Dieu Triple",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
-      "image_url": "https://labels.untappd.com/442",
-      "style": "Belgian Tripel",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 20,
-      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
