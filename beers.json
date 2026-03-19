@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-18T18:23:51.296Z",
-  "count": 404,
-  "scrape_duration_seconds": 2.76,
+  "fetched_at": "2026-03-19T06:24:35.485Z",
+  "count": 403,
+  "scrape_duration_seconds": 2.51,
   "stats": {
-    "total_fetched": 404,
-    "total_valid": 404,
+    "total_fetched": 403,
+    "total_valid": 403,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
-      "Op=Op kaart": 80,
+      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
@@ -208,21 +208,6 @@
       "abv": 7.5,
       "ibu": 27,
       "rating": 3.74,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Triple Meltdown",
-      "beer_url": "https://untappd.com/b/zuyd-craft-triple-meltdown/6474310",
-      "image_url": "https://labels.untappd.com/6474310",
-      "style": "IPA - Triple New England / Hazy",
-      "brewery": "Zuyd Craft",
-      "brewery_url": "https://untappd.com/w/zuyd-craft/272353",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 4.07,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
