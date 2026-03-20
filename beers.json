@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-19T18:20:35.939Z",
-  "count": 403,
-  "scrape_duration_seconds": 2.74,
+  "fetched_at": "2026-03-20T06:21:39.703Z",
+  "count": 406,
+  "scrape_duration_seconds": 2.17,
   "stats": {
-    "total_fetched": 403,
-    "total_valid": 403,
+    "total_fetched": 406,
+    "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 80,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 83,
       "Bierbijbel": 296
     }
   },
@@ -255,6 +255,51 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "BLUEBERRY FLUFF",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-blueberry-fluff/6560672",
+      "image_url": "https://labels.untappd.com/6560672",
+      "style": "Sour - Smoothie / Pastry",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "HEADLINER",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-headliner/6560675",
+      "image_url": "https://labels.untappd.com/6560675",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 36,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Hops Around the World: New Zealand - Nelson Sauvin, Mouteka",
+      "beer_url": "https://untappd.com/b/nepo-brewing-hops-around-the-world-new-zealand-nelson-sauvin-mouteka/6205833",
+      "image_url": "https://labels.untappd.com/6205833",
+      "style": "IPA - New Zealand",
+      "brewery": "Nepo Brewing",
+      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.4,
+      "ibu": null,
+      "rating": 3.84,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V6 - Whippedcream, Salted Caramel Popcorndrip, Hazelnut Sprinkle",
