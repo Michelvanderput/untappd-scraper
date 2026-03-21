@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-21T06:15:49.408Z",
+  "fetched_at": "2026-03-21T12:13:45.666Z",
   "count": 406,
-  "scrape_duration_seconds": 2.35,
+  "scrape_duration_seconds": 3.13,
   "stats": {
     "total_fetched": 406,
     "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 83,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Fresh Hop Frisky 2025",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-fresh-hop-frisky-2025/6441876",
+      "image_url": "https://labels.untappd.com/6441876",
+      "style": "IPA - New England / Hazy",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4.4,
+      "ibu": 15,
+      "rating": 3.59,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Blond",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
+      "image_url": "https://labels.untappd.com/5850248",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.56,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Val-Dieu Blonde",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
@@ -62,21 +92,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Leffe Blonde / Blond",
-      "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
-      "image_url": "https://labels.untappd.com/5940",
-      "style": "Belgian Blonde",
-      "brewery": "Abbaye de Leffe",
-      "brewery_url": "https://untappd.com/w/abbaye-de-leffe/5",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 20,
-      "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Trignac XII",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-trignac-xii/342771",
       "image_url": "https://labels.untappd.com/342771",
@@ -88,21 +103,6 @@
       "abv": 12,
       "ibu": null,
       "rating": 4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Zeeuwse Lust",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-zeeuwse-lust/5215695",
-      "image_url": "https://labels.untappd.com/5215695",
-      "style": "Wheat Beer - Hefeweizen",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 12,
-      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -3762,7 +3762,7 @@
       "subcategory": "Trappistenbieren",
       "abv": 10,
       "ibu": 31,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
