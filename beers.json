@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-20T18:15:51.871Z",
+  "fetched_at": "2026-03-21T06:15:49.408Z",
   "count": 406,
-  "scrape_duration_seconds": 1.24,
+  "scrape_duration_seconds": 2.35,
   "stats": {
     "total_fetched": 406,
     "total_valid": 406,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
-      "Bierbijbel": 296,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 83
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 83,
+      "Bierbijbel": 296
     }
   },
   "beers": [
@@ -407,7 +407,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Piece of Cake Tarte Tatin",
+      "name": "Piece of Cake: Tarte Tatin",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-tarte-tatin/6591746",
       "image_url": "https://labels.untappd.com/6591746",
       "style": "Barleywine - Other",
