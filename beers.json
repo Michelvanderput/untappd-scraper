@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-21T18:09:39.138Z",
-  "count": 406,
-  "scrape_duration_seconds": 2.94,
+  "fetched_at": "2026-03-22T06:20:23.256Z",
+  "count": 403,
+  "scrape_duration_seconds": 4.5,
   "stats": {
-    "total_fetched": 406,
-    "total_valid": 406,
+    "total_fetched": 403,
+    "total_valid": 403,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 83,
-      "Bierbijbel": 296
+      "Bierbijbel": 296,
+      "Op=Op kaart": 80
     }
   },
   "beers": [
+    {
+      "name": "Gouden Carolus Easter (2026)",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-easter-2026/6641738",
+      "image_url": "https://labels.untappd.com/6641738",
+      "style": "Belgian Strong Dark Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": null,
+      "rating": 3.86,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Sint Barbara the Saint Selection",
       "beer_url": "https://untappd.com/b/brouwerij-kompel-sint-barbara-the-saint-selection/6548784",
@@ -118,21 +133,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.35,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouden Carolus Whisky Infused Blond",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-whisky-infused-blond/6526045",
-      "image_url": "https://labels.untappd.com/6526045",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.7,
-      "ibu": 17,
-      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -452,21 +452,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Slopestyle",
-      "beer_url": "https://untappd.com/b/amundsen-brewery-slopestyle-outer-range-collab/6509381",
-      "image_url": "https://labels.untappd.com/6509381",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Amundsen Brewery",
-      "brewery_url": "https://untappd.com/w/amundsen-brewery/16909",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.3,
-      "ibu": null,
-      "rating": 3.92,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Limburgse Koffie... Wat Els?!",
       "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
       "image_url": "https://labels.untappd.com/6497004",
@@ -493,21 +478,6 @@
       "abv": 10,
       "ibu": 36,
       "rating": 3.54,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Viven Master IPA",
-      "beer_url": "https://untappd.com/b/beerdevelopment-viven-viven-master-ipa/946254",
-      "image_url": "https://labels.untappd.com/946254",
-      "style": "IPA - American",
-      "brewery": "Beerdevelopment Viven",
-      "brewery_url": "https://untappd.com/w/beerdevelopment-viven/28007",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 50,
-      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -913,21 +883,6 @@
       "abv": 6.5,
       "ibu": 15,
       "rating": 3.98,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Crimson Curse",
-      "beer_url": "https://untappd.com/b/holy-goat-brewing-crimson-curse/6216832",
-      "image_url": "https://labels.untappd.com/6216832",
-      "style": "Sour - Flanders Red Ale",
-      "brewery": "Holy Goat Brewing",
-      "brewery_url": "https://untappd.com/w/holy-goat-brewing/477693",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.6,
-      "ibu": null,
-      "rating": 3.78,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
