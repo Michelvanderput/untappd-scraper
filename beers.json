@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-22T18:10:04.101Z",
+  "fetched_at": "2026-03-23T06:30:16.143Z",
   "count": 403,
-  "scrape_duration_seconds": 3.31,
+  "scrape_duration_seconds": 2.89,
   "stats": {
     "total_fetched": 403,
     "total_valid": 403,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Wit",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-wit/6180964",
+      "image_url": "https://labels.untappd.com/6180964",
+      "style": "Wheat Beer - Witbier / Blanche",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.5,
+      "ibu": null,
+      "rating": 3.56,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kameradski Balsamico",
       "beer_url": "https://untappd.com/b/brouwerij-t-verzet-kameradski-balsamico/1868050",
@@ -118,21 +133,6 @@
       "abv": 4.4,
       "ibu": 15,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blond",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
-      "image_url": "https://labels.untappd.com/5850248",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.56,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
