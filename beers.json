@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-24T18:23:24.561Z",
+  "fetched_at": "2026-03-25T06:26:48.210Z",
   "count": 403,
-  "scrape_duration_seconds": 2.88,
+  "scrape_duration_seconds": 2.49,
   "stats": {
     "total_fetched": 403,
     "total_valid": 403,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Kwaremont Dirty Blonde IPA",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
+      "image_url": "https://labels.untappd.com/5701666",
+      "style": "IPA - Belgian",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4,
+      "ibu": null,
+      "rating": 3.4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Wit",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-wit/6180964",
@@ -58,21 +73,6 @@
       "abv": 6.6,
       "ibu": 20,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouden Carolus Hopsinjoor",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-hopsinjoor/5646",
-      "image_url": "https://labels.untappd.com/5646",
-      "style": "IPA - Belgian",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 30,
-      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
