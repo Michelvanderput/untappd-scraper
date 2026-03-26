@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-do
 import { Beer, TrendingUp, Sparkles, Shuffle, Menu, X, Download, Loader2, Instagram } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import gsap from 'gsap';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
 import { ComparisonProvider } from './contexts/ComparisonContext';
@@ -209,6 +210,7 @@ function App() {
 
               <ComparisonBar />
               <UpdateNotification />
+              <Analytics />
 
               <footer className="mt-auto py-6 px-4 border-t border-amber-200/50 dark:border-gray-800">
                 <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
