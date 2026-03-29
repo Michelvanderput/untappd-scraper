@@ -1,6 +1,289 @@
 {
   "changes": [
     {
+      "date": "2026-03-29T18:12:18.638Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 25,
+        "total_beers": 402
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Daisy Sunshine",
+          "beer_url": "https://untappd.com/b/rock-city-brewing-daisy-sunshine/6615890",
+          "changes": {
+            "rating": {
+              "old": 3.81,
+              "new": 3.8
+            }
+          }
+        },
+        {
+          "name": "Kwaremont Dirty Blonde IPA",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Wit",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-wit/6180964",
+          "changes": {
+            "rating": {
+              "old": 3.56,
+              "new": 3.55
+            }
+          }
+        },
+        {
+          "name": "Leffe Blonde / Blond",
+          "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Pêche Mel Bush",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "La Trappe Isid'or",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "BLUEBERRY FLUFF",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-blueberry-fluff/6560672",
+          "changes": {
+            "rating": {
+              "old": 4.18,
+              "new": 4.07
+            }
+          }
+        },
+        {
+          "name": "TIRAMISU",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-tiramisu/6560668",
+          "changes": {
+            "rating": {
+              "old": 3.89,
+              "new": 3.9
+            }
+          }
+        },
+        {
+          "name": "Limburgse Koffie... Wat Els?!",
+          "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
+          "changes": {
+            "rating": {
+              "old": 3.71,
+              "new": 3.69
+            }
+          }
+        },
+        {
+          "name": "NEIPA",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-neipa/6492627",
+          "changes": {
+            "rating": {
+              "old": 3.55,
+              "new": 3.54
+            }
+          }
+        },
+        {
+          "name": "Gingerbread Man",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
+          "changes": {
+            "rating": {
+              "old": 3.76,
+              "new": 3.77
+            }
+          }
+        },
+        {
+          "name": "STRATASPHERE",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-stratasphere/6560662",
+          "changes": {
+            "rating": {
+              "old": 3.95,
+              "new": 3.96
+            }
+          }
+        },
+        {
+          "name": "Fire In the Beehive",
+          "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
+          "changes": {
+            "rating": {
+              "old": 3.35,
+              "new": 3.34
+            }
+          }
+        },
+        {
+          "name": "Get Pitted",
+          "beer_url": "https://untappd.com/b/dutch-bargain-get-pitted/6481752",
+          "changes": {
+            "rating": {
+              "old": 3.65,
+              "new": 3.64
+            }
+          }
+        },
+        {
+          "name": "Barrel Collab Series #2 - Flanders Style Red Ale",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-flanders-style-red-ale/6482954",
+          "changes": {
+            "rating": {
+              "old": 3.47,
+              "new": 3.46
+            }
+          }
+        },
+        {
+          "name": "Barrel Collab Series #2 - Imperial Fruited Sour",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-imperial-fruited-sour/6482956",
+          "changes": {
+            "rating": {
+              "old": 3.43,
+              "new": 3.42
+            }
+          }
+        },
+        {
+          "name": "Playlist",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-playlist/6472881",
+          "changes": {
+            "rating": {
+              "old": 3.25,
+              "new": 3.24
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi Rabarber / Rhubarb",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Meesterstuk 2024 Barrel Aged Dru Whiskey Barrels",
+          "beer_url": "https://untappd.com/b/jopen-meesterstuk-2024-barrel-aged-dru-whiskey-barrels/6513292",
+          "changes": {
+            "rating": {
+              "old": 4.13,
+              "new": 4.12
+            }
+          }
+        },
+        {
+          "name": "Gueuze 100% Lambic Bio",
+          "beer_url": "https://untappd.com/b/brasserie-cantillon-gueuze-100-lambic-bio/56829",
+          "changes": {
+            "rating": {
+              "old": 4.18,
+              "new": 4.17
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-03-29T12:17:37.268Z",
       "summary": {
         "added": 0,
@@ -5161,213 +5444,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-03-19T18:20:36.104Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 17,
-        "total_beers": 403
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Leffe Blonde / Blond",
-          "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Trignac XII",
-          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-trignac-xii/342771",
-          "changes": {
-            "container": {
-              "old": "75cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gouden Carolus Whisky Infused Blond",
-          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-whisky-infused-blond/6526045",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Pêche Mel Bush",
-          "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Isid'or",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "TIRAMISU",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-tiramisu/6560668",
-          "changes": {
-            "rating": {
-              "old": 3.85,
-              "new": 3.86
-            }
-          }
-        },
-        {
-          "name": "Limburgse Koffie... Wat Els?!",
-          "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
-          "changes": {
-            "rating": {
-              "old": 3.72,
-              "new": 3.71
-            }
-          }
-        },
-        {
-          "name": "Proemevlaai",
-          "beer_url": "https://untappd.com/b/aspro-brews-proemevlaai/4683376",
-          "changes": {
-            "rating": {
-              "old": 3.54,
-              "new": 3.55
-            }
-          }
-        },
-        {
-          "name": "Sour Framboise/Passion",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-sour-framboise-passion/6514603",
-          "changes": {
-            "rating": {
-              "old": 3.67,
-              "new": 3.68
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi Rabarber / Rhubarb",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Chimay Première (Red)",
-          "beer_url": "https://untappd.com/b/bieres-de-chimay-chimay-premiere-red/4072",
-          "changes": {
-            "rating": {
-              "old": 3.73,
-              "new": 3.72
-            }
-          }
-        },
-        {
-          "name": "Tropical 0.0",
-          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-tropical-0-0/6249320",
-          "changes": {
-            "rating": {
-              "old": 3.33,
-              "new": 3.32
             }
           }
         }
