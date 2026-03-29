@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-28T18:11:06.130Z",
-  "count": 403,
-  "scrape_duration_seconds": 4.84,
+  "fetched_at": "2026-03-29T06:28:18.683Z",
+  "count": 402,
+  "scrape_duration_seconds": 2.57,
   "stats": {
-    "total_fetched": 403,
-    "total_valid": 403,
+    "total_fetched": 402,
+    "total_valid": 402,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Bierbijbel": 296,
-      "Op=Op kaart": 80
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 79,
+      "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Daisy Sunshine",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-daisy-sunshine/6615890",
+      "image_url": "https://labels.untappd.com/6615890",
+      "style": "IPA - Cold",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.6,
+      "ibu": null,
+      "rating": 3.81,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Petrus Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-blond/77",
+      "image_url": "https://labels.untappd.com/77",
+      "style": "Belgian Blonde",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 24,
+      "rating": 3.36,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gouden Carolus Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
@@ -88,21 +118,6 @@
       "abv": 6.6,
       "ibu": 20,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Koene Ridder",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-koene-ridder/643072",
-      "image_url": "https://labels.untappd.com/643072",
-      "style": "Belgian Tripel",
-      "brewery": "Rock City Brewing",
-      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7.2,
-      "ibu": 30,
-      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -193,21 +208,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.35,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Petrus Tripel",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-tripel/76",
-      "image_url": "https://labels.untappd.com/76",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 26,
-      "rating": 3.47,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1093,21 +1093,6 @@
       "abv": 5,
       "ibu": 10,
       "rating": 3.25,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Toffee Nut Latte",
-      "beer_url": "https://untappd.com/b/vault-city-brewing-toffee-nut-latte/6426812",
-      "image_url": "https://labels.untappd.com/6426812",
-      "style": "Stout - Imperial / Double Coffee",
-      "brewery": "Vault City Brewing",
-      "brewery_url": "https://untappd.com/w/vault-city-brewing/399292",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": 13,
-      "rating": 4.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
