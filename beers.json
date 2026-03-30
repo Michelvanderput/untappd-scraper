@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-03-29T18:12:18.558Z",
+  "fetched_at": "2026-03-30T06:42:04.263Z",
   "count": 402,
-  "scrape_duration_seconds": 2.96,
+  "scrape_duration_seconds": 2.8,
   "stats": {
     "total_fetched": 402,
     "total_valid": 402,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Sunny Day Hoppy Blond",
+      "beer_url": "https://untappd.com/b/jopen-sunny-day-hoppy-blond/5793281",
+      "image_url": "https://labels.untappd.com/5793281",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 40,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Daisy Sunshine",
       "beer_url": "https://untappd.com/b/rock-city-brewing-daisy-sunshine/6615890",
@@ -62,8 +77,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Kwaremont Dirty Blonde IPA",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
+      "name": "Kwaremont IPA",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
       "image_url": "https://labels.untappd.com/5701666",
       "style": "IPA - Belgian",
       "brewery": "Brouwerij De Brabandere",
@@ -71,7 +86,7 @@
       "category": "Wisseltap bieren",
       "subcategory": null,
       "abv": 4,
-      "ibu": null,
+      "ibu": 32,
       "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
@@ -103,21 +118,6 @@
       "abv": 12.5,
       "ibu": 45,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Leffe Blonde / Blond",
-      "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-blonde-blond/5940",
-      "image_url": "https://labels.untappd.com/5940",
-      "style": "Belgian Blonde",
-      "brewery": "Abbaye de Leffe",
-      "brewery_url": "https://untappd.com/w/abbaye-de-leffe/5",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 20,
-      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -5582,8 +5582,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Kwaremont Dirty Blonde IPA",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
+      "name": "Kwaremont IPA",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
       "image_url": "https://labels.untappd.com/5701666",
       "style": "IPA - Belgian",
       "brewery": "Brouwerij De Brabandere",
@@ -5591,7 +5591,7 @@
       "category": "Bierbijbel",
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 4,
-      "ibu": null,
+      "ibu": 32,
       "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
@@ -5732,8 +5732,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "La Chouffe 0.4",
-      "beer_url": "https://untappd.com/b/brasserie-d-achouffe-chouffe-0-4/5127446",
+      "name": "La Chouffe 0.4%",
+      "beer_url": "https://untappd.com/b/brasserie-d-achouffe-la-chouffe-0-4/5127446",
       "image_url": "https://labels.untappd.com/5127446",
       "style": "Non-Alcoholic - Blonde / Golden Ale",
       "brewery": "Brasserie d'Achouffe",
