@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-01T06:38:56.719Z",
+  "fetched_at": "2026-04-01T12:28:02.354Z",
   "count": 405,
-  "scrape_duration_seconds": 2.77,
+  "scrape_duration_seconds": 2.81,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 82,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 82,
       "Bierbijbel": 296
     }
   },
@@ -507,7 +507,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.61,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1047,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.66,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1682,8 +1682,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Mestreechs Bloond",
-      "beer_url": "https://untappd.com/b/brouwerij-klinker-mestreechs-bloond/4744344",
+      "name": "Mestreechs Bloond / Maastrichts Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-klinker-mestreechs-bloond-maastrichts-blond/4744344",
       "image_url": "https://labels.untappd.com/4744344",
       "style": "Blonde / Golden Ale - Other",
       "brewery": "Brouwerij Klinker",
