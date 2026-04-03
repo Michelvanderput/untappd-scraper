@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-03T06:29:34.291Z",
+  "fetched_at": "2026-04-03T12:21:14.777Z",
   "count": 405,
-  "scrape_duration_seconds": 2.63,
+  "scrape_duration_seconds": 2.65,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 82,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Ter Dolen Blond",
+      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+      "image_url": "https://labels.untappd.com/55364",
+      "style": "Belgian Blonde",
+      "brewery": "Ter Dolen",
+      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.1,
+      "ibu": 25,
+      "rating": 3.5,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Techno DJ",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-techno-dj/6611939",
+      "image_url": "https://labels.untappd.com/6611939",
+      "style": "IPA - New Zealand",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 18,
+      "rating": 3.77,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Sunny Day Hoppy Blond",
       "beer_url": "https://untappd.com/b/jopen-sunny-day-hoppy-blond/5793281",
@@ -137,21 +167,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Fresh Hop Frisky 2025",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-fresh-hop-frisky-2025/6441876",
-      "image_url": "https://labels.untappd.com/6441876",
-      "style": "IPA - New England / Hazy",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.4,
-      "ibu": 15,
-      "rating": 3.56,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Val-Dieu Blonde",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
       "image_url": "https://labels.untappd.com/40880",
@@ -178,21 +193,6 @@
       "abv": 7.5,
       "ibu": null,
       "rating": 3.27,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ter Dolen Tripel",
-      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-      "image_url": "https://labels.untappd.com/70991",
-      "style": "Belgian Tripel",
-      "brewery": "Ter Dolen",
-      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.1,
-      "ibu": 30,
-      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -372,7 +372,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 37,
-      "rating": 3.67,
+      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
