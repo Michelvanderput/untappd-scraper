@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-04T18:12:02.986Z",
-  "count": 405,
-  "scrape_duration_seconds": 5.18,
+  "fetched_at": "2026-04-05T06:30:19.665Z",
+  "count": 403,
+  "scrape_duration_seconds": 2.95,
   "stats": {
-    "total_fetched": 405,
-    "total_valid": 405,
+    "total_fetched": 403,
+    "total_valid": 403,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 82,
       "Wisseltap bieren": 16,
+      "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
@@ -257,6 +257,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Double Ipa",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-double-ipa/6629864",
+      "image_url": "https://labels.untappd.com/6629864",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 40,
+      "rating": 3.85,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Apocalyptic Thunder Juice",
       "beer_url": "https://untappd.com/b/amundsen-brewery-apocalyptic-thunder-juice/2052131",
       "image_url": "https://labels.untappd.com/2052131",
@@ -388,21 +403,6 @@
       "abv": 7.5,
       "ibu": 40,
       "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Noblesse Extra-Ordinaire",
-      "beer_url": "https://untappd.com/b/brouwerij-de-dochter-van-de-korenaar-noblesse-xo/67313",
-      "image_url": "https://labels.untappd.com/67313",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij De Dochter van de Korenaar",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-dochter-van-de-korenaar/428",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 42,
-      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -763,21 +763,6 @@
       "abv": 9.5,
       "ibu": 50,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Garden of Fools",
-      "beer_url": "https://untappd.com/b/factory-brewing-garden-of-fools/6454741",
-      "image_url": "https://labels.untappd.com/6454741",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Factory Brewing",
-      "brewery_url": "https://untappd.com/w/factory-brewing/531575",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.3,
-      "ibu": null,
-      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1198,21 +1183,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Phi Rabarber / Rhubarb",
-      "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
-      "image_url": "https://labels.untappd.com/3995980",
-      "style": "Sour - Fruited",
-      "brewery": "Brouwerij Alvinne",
-      "brewery_url": "https://untappd.com/w/brouwerij-alvinne/2390",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 9,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
