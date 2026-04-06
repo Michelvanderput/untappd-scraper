@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-05T18:12:54.514Z",
+  "fetched_at": "2026-04-06T06:42:11.210Z",
   "count": 403,
-  "scrape_duration_seconds": 3.27,
+  "scrape_duration_seconds": 2.38,
   "stats": {
     "total_fetched": 403,
     "total_valid": 403,
@@ -2462,8 +2462,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Cherry Chouffe",
-      "beer_url": "https://untappd.com/b/brasserie-d-achouffe-cherry-chouffe/1824901",
+      "name": "Chouffe Cherry",
+      "beer_url": "https://untappd.com/b/brasserie-d-achouffe-chouffe-cherry/1824901",
       "image_url": "https://labels.untappd.com/1824901",
       "style": "Fruit Beer",
       "brewery": "Brasserie d'Achouffe",
