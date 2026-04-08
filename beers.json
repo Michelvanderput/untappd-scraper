@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-08T12:27:43.724Z",
+  "fetched_at": "2026-04-08T18:30:16.455Z",
   "count": 403,
-  "scrape_duration_seconds": 2.01,
+  "scrape_duration_seconds": 2.27,
   "stats": {
     "total_fetched": 403,
     "total_valid": 403,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 80,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Gulden Draak Calvados Barrel Aged",
+      "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-calvados-barrel-aged/2319831",
+      "image_url": "https://labels.untappd.com/2319831",
+      "style": "Belgian Quadrupel",
+      "brewery": "Brouwerij Van Steenberge",
+      "brewery_url": "https://untappd.com/w/brouwerij-van-steenberge/7778",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10.5,
+      "ibu": null,
+      "rating": 3.94,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Wally's Epic Expedition",
       "beer_url": "https://untappd.com/b/rock-city-brewing-wally-s-epic-expedition/6566980",
@@ -148,21 +163,6 @@
       "abv": 12.5,
       "ibu": 45,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "St-Barbara Barrel Aged Reserve - the Saints Selection 2025",
-      "beer_url": "https://untappd.com/b/brouwerij-kompel-st-barbara-barrel-aged-reserve-the-saints-selection-2025/6506589",
-      "image_url": "https://labels.untappd.com/6506589",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Kompel",
-      "brewery_url": "https://untappd.com/w/brouwerij-kompel/242769",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": 20,
-      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -627,7 +627,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 41,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -672,7 +672,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.86,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -732,7 +732,7 @@
       "subcategory": null,
       "abv": 18,
       "ibu": 45,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -912,7 +912,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1392,7 +1392,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 4.03,
+      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5907,7 +5907,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.32,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
