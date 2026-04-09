@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-08T18:30:16.455Z",
-  "count": 403,
-  "scrape_duration_seconds": 2.27,
+  "fetched_at": "2026-04-09T06:36:23.136Z",
+  "count": 401,
+  "scrape_duration_seconds": 2.01,
   "stats": {
-    "total_fetched": 403,
-    "total_valid": 403,
+    "total_fetched": 401,
+    "total_valid": 401,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 80,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 78,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Framboise Boon",
+      "beer_url": "https://untappd.com/b/brouwerij-boon-framboise-boon/14323",
+      "image_url": "https://labels.untappd.com/14323",
+      "style": "Lambic - Framboise",
+      "brewery": "Brouwerij Boon",
+      "brewery_url": "https://untappd.com/w/brouwerij-boon/268",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": null,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gulden Draak Calvados Barrel Aged",
       "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-calvados-barrel-aged/2319831",
@@ -208,21 +223,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.33,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Pêche Mel Bush",
-      "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
-      "image_url": "https://labels.untappd.com/27604",
-      "style": "Fruit Beer",
-      "brewery": "Brasserie Dubuisson",
-      "brewery_url": "https://untappd.com/w/brasserie-dubuisson/188",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 16,
-      "rating": 3.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -883,36 +883,6 @@
       "abv": 7,
       "ibu": 60,
       "rating": 3.57,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Liquid Cocaine",
-      "beer_url": "https://untappd.com/b/mad-scientist-liquid-cocaine/1821663",
-      "image_url": "https://labels.untappd.com/1821663",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Mad Scientist",
-      "brewery_url": "https://untappd.com/w/mad-scientist/220027",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 120,
-      "rating": 3.77,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "The Matrix - BLUE PILL",
-      "beer_url": "https://untappd.com/b/mad-scientist-the-matrix-blue-pill/6503566",
-      "image_url": "https://labels.untappd.com/6503566",
-      "style": "IPA - Other",
-      "brewery": "Mad Scientist",
-      "brewery_url": "https://untappd.com/w/mad-scientist/220027",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },

@@ -1,6 +1,141 @@
 {
   "changes": [
     {
+      "date": "2026-04-09T06:36:23.228Z",
+      "summary": {
+        "added": 1,
+        "removed": 2,
+        "updated": 8,
+        "total_beers": 401
+      },
+      "added": [
+        {
+          "name": "Framboise Boon",
+          "beer_url": "https://untappd.com/b/brouwerij-boon-framboise-boon/14323",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Boon",
+          "style": "Lambic - Framboise",
+          "abv": 5,
+          "image_url": "https://labels.untappd.com/14323"
+        }
+      ],
+      "removed": [
+        {
+          "name": "Liquid Cocaine",
+          "beer_url": "https://untappd.com/b/mad-scientist-liquid-cocaine/1821663",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Mad Scientist"
+        },
+        {
+          "name": "The Matrix - BLUE PILL",
+          "beer_url": "https://untappd.com/b/mad-scientist-the-matrix-blue-pill/6503566",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Mad Scientist"
+        }
+      ],
+      "updated": [
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Kwaremont IPA",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "La Trappe Isid'or",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-08T18:30:16.541Z",
       "summary": {
         "added": 1,
@@ -4894,178 +5029,6 @@
             "rating": {
               "old": 3.33,
               "new": 3.34
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi Rabarber / Rhubarb",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi-rabarber-rhubarb/3995980",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-03-30T06:42:04.346Z",
-      "summary": {
-        "added": 4,
-        "removed": 3,
-        "updated": 8,
-        "total_beers": 402
-      },
-      "added": [
-        {
-          "name": "Sunny Day Hoppy Blond",
-          "beer_url": "https://untappd.com/b/jopen-sunny-day-hoppy-blond/5793281",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Jopen",
-          "style": "Blonde / Golden Ale - Other",
-          "abv": 6,
-          "image_url": "https://labels.untappd.com/5793281"
-        },
-        {
-          "name": "Kwaremont IPA",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Brouwerij De Brabandere",
-          "style": "IPA - Belgian",
-          "abv": 4,
-          "image_url": "https://labels.untappd.com/5701666"
-        },
-        {
-          "name": "Kwaremont IPA",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
-          "category": "Bierbijbel",
-          "subcategory": "Sterk Gehopte Bieren - IPA",
-          "brewery": "Brouwerij De Brabandere",
-          "style": "IPA - Belgian",
-          "abv": 4,
-          "image_url": "https://labels.untappd.com/5701666"
-        },
-        {
-          "name": "La Chouffe 0.4%",
-          "beer_url": "https://untappd.com/b/brasserie-d-achouffe-la-chouffe-0-4/5127446",
-          "category": "Bierbijbel",
-          "subcategory": "Alcoholvrij",
-          "brewery": "Brasserie d'Achouffe",
-          "style": "Non-Alcoholic - Blonde / Golden Ale",
-          "abv": 0.4,
-          "image_url": "https://labels.untappd.com/5127446"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Kwaremont Dirty Blonde IPA",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Brouwerij De Brabandere"
-        },
-        {
-          "name": "Kwaremont Dirty Blonde IPA",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-dirty-blonde-ipa/5701666",
-          "category": "Bierbijbel",
-          "subcategory": "Sterk Gehopte Bieren - IPA",
-          "brewery": "Brouwerij De Brabandere"
-        },
-        {
-          "name": "La Chouffe 0.4",
-          "beer_url": "https://untappd.com/b/brasserie-d-achouffe-chouffe-0-4/5127446",
-          "category": "Bierbijbel",
-          "subcategory": "Alcoholvrij",
-          "brewery": "Brasserie d'Achouffe"
-        }
-      ],
-      "updated": [
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Pêche Mel Bush",
-          "beer_url": "https://untappd.com/b/brasserie-dubuisson-peche-mel-bush/27604",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Isid'or",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-isid-or/6646",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
             }
           }
         },
