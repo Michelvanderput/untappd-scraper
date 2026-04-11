@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-11T06:26:14.124Z",
+  "fetched_at": "2026-04-11T12:17:48.157Z",
   "count": 400,
-  "scrape_duration_seconds": 1.87,
+  "scrape_duration_seconds": 1.92,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 77,
       "Bierbijbel": 296
     }
@@ -582,7 +582,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": 36,
-      "rating": 3.96,
+      "rating": 3.94,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -597,7 +597,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 42,
-      "rating": 4.05,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5877,7 +5877,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.4,
       "ibu": 12,
-      "rating": 3.09,
+      "rating": 3.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
