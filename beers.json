@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-11T12:17:48.157Z",
+  "fetched_at": "2026-04-11T18:12:40.669Z",
   "count": 400,
-  "scrape_duration_seconds": 1.92,
+  "scrape_duration_seconds": 2.68,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
@@ -16,6 +16,36 @@
     }
   },
   "beers": [
+    {
+      "name": "Mango Express",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-mango-express/6618738",
+      "image_url": "https://labels.untappd.com/6618738",
+      "style": "Wheat Beer - Fruited",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.2,
+      "ibu": null,
+      "rating": 3.46,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Kwaremont",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
+      "image_url": "https://labels.untappd.com/26918",
+      "style": "Belgian Blonde",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 25,
+      "rating": 3.5,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Extravagant: Peacherine",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-extravagant-peacherine/6629121",
@@ -58,21 +88,6 @@
       "abv": 10.5,
       "ibu": null,
       "rating": 3.94,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Wally's Epic Expedition",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-wally-s-epic-expedition/6566980",
-      "image_url": "https://labels.untappd.com/6566980",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Rock City Brewing",
-      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 15,
-      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -152,21 +167,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Kwaremont IPA",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
-      "image_url": "https://labels.untappd.com/5701666",
-      "style": "IPA - Belgian",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4,
-      "ibu": 32,
-      "rating": 3.4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Kameradski Balsamico",
       "beer_url": "https://untappd.com/b/brouwerij-t-verzet-kameradski-balsamico/1868050",
       "image_url": "https://labels.untappd.com/1868050",
@@ -177,7 +177,7 @@
       "subcategory": null,
       "abv": 12.5,
       "ibu": 45,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -267,7 +267,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 40,
-      "rating": 3.8,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": 33,
-      "rating": 3.7,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 5.8,
       "ibu": null,
-      "rating": 3.68,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -552,7 +552,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.04,
+      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -627,7 +627,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 41,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -642,7 +642,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.87,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -687,7 +687,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": 17,
-      "rating": 3.34,
+      "rating": 3.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -852,7 +852,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": null,
-      "rating": 3.92,
+      "rating": 3.93,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1017,7 +1017,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1167,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.97,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 11.8,
       "ibu": 29,
-      "rating": 3.97,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1707,7 +1707,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6.2,
       "ibu": 30,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2787,7 +2787,7 @@
       "subcategory": "Vlaams Rood Bruin/ Oud Bruin",
       "abv": 6.2,
       "ibu": 11,
-      "rating": 3.65,
+      "rating": 3.64,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5862,7 +5862,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.32,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
