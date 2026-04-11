@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-10T18:20:47.221Z",
-  "count": 401,
-  "scrape_duration_seconds": 2.35,
+  "fetched_at": "2026-04-11T06:26:14.124Z",
+  "count": 400,
+  "scrape_duration_seconds": 1.87,
   "stats": {
-    "total_fetched": 401,
-    "total_valid": 401,
+    "total_fetched": 400,
+    "total_valid": 400,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 78,
+      "Op=Op kaart": 77,
       "Bierbijbel": 296
     }
   },
@@ -928,21 +928,6 @@
       "abv": 6.5,
       "ibu": null,
       "rating": 3.75,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Blueprints: Moon Boots",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-moon-boots/6557270",
-      "image_url": "https://labels.untappd.com/6557270",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
