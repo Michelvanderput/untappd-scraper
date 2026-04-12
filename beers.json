@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-12T12:19:26.876Z",
-  "count": 400,
-  "scrape_duration_seconds": 2.15,
+  "fetched_at": "2026-04-12T18:15:57.374Z",
+  "count": 398,
+  "scrape_duration_seconds": 2.39,
   "stats": {
-    "total_fetched": 400,
-    "total_valid": 400,
+    "total_fetched": 398,
+    "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 77,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 75,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Berliner Weisse",
+      "beer_url": "https://untappd.com/b/brlo-berliner-weisse/1088169",
+      "image_url": "https://labels.untappd.com/1088169",
+      "style": "Sour - Berliner Weisse",
+      "brewery": "BRLO",
+      "brewery_url": "https://untappd.com/w/brlo/165817",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4,
+      "ibu": 5,
+      "rating": 3.02,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Mango Express",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-mango-express/6618738",
@@ -27,7 +42,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": null,
-      "rating": 3.46,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -167,21 +182,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Kameradski Balsamico",
-      "beer_url": "https://untappd.com/b/brouwerij-t-verzet-kameradski-balsamico/1868050",
-      "image_url": "https://labels.untappd.com/1868050",
-      "style": "Stout - Russian Imperial",
-      "brewery": "Brouwerij 't Verzet",
-      "brewery_url": "https://untappd.com/w/brouwerij-t-verzet/16719",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 12.5,
-      "ibu": 45,
-      "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Val-Dieu Blonde",
       "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
       "image_url": "https://labels.untappd.com/40880",
@@ -222,7 +222,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.33,
+      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -255,21 +255,6 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Double Ipa",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-double-ipa/6629864",
-      "image_url": "https://labels.untappd.com/6629864",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 40,
-      "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Apocalyptic Thunder Juice",
@@ -313,6 +298,21 @@
       "abv": 10,
       "ibu": 36,
       "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Double Ipa",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-double-ipa/6629864",
+      "image_url": "https://labels.untappd.com/6629864",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 40,
+      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -552,7 +552,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.03,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -732,7 +732,7 @@
       "subcategory": null,
       "abv": 18,
       "ibu": 45,
-      "rating": 3.9,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -792,7 +792,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.89,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -883,6 +883,21 @@
       "abv": 7,
       "ibu": 60,
       "rating": 3.57,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Let's Get Stout",
+      "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
+      "image_url": "https://labels.untappd.com/6652941",
+      "style": "Stout - Irish Dry",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 4.2,
+      "ibu": null,
+      "rating": 3.47,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +1002,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.68,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1033,21 +1048,6 @@
       "abv": 9.5,
       "ibu": 7,
       "rating": 3.42,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Frontman",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-frontman/6559081",
-      "image_url": "https://labels.untappd.com/6559081",
-      "style": "Belgian Tripel",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.7,
-      "ibu": 14,
-      "rating": 3.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 11.8,
       "ibu": 29,
-      "rating": 3.98,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1242,7 +1242,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 3.88,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1288,36 +1288,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.89,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Barcode: Turquoise Bordeaux",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-turquoise-bordeaux/6473039",
-      "image_url": "https://labels.untappd.com/6473039",
-      "style": "Stout - Imperial / Double",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": null,
-      "rating": 4.41,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Barcode: Turquoise Off-White",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-turquoise-off-white/6493638",
-      "image_url": "https://labels.untappd.com/6493638",
-      "style": "Stout - Imperial / Double",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": null,
-      "rating": 4.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3357,7 +3327,7 @@
       "subcategory": "Abdijbieren",
       "abv": 7.1,
       "ibu": 28,
-      "rating": 3.42,
+      "rating": 3.43,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
