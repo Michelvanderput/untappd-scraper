@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-12T06:36:02.849Z",
+  "fetched_at": "2026-04-12T12:19:26.876Z",
   "count": 400,
-  "scrape_duration_seconds": 2.43,
+  "scrape_duration_seconds": 2.15,
   "stats": {
     "total_fetched": 400,
     "total_valid": 400,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 77,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 77,
       "Bierbijbel": 296
     }
   },
@@ -57,7 +57,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 4.16,
+      "rating": 4.15,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -507,7 +507,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.61,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -612,7 +612,7 @@
       "subcategory": null,
       "abv": 6.7,
       "ibu": 43,
-      "rating": 4.01,
+      "rating": 4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1167,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.98,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2322,7 +2322,7 @@
       "subcategory": "Zure Krieken",
       "abv": 6.8,
       "ibu": 13,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
