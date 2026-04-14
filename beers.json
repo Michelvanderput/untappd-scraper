@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-14T12:30:28.368Z",
+  "fetched_at": "2026-04-14T18:29:20.951Z",
   "count": 398,
-  "scrape_duration_seconds": 2.83,
+  "scrape_duration_seconds": 2.34,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "LeFort",
+      "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
+      "image_url": "https://labels.untappd.com/504924",
+      "style": "Belgian Strong Dark Ale",
+      "brewery": "Omer Vander Ghinste",
+      "brewery_url": "https://untappd.com/w/omer-vander-ghinste/5213",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 18,
+      "rating": 3.62,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Berliner Weisse",
       "beer_url": "https://untappd.com/b/brlo-berliner-weisse/1088169",
@@ -42,7 +57,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": null,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -238,21 +253,6 @@
       "abv": 7.5,
       "ibu": 27,
       "rating": 3.74,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tripel LeFort",
-      "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-      "image_url": "https://labels.untappd.com/1533976",
-      "style": "Belgian Tripel",
-      "brewery": "Omer Vander Ghinste",
-      "brewery_url": "https://untappd.com/w/omer-vander-ghinste/5213",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.8,
-      "ibu": 20,
-      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -912,7 +912,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
