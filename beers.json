@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-13T18:30:34.804Z",
+  "fetched_at": "2026-04-14T06:41:11.914Z",
   "count": 398,
-  "scrape_duration_seconds": 4.62,
+  "scrape_duration_seconds": 2.26,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
@@ -500,7 +500,7 @@
       "name": "Kompel Nostalgia Collection Schietmeester",
       "beer_url": "https://untappd.com/b/brouwerij-kompel-kompel-nostalgia-collection-schietmeester/6622825",
       "image_url": "https://labels.untappd.com/6622825",
-      "style": "Other",
+      "style": "",
       "brewery": "Brouwerij Kompel",
       "brewery_url": "https://untappd.com/w/brouwerij-kompel/242769",
       "category": "Op=Op kaart",
