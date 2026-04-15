@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-15T12:30:59.732Z",
+  "fetched_at": "2026-04-15T18:28:51.804Z",
   "count": 398,
-  "scrape_duration_seconds": 1.98,
+  "scrape_duration_seconds": 2.79,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
       "Op=Op kaart": 75,
+      "Wisseltap bieren": 16,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "For the Love of Hops (Shapes & Objects)",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-for-the-love-of-hops-shapes-and-objects/6560490",
+      "image_url": "https://labels.untappd.com/6560490",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": 40,
+      "rating": 3.95,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Achel Tripel",
+      "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-tripel/1428",
+      "image_url": "https://labels.untappd.com/1428",
+      "style": "Belgian Tripel",
+      "brewery": "De Achelse Kluis",
+      "brewery_url": "https://untappd.com/w/de-achelse-kluis/280",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 20,
+      "rating": 3.67,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "LeFort",
       "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
@@ -43,21 +73,6 @@
       "abv": 4,
       "ibu": 5,
       "rating": 3.02,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mango Express",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-mango-express/6618738",
-      "image_url": "https://labels.untappd.com/6618738",
-      "style": "Wheat Beer - Fruited",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.2,
-      "ibu": null,
-      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -133,21 +148,6 @@
       "abv": 6.1,
       "ibu": 25,
       "rating": 3.5,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Techno DJ",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-techno-dj/6611939",
-      "image_url": "https://labels.untappd.com/6611939",
-      "style": "IPA - New Zealand",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 18,
-      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -312,7 +312,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 40,
-      "rating": 3.8,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -642,7 +642,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.9,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3327,7 +3327,7 @@
       "subcategory": "Abdijbieren",
       "abv": 7.1,
       "ibu": 28,
-      "rating": 3.43,
+      "rating": 3.42,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5840,7 +5840,7 @@
       "name": "Tripel Karmeliet Alcoholvrij/Sans alcool",
       "beer_url": "https://untappd.com/b/brouwerij-bosteels-tripel-karmeliet-alcoholvrij-sans-alcool/6493195",
       "image_url": "https://labels.untappd.com/6493195",
-      "style": "Non-Alcoholic - Other",
+      "style": "Non-Alcoholic - Other Beer",
       "brewery": "Brouwerij Bosteels",
       "brewery_url": "https://untappd.com/w/brouwerij-bosteels/269",
       "category": "Bierbijbel",
