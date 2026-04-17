@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-16T18:29:16.538Z",
+  "fetched_at": "2026-04-17T06:42:09.533Z",
   "count": 412,
-  "scrape_duration_seconds": 2.33,
+  "scrape_duration_seconds": 1.99,
   "stats": {
     "total_fetched": 412,
     "total_valid": 412,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 89,
       "Bierbijbel": 296
     }
@@ -2732,7 +2732,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Tropical",
+      "name": "Kasteel Tropical",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
       "image_url": "https://labels.untappd.com/6215549",
       "style": "Fruit Beer",
@@ -6032,8 +6032,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Tropical 0.0",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-tropical-0-0/6249320",
+      "name": "Kasteel Tropical 0.0",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-0-0/6249320",
       "image_url": "https://labels.untappd.com/6249320",
       "style": "Non-Alcoholic - Fruit Beer",
       "brewery": "Kasteel Brouwerij Vanhonsebrouck",
