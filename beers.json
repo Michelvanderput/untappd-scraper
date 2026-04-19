@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-18T18:15:57.866Z",
-  "count": 417,
-  "scrape_duration_seconds": 2.91,
+  "fetched_at": "2026-04-19T06:38:36.964Z",
+  "count": 418,
+  "scrape_duration_seconds": 1.95,
   "stats": {
-    "total_fetched": 417,
-    "total_valid": 417,
+    "total_fetched": 418,
+    "total_valid": 418,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 94,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 95,
       "Bierbijbel": 296
     }
   },
@@ -255,6 +255,21 @@
       "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Ultrasphere",
+      "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
+      "image_url": "https://labels.untappd.com/6645540",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Nepo Brewing",
+      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.1,
+      "ibu": null,
+      "rating": 3.96,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Strawberry Sundae",
@@ -5207,8 +5222,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Barista Chocolate Quad",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-barista-chocolate-quad/1077683",
+      "name": "Kasteel Barista",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-barista/1077683",
       "image_url": "https://labels.untappd.com/1077683",
       "style": "Belgian Quadrupel",
       "brewery": "Kasteel Brouwerij Vanhonsebrouck",
