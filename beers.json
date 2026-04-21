@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-20T18:24:32.928Z",
+  "fetched_at": "2026-04-21T06:42:26.331Z",
   "count": 418,
-  "scrape_duration_seconds": 2.56,
+  "scrape_duration_seconds": 2.51,
   "stats": {
     "total_fetched": 418,
     "total_valid": 418,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 95,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Moshpit Mentor",
+      "beer_url": "https://untappd.com/b/two-chefs-brewing-moshpit-mentor/6410811",
+      "image_url": "https://labels.untappd.com/6410811",
+      "style": "IPA - English",
+      "brewery": "Two Chefs Brewing",
+      "brewery_url": "https://untappd.com/w/two-chefs-brewing/43977",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.3,
+      "ibu": null,
+      "rating": 3.4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Skiller Wit",
       "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skiller-wit/3776267",
@@ -58,21 +73,6 @@
       "abv": 5.5,
       "ibu": null,
       "rating": 3.63,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "For the Love of Hops (Shapes & Objects)",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-for-the-love-of-hops-shapes-and-objects/6560490",
-      "image_url": "https://labels.untappd.com/6560490",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 40,
-      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
