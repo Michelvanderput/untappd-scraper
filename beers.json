@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-21T12:32:05.221Z",
+  "fetched_at": "2026-04-21T18:26:40.394Z",
   "count": 418,
-  "scrape_duration_seconds": 2.83,
+  "scrape_duration_seconds": 2.79,
   "stats": {
     "total_fetched": 418,
     "total_valid": 418,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 95,
       "Wisseltap bieren": 16,
+      "Op=Op kaart": 95,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Hopbock",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-hopbock/6621260",
+      "image_url": "https://labels.untappd.com/6621260",
+      "style": "Bock - Hell / Maibock / Lentebock",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 32,
+      "rating": 3.5,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Moshpit Mentor",
       "beer_url": "https://untappd.com/b/two-chefs-brewing-moshpit-mentor/6410811",
@@ -72,7 +87,7 @@
       "subcategory": null,
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.63,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -208,21 +223,6 @@
       "abv": 6,
       "ibu": 40,
       "rating": 3.54,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Petrus Blond",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-petrus-blond/77",
-      "image_url": "https://labels.untappd.com/77",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 24,
-      "rating": 3.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -672,7 +672,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.02,
+      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -792,7 +792,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 40,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
