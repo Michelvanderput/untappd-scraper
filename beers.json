@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-22T18:27:09.703Z",
-  "count": 416,
-  "scrape_duration_seconds": 2.22,
+  "fetched_at": "2026-04-23T06:42:53.260Z",
+  "count": 413,
+  "scrape_duration_seconds": 2.21,
   "stats": {
-    "total_fetched": 416,
-    "total_valid": 416,
+    "total_fetched": 413,
+    "total_valid": 413,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 93,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 90,
       "Bierbijbel": 296
     }
   },
@@ -377,21 +377,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Apocalyptic Thunder Juice",
-      "beer_url": "https://untappd.com/b/amundsen-brewery-apocalyptic-thunder-juice/2052131",
-      "image_url": "https://labels.untappd.com/2052131",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Amundsen Brewery",
-      "brewery_url": "https://untappd.com/w/amundsen-brewery/16909",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 50,
-      "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Limburgse Koffie... Wat Els?!",
       "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
       "image_url": "https://labels.untappd.com/6497004",
@@ -448,21 +433,6 @@
       "abv": 5.2,
       "ibu": 30,
       "rating": 3.55,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Sour Framboise/Passion",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-sour-framboise-passion/6514603",
-      "image_url": "https://labels.untappd.com/6514603",
-      "style": "Sour - Fruited",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5.8,
-      "ibu": null,
-      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1153,21 +1123,6 @@
       "abv": 5,
       "ibu": 10,
       "rating": 3.27,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Kerel Kaishaku",
-      "beer_url": "https://untappd.com/b/vbdck-brewery-kerel-kaishaku/2235054",
-      "image_url": "https://labels.untappd.com/2235054",
-      "style": "Strong Ale - American",
-      "brewery": "VBDCK Brewery",
-      "brewery_url": "https://untappd.com/w/vbdck-brewery/250878",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 15,
-      "ibu": 28,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
