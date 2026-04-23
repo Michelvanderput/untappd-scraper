@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-23T06:42:53.260Z",
+  "fetched_at": "2026-04-23T12:33:25.102Z",
   "count": 413,
-  "scrape_duration_seconds": 2.21,
+  "scrape_duration_seconds": 2.24,
   "stats": {
     "total_fetched": 413,
     "total_valid": 413,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
       "Op=Op kaart": 90,
+      "Wisseltap bieren": 16,
       "Bierbijbel": 296
     }
   },
@@ -162,7 +162,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 4.15,
+      "rating": 4.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -372,7 +372,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.08,
+      "rating": 4.09,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -957,7 +957,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.44,
+      "rating": 3.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1062,7 +1062,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -6117,7 +6117,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": null,
-      "rating": 3.07,
+      "rating": 3.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
