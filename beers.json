@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-23T12:33:25.102Z",
+  "fetched_at": "2026-04-23T18:28:10.558Z",
   "count": 413,
-  "scrape_duration_seconds": 2.24,
+  "scrape_duration_seconds": 2.04,
   "stats": {
     "total_fetched": 413,
     "total_valid": 413,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
       "Op=Op kaart": 90,
-      "Wisseltap bieren": 16,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Kasteel Tropical",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
+      "image_url": "https://labels.untappd.com/6215549",
+      "style": "Fruit Beer",
+      "brewery": "Kasteel Brouwerij Vanhonsebrouck",
+      "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 6,
+      "rating": 3.53,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Hopbock",
       "beer_url": "https://untappd.com/b/vandestreek-bier-hopbock/6621260",
@@ -27,7 +42,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 32,
-      "rating": 3.5,
+      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -87,7 +102,7 @@
       "subcategory": null,
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.62,
+      "rating": 3.63,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -163,21 +178,6 @@
       "abv": 11,
       "ibu": null,
       "rating": 4.14,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Framboise Boon",
-      "beer_url": "https://untappd.com/b/brouwerij-boon-framboise-boon/14323",
-      "image_url": "https://labels.untappd.com/14323",
-      "style": "Lambic - Framboise",
-      "brewery": "Brouwerij Boon",
-      "brewery_url": "https://untappd.com/w/brouwerij-boon/268",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": null,
-      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -267,7 +267,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.94,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -747,7 +747,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": 17,
-      "rating": 3.33,
+      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -6057,7 +6057,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.3,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
