@@ -1,6 +1,223 @@
 {
   "changes": [
     {
+      "date": "2026-04-26T12:23:20.012Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 18,
+        "total_beers": 416
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Kwaremont IPA",
+          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Kasteel Tropical",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Skiller Wit",
+          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skiller-wit/3776267",
+          "changes": {
+            "container": {
+              "old": "30cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "La Trappe Tripel",
+          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-tripel/2013",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Achel Tripel",
+          "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-tripel/1428",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Extravagant: Peacherine",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-extravagant-peacherine/6629121",
+          "changes": {
+            "rating": {
+              "old": 4.14,
+              "new": 4.13
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "STARDUST",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-stardust/6621465",
+          "changes": {
+            "rating": {
+              "old": 4.09,
+              "new": 4.03
+            }
+          }
+        },
+        {
+          "name": "Smooth Criminals: Orange Vanilla",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-orange-vanilla/6645587",
+          "changes": {
+            "rating": {
+              "old": 4.04,
+              "new": 4.03
+            }
+          }
+        },
+        {
+          "name": "Let's Get Stout",
+          "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
+          "changes": {
+            "rating": {
+              "old": 3.39,
+              "new": 3.41
+            }
+          }
+        },
+        {
+          "name": "Fermenting Frank Mosaic New England Double IPA",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-fermenting-frank-mosaic-new-england-double-ipa/6621397",
+          "changes": {
+            "rating": {
+              "old": 3.73,
+              "new": 3.74
+            }
+          }
+        },
+        {
+          "name": "Braincake",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-braincake/3630887",
+          "changes": {
+            "rating": {
+              "old": 4.17,
+              "new": 4.16
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Non ALC.: Motor Oil",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-non-alc-motor-oil/6126399",
+          "changes": {
+            "rating": {
+              "old": 3.07,
+              "new": 3.08
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-04-26T06:41:56.754Z",
       "summary": {
         "added": 0,
@@ -5553,213 +5770,6 @@
             "rating": {
               "old": 3.84,
               "new": 3.83
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-04-16T12:32:35.322Z",
-      "summary": {
-        "added": 3,
-        "removed": 2,
-        "updated": 12,
-        "total_beers": 400
-      },
-      "added": [
-        {
-          "name": "Gulpener Tapdans 2026 Harbour Slice",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gulpener-tapdans-2026-harbour-slice/6644654",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Gulpener Bierbrouwerij",
-          "style": "IPA - Fruited",
-          "abv": 5.5,
-          "image_url": "https://labels.untappd.com/6644654"
-        },
-        {
-          "name": "STARDUST",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-stardust/6621465",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "brewery": "Brouwerij LOST",
-          "style": "IPA - New England / Hazy",
-          "abv": 6.5,
-          "image_url": "https://labels.untappd.com/6621465"
-        },
-        {
-          "name": "MANGO STICKY RICE",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "brewery": "Brouwerij LOST",
-          "style": "Sour - Smoothie / Pastry",
-          "abv": 6,
-          "image_url": "https://labels.untappd.com/6560677"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Bruin",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-bruin/73886",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Brouwerij Broeder Jacob"
-        },
-        {
-          "name": "Vuurdoop",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-vuurdoop/6583393",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Gulpener Bierbrouwerij"
-        }
-      ],
-      "updated": [
-        {
-          "name": "Skiller Wit",
-          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skiller-wit/3776267",
-          "changes": {
-            "container": {
-              "old": "30cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Tripel",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-tripel/2013",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Achel Tripel",
-          "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-tripel/1428",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kwaremont",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Instant Krush",
-          "beer_url": "https://untappd.com/b/jopen-instant-krush/6557905",
-          "changes": {
-            "rating": {
-              "old": 3.57,
-              "new": 3.58
-            }
-          }
-        },
-        {
-          "name": "Let's Get Stout",
-          "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
-          "changes": {
-            "rating": {
-              "old": 3.46,
-              "new": 3.47
             }
           }
         },
