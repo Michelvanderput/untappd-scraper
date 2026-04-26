@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-25T18:17:01.098Z",
+  "fetched_at": "2026-04-26T06:41:56.653Z",
   "count": 416,
-  "scrape_duration_seconds": 2.97,
+  "scrape_duration_seconds": 2.02,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Kwaremont IPA",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
+      "image_url": "https://labels.untappd.com/5701666",
+      "style": "IPA - Belgian",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4,
+      "ibu": 32,
+      "rating": 3.4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kasteel Tropical",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
@@ -148,21 +163,6 @@
       "abv": 4,
       "ibu": 5,
       "rating": 3.02,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Kwaremont",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
-      "image_url": "https://labels.untappd.com/26918",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 25,
-      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
