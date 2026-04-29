@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-29T12:42:09.999Z",
+  "fetched_at": "2026-04-29T18:34:25.475Z",
   "count": 416,
-  "scrape_duration_seconds": 2.84,
+  "scrape_duration_seconds": 2.55,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Ezel",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-ezel/1258549",
+      "image_url": "https://labels.untappd.com/1258549",
+      "style": "Belgian Blonde",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.37,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
@@ -163,21 +178,6 @@
       "abv": 10,
       "ibu": 18,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Berliner Weisse",
-      "beer_url": "https://untappd.com/b/brlo-berliner-weisse/1088169",
-      "image_url": "https://labels.untappd.com/1088169",
-      "style": "Sour - Berliner Weisse",
-      "brewery": "BRLO",
-      "brewery_url": "https://untappd.com/w/brlo/165817",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4,
-      "ibu": 5,
-      "rating": 3.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -657,7 +657,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 25,
-      "rating": 3.27,
+      "rating": 3.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1062,7 +1062,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.86,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1107,7 +1107,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
