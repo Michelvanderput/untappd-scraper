@@ -1,6 +1,705 @@
 {
   "changes": [
     {
+      "date": "2026-04-30T18:34:56.529Z",
+      "summary": {
+        "added": 0,
+        "removed": 98,
+        "updated": 0,
+        "total_beers": 307
+      },
+      "added": [],
+      "removed": [
+        {
+          "name": "Blueprints: UFO",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-ufo/6665322",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Moersleutel Craft Brewery"
+        },
+        {
+          "name": "Ter Dolen Tripel",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Ter Dolen"
+        },
+        {
+          "name": "Hopbock",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-hopbock/6621260",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "vandeStreek bier"
+        },
+        {
+          "name": "Moshpit Mentor",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-moshpit-mentor/6410811",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Two Chefs Brewing"
+        },
+        {
+          "name": "Gulpener Tapdans 2026 Harbour Slice",
+          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gulpener-tapdans-2026-harbour-slice/6644654",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Gulpener Bierbrouwerij"
+        },
+        {
+          "name": "Gulden Draak Calvados Barrel Aged",
+          "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-calvados-barrel-aged/2319831",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Van Steenberge"
+        },
+        {
+          "name": "Sunny Day Hoppy Blond",
+          "beer_url": "https://untappd.com/b/jopen-sunny-day-hoppy-blond/5793281",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Jopen"
+        },
+        {
+          "name": "Gouden Carolus Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Het Anker"
+        },
+        {
+          "name": "Limburgse Koffie... Wat Els?!",
+          "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Aspro Brews"
+        },
+        {
+          "name": "Proemevlaai",
+          "beer_url": "https://untappd.com/b/aspro-brews-proemevlaai/4683376",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Aspro Brews"
+        },
+        {
+          "name": "Double Ipa",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-double-ipa/6629864",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brasserie Grain d'Orge"
+        },
+        {
+          "name": "NEIPA",
+          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-neipa/6492627",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brasserie Grain d'Orge"
+        },
+        {
+          "name": "Lupulus Hazy Session",
+          "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-hazy-session/5316399",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brasserie Lupulus"
+        },
+        {
+          "name": "Lambic & Stout",
+          "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-lambic-and-stout/2832165",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brewery John Martin & Brewery Timmermans"
+        },
+        {
+          "name": "Oude Gueuze Cuvée",
+          "beer_url": "https://untappd.com/b/brouwerij-de-troch-oude-gueuze-cuvee/391723",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij De Troch"
+        },
+        {
+          "name": "Camaraderie",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Caramel Fudge Stout - Salted Caramel",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-caramel-fudge-stout-salted-caramel/6384081",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Frostbite",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-frostbite/6506449",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Gingerbread Man",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-gingerbread-man/6529628",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Snake Eyes",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-snake-eyes/6675041",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Kompel Nostalgia Collection Schietmeester",
+          "beer_url": "https://untappd.com/b/brouwerij-kompel-kompel-nostalgia-collection-schietmeester/6622825",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kompel"
+        },
+        {
+          "name": "ADONIS",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-adonis/6225058",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "AMORTENTIA",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-amortentia/6390174",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "DUBAI CHOCO",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-dubai-choco/6225050",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "HEADLINER",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-headliner/6560675",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "MANGO STICKY RICE",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "OBLIVION",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-oblivion/6225053",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "SHENRON",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-shenron/6560665",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "STARDUST",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-stardust/6621465",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "STRATASPHERE",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-stratasphere/6560662",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "TIRAMISU",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-tiramisu/6560668",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij LOST"
+        },
+        {
+          "name": "Flirt With the Bartender",
+          "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-flirt-with-the-bartender/6602997",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij The Musketeers"
+        },
+        {
+          "name": "Betty Ford",
+          "beer_url": "https://untappd.com/b/brouwerij-wilderen-betty-ford/3143559",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Wilderen"
+        },
+        {
+          "name": "Light Pants",
+          "beer_url": "https://untappd.com/b/de-struise-brouwers-light-pants/5908104",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "De Struise Brouwers"
+        },
+        {
+          "name": "Bon Appetit Amelié - Dubai Chocolate Bar",
+          "beer_url": "https://untappd.com/b/dutch-bargain-dutch-bargain-bon-appetit-amelie-dubai-chocolate-bar/6433478",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Famous Pastries: Crepe Suzette",
+          "beer_url": "https://untappd.com/b/dutch-bargain-famous-pastries-crepe-suzette/6516516",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Fire In the Beehive",
+          "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Get Pitted",
+          "beer_url": "https://untappd.com/b/dutch-bargain-get-pitted/6481752",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "HOHOHO",
+          "beer_url": "https://untappd.com/b/dutch-bargain-hohoho/5598387",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V5 - Cottoncandy, Strawberry, Vanilla, Unicorn Sprinkle",
+          "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v5-cottoncandy-strawberry-vanilla-unicorn-sprinkle/6490450",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V6 - Whippedcream, Salted Caramel Popcorndrip, Hazelnut Sprinkle",
+          "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v6-whippedcream-salted-caramel-popcorndrip-hazelnut-sprinkle/6490452",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Dutch Bargain"
+        },
+        {
+          "name": "Duvel Tripel Hop Cashmere",
+          "beer_url": "https://untappd.com/b/duvel-moortgat-duvel-tripel-hop-cashmere/3084617",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Duvel Moortgat"
+        },
+        {
+          "name": "Piece of Cake: Blueberry Vanilla Chocolate Muffin",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-blueberry-vanilla-chocolate-muffin/6441586",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Piece of Cake: Tarte Tatin",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-tarte-tatin/6591746",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Prince of Dankness",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-prince-of-dankness/6422360",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Smooth Criminals: Orange Vanilla",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-orange-vanilla/6645587",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Smooth Criminals: Tropic Swirl",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-tropic-swirl/6645586",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Sticky Business: Espresso Martini",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Frontaal Brewing Co."
+        },
+        {
+          "name": "Duustere Gringel",
+          "beer_url": "https://untappd.com/b/gringel-bier-duustere-gringel/208113",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Gringel Bier"
+        },
+        {
+          "name": "Smokey Blues Beer 4050",
+          "beer_url": "https://untappd.com/b/gulpener-microbrouwerij-smokey-blues-beer/3943618",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Gulpener Microbrouwerij"
+        },
+        {
+          "name": "Schaarbeekse Kriek",
+          "beer_url": "https://untappd.com/b/hanssens-artisanaal-schaerbeekse-kriek/2079987",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Hanssens Artisanaal"
+        },
+        {
+          "name": "Original Alcoholic Ginger Beer",
+          "beer_url": "https://untappd.com/b/john-crabbie-and-co-original-alcoholic-ginger-beer/18526",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "John Crabbie & Co"
+        },
+        {
+          "name": "Instant Krush",
+          "beer_url": "https://untappd.com/b/jopen-instant-krush/6557905",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Jopen"
+        },
+        {
+          "name": "Let's Get Stout",
+          "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Jopen"
+        },
+        {
+          "name": "Yvler the Creator",
+          "beer_url": "https://untappd.com/b/mad-scientist-yvler-the-creator/6500230",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Mad Scientist"
+        },
+        {
+          "name": "Blueprints: Camera",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Moersleutel Craft Brewery"
+        },
+        {
+          "name": "Blueprints: Jet Pack",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-jet-pack/6568892",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Moersleutel Craft Brewery"
+        },
+        {
+          "name": "Crazy Lines Series: In the Dark",
+          "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-in-the-dark/6501865",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Nepo Brewing"
+        },
+        {
+          "name": "Frozen Fresh",
+          "beer_url": "https://untappd.com/b/nepo-brewing-frozen-fresh/4635467",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Nepo Brewing"
+        },
+        {
+          "name": "Hops Around the World: New Zealand - Nelson Sauvin, Motueka",
+          "beer_url": "https://untappd.com/b/nepo-brewing-hops-around-the-world-new-zealand-nelson-sauvin-mouteka/6205833",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Nepo Brewing"
+        },
+        {
+          "name": "Ultrasphere",
+          "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Nepo Brewing"
+        },
+        {
+          "name": "Alpha Unit Single Hop Amarillo® IPA Two Chefs X Crosby Hops Collab",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo-ipa-two-chefs-x-crosby-hops-collab/6621400",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Two Chefs Brewing"
+        },
+        {
+          "name": "Fermenting Frank Mosaic New England Double IPA",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-fermenting-frank-mosaic-new-england-double-ipa/6621397",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Two Chefs Brewing"
+        },
+        {
+          "name": "Island Fever",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-island-fever/6457962",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Two Chefs Brewing"
+        },
+        {
+          "name": "Barrel Collab Series #2 - Flanders Style Red Ale",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-flanders-style-red-ale/6482954",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "vandeStreek bier"
+        },
+        {
+          "name": "Barrel Collab Series #2 - Imperial Fruited Sour",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-imperial-fruited-sour/6482956",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "vandeStreek bier"
+        },
+        {
+          "name": "Loveship",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-loveship/6534884",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "vandeStreek bier"
+        },
+        {
+          "name": "Playlist",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-playlist/6472881",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "vandeStreek bier"
+        },
+        {
+          "name": "Strawberry Sundae",
+          "beer_url": "https://untappd.com/b/vault-city-brewing-strawberry-sundae/4836999",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Vault City Brewing"
+        },
+        {
+          "name": "D'Artagnan 2024",
+          "beer_url": "https://untappd.com/b/zuyd-craft-d-artagnan-2024/5844230",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Zuyd Craft"
+        },
+        {
+          "name": "Gulf Coast IPA",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-gulf-coast-ipa/6392386",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Greenbacks",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-greenbacks/1031943",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Other Half Brewing Co."
+        },
+        {
+          "name": "All Citra Everything",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-all-citra-everything/1793659",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Other Half Brewing Co."
+        },
+        {
+          "name": "Juice Curl",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-juice-curl/6596165",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Other Half Brewing Co."
+        },
+        {
+          "name": "Mosaic Dream",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-mosaic-dream/2466988",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Other Half Brewing Co."
+        },
+        {
+          "name": "Cream of Broccoli",
+          "beer_url": "https://untappd.com/b/other-half-brewing-co-cream-of-broccoli/2461188",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Other Half Brewing Co."
+        },
+        {
+          "name": "SIPS: Two Fingers Blue",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-sips-two-fingers-blue/2765654",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Dr. Juice",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-dr-juice/3672327",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Genesis",
+          "beer_url": "https://untappd.com/b/wicked-weed-brewing-genesis/286069",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Wicked Weed Brewing"
+        },
+        {
+          "name": "Braincake",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-braincake/3630887",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Every Fragment Still Knows The Shape of The Whole",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-every-fragment-still-knows-the-shape-of-the-hole/6612136",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Ghost In The Machine",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-ghost-in-the-machine/593083",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Parish Brewing Co."
+        },
+        {
+          "name": "Blimey! v3",
+          "beer_url": "https://untappd.com/b/100-watt-brewery-blimey-v3/5605100",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "100 Watt Brewery"
+        },
+        {
+          "name": "Zwentibold Barrel Aged Cognac Martell",
+          "beer_url": "https://untappd.com/b/aspro-brews-zwentibold-barrel-aged-cognac-martell/6614353",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Aspro Brews"
+        },
+        {
+          "name": "Monte Cristo",
+          "beer_url": "https://untappd.com/b/brouwerij-bosteels-monte-cristo/3469715",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Bosteels"
+        },
+        {
+          "name": "Barrel Project 2024 It's A Sin",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2024-it-s-a-sin/6076042",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Barrel Project 2025 Quadrupel Aged In Anker Barrels",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-quadrupel-aged-in-anker-barrels/6280870",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Barrel Project 2025 Red Wine Aged In Red Wine Barrels. (Collab With Tartarus Brewing)",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-red-wine-aged-in-red-wine-barrels-collab-with-tartarus-brewing/6479999",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Brouwerij Kees"
+        },
+        {
+          "name": "Ex-Girlfriend 4-Granen Eisbock 2025: Barrel Aged on Tawny Port",
+          "beer_url": "https://untappd.com/b/jopen-ex-girlfriend-ba-tawny-port/6513024",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Jopen"
+        },
+        {
+          "name": "Meesterstuk 2024 Barrel Aged Dru Whiskey Barrels",
+          "beer_url": "https://untappd.com/b/jopen-meesterstuk-2024-barrel-aged-dru-whiskey-barrels/6513292",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Jopen"
+        },
+        {
+          "name": "Juicy & Wild Muscar-Elle (2022)",
+          "beer_url": "https://untappd.com/b/lambiek-fabriek-juicy-and-wild-muscar-elle-2022/4904567",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Lambiek Fabriek"
+        },
+        {
+          "name": "Oude Kriek Jart-Elle (2022)",
+          "beer_url": "https://untappd.com/b/lambiek-fabriek-oude-kriek-jart-elle-2022/4822501",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Lambiek Fabriek"
+        },
+        {
+          "name": "Vandervelden 137 Oude Geuze Vieille",
+          "beer_url": "https://untappd.com/b/oud-beersel-vandervelden-137-oude-geuze-vieille/3194009",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Oud Beersel"
+        },
+        {
+          "name": "Vandervelden 140 Oude Geuze Vieille",
+          "beer_url": "https://untappd.com/b/oud-beersel-vandervelden-140-oude-geuze-vieille/4756684",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Oud Beersel"
+        },
+        {
+          "name": "D'n Jerste",
+          "beer_url": "https://untappd.com/b/rex-beer-blending-and-bottling-d-n-jerste/6222033",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "REX Beer Blending & Bottling"
+        },
+        {
+          "name": "Sjmoutlempke Montanjaren Series",
+          "beer_url": "https://untappd.com/b/rex-beer-blending-and-bottling-sjmoutlempke-montanjaren-series/6282921",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "REX Beer Blending & Bottling"
+        },
+        {
+          "name": "Cuvée Barrique (TAPX) (2018)",
+          "beer_url": "https://untappd.com/b/schneider-weisse-g-schneider-and-sohn-cuvee-barrique-tapx-2018/2864395",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Schneider Weisse G. Schneider & Sohn"
+        },
+        {
+          "name": "The Algorithm Pt. 3",
+          "beer_url": "https://untappd.com/b/uiltje-brewing-company-the-algorithm-pt-iii/5526241",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "brewery": "Uiltje Brewing Company"
+        }
+      ],
+      "updated": []
+    },
+    {
       "date": "2026-04-30T12:41:42.201Z",
       "summary": {
         "added": 0,
@@ -5285,177 +5984,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-04-20T18:24:33.041Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 13,
-        "total_beers": 418
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Skiller Wit",
-          "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skiller-wit/3776267",
-          "changes": {
-            "container": {
-              "old": "30cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Tripel",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-tripel/2013",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gulpener Tapdans 2026 Harbour Slice",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gulpener-tapdans-2026-harbour-slice/6644654",
-          "changes": {
-            "rating": {
-              "old": 3.65,
-              "new": 3.63
-            }
-          }
-        },
-        {
-          "name": "Achel Tripel",
-          "beer_url": "https://untappd.com/b/de-achelse-kluis-achel-tripel/1428",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kwaremont",
-          "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ultrasphere",
-          "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
-          "changes": {
-            "rating": {
-              "old": 3.95,
-              "new": 3.96
-            }
-          }
-        },
-        {
-          "name": "Camaraderie",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
-          "changes": {
-            "rating": {
-              "old": 3.45,
-              "new": 3.46
             }
           }
         },
