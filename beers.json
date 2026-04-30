@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-04-29T18:34:25.475Z",
+  "fetched_at": "2026-04-30T06:56:52.505Z",
   "count": 416,
-  "scrape_duration_seconds": 2.55,
+  "scrape_duration_seconds": 1.95,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Blueprints: UFO",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-ufo/6665322",
+      "image_url": "https://labels.untappd.com/6665322",
+      "style": "IPA - White / Wheat",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ezel",
       "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-ezel/1258549",
@@ -178,21 +193,6 @@
       "abv": 10,
       "ibu": 18,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Extravagant: Peacherine",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-extravagant-peacherine/6629121",
-      "image_url": "https://labels.untappd.com/6629121",
-      "style": "IPA - Quadruple",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": null,
-      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
