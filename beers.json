@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-02T06:43:11.380Z",
+  "fetched_at": "2026-05-02T12:25:50.496Z",
   "count": 416,
-  "scrape_duration_seconds": 2.14,
+  "scrape_duration_seconds": 1.91,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Spring Time",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-spring-time/6634459",
+      "image_url": "https://labels.untappd.com/6634459",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": null,
+      "rating": 3.34,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Timmermans Lambicus Blanche",
       "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-timmermans-lambicus-blanche/5419",
@@ -208,21 +223,6 @@
       "abv": 10.5,
       "ibu": null,
       "rating": 3.94,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Sunny Day Hoppy Blond",
-      "beer_url": "https://untappd.com/b/jopen-sunny-day-hoppy-blond/5793281",
-      "image_url": "https://labels.untappd.com/5793281",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Jopen",
-      "brewery_url": "https://untappd.com/w/jopen/620",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 40,
-      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 65,
-      "rating": 3.8,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -447,7 +447,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.64,
+      "rating": 3.63,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -822,7 +822,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 4.02,
+      "rating": 4.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
