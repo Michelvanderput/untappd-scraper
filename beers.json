@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-03T12:25:20.096Z",
+  "fetched_at": "2026-05-03T18:21:42.289Z",
   "count": 416,
-  "scrape_duration_seconds": 2.13,
+  "scrape_duration_seconds": 2.78,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "SHENRON",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-shenron/6560665",
+      "image_url": "https://labels.untappd.com/6560665",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.7,
+      "ibu": 43,
+      "rating": 3.99,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Spring Time",
       "beer_url": "https://untappd.com/b/brouwerij-kees-spring-time/6634459",
@@ -92,21 +107,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Kwaremont IPA",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-ipa/5701666",
-      "image_url": "https://labels.untappd.com/5701666",
-      "style": "IPA - Belgian",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4,
-      "ibu": 32,
-      "rating": 3.4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Kasteel Tropical",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
       "image_url": "https://labels.untappd.com/6215549",
@@ -177,7 +177,7 @@
       "subcategory": null,
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.58,
+      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 40,
-      "rating": 3.79,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -597,7 +597,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.9,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +837,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.64,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +987,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1047,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.93,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1062,7 +1062,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.81,
+      "rating": 3.78,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.75,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1437,7 +1437,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.97,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1962,7 +1962,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
