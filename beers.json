@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-04T12:43:57.779Z",
-  "count": 416,
-  "scrape_duration_seconds": 2.25,
+  "fetched_at": "2026-05-04T18:36:55.786Z",
+  "count": 415,
+  "scrape_duration_seconds": 1.93,
   "stats": {
-    "total_fetched": 416,
-    "total_valid": 416,
+    "total_fetched": 415,
+    "total_valid": 415,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
-      "Op=Op kaart": 93,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 15,
+      "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Rodenbach Vintage 2023",
+      "beer_url": "https://untappd.com/b/brouwerij-rodenbach-rodenbach-vintage-2023/5680207",
+      "image_url": "https://labels.untappd.com/5680207",
+      "style": "Sour - Flanders Red Ale",
+      "brewery": "Brouwerij Rodenbach",
+      "brewery_url": "https://untappd.com/w/brouwerij-rodenbach/291",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 8,
+      "rating": 3.81,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "SHENRON",
       "beer_url": "https://untappd.com/b/brouwerij-lost-shenron/6560665",
@@ -47,21 +62,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Timmermans Lambicus Blanche",
-      "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-timmermans-lambicus-blanche/5419",
-      "image_url": "https://labels.untappd.com/5419",
-      "style": "Lambic - Traditional",
-      "brewery": "Brewery John Martin & Brewery Timmermans",
-      "brewery_url": "https://untappd.com/w/brewery-john-martin-brewery-timmermans/2313",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": 14,
-      "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Blueprints: UFO",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-ufo/6665322",
       "image_url": "https://labels.untappd.com/6665322",
@@ -73,21 +73,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.75,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ezel",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-ezel/1258549",
-      "image_url": "https://labels.untappd.com/1258549",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -582,7 +567,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 41,
-      "rating": 3.94,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +822,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -882,7 +867,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": null,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
