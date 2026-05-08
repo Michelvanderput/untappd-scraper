@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-08T06:40:25.427Z",
+  "fetched_at": "2026-05-08T12:38:54.860Z",
   "count": 415,
-  "scrape_duration_seconds": 1.95,
+  "scrape_duration_seconds": 1.8,
   "stats": {
     "total_fetched": 415,
     "total_valid": 415,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 15,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 93,
       "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Reelin'in the Yeast",
+      "beer_url": "https://untappd.com/b/jopen-reelin-in-the-yeast/6614573",
+      "image_url": "https://labels.untappd.com/6614573",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": 70,
+      "rating": 3.68,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tripel Kanunnik",
       "beer_url": "https://untappd.com/b/brouwerij-wilderen-tripel-kanunnik/94869",
@@ -43,21 +58,6 @@
       "abv": 7,
       "ibu": 8,
       "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "SHENRON",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-shenron/6560665",
-      "image_url": "https://labels.untappd.com/6560665",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.7,
-      "ibu": 43,
-      "rating": 3.99,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -6147,7 +6147,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": null,
-      "rating": 3.08,
+      "rating": 3.07,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
