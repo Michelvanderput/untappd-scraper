@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-09T18:22:54.183Z",
-  "count": 421,
-  "scrape_duration_seconds": 2.19,
+  "fetched_at": "2026-05-10T06:58:28.216Z",
+  "count": 414,
+  "scrape_duration_seconds": 1.88,
   "stats": {
-    "total_fetched": 421,
-    "total_valid": 421,
+    "total_fetched": 414,
+    "total_valid": 414,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 15,
-      "Op=Op kaart": 99,
+      "Op=Op kaart": 92,
       "Bierbijbel": 296
     }
   },
@@ -242,6 +242,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Daura",
+      "beer_url": "https://untappd.com/b/damm-daura/12107",
+      "image_url": "https://labels.untappd.com/12107",
+      "style": "Gluten-Free",
+      "brewery": "Damm",
+      "brewery_url": "https://untappd.com/w/damm/1087",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 5.4,
+      "ibu": 26,
+      "rating": 2.97,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Gulden Draak Blond",
       "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-blond/6203603",
       "image_url": "https://labels.untappd.com/6203603",
@@ -358,36 +373,6 @@
       "abv": 10,
       "ibu": 36,
       "rating": 3.54,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Double Ipa",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-double-ipa/6629864",
-      "image_url": "https://labels.untappd.com/6629864",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 40,
-      "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "NEIPA",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-neipa/6492627",
-      "image_url": "https://labels.untappd.com/6492627",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5.2,
-      "ibu": 30,
-      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -722,36 +707,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Bon Appetit Amelié - Dubai Chocolate Bar",
-      "beer_url": "https://untappd.com/b/dutch-bargain-dutch-bargain-bon-appetit-amelie-dubai-chocolate-bar/6433478",
-      "image_url": "https://labels.untappd.com/6433478",
-      "style": "Porter - Imperial / Double",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 25,
-      "rating": 3.28,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Famous Pastries: Crepe Suzette",
-      "beer_url": "https://untappd.com/b/dutch-bargain-famous-pastries-crepe-suzette/6516516",
-      "image_url": "https://labels.untappd.com/6516516",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 12,
-      "ibu": 40,
-      "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Fire In the Beehive",
       "beer_url": "https://untappd.com/b/dutch-bargain-fire-in-the-beehive/6498834",
       "image_url": "https://labels.untappd.com/6498834",
@@ -838,21 +793,6 @@
       "abv": 9.5,
       "ibu": 50,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Piece of Cake: Blueberry Vanilla Chocolate Muffin",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-blueberry-vanilla-chocolate-muffin/6441586",
-      "image_url": "https://labels.untappd.com/6441586",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1127,21 +1067,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Alpha Unit Single Hop Amarillo® IPA Two Chefs X Crosby Hops Collab",
-      "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo-ipa-two-chefs-x-crosby-hops-collab/6621400",
-      "image_url": "https://labels.untappd.com/6621400",
-      "style": "IPA - American",
-      "brewery": "Two Chefs Brewing",
-      "brewery_url": "https://untappd.com/w/two-chefs-brewing/43977",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.76,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Fermenting Frank Mosaic New England Double IPA",
       "beer_url": "https://untappd.com/b/two-chefs-brewing-fermenting-frank-mosaic-new-england-double-ipa/6621397",
       "image_url": "https://labels.untappd.com/6621397",
@@ -1153,21 +1078,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.74,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Island Fever",
-      "beer_url": "https://untappd.com/b/two-chefs-brewing-island-fever/6457962",
-      "image_url": "https://labels.untappd.com/6457962",
-      "style": "Sour - Fruited",
-      "brewery": "Two Chefs Brewing",
-      "brewery_url": "https://untappd.com/w/two-chefs-brewing/43977",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.8,
-      "ibu": null,
-      "rating": 3.21,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1513,21 +1423,6 @@
       "abv": 9.8,
       "ibu": 34,
       "rating": 3.96,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Monte Cristo",
-      "beer_url": "https://untappd.com/b/brouwerij-bosteels-monte-cristo/3469715",
-      "image_url": "https://labels.untappd.com/3469715",
-      "style": "Belgian Strong Dark Ale",
-      "brewery": "Brouwerij Bosteels",
-      "brewery_url": "https://untappd.com/w/brouwerij-bosteels/269",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 11.5,
-      "ibu": 15,
-      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
