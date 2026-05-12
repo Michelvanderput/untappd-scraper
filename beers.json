@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-12T07:03:06.833Z",
+  "fetched_at": "2026-05-12T12:50:19.230Z",
   "count": 418,
-  "scrape_duration_seconds": 4.22,
+  "scrape_duration_seconds": 2.13,
   "stats": {
     "total_fetched": 418,
     "total_valid": 418,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 15,
-      "Bierbijbel": 296,
-      "Op=Op kaart": 96
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 96,
+      "Bierbijbel": 296
     }
   },
   "beers": [
+    {
+      "name": "Eureka: North West IPA",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-eureka-north-west-ipa/6607740",
+      "image_url": "https://labels.untappd.com/6607740",
+      "style": "IPA - American",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": null,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gulden Draak Brewmasters Edition",
       "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-brewmasters-edition/455971",
@@ -88,21 +103,6 @@
       "abv": 5,
       "ibu": null,
       "rating": 3.35,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blueprints: UFO",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-ufo/6665322",
-      "image_url": "https://labels.untappd.com/6665322",
-      "style": "IPA - White / Wheat",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -537,7 +537,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 39,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -942,7 +942,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.41,
+      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.66,
+      "rating": 3.65,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1122,7 +1122,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1182,7 +1182,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.28,
+      "rating": 3.27,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
