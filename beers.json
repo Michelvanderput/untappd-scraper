@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-12T18:41:14.279Z",
+  "fetched_at": "2026-05-13T07:07:15.453Z",
   "count": 418,
-  "scrape_duration_seconds": 2.34,
+  "scrape_duration_seconds": 4.94,
   "stats": {
     "total_fetched": 418,
     "total_valid": 418,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "The Pom",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-the-pom/703866",
+      "image_url": "https://labels.untappd.com/703866",
+      "style": "Fruit Beer",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4.8,
+      "ibu": 6,
+      "rating": 3,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Eureka: North West IPA",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-eureka-north-west-ipa/6607740",
@@ -118,21 +133,6 @@
       "abv": 8.1,
       "ibu": 30,
       "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Kasteel Tropical",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical/6215549",
-      "image_url": "https://labels.untappd.com/6215549",
-      "style": "Fruit Beer",
-      "brewery": "Kasteel Brouwerij Vanhonsebrouck",
-      "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 6,
-      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
