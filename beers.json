@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-15T07:11:52.556Z",
-  "count": 417,
-  "scrape_duration_seconds": 1.82,
+  "fetched_at": "2026-05-15T12:45:41.214Z",
+  "count": 416,
+  "scrape_duration_seconds": 2.1,
   "stats": {
-    "total_fetched": 417,
-    "total_valid": 417,
+    "total_fetched": 416,
+    "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 15,
-      "Op=Op kaart": 96,
+      "Op=Op kaart": 95,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
@@ -72,7 +72,7 @@
       "subcategory": null,
       "abv": 8.5,
       "ibu": 70,
-      "rating": 3.68,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -482,21 +482,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "MANGO STICKY RICE",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
-      "image_url": "https://labels.untappd.com/6560677",
-      "style": "Sour - Smoothie / Pastry",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.95,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "OBLIVION",
       "beer_url": "https://untappd.com/b/brouwerij-lost-oblivion/6225053",
       "image_url": "https://labels.untappd.com/6225053",
@@ -582,7 +567,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.44,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -807,7 +792,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.99,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +972,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.82,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1017,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.66,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1122,7 +1107,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1482,7 +1467,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2952,7 +2937,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.07,
+      "rating": 3.06,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3387,7 +3372,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6.6,
       "ibu": 23,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
