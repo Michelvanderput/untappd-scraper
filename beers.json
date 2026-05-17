@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-17T07:01:33.967Z",
-  "count": 416,
-  "scrape_duration_seconds": 2.7,
+  "fetched_at": "2026-05-17T12:28:01.251Z",
+  "count": 415,
+  "scrape_duration_seconds": 1.91,
   "stats": {
-    "total_fetched": 416,
-    "total_valid": 416,
+    "total_fetched": 415,
+    "total_valid": 415,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 94,
+      "Op=Op kaart": 93,
       "Bierbijbel": 295
     }
   },
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 65,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -447,7 +447,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.63,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -507,7 +507,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": 36,
-      "rating": 3.92,
+      "rating": 3.93,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -582,7 +582,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.45,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -628,21 +628,6 @@
       "abv": 5.2,
       "ibu": null,
       "rating": 3.19,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Daura",
-      "beer_url": "https://untappd.com/b/damm-daura/12107",
-      "image_url": "https://labels.untappd.com/12107",
-      "style": "Gluten-Free",
-      "brewery": "Damm",
-      "brewery_url": "https://untappd.com/w/damm/1087",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5.4,
-      "ibu": 26,
-      "rating": 2.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -807,7 +792,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.99,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -942,7 +927,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.39,
+      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +972,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.8,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1017,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.67,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1062,7 @@
       "subcategory": null,
       "abv": 6.4,
       "ibu": null,
-      "rating": 3.83,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1122,7 +1107,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.75,
+      "rating": 3.74,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1692,7 +1677,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 32,
-      "rating": 3.36,
+      "rating": 3.35,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141694"
     },
@@ -2937,7 +2922,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.06,
+      "rating": 3.07,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6207,7 +6192,7 @@
       "subcategory": "Flessen Om Te Delen",
       "abv": 10,
       "ibu": 17,
-      "rating": 3.92,
+      "rating": 3.91,
       "container": "75cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
