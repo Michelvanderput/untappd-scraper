@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-16T18:22:25.409Z",
+  "fetched_at": "2026-05-17T07:01:33.967Z",
   "count": 416,
-  "scrape_duration_seconds": 2.81,
+  "scrape_duration_seconds": 2.7,
   "stats": {
     "total_fetched": 416,
     "total_valid": 416,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 94,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Deliria",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-deliria/446193",
+      "image_url": "https://labels.untappd.com/446193",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": 32,
+      "rating": 3.62,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ezel",
       "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-ezel/1258549",
@@ -1693,21 +1708,6 @@
       "abv": 6,
       "ibu": 30,
       "rating": 3.69,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141694"
-    },
-    {
-      "name": "Delirium Tremens",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-tremens/4485",
-      "image_url": "https://labels.untappd.com/4485",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Vaste bieren van de tap",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 24,
-      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141694"
     },
