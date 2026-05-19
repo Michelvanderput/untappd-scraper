@@ -1,5 +1,22 @@
 [
   {
+    "timestamp": "2026-05-19T18:40:59.204Z",
+    "success": true,
+    "duration_seconds": 2.35,
+    "beers_count": 415,
+    "stats": {
+      "totalFetched": 415,
+      "totalValid": 415,
+      "errors": 0,
+      "byCategory": {
+        "Wisseltap bieren": 17,
+        "Vaste bieren van de tap": 10,
+        "Op=Op kaart": 93,
+        "Bierbijbel": 295
+      }
+    }
+  },
+  {
     "timestamp": "2026-05-19T13:17:30.434Z",
     "success": true,
     "duration_seconds": 2,
@@ -1672,23 +1689,6 @@
         "Wisseltap bieren": 16,
         "Op=Op kaart": 89,
         "Bierbijbel": 296
-      }
-    }
-  },
-  {
-    "timestamp": "2026-04-16T12:32:35.280Z",
-    "success": true,
-    "duration_seconds": 12.35,
-    "beers_count": 400,
-    "stats": {
-      "totalFetched": 400,
-      "totalValid": 400,
-      "errors": 0,
-      "byCategory": {
-        "Wisseltap bieren": 16,
-        "Op=Op kaart": 77,
-        "Bierbijbel": 296,
-        "Vaste bieren van de tap": 11
       }
     }
   }
