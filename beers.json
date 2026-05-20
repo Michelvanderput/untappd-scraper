@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-20T13:03:51.211Z",
+  "fetched_at": "2026-05-20T18:51:59.421Z",
   "count": 415,
-  "scrape_duration_seconds": 2.01,
+  "scrape_duration_seconds": 2.28,
   "stats": {
     "total_fetched": 415,
     "total_valid": 415,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 93,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Blueprints: Solar Panels",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-solar-panels/6605971",
+      "image_url": "https://labels.untappd.com/6605971",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.5,
+      "ibu": null,
+      "rating": 3.95,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Pink Panther",
+      "beer_url": "https://untappd.com/b/jopen-pink-panther/6656637",
+      "image_url": "https://labels.untappd.com/6656637",
+      "style": "Wheat Beer - Witbier / Blanche",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 15,
+      "rating": 3.13,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Blanche de Namur",
       "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
@@ -77,21 +107,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Eureka: North West IPA",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-eureka-north-west-ipa/6607740",
-      "image_url": "https://labels.untappd.com/6607740",
-      "style": "IPA - American",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.64,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Gulden Draak Brewmasters Edition",
       "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-brewmasters-edition/455971",
       "image_url": "https://labels.untappd.com/455971",
@@ -133,21 +148,6 @@
       "abv": 8.2,
       "ibu": 21,
       "rating": 3.67,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Spring Time",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-spring-time/6634459",
-      "image_url": "https://labels.untappd.com/6634459",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": null,
-      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -957,7 +957,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1092,7 +1092,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4167,7 +4167,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
