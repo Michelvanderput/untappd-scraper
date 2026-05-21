@@ -1,21 +1,66 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-21T07:22:17.076Z",
+  "fetched_at": "2026-05-21T13:18:04.088Z",
   "count": 415,
-  "scrape_duration_seconds": 2.32,
+  "scrape_duration_seconds": 2.35,
   "stats": {
     "total_fetched": 415,
     "total_valid": 415,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 93,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Tongerlo Blond - Blonde",
+      "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
+      "image_url": "https://labels.untappd.com/4717",
+      "style": "Belgian Blonde",
+      "brewery": "Brouwerij Haacht Brasserie",
+      "brewery_url": "https://untappd.com/w/brouwerij-haacht-brasserie/3426",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 20,
+      "rating": 3.51,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Korenwolf",
+      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
+      "image_url": "https://labels.untappd.com/33861",
+      "style": "Wheat Beer - Witbier / Blanche",
+      "brewery": "Gulpener Bierbrouwerij",
+      "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.42,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Ter Dolen Blond",
+      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+      "image_url": "https://labels.untappd.com/55364",
+      "style": "Belgian Blonde",
+      "brewery": "Ter Dolen",
+      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.1,
+      "ibu": 25,
+      "rating": 3.5,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Blueprints: Solar Panels",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-solar-panels/6605971",
@@ -152,21 +197,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Ter Dolen Tripel",
-      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
-      "image_url": "https://labels.untappd.com/70991",
-      "style": "Belgian Tripel",
-      "brewery": "Ter Dolen",
-      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.1,
-      "ibu": 30,
-      "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Hopbock",
       "beer_url": "https://untappd.com/b/vandestreek-bier-hopbock/6621260",
       "image_url": "https://labels.untappd.com/6621260",
@@ -182,21 +212,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Skiller Wit",
-      "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-skiller-wit/3776267",
-      "image_url": "https://labels.untappd.com/3776267",
-      "style": "Wheat Beer - Witbier / Blanche",
-      "brewery": "Texelse Bierbrouwerij",
-      "brewery_url": "https://untappd.com/w/texelse-bierbrouwerij/2245",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 15,
-      "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "La Trappe Tripel",
       "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-tripel/2013",
       "image_url": "https://labels.untappd.com/2013",
@@ -208,21 +223,6 @@
       "abv": 8,
       "ibu": 27,
       "rating": 3.74,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gulpener Tapdans 2026 Harbour Slice",
-      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gulpener-tapdans-2026-harbour-slice/6644654",
-      "image_url": "https://labels.untappd.com/6644654",
-      "style": "IPA - Fruited",
-      "brewery": "Gulpener Bierbrouwerij",
-      "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.5,
-      "ibu": null,
-      "rating": 3.56,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1017,7 +1017,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3357,7 +3357,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6.6,
       "ibu": 23,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
