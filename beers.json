@@ -1,21 +1,66 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-23T12:29:07.027Z",
-  "count": 418,
-  "scrape_duration_seconds": 2.32,
+  "fetched_at": "2026-05-23T18:24:24.723Z",
+  "count": 419,
+  "scrape_duration_seconds": 1.85,
   "stats": {
-    "total_fetched": 418,
-    "total_valid": 418,
+    "total_fetched": 419,
+    "total_valid": 419,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 96,
+      "Op=Op kaart": 97,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Lupulus Just Fabulus! KRUSH (2026)",
+      "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-just-fabulus-krush-2026/6456873",
+      "image_url": "https://labels.untappd.com/6456873",
+      "style": "Belgian Tripel",
+      "brewery": "Brasserie Lupulus",
+      "brewery_url": "https://untappd.com/w/brasserie-lupulus/14082",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": null,
+      "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Sollicitere",
+      "beer_url": "https://untappd.com/b/aspro-brews-sollicitere/5076755",
+      "image_url": "https://labels.untappd.com/5076755",
+      "style": "Belgian Blonde",
+      "brewery": "Aspro Brews",
+      "brewery_url": "https://untappd.com/w/aspro-brews/483656",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.2,
+      "ibu": 30,
+      "rating": 3.44,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Val-Dieu Hop (Cuvée 800)",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-hop-cuvee-800/1588939",
+      "image_url": "https://labels.untappd.com/1588939",
+      "style": "Pale Ale - Belgian",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.5,
+      "ibu": 27,
+      "rating": 3.5,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tongerlo Blond - Blonde",
       "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
@@ -122,21 +167,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Ezel",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-ezel/1258549",
-      "image_url": "https://labels.untappd.com/1258549",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij De Brabandere",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.38,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "The Pom",
       "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-the-pom/703866",
       "image_url": "https://labels.untappd.com/703866",
@@ -212,21 +242,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "La Trappe Tripel",
-      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-tripel/2013",
-      "image_url": "https://labels.untappd.com/2013",
-      "style": "Belgian Tripel",
-      "brewery": "Bierbrouwerij De Koningshoeven",
-      "brewery_url": "https://untappd.com/w/bierbrouwerij-de-koningshoeven/110",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 27,
-      "rating": 3.74,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "LeFort",
       "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
       "image_url": "https://labels.untappd.com/504924",
@@ -257,19 +272,19 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Val-Dieu Blonde",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-      "image_url": "https://labels.untappd.com/40880",
-      "style": "Belgian Blonde",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
+      "name": "Cauwe, Cauberg Weizen By Klinker",
+      "beer_url": "https://untappd.com/b/brouwerij-klinker-cauwe-cauberg-weizen-by-klinker/4279461",
+      "image_url": "https://labels.untappd.com/4279461",
+      "style": "Wheat Beer - Hefeweizen",
+      "brewery": "Brouwerij Klinker",
+      "brewery_url": "https://untappd.com/w/brouwerij-klinker/211841",
+      "category": "Op=Op kaart",
       "subcategory": null,
-      "abv": 6,
-      "ibu": 18,
-      "rating": 3.46,
+      "abv": 6.5,
+      "ibu": 23,
+      "rating": 3.41,
       "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "NEPTUNE",
@@ -297,7 +312,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.58,
+      "rating": 4.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -312,7 +327,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.87,
+      "rating": 3.86,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -447,7 +462,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.03,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -612,7 +627,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.9,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -807,7 +822,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.9,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -852,7 +867,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -867,7 +882,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 30,
-      "rating": 3.42,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +1002,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.45,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1002,7 +1017,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1122,7 +1137,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.92,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1137,7 +1152,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.71,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1212,7 +1227,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.27,
+      "rating": 3.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1542,7 +1557,7 @@
       "subcategory": null,
       "abv": 11.9,
       "ibu": 19,
-      "rating": 4.11,
+      "rating": 4.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4212,7 +4227,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.81,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
