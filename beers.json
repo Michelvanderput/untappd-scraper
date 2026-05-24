@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-24T07:10:25.397Z",
+  "fetched_at": "2026-05-24T12:31:50.384Z",
   "count": 419,
-  "scrape_duration_seconds": 1.83,
+  "scrape_duration_seconds": 3.39,
   "stats": {
     "total_fetched": 419,
     "total_valid": 419,
@@ -10,9 +10,9 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 97,
-      "Bierbijbel": 295
+      "Bierbijbel": 295,
+      "Vaste bieren van de tap": 10
     }
   },
   "beers": [
@@ -132,7 +132,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 15,
-      "rating": 3.14,
+      "rating": 3.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 4.13,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 65,
-      "rating": 3.71,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -642,7 +642,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.44,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.77,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.72,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2052,7 +2052,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 8,
       "ibu": 15,
-      "rating": 3.66,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3417,7 +3417,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6.6,
       "ibu": 23,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4122,7 +4122,7 @@
       "subcategory": "Trappistenbieren",
       "abv": 5,
       "ibu": null,
-      "rating": 3.53,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5397,7 +5397,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 11.7,
       "ibu": 15,
-      "rating": 3.98,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
