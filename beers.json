@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-26T07:17:26.994Z",
+  "fetched_at": "2026-05-26T13:11:06.444Z",
   "count": 419,
-  "scrape_duration_seconds": 2.45,
+  "scrape_duration_seconds": 1.83,
   "stats": {
     "total_fetched": 419,
     "total_valid": 419,
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.94,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -852,7 +852,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.97,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1167,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4122,7 +4122,7 @@
       "subcategory": "Trappistenbieren",
       "abv": 5,
       "ibu": null,
-      "rating": 3.53,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
