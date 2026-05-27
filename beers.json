@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-26T18:51:52.327Z",
-  "count": 419,
-  "scrape_duration_seconds": 2.1,
+  "fetched_at": "2026-05-27T07:31:38.915Z",
+  "count": 420,
+  "scrape_duration_seconds": 2.52,
   "stats": {
-    "total_fetched": 419,
-    "total_valid": 419,
+    "total_fetched": 420,
+    "total_valid": 420,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
-      "Wisseltap bieren": 17,
       "Op=Op kaart": 97,
-      "Bierbijbel": 295
+      "Bierbijbel": 295,
+      "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 18
     }
   },
   "beers": [
+    {
+      "name": "Eureka: North West IPA",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-eureka-north-west-ipa/6607740",
+      "image_url": "https://labels.untappd.com/6607740",
+      "style": "IPA - American",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": null,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Alphageddon 4: Inferno",
       "beer_url": "https://untappd.com/b/rock-city-brewing-alphageddon-4-inferno/6639769",
