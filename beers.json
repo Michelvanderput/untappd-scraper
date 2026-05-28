@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-28T07:25:47.256Z",
+  "fetched_at": "2026-05-28T13:25:50.393Z",
   "count": 420,
-  "scrape_duration_seconds": 2.2,
+  "scrape_duration_seconds": 2.18,
   "stats": {
     "total_fetched": 420,
     "total_valid": 420,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 18,
       "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 18,
       "Op=Op kaart": 97,
       "Bierbijbel": 295
     }
@@ -222,7 +222,7 @@
       "subcategory": null,
       "abv": 8.5,
       "ibu": 70,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1002,7 +1002,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.37,
+      "rating": 3.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1047,7 +1047,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.8,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1112,8 +1112,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Frozen Fresh",
-      "beer_url": "https://untappd.com/b/nepo-brewing-frozen-fresh/4635467",
+      "name": "Crazy Lines Series: Frozen Fresh",
+      "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-frozen-fresh/4635467",
       "image_url": "https://labels.untappd.com/4635467",
       "style": "IPA - Imperial / Double New England / Hazy",
       "brewery": "Nepo Brewing",
@@ -1137,7 +1137,7 @@
       "subcategory": null,
       "abv": 6.4,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
