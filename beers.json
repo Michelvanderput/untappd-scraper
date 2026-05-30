@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-05-30T12:33:52.923Z",
+  "fetched_at": "2026-05-30T18:26:40.683Z",
   "count": 420,
-  "scrape_duration_seconds": 1.91,
+  "scrape_duration_seconds": 2.44,
   "stats": {
     "total_fetched": 420,
     "total_valid": 420,
@@ -327,7 +327,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.17,
+      "rating": 4.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.85,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -387,7 +387,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": null,
-      "rating": 4.08,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -717,7 +717,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": 30,
-      "rating": 3.4,
+      "rating": 3.39,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -882,7 +882,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -897,7 +897,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 30,
-      "rating": 3.42,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.75,
+      "rating": 3.74,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1212,7 +1212,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 7,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1257,7 +1257,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.23,
+      "rating": 3.25,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1572,7 +1572,7 @@
       "subcategory": null,
       "abv": 11.9,
       "ibu": 19,
-      "rating": 4.1,
+      "rating": 4.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1617,7 +1617,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 4.13,
+      "rating": 4.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2052,7 +2052,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6.4,
       "ibu": 16,
-      "rating": 3.58,
+      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4242,7 +4242,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.78,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6132,7 +6132,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.22,
+      "rating": 3.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
