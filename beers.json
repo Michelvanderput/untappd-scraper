@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-01T07:52:13.389Z",
+  "fetched_at": "2026-06-01T14:11:37.605Z",
   "count": 420,
-  "scrape_duration_seconds": 2.01,
+  "scrape_duration_seconds": 2.25,
   "stats": {
     "total_fetched": 420,
     "total_valid": 420,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 18,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 97,
       "Bierbijbel": 295
     }
@@ -282,7 +282,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 30,
-      "rating": 3.81,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1092,7 +1092,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.71,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2952,7 +2952,7 @@
       "subcategory": "Fruitbieren",
       "abv": 2.5,
       "ibu": 10,
-      "rating": 3.57,
+      "rating": 3.58,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5277,7 +5277,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.29,
+      "rating": 3.28,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
