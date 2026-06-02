@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-02T13:28:20.112Z",
+  "fetched_at": "2026-06-02T19:18:58.473Z",
   "count": 420,
-  "scrape_duration_seconds": 1.87,
+  "scrape_duration_seconds": 2.12,
   "stats": {
     "total_fetched": 420,
     "total_valid": 420,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 10,
-      "Op=Op kaart": 97,
       "Wisseltap bieren": 18,
+      "Op=Op kaart": 97,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Hyperdrive",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-hyperdrive/6686181",
+      "image_url": "https://labels.untappd.com/6686181",
+      "style": "IPA - Other",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 9,
+      "rating": 4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Filou IPA",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-filou-ipa/5550370",
@@ -58,21 +73,6 @@
       "abv": 7,
       "ibu": null,
       "rating": 3.64,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Alphageddon 4: Inferno",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-alphageddon-4-inferno/6639769",
-      "image_url": "https://labels.untappd.com/6639769",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Rock City Brewing",
-      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 60,
-      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.85,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -822,7 +822,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.02,
+      "rating": 4.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +837,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1257,7 +1257,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.24,
+      "rating": 3.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4242,7 +4242,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.77,
+      "rating": 3.78,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5007,7 +5007,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 20,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
