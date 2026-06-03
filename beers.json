@@ -1,21 +1,66 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-03T13:49:40.401Z",
+  "fetched_at": "2026-06-03T19:24:06.164Z",
   "count": 424,
-  "scrape_duration_seconds": 2.24,
+  "scrape_duration_seconds": 2.31,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 18,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Witzige Weizen",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
+      "image_url": "https://labels.untappd.com/5681777",
+      "style": "Wheat Beer - Other",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.5,
+      "ibu": 15,
+      "rating": 3.41,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Tongerlo Blond - Blonde",
+      "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
+      "image_url": "https://labels.untappd.com/4717",
+      "style": "Belgian Blonde",
+      "brewery": "Brouwerij Haacht Brasserie",
+      "brewery_url": "https://untappd.com/w/brouwerij-haacht-brasserie/3426",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 20,
+      "rating": 3.51,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Trappistes Rochefort Triple Extra",
+      "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-triple-extra/3986134",
+      "image_url": "https://labels.untappd.com/3986134",
+      "style": "Belgian Tripel",
+      "brewery": "Abbaye Notre-Dame de Saint-Rémy",
+      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.1,
+      "ibu": 35,
+      "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Hyperdrive",
       "beer_url": "https://untappd.com/b/rock-city-brewing-hyperdrive/6686181",
@@ -122,36 +167,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Tongerlo Blond - Blonde",
-      "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
-      "image_url": "https://labels.untappd.com/4717",
-      "style": "Belgian Blonde",
-      "brewery": "Brouwerij Haacht Brasserie",
-      "brewery_url": "https://untappd.com/w/brouwerij-haacht-brasserie/3426",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 20,
-      "rating": 3.51,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Korenwolf",
-      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
-      "image_url": "https://labels.untappd.com/33861",
-      "style": "Wheat Beer - Witbier / Blanche",
-      "brewery": "Gulpener Bierbrouwerij",
-      "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.42,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Ter Dolen Blond",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
       "image_url": "https://labels.untappd.com/55364",
@@ -222,7 +237,7 @@
       "subcategory": null,
       "abv": 4.8,
       "ibu": 6,
-      "rating": 3,
+      "rating": 3.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -238,21 +253,6 @@
       "abv": 10.5,
       "ibu": 11,
       "rating": 3.82,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tripel Kanunnik",
-      "beer_url": "https://untappd.com/b/brouwerij-wilderen-tripel-kanunnik/94869",
-      "image_url": "https://labels.untappd.com/94869",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Wilderen",
-      "brewery_url": "https://untappd.com/w/brouwerij-wilderen/18146",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.2,
-      "ibu": 21,
-      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -387,7 +387,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.09,
+      "rating": 4.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -402,7 +402,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -882,7 +882,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.01,
+      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -942,7 +942,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.61,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.69,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1317,7 +1317,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.23,
+      "rating": 3.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3102,7 +3102,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": 22,
-      "rating": 3.5,
+      "rating": 3.49,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
