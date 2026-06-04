@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-03T19:24:06.164Z",
+  "fetched_at": "2026-06-04T07:42:38.775Z",
   "count": 424,
-  "scrape_duration_seconds": 2.31,
+  "scrape_duration_seconds": 1.9,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "MANGO STICKY RICE",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
+      "image_url": "https://labels.untappd.com/6560677",
+      "style": "Sour - Smoothie / Pastry",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.97,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Witzige Weizen",
       "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
@@ -223,21 +238,6 @@
       "abv": 8.5,
       "ibu": 32,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "The Pom",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-the-pom/703866",
-      "image_url": "https://labels.untappd.com/703866",
-      "style": "Fruit Beer",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.8,
-      "ibu": 6,
-      "rating": 3.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
