@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-04T18:51:08.426Z",
+  "fetched_at": "2026-06-05T07:34:32.639Z",
   "count": 424,
-  "scrape_duration_seconds": 2.41,
+  "scrape_duration_seconds": 1.87,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 18,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Blond",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
+      "image_url": "https://labels.untappd.com/5850248",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.56,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "MANGO STICKY RICE",
       "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
@@ -118,21 +133,6 @@
       "abv": 6,
       "ibu": 18,
       "rating": 3.59,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Eureka: North West IPA",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-eureka-north-west-ipa/6607740",
-      "image_url": "https://labels.untappd.com/6607740",
-      "style": "IPA - American",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
