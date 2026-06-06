@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-05T18:42:55.251Z",
+  "fetched_at": "2026-06-06T07:08:25.260Z",
   "count": 424,
-  "scrape_duration_seconds": 2.16,
+  "scrape_duration_seconds": 1.96,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 10,
-      "Op=Op kaart": 101,
       "Wisseltap bieren": 18,
-      "Bierbijbel": 295
+      "Bierbijbel": 295,
+      "Op=Op kaart": 101
     }
   },
   "beers": [
+    {
+      "name": "For the Love of Hops (SOMA)",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-for-the-love-of-hops-soma/6691640",
+      "image_url": "https://labels.untappd.com/6691640",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": null,
+      "rating": 3.85,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Mongozo Coconut",
       "beer_url": "https://untappd.com/b/mongozo-mongozo-coconut/30042",
@@ -103,21 +118,6 @@
       "abv": 8.1,
       "ibu": 35,
       "rating": 3.76,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Hyperdrive",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-hyperdrive/6686181",
-      "image_url": "https://labels.untappd.com/6686181",
-      "style": "IPA - Other",
-      "brewery": "Rock City Brewing",
-      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 9,
-      "rating": 3.99,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
