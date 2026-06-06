@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-06T12:36:30.527Z",
+  "fetched_at": "2026-06-06T18:31:41.029Z",
   "count": 424,
-  "scrape_duration_seconds": 1.98,
+  "scrape_duration_seconds": 2.01,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 18,
       "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 18,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "California Dreamin'",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-california-dreamin/6614769",
+      "image_url": "https://labels.untappd.com/6614769",
+      "style": "IPA - Other",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 61,
+      "rating": 3.62,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "For the Love of Hops (SOMA)",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-for-the-love-of-hops-soma/6691640",
@@ -27,7 +42,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.85,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -133,21 +148,6 @@
       "abv": 6.5,
       "ibu": null,
       "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Summer Is Calling",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-summer-is-calling/6675042",
-      "image_url": "https://labels.untappd.com/6675042",
-      "style": "IPA - White / Wheat",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 18,
-      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -387,7 +387,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.09,
+      "rating": 4.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -447,7 +447,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": null,
-      "rating": 4.05,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +837,7 @@
       "subcategory": null,
       "abv": 18,
       "ibu": 45,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -897,7 +897,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.9,
+      "rating": 3.91,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1085,7 +1085,7 @@
       "name": "10 Years: Breakout",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-breakout/6701074",
       "image_url": "https://labels.untappd.com/6701074",
-      "style": "IPA - Imperial / Double",
+      "style": "IPA - Imperial / Double New England / Hazy",
       "brewery": "Moersleutel Craft Brewery",
       "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
       "category": "Op=Op kaart",
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.68,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1347,7 +1347,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 15,
-      "rating": 3.86,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1677,7 +1677,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 4.12,
+      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5067,7 +5067,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 20,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6177,7 +6177,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": 6,
-      "rating": 3.14,
+      "rating": 3.15,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
