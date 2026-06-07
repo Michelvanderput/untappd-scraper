@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-07T07:28:18.866Z",
-  "count": 424,
+  "fetched_at": "2026-06-07T12:41:09.041Z",
+  "count": 423,
   "scrape_duration_seconds": 2.1,
   "stats": {
-    "total_fetched": 424,
-    "total_valid": 424,
+    "total_fetched": 423,
+    "total_valid": 423,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 18,
-      "Op=Op kaart": 101,
+      "Vaste bieren van de tap": 10,
+      "Op=Op kaart": 100,
       "Bierbijbel": 295
     }
   },
@@ -207,7 +207,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": 15,
-      "rating": 3.11,
+      "rating": 3.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -302,21 +302,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Bon Secours Prestige",
-      "beer_url": "https://untappd.com/b/brasserie-caulier-bon-secours-prestige/4051905",
-      "image_url": "https://labels.untappd.com/4051905",
-      "style": "Belgian Tripel",
-      "brewery": "Brasserie Caulier",
-      "brewery_url": "https://untappd.com/w/brasserie-caulier/3359",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 24,
-      "rating": 3.66,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Tank 7",
       "beer_url": "https://untappd.com/b/boulevard-brewing-co-tank-7/10891",
       "image_url": "https://labels.untappd.com/10891",
@@ -372,7 +357,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -582,7 +567,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1242,7 +1227,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2097,7 +2082,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.75,
+      "rating": 3.74,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
