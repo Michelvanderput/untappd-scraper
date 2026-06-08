@@ -1,6 +1,173 @@
 {
   "changes": [
     {
+      "date": "2026-06-08T18:53:37.121Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 13,
+        "total_beers": 423
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Mongozo Coconut",
+          "beer_url": "https://untappd.com/b/mongozo-mongozo-coconut/30042",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Blond",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Witzige Weizen",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tongerlo Blond - Blonde",
+          "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Trappistes Rochefort Triple Extra",
+          "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-triple-extra/3986134",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Blanche de Namur",
+          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Alpha Unit Single Hop Amarillo® IPA Two Chefs X Crosby Hops Collab",
+          "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo-ipa-two-chefs-x-crosby-hops-collab/6621400",
+          "changes": {
+            "rating": {
+              "old": 3.68,
+              "new": 3.69
+            }
+          }
+        },
+        {
+          "name": "Gulf Coast IPA",
+          "beer_url": "https://untappd.com/b/parish-brewing-co-gulf-coast-ipa/6392386",
+          "changes": {
+            "rating": {
+              "old": 3.69,
+              "new": 3.68
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-06-08T13:37:37.719Z",
       "summary": {
         "added": 0,
@@ -5477,233 +5644,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-05-29T18:56:03.246Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 19,
-        "total_beers": 420
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Sollicitere",
-          "beer_url": "https://untappd.com/b/aspro-brews-sollicitere/5076755",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tongerlo Blond - Blonde",
-          "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Korenwolf",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "rating": {
-              "old": 3.5,
-              "new": 3.51
-            },
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Blanche de Namur",
-          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel Kanunnik",
-          "beer_url": "https://untappd.com/b/brouwerij-wilderen-tripel-kanunnik/94869",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "JUNGLE JUICE",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-jungle-juice/6560678",
-          "changes": {
-            "rating": {
-              "old": 4.19,
-              "new": 4.17
-            }
-          }
-        },
-        {
-          "name": "Crazy Lines Series: Waves",
-          "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-waves/6695300",
-          "changes": {
-            "rating": {
-              "old": 3.86,
-              "new": 3.85
-            }
-          }
-        },
-        {
-          "name": "Just Figure It Out",
-          "beer_url": "https://untappd.com/b/bereta-brewing-co-just-figure-it-out/6641954",
-          "changes": {
-            "rating": {
-              "old": 4.07,
-              "new": 4.08
-            }
-          }
-        },
-        {
-          "name": "Camaraderie",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-camaraderie/6479996",
-          "changes": {
-            "rating": {
-              "old": 3.46,
-              "new": 3.45
-            }
-          }
-        },
-        {
-          "name": "Ultrasphere",
-          "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
-          "changes": {
-            "rating": {
-              "old": 3.9,
-              "new": 3.91
-            }
-          }
-        },
-        {
-          "name": "Alpha Unit Single Hop Amarillo® IPA Two Chefs X Crosby Hops Collab",
-          "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo-ipa-two-chefs-x-crosby-hops-collab/6621400",
-          "changes": {
-            "rating": {
-              "old": 3.7,
-              "new": 3.69
-            }
-          }
-        },
-        {
-          "name": "Snare Affair",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-snare-affair/6681632",
-          "changes": {
-            "rating": {
-              "old": 3.24,
-              "new": 3.23
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "rating": {
-              "old": 3.5,
-              "new": 3.51
-            }
-          }
-        },
-        {
-          "name": "Korenwolf 0.0",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf-0-0/6128684",
-          "changes": {
-            "rating": {
-              "old": 3.23,
-              "new": 3.22
             }
           }
         }
