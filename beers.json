@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-09T07:19:18.987Z",
-  "count": 423,
-  "scrape_duration_seconds": 1.95,
+  "fetched_at": "2026-06-09T13:09:07.947Z",
+  "count": 422,
+  "scrape_duration_seconds": 1.84,
   "stats": {
-    "total_fetched": 423,
-    "total_valid": 423,
+    "total_fetched": 422,
+    "total_valid": 422,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 18,
       "Vaste bieren van de tap": 10,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 100,
       "Bierbijbel": 295
     }
@@ -58,21 +58,6 @@
       "abv": 3.6,
       "ibu": 5,
       "rating": 3.12,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blond",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blond/5850248",
-      "image_url": "https://labels.untappd.com/5850248",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.56,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1092,7 +1077,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.83,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
