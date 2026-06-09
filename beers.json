@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-09T13:09:07.947Z",
+  "fetched_at": "2026-06-09T18:47:37.836Z",
   "count": 422,
-  "scrape_duration_seconds": 1.84,
+  "scrape_duration_seconds": 2.35,
   "stats": {
     "total_fetched": 422,
     "total_valid": 422,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 100,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "It Doesn't Make A Difference If We Are Naked Or Not",
+      "beer_url": "https://untappd.com/b/uiltje-brewing-company-it-doesn-t-make-a-difference-if-we-are-naked-or-not/6562647",
+      "image_url": "https://labels.untappd.com/6562647",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery": "Uiltje Brewing Company",
+      "brewery_url": "https://untappd.com/w/uiltje-brewing-company/32280",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.2,
+      "ibu": 15,
+      "rating": 3.73,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "California Dreamin'",
       "beer_url": "https://untappd.com/b/brouwerij-kees-california-dreamin/6614769",
@@ -28,21 +43,6 @@
       "abv": 7,
       "ibu": 61,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "For the Love of Hops (SOMA)",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-for-the-love-of-hops-soma/6691640",
-      "image_url": "https://labels.untappd.com/6691640",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -387,7 +387,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": 33,
-      "rating": 3.68,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -912,7 +912,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
