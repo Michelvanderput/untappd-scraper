@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-11T07:46:23.898Z",
+  "fetched_at": "2026-06-11T13:31:11.095Z",
   "count": 424,
-  "scrape_duration_seconds": 2.05,
+  "scrape_duration_seconds": 2.12,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 10,
       "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
@@ -222,7 +222,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": 15,
-      "rating": 3.13,
+      "rating": 3.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -282,7 +282,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.44,
+      "rating": 4.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1107,7 +1107,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.84,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1302,7 +1302,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.28,
+      "rating": 3.27,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2097,7 +2097,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.75,
+      "rating": 3.74,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3012,7 +3012,7 @@
       "subcategory": "Fruitbieren",
       "abv": 2.5,
       "ibu": 10,
-      "rating": 3.57,
+      "rating": 3.58,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
