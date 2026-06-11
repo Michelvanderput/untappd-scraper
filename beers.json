@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-10T18:57:03.579Z",
-  "count": 425,
-  "scrape_duration_seconds": 2.46,
+  "fetched_at": "2026-06-11T07:46:23.898Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.05,
   "stats": {
-    "total_fetched": 425,
-    "total_valid": 425,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 10,
-      "Op=Op kaart": 103,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Tripel LeFort",
+      "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+      "image_url": "https://labels.untappd.com/1533976",
+      "style": "Belgian Tripel",
+      "brewery": "Omer Vander Ghinste",
+      "brewery_url": "https://untappd.com/w/omer-vander-ghinste/5213",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.8,
+      "ibu": 20,
+      "rating": 3.72,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Maneblusser Lente",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-maneblusser-lente/152457",
+      "image_url": "https://labels.untappd.com/152457",
+      "style": "Bock - Hell / Maibock / Lentebock",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 26,
+      "rating": 3.39,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "It Doesn't Make A Difference If We Are Naked Or Not",
       "beer_url": "https://untappd.com/b/uiltje-brewing-company-it-doesn-t-make-a-difference-if-we-are-naked-or-not/6562647",
@@ -227,36 +257,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Gulden Draak Brewmasters Edition",
-      "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-brewmasters-edition/455971",
-      "image_url": "https://labels.untappd.com/455971",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Van Steenberge",
-      "brewery_url": "https://untappd.com/w/brouwerij-van-steenberge/7778",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": 11,
-      "rating": 3.82,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "LeFort",
-      "beer_url": "https://untappd.com/b/omer-vander-ghinste-lefort/504924",
-      "image_url": "https://labels.untappd.com/504924",
-      "style": "Belgian Strong Dark Ale",
-      "brewery": "Omer Vander Ghinste",
-      "brewery_url": "https://untappd.com/w/omer-vander-ghinste/5213",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 18,
-      "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Gouden Carolus Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
       "image_url": "https://labels.untappd.com/356",
@@ -270,6 +270,36 @@
       "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "10 Years: Recovery",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
+      "image_url": "https://labels.untappd.com/6728577",
+      "style": "Stout - Russian Imperial",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 14,
+      "ibu": null,
+      "rating": 4.44,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "10 Years: Exploration",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-exploration/6728584",
+      "image_url": "https://labels.untappd.com/6728584",
+      "style": "IPA - American",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.55,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "SchuppenAas Brett refermented",
@@ -467,21 +497,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Lupulus Hazy Session",
-      "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-hazy-session/5316399",
-      "image_url": "https://labels.untappd.com/5316399",
-      "style": "IPA - Session New England / Hazy",
-      "brewery": "Brasserie Lupulus",
-      "brewery_url": "https://untappd.com/w/brasserie-lupulus/14082",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": 30,
-      "rating": 3.49,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Lambic & Stout",
       "beer_url": "https://untappd.com/b/brewery-john-martin-and-brewery-timmermans-lambic-and-stout/2832165",
       "image_url": "https://labels.untappd.com/2832165",
@@ -538,21 +553,6 @@
       "abv": 11.5,
       "ibu": 45,
       "rating": 3.87,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Frostbite",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-frostbite/6506449",
-      "image_url": "https://labels.untappd.com/6506449",
-      "style": "Barleywine - Other",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": null,
-      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1033,21 +1033,6 @@
       "abv": 7.6,
       "ibu": null,
       "rating": 3.78,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Original Alcoholic Ginger Beer",
-      "beer_url": "https://untappd.com/b/john-crabbie-and-co-original-alcoholic-ginger-beer/18526",
-      "image_url": "https://labels.untappd.com/18526",
-      "style": "Hard Ginger Beer",
-      "brewery": "John Crabbie & Co",
-      "brewery_url": "https://untappd.com/w/john-crabbie-co/5016",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.8,
-      "ibu": null,
-      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
