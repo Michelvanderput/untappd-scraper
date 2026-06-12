@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-12T13:20:06.519Z",
+  "fetched_at": "2026-06-12T18:43:59.678Z",
   "count": 424,
-  "scrape_duration_seconds": 3.77,
+  "scrape_duration_seconds": 2.29,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 10,
+      "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 102,
-      "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
@@ -147,7 +147,7 @@
       "subcategory": null,
       "abv": 8.1,
       "ibu": 35,
-      "rating": 3.76,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -242,21 +242,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Deliria",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-deliria/446193",
-      "image_url": "https://labels.untappd.com/446193",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 32,
-      "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Gouden Carolus Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
       "image_url": "https://labels.untappd.com/356",
@@ -267,7 +252,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 30,
-      "rating": 3.81,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -447,7 +432,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.85,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -537,7 +522,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 51,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -897,7 +882,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.02,
+      "rating": 4.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1212,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.69,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1317,7 +1302,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.25,
+      "rating": 3.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1662,7 +1647,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 3.87,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1800,6 +1785,21 @@
       "rating": 4.15,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Delirium Tremens",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-tremens/4485",
+      "image_url": "https://labels.untappd.com/4485",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Vaste bieren van de tap",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": 24,
+      "rating": 3.84,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141694"
     },
     {
       "name": "Biologisch IPA",
@@ -3102,7 +3102,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": 22,
-      "rating": 3.5,
+      "rating": 3.49,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4137,7 +4137,7 @@
       "subcategory": "Trappistenbieren",
       "abv": 8.1,
       "ibu": 35,
-      "rating": 3.76,
+      "rating": 3.77,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4302,7 +4302,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4512,7 +4512,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 25,
-      "rating": 3.38,
+      "rating": 3.37,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
