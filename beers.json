@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-12T18:43:59.678Z",
+  "fetched_at": "2026-06-13T07:22:56.552Z",
   "count": 424,
-  "scrape_duration_seconds": 2.29,
+  "scrape_duration_seconds": 1.87,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -215,7 +215,7 @@
       "name": "Pink Panther",
       "beer_url": "https://untappd.com/b/jopen-pink-panther/6656637",
       "image_url": "https://labels.untappd.com/6656637",
-      "style": "Wheat Beer - Witbier / Blanche",
+      "style": "Wheat Beer - Fruited",
       "brewery": "Jopen",
       "brewery_url": "https://untappd.com/w/jopen/620",
       "category": "Wisseltap bieren",
