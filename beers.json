@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-14T07:40:17.439Z",
-  "count": 423,
-  "scrape_duration_seconds": 1.82,
+  "fetched_at": "2026-06-14T12:48:26.839Z",
+  "count": 424,
+  "scrape_duration_seconds": 1.87,
   "stats": {
-    "total_fetched": 423,
-    "total_valid": 423,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Gouv Goes Orange",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouv-goes-orange/6751573",
+      "image_url": "https://labels.untappd.com/6751573",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": null,
+      "ibu": 7,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Val-Dieu Blonde",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+      "image_url": "https://labels.untappd.com/40880",
+      "style": "Belgian Blonde",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 18,
+      "rating": 3.46,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tripel LeFort",
       "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
@@ -178,21 +208,6 @@
       "abv": 8.5,
       "ibu": null,
       "rating": 3.76,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Val-Dieu Hop (Cuvée 800)",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-hop-cuvee-800/1588939",
-      "image_url": "https://labels.untappd.com/1588939",
-      "style": "Pale Ale - Belgian",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.5,
-      "ibu": 27,
-      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -402,7 +417,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.88,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -717,7 +732,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -927,7 +942,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.96,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1092,7 +1107,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.83,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1572,7 +1587,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.95,
+      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4692,7 +4707,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10.7,
       "ibu": 17,
-      "rating": 3.93,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
