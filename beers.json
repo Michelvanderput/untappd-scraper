@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-14T12:48:26.839Z",
-  "count": 424,
-  "scrape_duration_seconds": 1.87,
+  "fetched_at": "2026-06-14T18:33:54.138Z",
+  "count": 425,
+  "scrape_duration_seconds": 2.18,
   "stats": {
-    "total_fetched": 424,
-    "total_valid": 424,
+    "total_fetched": 425,
+    "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 101,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
   },
@@ -272,6 +272,36 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Dikke Lul 3-0",
+      "beer_url": "https://untappd.com/b/uiltje-brewing-company-dikke-lul-3-0/5105284",
+      "image_url": "https://labels.untappd.com/5105284",
+      "style": "Pale Ale - Other",
+      "brewery": "Uiltje Brewing Company",
+      "brewery_url": "https://untappd.com/w/uiltje-brewing-company/32280",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 5.6,
+      "ibu": null,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Hop Holland Hop",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-hop-holland-hop/6674627",
+      "image_url": "https://labels.untappd.com/6674627",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": null,
+      "rating": 3.7,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "10 Years: Recovery",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
       "image_url": "https://labels.untappd.com/6728577",
@@ -297,7 +327,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.58,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -432,7 +462,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.08,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -612,7 +642,7 @@
       "subcategory": null,
       "abv": 12.5,
       "ibu": 42,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -897,7 +927,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.01,
+      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1142,21 +1172,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Hop Holland Hop",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-hop-holland-hop/6674627",
-      "image_url": "https://labels.untappd.com/6674627",
-      "style": "IPA - Imperial / Double",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.7,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Crazy Lines Series: In the Dark",
       "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-in-the-dark/6501865",
       "image_url": "https://labels.untappd.com/6501865",
@@ -1182,7 +1197,7 @@
       "subcategory": null,
       "abv": 7.8,
       "ibu": null,
-      "rating": 3.94,
+      "rating": 3.93,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1242,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.68,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1272,7 +1287,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 7,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
