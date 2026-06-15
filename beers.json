@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-14T18:33:54.138Z",
+  "fetched_at": "2026-06-15T08:06:06.640Z",
   "count": 425,
-  "scrape_duration_seconds": 2.18,
+  "scrape_duration_seconds": 1.82,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
@@ -10,12 +10,27 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 102,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Double Port",
+      "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
+      "image_url": "https://labels.untappd.com/192787",
+      "style": "Belgian Strong Dark Ale",
+      "brewery": "Brouwerij Broeder Jacob",
+      "brewery_url": "https://untappd.com/w/brouwerij-broeder-jacob/10514",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 22,
+      "rating": 3.52,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gouv Goes Orange",
       "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouv-goes-orange/6751573",
@@ -163,21 +178,6 @@
       "abv": 6,
       "ibu": 20,
       "rating": 3.51,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Trappistes Rochefort Triple Extra",
-      "beer_url": "https://untappd.com/b/abbaye-notre-dame-de-saint-remy-trappistes-rochefort-triple-extra/3986134",
-      "image_url": "https://labels.untappd.com/3986134",
-      "style": "Belgian Tripel",
-      "brewery": "Abbaye Notre-Dame de Saint-Rémy",
-      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.1,
-      "ibu": 35,
-      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
