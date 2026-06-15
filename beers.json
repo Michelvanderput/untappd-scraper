@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-15T08:06:06.640Z",
+  "fetched_at": "2026-06-15T14:16:38.989Z",
   "count": 425,
-  "scrape_duration_seconds": 1.82,
+  "scrape_duration_seconds": 2.03,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
       "Op=Op kaart": 102,
-      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
@@ -42,7 +42,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": 7,
-      "rating": 0,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -272,6 +272,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Smooth Criminals: Exotic Cream",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-exotic-cream/6728158",
+      "image_url": "https://labels.untappd.com/6728158",
+      "style": "Sour - Smoothie / Pastry",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.82,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Dikke Lul 3-0",
       "beer_url": "https://untappd.com/b/uiltje-brewing-company-dikke-lul-3-0/5105284",
       "image_url": "https://labels.untappd.com/5105284",
@@ -297,7 +312,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.7,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -312,7 +327,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.41,
+      "rating": 4.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -568,21 +583,6 @@
       "abv": 7.5,
       "ibu": 51,
       "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Caramel Fudge Stout - Salted Caramel",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-caramel-fudge-stout-salted-caramel/6384081",
-      "image_url": "https://labels.untappd.com/6384081",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 11.5,
-      "ibu": 45,
-      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -927,7 +927,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.02,
+      "rating": 4.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1107,7 +1107,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.42,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1197,7 +1197,7 @@
       "subcategory": null,
       "abv": 7.8,
       "ibu": null,
-      "rating": 3.93,
+      "rating": 3.94,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1317,7 +1317,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 10,
-      "rating": 3.27,
+      "rating": 3.28,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1602,7 +1602,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1707,7 +1707,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.88,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3117,7 +3117,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": 22,
-      "rating": 3.49,
+      "rating": 3.5,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
