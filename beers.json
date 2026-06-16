@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-16T08:02:45.741Z",
-  "count": 426,
-  "scrape_duration_seconds": 2.13,
+  "fetched_at": "2026-06-16T13:57:56.187Z",
+  "count": 424,
+  "scrape_duration_seconds": 1.96,
   "stats": {
-    "total_fetched": 426,
-    "total_valid": 426,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 103,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Duchesse de Bourgogne",
+      "beer_url": "https://untappd.com/b/brouwerij-verhaeghe-duchesse-de-bourgogne/3954",
+      "image_url": "https://labels.untappd.com/3954",
+      "style": "Sour - Flanders Red Ale",
+      "brewery": "Brouwerij Verhaeghe",
+      "brewery_url": "https://untappd.com/w/brouwerij-verhaeghe/305",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.2,
+      "ibu": 11,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Gouden Carolus Cuvée van de Keizer Imperial Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-cuvee-van-de-keizer-imperial-blond/59559",
+      "image_url": "https://labels.untappd.com/59559",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 17,
+      "rating": 3.91,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Double Port",
       "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
@@ -42,7 +72,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": 7,
-      "rating": 3.82,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -133,21 +163,6 @@
       "abv": 3.6,
       "ibu": 5,
       "rating": 3.12,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "MANGO STICKY RICE",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-mango-sticky-rice/6560677",
-      "image_url": "https://labels.untappd.com/6560677",
-      "style": "Sour - Smoothie / Pastry",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -257,21 +272,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Gouden Carolus Tripel",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-tripel/356",
-      "image_url": "https://labels.untappd.com/356",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 30,
-      "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Smooth Criminals: Cosmic Blast",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-cosmic-blast/6728161",
       "image_url": "https://labels.untappd.com/6728161",
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.4,
+      "rating": 4.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -777,7 +777,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1592,21 +1592,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Blimey! v3",
-      "beer_url": "https://untappd.com/b/100-watt-brewery-blimey-v3/5605100",
-      "image_url": "https://labels.untappd.com/5605100",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "100 Watt Brewery",
-      "brewery_url": "https://untappd.com/w/100-watt-brewery/147821",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": 36,
-      "rating": 3.66,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Zwentibold Barrel Aged Cognac Martell",
       "beer_url": "https://untappd.com/b/aspro-brews-zwentibold-barrel-aged-cognac-martell/6614353",
       "image_url": "https://labels.untappd.com/6614353",
@@ -1618,21 +1603,6 @@
       "abv": 9.8,
       "ibu": 34,
       "rating": 3.95,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Barrel Project 2024 It's A Sin",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2024-it-s-a-sin/6076042",
-      "image_url": "https://labels.untappd.com/6076042",
-      "style": "Stout - Imperial / Double",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 13.8,
-      "ibu": 56,
-      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
