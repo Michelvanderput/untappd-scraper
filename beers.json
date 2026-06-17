@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-17T13:25:16.652Z",
+  "fetched_at": "2026-06-17T18:53:49.935Z",
   "count": 424,
-  "scrape_duration_seconds": 1.91,
+  "scrape_duration_seconds": 2.46,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Kriek",
+      "beer_url": "https://untappd.com/b/brouwerij-lindemans-kriek/3095",
+      "image_url": "https://labels.untappd.com/3095",
+      "style": "Lambic - Kriek",
+      "brewery": "Brouwerij Lindemans",
+      "brewery_url": "https://untappd.com/w/brouwerij-lindemans/288",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 3.5,
+      "ibu": 18,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Duchesse de Bourgogne",
       "beer_url": "https://untappd.com/b/brouwerij-verhaeghe-duchesse-de-bourgogne/3954",
@@ -133,21 +148,6 @@
       "abv": 8.2,
       "ibu": 15,
       "rating": 3.73,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "California Dreamin'",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-california-dreamin/6614769",
-      "image_url": "https://labels.untappd.com/6614769",
-      "style": "IPA - Other",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 61,
-      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -357,7 +357,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.6,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.06,
+      "rating": 4.05,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1137,7 +1137,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.91,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
