@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-19T18:40:33.249Z",
+  "fetched_at": "2026-06-20T07:24:33.477Z",
   "count": 425,
-  "scrape_duration_seconds": 2.3,
+  "scrape_duration_seconds": 1.95,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Hoppy Gelato",
+      "beer_url": "https://untappd.com/b/zuyd-craft-hoppy-gelato/6729612",
+      "image_url": "https://labels.untappd.com/6729612",
+      "style": "IPA - White / Wheat",
+      "brewery": "Zuyd Craft",
+      "brewery_url": "https://untappd.com/w/zuyd-craft/272353",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 25,
+      "rating": 3.8,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kriek",
       "beer_url": "https://untappd.com/b/brouwerij-lindemans-kriek/3095",
@@ -133,21 +148,6 @@
       "abv": 6.5,
       "ibu": 26,
       "rating": 3.39,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "It Doesn't Make A Difference If We Are Naked Or Not",
-      "beer_url": "https://untappd.com/b/uiltje-brewing-company-it-doesn-t-make-a-difference-if-we-are-naked-or-not/6562647",
-      "image_url": "https://labels.untappd.com/6562647",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Uiltje Brewing Company",
-      "brewery_url": "https://untappd.com/w/uiltje-brewing-company/32280",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.2,
-      "ibu": 15,
-      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
