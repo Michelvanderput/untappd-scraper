@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-23T18:46:12.189Z",
+  "fetched_at": "2026-06-24T07:16:10.179Z",
   "count": 425,
-  "scrape_duration_seconds": 2.17,
+  "scrape_duration_seconds": 1.83,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Barcode: Silver & Jet Black",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-silver-and-jet-black/6607758",
+      "image_url": "https://labels.untappd.com/6607758",
+      "style": "Stout - Imperial / Double",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 14,
+      "ibu": null,
+      "rating": 4.42,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
@@ -163,21 +178,6 @@
       "abv": 6.5,
       "ibu": 26,
       "rating": 3.39,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mongozo Coconut",
-      "beer_url": "https://untappd.com/b/mongozo-mongozo-coconut/30042",
-      "image_url": "https://labels.untappd.com/30042",
-      "style": "Fruit Beer",
-      "brewery": "Mongozo",
-      "brewery_url": "https://untappd.com/w/mongozo/11855",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 3.6,
-      "ibu": 5,
-      "rating": 3.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -2072,15 +2072,15 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Mosa IPA",
-      "beer_url": "https://untappd.com/b/zuyd-craft-mosa-ipa/3845451",
+      "name": "Mosa IPA LAGER",
+      "beer_url": "https://untappd.com/b/zuyd-craft-mosa-ipa-lager/3845451",
       "image_url": "https://labels.untappd.com/3845451",
-      "style": "IPA - American",
+      "style": "Lager - IPL (India Pale Lager)",
       "brewery": "Zuyd Craft",
       "brewery_url": "https://untappd.com/w/zuyd-craft/272353",
       "category": "Bierbijbel",
       "subcategory": "Limburgse Bieren",
-      "abv": 6,
+      "abv": 5.5,
       "ibu": 17,
       "rating": 3.57,
       "container": null,
