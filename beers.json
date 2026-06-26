@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-26T12:55:23.237Z",
+  "fetched_at": "2026-06-26T18:40:35.567Z",
   "count": 425,
-  "scrape_duration_seconds": 1.96,
+  "scrape_duration_seconds": 2.31,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
@@ -57,7 +57,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 25,
-      "rating": 3.83,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -282,7 +282,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 25,
-      "rating": 3.83,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.63,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -687,7 +687,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": null,
-      "rating": 4.06,
+      "rating": 4.07,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -792,7 +792,7 @@
       "subcategory": null,
       "abv": 12.5,
       "ibu": 42,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -957,7 +957,7 @@
       "subcategory": null,
       "abv": 9.6,
       "ibu": 17,
-      "rating": 3.34,
+      "rating": 3.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1070,7 +1070,7 @@
       "name": "Sticky Business: Espresso Martini",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
       "image_url": "https://labels.untappd.com/6562566",
-      "style": "Stout - Other",
+      "style": "Stout - Pastry",
       "brewery": "Frontaal Brewing Co.",
       "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
       "category": "Op=Op kaart",
@@ -1662,7 +1662,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 3.87,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
