@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-30T07:22:52.870Z",
+  "fetched_at": "2026-06-30T12:50:15.775Z",
   "count": 425,
-  "scrape_duration_seconds": 1.81,
+  "scrape_duration_seconds": 2.16,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Gouden Carolus Whisky Infused Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-whisky-infused-blond/6526045",
+      "image_url": "https://labels.untappd.com/6526045",
+      "style": "Belgian Strong Golden Ale",
+      "brewery": "Brouwerij Het Anker",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10.7,
+      "ibu": 17,
+      "rating": 3.92,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kwaremont Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-tripel/6623836",
@@ -107,21 +122,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Gouden Carolus Cuvée van de Keizer Imperial Blond",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-cuvee-van-de-keizer-imperial-blond/59559",
-      "image_url": "https://labels.untappd.com/59559",
-      "style": "Belgian Strong Golden Ale",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 17,
-      "rating": 3.91,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Double Port",
       "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
       "image_url": "https://labels.untappd.com/192787",
@@ -147,7 +147,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": 7,
-      "rating": 3.6,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
