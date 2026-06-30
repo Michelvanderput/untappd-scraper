@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-06-29T18:44:40.321Z",
+  "fetched_at": "2026-06-30T07:22:52.870Z",
   "count": 425,
-  "scrape_duration_seconds": 2.27,
+  "scrape_duration_seconds": 1.81,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 102,
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Kwaremont Tripel",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-tripel/6623836",
+      "image_url": "https://labels.untappd.com/6623836",
+      "style": "Belgian Tripel",
+      "brewery": "Brouwerij De Brabandere",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-brabandere/4571",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": null,
+      "rating": 3.68,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gulpse Wulp",
       "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
@@ -223,21 +238,6 @@
       "abv": 6.5,
       "ibu": null,
       "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Lupulus Just Fabulus! KRUSH (2026)",
-      "beer_url": "https://untappd.com/b/brasserie-lupulus-lupulus-just-fabulus-krush-2026/6456873",
-      "image_url": "https://labels.untappd.com/6456873",
-      "style": "Belgian Tripel",
-      "brewery": "Brasserie Lupulus",
-      "brewery_url": "https://untappd.com/w/brasserie-lupulus/14082",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": null,
-      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
