@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-01T07:35:12.468Z",
-  "count": 425,
-  "scrape_duration_seconds": 2.24,
+  "fetched_at": "2026-07-01T13:05:03.910Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.38,
   "stats": {
-    "total_fetched": 425,
-    "total_valid": 425,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 17,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
@@ -57,7 +57,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.47,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -133,21 +133,6 @@
       "abv": 9,
       "ibu": 22,
       "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gouv Goes Orange",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouv-goes-orange/6751573",
-      "image_url": "https://labels.untappd.com/6751573",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": null,
-      "ibu": 7,
-      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -402,7 +387,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.2,
+      "rating": 3.18,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -462,7 +447,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.73,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -477,7 +462,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.37,
+      "rating": 4.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -852,7 +837,7 @@
       "subcategory": null,
       "abv": 6.7,
       "ibu": 43,
-      "rating": 3.98,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1152,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.37,
+      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
