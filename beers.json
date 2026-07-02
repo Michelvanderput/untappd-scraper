@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-01T18:43:02.378Z",
+  "fetched_at": "2026-07-02T07:11:46.215Z",
   "count": 424,
-  "scrape_duration_seconds": 2.43,
+  "scrape_duration_seconds": 2.52,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "I'm Waiting For A Friend",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-i-m-waiting-for-a-friend/6773888",
+      "image_url": "https://labels.untappd.com/6773888",
+      "style": "Belgian Blonde",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": null,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Aubel Pure IPA",
       "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-pure-ipa/1551633",
@@ -163,21 +178,6 @@
       "abv": 8.8,
       "ibu": 20,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Maneblusser Lente",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-maneblusser-lente/152457",
-      "image_url": "https://labels.untappd.com/152457",
-      "style": "Bock - Hell / Maibock / Lentebock",
-      "brewery": "Brouwerij Het Anker",
-      "brewery_url": "https://untappd.com/w/brouwerij-het-anker/284",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 26,
-      "rating": 3.39,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
