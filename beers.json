@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-04T08:35:15.316Z",
+  "fetched_at": "2026-07-04T13:41:08.531Z",
   "count": 424,
-  "scrape_duration_seconds": 2.07,
+  "scrape_duration_seconds": 2.09,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
       "Op=Op kaart": 102,
+      "Wisseltap bieren": 16,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Paranoia",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-paranoia/3267458",
+      "image_url": "https://labels.untappd.com/3267458",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.6,
+      "ibu": 40,
+      "rating": 3.36,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "I'm Waiting For A Friend",
       "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-i-m-waiting-for-a-friend/6773888",
@@ -87,7 +102,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.44,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -212,21 +227,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Filou IPA",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-filou-ipa/5550370",
-      "image_url": "https://labels.untappd.com/5550370",
-      "style": "IPA - Belgian",
-      "brewery": "Kasteel Brouwerij Vanhonsebrouck",
-      "brewery_url": "https://untappd.com/w/kasteel-brouwerij-vanhonsebrouck/303",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Pink Panther",
       "beer_url": "https://untappd.com/b/jopen-pink-panther/6656637",
       "image_url": "https://labels.untappd.com/6656637",
@@ -237,7 +237,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": 15,
-      "rating": 3.09,
+      "rating": 3.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -387,7 +387,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.19,
+      "rating": 3.2,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -402,7 +402,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.99,
+      "rating": 4.01,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -867,7 +867,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 45,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1152,7 +1152,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.38,
+      "rating": 3.37,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5757,7 +5757,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 6,
       "ibu": 45,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
