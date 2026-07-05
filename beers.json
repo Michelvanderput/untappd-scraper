@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-05T13:47:56.164Z",
-  "count": 424,
-  "scrape_duration_seconds": 2.41,
+  "fetched_at": "2026-07-05T19:16:43.857Z",
+  "count": 426,
+  "scrape_duration_seconds": 2.48,
   "stats": {
-    "total_fetched": 424,
-    "total_valid": 424,
+    "total_fetched": 426,
+    "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 102,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 104,
       "Bierbijbel": 295
     }
   },
@@ -117,7 +117,7 @@
       "subcategory": null,
       "abv": null,
       "ibu": null,
-      "rating": 0,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -255,6 +255,51 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Gold Series: Alpha Howl",
+      "beer_url": "https://untappd.com/b/nepo-brewing-alpha-howl/6733321",
+      "image_url": "https://labels.untappd.com/6733321",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Nepo Brewing",
+      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.7,
+      "ibu": null,
+      "rating": 3.83,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "CLOUDS",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-clouds/6560686",
+      "image_url": "https://labels.untappd.com/6560686",
+      "style": "Sour - Smoothie / Pastry",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 4.24,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "DEUX DEUX",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-deux-deux/6560689",
+      "image_url": "https://labels.untappd.com/6560689",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8.1,
+      "ibu": 43,
+      "rating": 4.08,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Hoppy Gelato",
@@ -598,21 +643,6 @@
       "abv": 6,
       "ibu": 57,
       "rating": 3.83,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "JUNGLE JUICE",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-jungle-juice/6560678",
-      "image_url": "https://labels.untappd.com/6560678",
-      "style": "Sour - Smoothie / Pastry",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1317,7 +1347,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1992,7 +2022,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6,
       "ibu": 20,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5082,7 +5112,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.41,
+      "rating": 3.4,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5742,7 +5772,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
