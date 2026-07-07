@@ -1,6 +1,233 @@
 {
   "changes": [
     {
+      "date": "2026-07-07T14:44:30.272Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 19,
+        "total_beers": 426
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Pecheresse",
+          "beer_url": "https://untappd.com/b/brouwerij-lindemans-pecheresse/2327",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tongerlo Blond - Blonde",
+          "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Pink Panther",
+          "beer_url": "https://untappd.com/b/jopen-pink-panther/6656637",
+          "changes": {
+            "rating": {
+              "old": 3.09,
+              "new": 3.1
+            }
+          }
+        },
+        {
+          "name": "Blanche de Namur",
+          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Witzige Weizen",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "I'm Waiting For A Friend",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-i-m-waiting-for-a-friend/6773888",
+          "changes": {
+            "rating": {
+              "old": 3.49,
+              "new": 3.52
+            }
+          }
+        },
+        {
+          "name": "Gouden Carolus Whisky Infused Blond",
+          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-whisky-infused-blond/6526045",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Gulpse Wulp",
+          "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
+          "changes": {
+            "rating": {
+              "old": 3.45,
+              "new": 3.46
+            }
+          }
+        },
+        {
+          "name": "Double Port",
+          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "CLOUDS",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-clouds/6560686",
+          "changes": {
+            "rating": {
+              "old": 4.22,
+              "new": 4.21
+            }
+          }
+        },
+        {
+          "name": "DEUX DEUX",
+          "beer_url": "https://untappd.com/b/brouwerij-lost-deux-deux/6560689",
+          "changes": {
+            "rating": {
+              "old": 4.08,
+              "new": 4.07
+            }
+          }
+        },
+        {
+          "name": "Tarot Noir",
+          "beer_url": "https://untappd.com/b/brouwerij-lindemans-tarot-noir/5213667",
+          "changes": {
+            "rating": {
+              "old": 3.56,
+              "new": 3.55
+            }
+          }
+        },
+        {
+          "name": "Crazy Lines Series: Waves",
+          "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-waves/6695300",
+          "changes": {
+            "rating": {
+              "old": 3.82,
+              "new": 3.81
+            }
+          }
+        },
+        {
+          "name": "Sticky Business: Espresso Martini",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
+          "changes": {
+            "rating": {
+              "old": 3.39,
+              "new": 3.4
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-07-07T09:39:02.126Z",
       "summary": {
         "added": 0,
@@ -5728,321 +5955,6 @@
             "rating": {
               "old": 3.85,
               "new": 3.86
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-06-27T12:36:01.661Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 27,
-        "total_beers": 425
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Hoppy Gelato",
-          "beer_url": "https://untappd.com/b/zuyd-craft-hoppy-gelato/6729612",
-          "changes": {
-            "category": {
-              "old": "Op=Op kaart",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Kriek",
-          "beer_url": "https://untappd.com/b/brouwerij-lindemans-kriek/3095",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Duchesse de Bourgogne",
-          "beer_url": "https://untappd.com/b/brouwerij-verhaeghe-duchesse-de-bourgogne/3954",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gouden Carolus Cuvée van de Keizer Imperial Blond",
-          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-cuvee-van-de-keizer-imperial-blond/59559",
-          "changes": {
-            "container": {
-              "old": "75cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Double Port",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gouv Goes Orange",
-          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouv-goes-orange/6751573",
-          "changes": {
-            "rating": {
-              "old": 3.65,
-              "new": 3.6
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Witzige Weizen",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tongerlo Blond - Blonde",
-          "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-blond-blonde/4717",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Blanche de Namur",
-          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tranentrekker",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
-          "changes": {
-            "rating": {
-              "old": 3.24,
-              "new": 3.16
-            }
-          }
-        },
-        {
-          "name": "Smooth Criminals: Cosmic Blast",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-cosmic-blast/6728161",
-          "changes": {
-            "rating": {
-              "old": 4.04,
-              "new": 4.01
-            }
-          }
-        },
-        {
-          "name": "10 Years: Recovery",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
-          "changes": {
-            "rating": {
-              "old": 4.4,
-              "new": 4.37
-            }
-          }
-        },
-        {
-          "name": "Cauwe, Cauberg Weizen By Klinker",
-          "beer_url": "https://untappd.com/b/brouwerij-klinker-cauwe-cauberg-weizen-by-klinker/4279461",
-          "changes": {
-            "rating": {
-              "old": 3.41,
-              "new": 3.4
-            }
-          }
-        },
-        {
-          "name": "NEPTUNE",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-neptune/6560683",
-          "changes": {
-            "rating": {
-              "old": 3.85,
-              "new": 3.84
-            }
-          }
-        },
-        {
-          "name": "OBLIVION",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-oblivion/6225053",
-          "changes": {
-            "rating": {
-              "old": 4.05,
-              "new": 4.04
-            }
-          }
-        },
-        {
-          "name": "SHENRON",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-shenron/6560665",
-          "changes": {
-            "rating": {
-              "old": 3.98,
-              "new": 3.97
-            }
-          }
-        },
-        {
-          "name": "Gulden Draak Blond",
-          "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-blond/6203603",
-          "changes": {
-            "rating": {
-              "old": 3.63,
-              "new": 3.64
-            }
-          }
-        },
-        {
-          "name": "Smooth Criminals: Orange Vanilla",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-orange-vanilla/6645587",
-          "changes": {
-            "rating": {
-              "old": 3.97,
-              "new": 3.96
-            }
-          }
-        },
-        {
-          "name": "Let's Get Stout",
-          "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
-          "changes": {
-            "rating": {
-              "old": 3.37,
-              "new": 3.38
-            }
-          }
-        },
-        {
-          "name": "10 Years: Ignition",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-ignition/6701073",
-          "changes": {
-            "rating": {
-              "old": 3.84,
-              "new": 3.83
-            }
-          }
-        },
-        {
-          "name": "Hops Around the World: New Zealand - Nelson Sauvin, Motueka",
-          "beer_url": "https://untappd.com/b/nepo-brewing-hops-around-the-world-new-zealand-nelson-sauvin-mouteka/6205833",
-          "changes": {
-            "rating": {
-              "old": 3.84,
-              "new": 3.83
-            }
-          }
-        },
-        {
-          "name": "Playlist",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-playlist/6472881",
-          "changes": {
-            "rating": {
-              "old": 3.28,
-              "new": 3.27
             }
           }
         },
