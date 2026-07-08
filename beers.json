@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-07T19:53:48.981Z",
+  "fetched_at": "2026-07-08T08:25:55.888Z",
   "count": 426,
-  "scrape_duration_seconds": 2.23,
+  "scrape_duration_seconds": 2.05,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 104,
       "Bierbijbel": 295
     }
