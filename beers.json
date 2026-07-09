@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-09T15:18:05.788Z",
+  "fetched_at": "2026-07-09T19:45:04.463Z",
   "count": 426,
-  "scrape_duration_seconds": 2.91,
+  "scrape_duration_seconds": 3.98,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 104,
       "Bierbijbel": 295
     }
@@ -1307,8 +1307,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Alpha Unit Single Hop Amarillo® IPA Two Chefs X Crosby Hops Collab",
-      "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo-ipa-two-chefs-x-crosby-hops-collab/6621400",
+      "name": "Alpha Unit Single Hop Amarillo®",
+      "beer_url": "https://untappd.com/b/two-chefs-brewing-alpha-unit-single-hop-amarillo/6621400",
       "image_url": "https://labels.untappd.com/6621400",
       "style": "IPA - American",
       "brewery": "Two Chefs Brewing",
