@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-10T09:33:00.293Z",
+  "fetched_at": "2026-07-10T14:35:19.263Z",
   "count": 426,
-  "scrape_duration_seconds": 2.06,
+  "scrape_duration_seconds": 2.67,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Kwak Blonde",
+      "beer_url": "https://untappd.com/b/brouwerij-bosteels-kwak-blonde/4698810",
+      "image_url": "https://labels.untappd.com/4698810",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "Brouwerij Bosteels",
+      "brewery_url": "https://untappd.com/w/brouwerij-bosteels/269",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.4,
+      "ibu": 20,
+      "rating": 3.55,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Pecheresse",
       "beer_url": "https://untappd.com/b/brouwerij-lindemans-pecheresse/2327",
@@ -43,21 +58,6 @@
       "abv": 6,
       "ibu": 20,
       "rating": 3.51,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Pink Panther",
-      "beer_url": "https://untappd.com/b/jopen-pink-panther/6656637",
-      "image_url": "https://labels.untappd.com/6656637",
-      "style": "Wheat Beer - Fruited",
-      "brewery": "Jopen",
-      "brewery_url": "https://untappd.com/w/jopen/620",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": 15,
-      "rating": 3.1,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -177,7 +177,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -462,7 +462,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.93,
+      "rating": 3.92,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1092,7 +1092,7 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 30,
-      "rating": 3.4,
+      "rating": 3.39,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3132,7 +3132,7 @@
       "subcategory": "Fruitbieren",
       "abv": 4.5,
       "ibu": 22,
-      "rating": 3.49,
+      "rating": 3.5,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5727,7 +5727,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 6,
       "ibu": 65,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6252,7 +6252,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.33,
+      "rating": 3.32,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6312,7 +6312,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": null,
-      "rating": 3.07,
+      "rating": 3.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
