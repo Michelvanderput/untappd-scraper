@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-11T19:02:06.544Z",
+  "fetched_at": "2026-07-12T08:15:19.455Z",
   "count": 426,
-  "scrape_duration_seconds": 3.25,
+  "scrape_duration_seconds": 1.99,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
       "Op=Op kaart": 104,
-      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
@@ -227,21 +227,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Val-Dieu Blonde",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-      "image_url": "https://labels.untappd.com/40880",
-      "style": "Belgian Blonde",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 18,
-      "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Tripel LeFort",
       "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
       "image_url": "https://labels.untappd.com/1533976",
@@ -253,6 +238,21 @@
       "abv": 8.8,
       "ibu": 20,
       "rating": 3.72,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Val-Dieu Blonde",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+      "image_url": "https://labels.untappd.com/40880",
+      "style": "Belgian Blonde",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 18,
+      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
