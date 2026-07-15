@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-15T13:49:58.226Z",
-  "count": 429,
-  "scrape_duration_seconds": 2.22,
+  "fetched_at": "2026-07-15T19:09:13.398Z",
+  "count": 428,
+  "scrape_duration_seconds": 2.11,
   "stats": {
-    "total_fetched": 429,
-    "total_valid": 429,
+    "total_fetched": 428,
+    "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 107,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
   },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 7.6,
       "ibu": 14,
-      "rating": 3.86,
+      "rating": 3.85,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.14,
+      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -522,7 +522,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 25,
-      "rating": 3.75,
+      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1392,21 +1392,6 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.44,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Barrel Collab Series #2 - Imperial Fruited Sour",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-imperial-fruited-sour/6482956",
-      "image_url": "https://labels.untappd.com/6482956",
-      "style": "Sour - Fruited",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": 7,
       "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
