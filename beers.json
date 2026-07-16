@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-15T19:09:13.398Z",
+  "fetched_at": "2026-07-16T08:11:17.982Z",
   "count": 428,
-  "scrape_duration_seconds": 2.11,
+  "scrape_duration_seconds": 2.69,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Schuppenboer Summer  of '26",
+      "beer_url": "https://untappd.com/b/brouwerij-het-nest-schuppenboer-summer-of-26/6684890",
+      "image_url": "https://labels.untappd.com/6684890",
+      "style": "IPA - Belgian",
+      "brewery": "Brouwerij Het Nest",
+      "brewery_url": "https://untappd.com/w/brouwerij-het-nest/17937",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.45,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Cornet Gold Blond",
       "beer_url": "https://untappd.com/b/brouwerij-de-hoorn-cornet-gold-blond/6156467",
@@ -58,21 +73,6 @@
       "abv": 5.4,
       "ibu": 13,
       "rating": 3.43,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Kwak Blonde",
-      "beer_url": "https://untappd.com/b/brouwerij-bosteels-kwak-blonde/4698810",
-      "image_url": "https://labels.untappd.com/4698810",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Brouwerij Bosteels",
-      "brewery_url": "https://untappd.com/w/brouwerij-bosteels/269",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7.4,
-      "ibu": 20,
-      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
