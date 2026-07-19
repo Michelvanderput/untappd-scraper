@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-18T19:02:04.882Z",
+  "fetched_at": "2026-07-19T08:15:06.537Z",
   "count": 434,
-  "scrape_duration_seconds": 3.07,
+  "scrape_duration_seconds": 2.51,
   "stats": {
     "total_fetched": 434,
     "total_valid": 434,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 112,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Tranentrekker",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
+      "image_url": "https://labels.untappd.com/6744109",
+      "style": "Sour - Fruited Gose",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4,
+      "ibu": 15,
+      "rating": 3.16,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "NEPTUNE",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-neptune/6560683",
+      "image_url": "https://labels.untappd.com/6560683",
+      "style": "IPA - American",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 57,
+      "rating": 3.83,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Schuppenboer Summer  of '26",
       "beer_url": "https://untappd.com/b/brouwerij-het-nest-schuppenboer-summer-of-26/6684890",
@@ -103,36 +133,6 @@
       "abv": 4.5,
       "ibu": 11,
       "rating": 3.4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Paranoia",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-paranoia/3267458",
-      "image_url": "https://labels.untappd.com/3267458",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.6,
-      "ibu": 40,
-      "rating": 3.36,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Witzige Weizen",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
-      "image_url": "https://labels.untappd.com/5681777",
-      "style": "Wheat Beer - Other",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.5,
-      "ibu": 15,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
