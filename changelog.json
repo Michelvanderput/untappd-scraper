@@ -1,6 +1,176 @@
 {
   "changes": [
     {
+      "date": "2026-07-24T13:51:50.442Z",
+      "summary": {
+        "added": 1,
+        "removed": 0,
+        "updated": 13,
+        "total_beers": 434
+      },
+      "added": [
+        {
+          "name": "Corsendonk Gold Tripel",
+          "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-gold-tripel/860361",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij Corsendonk",
+          "style": "Belgian Tripel",
+          "abv": 9.8,
+          "image_url": "https://labels.untappd.com/860361"
+        }
+      ],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Brugs Tarwebier / Blanche de Bruges",
+          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-des-bruges/3106414",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tranentrekker",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
+          "changes": {
+            "category": {
+              "old": "Op=Op kaart",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Pecheresse",
+          "beer_url": "https://untappd.com/b/brouwerij-lindemans-pecheresse/2327",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Gulpse Wulp",
+          "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
+          "changes": {
+            "rating": {
+              "old": 3.46,
+              "new": 3.47
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "La Crispissima",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-la-crispissima/6755087",
+          "changes": {
+            "rating": {
+              "old": 3.4,
+              "new": 3.38
+            }
+          }
+        },
+        {
+          "name": "Let's Get Stout",
+          "beer_url": "https://untappd.com/b/jopen-let-s-get-stout/6652941",
+          "changes": {
+            "rating": {
+              "old": 3.36,
+              "new": 3.37
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "D'n Jerste",
+          "beer_url": "https://untappd.com/b/rex-beer-blending-and-bottling-d-n-jerste/6222033",
+          "changes": {
+            "rating": {
+              "old": 4.22,
+              "new": 4.23
+            }
+          }
+        },
+        {
+          "name": "Sjmoutlempke Montanjaren Series",
+          "beer_url": "https://untappd.com/b/rex-beer-blending-and-bottling-sjmoutlempke-montanjaren-series/6282921",
+          "changes": {
+            "rating": {
+              "old": 4.13,
+              "new": 4.14
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-07-24T08:25:40.845Z",
       "summary": {
         "added": 3,
@@ -4928,179 +5098,6 @@
             "rating": {
               "old": 3.49,
               "new": 3.5
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-07-14T13:51:59.391Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 14,
-        "total_beers": 429
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Pecheresse",
-          "beer_url": "https://untappd.com/b/brouwerij-lindemans-pecheresse/2327",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Blanche de Namur",
-          "beer_url": "https://untappd.com/b/brasserie-du-bocq-blanche-de-namur/222",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Witzige Weizen",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-witzige-weizen/5681777",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Gulpse Wulp",
-          "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
-          "changes": {
-            "rating": {
-              "old": 3.46,
-              "new": 3.47
-            }
-          }
-        },
-        {
-          "name": "Double Port",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Frontwerf",
-          "beer_url": "https://untappd.com/b/brouwerij-kompel-frontwerf/6776393",
-          "changes": {
-            "rating": {
-              "old": 3.81,
-              "new": 3.78
-            }
-          }
-        },
-        {
-          "name": "DEUX DEUX",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-deux-deux/6560689",
-          "changes": {
-            "rating": {
-              "old": 4.04,
-              "new": 4.03
-            }
-          }
-        },
-        {
-          "name": "Tranentrekker",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
-          "changes": {
-            "rating": {
-              "old": 3.16,
-              "new": 3.17
-            }
-          }
-        },
-        {
-          "name": "10 Years: Recovery",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
-          "changes": {
-            "rating": {
-              "old": 4.35,
-              "new": 4.34
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
             }
           }
         }

@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-24T08:25:40.735Z",
+  "fetched_at": "2026-07-24T13:51:50.358Z",
   "count": 434,
-  "scrape_duration_seconds": 2.27,
+  "scrape_duration_seconds": 2.72,
   "stats": {
     "total_fetched": 434,
     "total_valid": 434,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 112,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Corsendonk Gold Tripel",
+      "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-gold-tripel/860361",
+      "image_url": "https://labels.untappd.com/860361",
+      "style": "Belgian Tripel",
+      "brewery": "Brouwerij Corsendonk",
+      "brewery_url": "https://untappd.com/w/brouwerij-corsendonk/246",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9.8,
+      "ibu": 20,
+      "rating": 3.7,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Malheur 6°",
       "beer_url": "https://untappd.com/b/brouwerij-malheur-malheur-6-deg/47982",
@@ -43,21 +58,6 @@
       "abv": 3.6,
       "ibu": null,
       "rating": 3.28,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Double Port",
-      "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-double-port/192787",
-      "image_url": "https://labels.untappd.com/192787",
-      "style": "Belgian Strong Dark Ale",
-      "brewery": "Brouwerij Broeder Jacob",
-      "brewery_url": "https://untappd.com/w/brouwerij-broeder-jacob/10514",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": 22,
-      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -177,7 +177,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.46,
+      "rating": 3.47,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -477,7 +477,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 44,
-      "rating": 3.4,
+      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1317,7 +1317,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.36,
+      "rating": 3.37,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1887,7 +1887,7 @@
       "subcategory": null,
       "abv": 11.5,
       "ibu": 37,
-      "rating": 4.22,
+      "rating": 4.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1902,7 +1902,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 19,
-      "rating": 4.13,
+      "rating": 4.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
