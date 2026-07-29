@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-29T08:38:37.293Z",
-  "count": 434,
-  "scrape_duration_seconds": 1.81,
+  "fetched_at": "2026-07-29T14:18:22.063Z",
+  "count": 436,
+  "scrape_duration_seconds": 2.44,
   "stats": {
-    "total_fetched": 434,
-    "total_valid": 434,
+    "total_fetched": 436,
+    "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 112,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
   },
@@ -257,6 +257,36 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Nessi (Little Giants)",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-nessi-little-giants/6775933",
+      "image_url": "https://labels.untappd.com/6775933",
+      "style": "Stout - Imperial / Double Pastry",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 14,
+      "ibu": 15,
+      "rating": 4.3,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Whaka Nui",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-whaka-nui/6765474",
+      "image_url": "https://labels.untappd.com/6765474",
+      "style": "IPA - Triple New England / Hazy",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": null,
+      "rating": 4.15,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "MANGO COLADA",
       "beer_url": "https://untappd.com/b/brouwerij-lost-mango-colada/6560692",
       "image_url": "https://labels.untappd.com/6560692",
@@ -267,7 +297,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.24,
+      "rating": 4.25,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -462,7 +492,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.74,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -627,7 +657,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.07,
+      "rating": 4.06,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1257,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.64,
+      "rating": 3.63,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5877,7 +5907,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 9.5,
       "ibu": 40,
-      "rating": 3.68,
+      "rating": 3.67,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
