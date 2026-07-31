@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-30T19:24:30.798Z",
+  "fetched_at": "2026-07-31T08:47:47.946Z",
   "count": 436,
-  "scrape_duration_seconds": 2.38,
+  "scrape_duration_seconds": 2.32,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 114,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
   },
@@ -815,7 +815,7 @@
       "name": "10 Years: Recovery",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
       "image_url": "https://labels.untappd.com/6728577",
-      "style": "Stout - Russian Imperial",
+      "style": "Stout - Imperial / Double",
       "brewery": "Moersleutel Craft Brewery",
       "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
       "category": "Op=Op kaart",
