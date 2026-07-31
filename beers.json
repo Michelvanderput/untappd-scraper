@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-31T14:15:50.219Z",
+  "fetched_at": "2026-07-31T19:22:44.532Z",
   "count": 436,
-  "scrape_duration_seconds": 2.27,
+  "scrape_duration_seconds": 2.54,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Pastry Factory: Vanilla Glazed Éclair",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-pastry-factory-vanilla-glazed-eclair/6629907",
+      "image_url": "https://labels.untappd.com/6629907",
+      "style": "Stout - Imperial / Double Pastry",
+      "brewery": "Moersleutel Craft Brewery",
+      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": null,
+      "rating": 3.84,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Nog Eendje",
       "beer_url": "https://untappd.com/b/bird-brewery-nog-eendje/2523404",
@@ -223,21 +238,6 @@
       "abv": 8.8,
       "ibu": 20,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Barcode: Silver & Jet Black",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-barcode-silver-and-jet-black/6607758",
-      "image_url": "https://labels.untappd.com/6607758",
-      "style": "Stout - Imperial / Double",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": null,
-      "rating": 4.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -657,7 +657,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.06,
+      "rating": 4.05,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -777,7 +777,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +987,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": 33,
-      "rating": 3.69,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1152,7 +1152,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": 52,
-      "rating": 3.88,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
