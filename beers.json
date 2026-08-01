@@ -1,21 +1,66 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-01T13:34:53.312Z",
-  "count": 436,
-  "scrape_duration_seconds": 1.82,
+  "fetched_at": "2026-08-01T19:06:04.484Z",
+  "count": 437,
+  "scrape_duration_seconds": 4.25,
   "stats": {
-    "total_fetched": 436,
-    "total_valid": 436,
+    "total_fetched": 437,
+    "total_valid": 437,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Ter Dolen Tripel",
+      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
+      "image_url": "https://labels.untappd.com/70991",
+      "style": "Belgian Tripel",
+      "brewery": "Ter Dolen",
+      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.1,
+      "ibu": 30,
+      "rating": 3.6,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Mango Bay",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-mango-bay/6767109",
+      "image_url": "https://labels.untappd.com/6767109",
+      "style": "IPA - Other",
+      "brewery": "Brouwerij Kees",
+      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 16,
+      "rating": 3.4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Floris Cactus",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-cactus/83654",
+      "image_url": "https://labels.untappd.com/83654",
+      "style": "Wheat Beer - Fruited",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4.2,
+      "ibu": null,
+      "rating": 3.2,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Pastry Factory: Vanilla Glazed Éclair",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-pastry-factory-vanilla-glazed-eclair/6629907",
@@ -28,36 +73,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Nog Eendje",
-      "beer_url": "https://untappd.com/b/bird-brewery-nog-eendje/2523404",
-      "image_url": "https://labels.untappd.com/2523404",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery": "Bird Brewery",
-      "brewery_url": "https://untappd.com/w/bird-brewery/246149",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 30,
-      "rating": 3.44,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ter Dolen Kriek",
-      "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-kriek/115176",
-      "image_url": "https://labels.untappd.com/115176",
-      "style": "Fruit Beer",
-      "brewery": "Ter Dolen",
-      "brewery_url": "https://untappd.com/w/ter-dolen/12390",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": 22,
-      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -282,7 +297,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.15,
+      "rating": 4.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -297,7 +312,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.2,
+      "rating": 4.18,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -477,7 +492,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.04,
+      "rating": 4.05,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -507,7 +522,7 @@
       "subcategory": null,
       "abv": 7.6,
       "ibu": 14,
-      "rating": 3.8,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -552,7 +567,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": null,
-      "rating": 3.44,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -702,7 +717,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.7,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1512,7 +1527,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1527,7 +1542,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 37,
-      "rating": 3.77,
+      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1707,7 +1722,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 4.24,
+      "rating": 4.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
