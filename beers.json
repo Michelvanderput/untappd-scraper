@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-07-31T19:22:44.532Z",
+  "fetched_at": "2026-08-01T08:19:13.602Z",
   "count": 436,
-  "scrape_duration_seconds": 2.54,
+  "scrape_duration_seconds": 2.02,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
@@ -2057,7 +2057,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141694"
     },
     {
-      "name": "Paulaner Hefe-Weißbier / Hefe-Weizen / Weissbier",
+      "name": "Hefe-Weißbier / Hefe-Weizen / Weissbier",
       "beer_url": "https://untappd.com/b/paulaner-brauerei-paulaner-hefe-weissbier-hefe-weizen-weissbier/15677",
       "image_url": "https://labels.untappd.com/15677",
       "style": "Wheat Beer - Hefeweizen",
