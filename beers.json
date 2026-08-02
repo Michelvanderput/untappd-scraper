@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-01T19:06:04.484Z",
+  "fetched_at": "2026-08-02T08:22:14.734Z",
   "count": 437,
-  "scrape_duration_seconds": 4.25,
+  "scrape_duration_seconds": 2.24,
   "stats": {
     "total_fetched": 437,
     "total_valid": 437,
@@ -5922,7 +5922,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 9.5,
       "ibu": 40,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
