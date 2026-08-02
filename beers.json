@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-02T08:22:14.734Z",
+  "fetched_at": "2026-08-02T13:35:26.699Z",
   "count": 437,
-  "scrape_duration_seconds": 2.24,
+  "scrape_duration_seconds": 2.16,
   "stats": {
     "total_fetched": 437,
     "total_valid": 437,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "XXX-Bitter",
+      "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
+      "image_url": "https://labels.untappd.com/463346",
+      "style": "IPA - Belgian",
+      "brewery": "Brouwerij De Ranke",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-ranke/277",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 70,
+      "rating": 3.65,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
@@ -42,7 +57,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 16,
-      "rating": 3.4,
+      "rating": 3.39,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -103,21 +118,6 @@
       "abv": 2.5,
       "ibu": 10,
       "rating": 3.57,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Aubel Pure IPA",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-pure-ipa/1551633",
-      "image_url": "https://labels.untappd.com/1551633",
-      "style": "IPA - Belgian",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 40,
-      "rating": 3.36,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -282,7 +282,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 15,
-      "rating": 4.27,
+      "rating": 4.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -507,7 +507,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.75,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -837,7 +837,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": null,
-      "rating": 4.34,
+      "rating": 4.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1962,7 +1962,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 16,
-      "rating": 3.78,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -6477,7 +6477,7 @@
       "subcategory": "Alcoholvrij",
       "abv": 0.5,
       "ibu": null,
-      "rating": 3.06,
+      "rating": 3.07,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
