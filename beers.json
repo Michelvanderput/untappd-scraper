@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-02T19:08:19.156Z",
+  "fetched_at": "2026-08-03T09:41:37.001Z",
   "count": 436,
-  "scrape_duration_seconds": 2.19,
+  "scrape_duration_seconds": 2.48,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Wisseltap bieren": 15,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 114,
-      "Wisseltap bieren": 16,
+      "Op=Op kaart": 115,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Mango Wit",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-mango-wit/6777434",
+      "image_url": "https://labels.untappd.com/6777434",
+      "style": "IPA - White / Wheat",
+      "brewery": "Frontaal Brewing Co.",
+      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.2,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "XXX-Bitter",
       "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
@@ -88,36 +103,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mongozo Mango",
-      "beer_url": "https://untappd.com/b/mongozo-mongozo-mango/52228",
-      "image_url": "https://labels.untappd.com/52228",
-      "style": "Fruit Beer",
-      "brewery": "Mongozo",
-      "brewery_url": "https://untappd.com/w/mongozo/11855",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 3.6,
-      "ibu": null,
-      "rating": 3.28,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Pecheresse",
-      "beer_url": "https://untappd.com/b/brouwerij-lindemans-pecheresse/2327",
-      "image_url": "https://labels.untappd.com/2327",
-      "style": "Lambic - Fruit",
-      "brewery": "Brouwerij Lindemans",
-      "brewery_url": "https://untappd.com/w/brouwerij-lindemans/288",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 2.5,
-      "ibu": 10,
-      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -255,6 +240,21 @@
       "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "The Pom",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-the-pom/703866",
+      "image_url": "https://labels.untappd.com/703866",
+      "style": "Fruit Beer",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 4.8,
+      "ibu": 6,
+      "rating": 3.01,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Nessi (Little Giants)",
