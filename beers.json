@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-05T08:33:34.423Z",
+  "fetched_at": "2026-08-05T14:16:59.364Z",
   "count": 436,
-  "scrape_duration_seconds": 2.23,
+  "scrape_duration_seconds": 2.65,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Op=Op kaart": 114,
-      "Vaste bieren van de tap": 11,
-      "Bierbijbel": 295
+      "Wisseltap bieren": 16,
+      "Bierbijbel": 295,
+      "Vaste bieren van de tap": 11
     }
   },
   "beers": [
@@ -42,7 +42,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": null,
-      "rating": 0,
+      "rating": 3.5,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -147,7 +147,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -282,7 +282,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.13,
+      "rating": 4.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.15,
+      "rating": 4.09,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -492,7 +492,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.72,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -507,7 +507,7 @@
       "subcategory": null,
       "abv": 7.6,
       "ibu": 14,
-      "rating": 3.8,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -552,7 +552,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": null,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -792,7 +792,7 @@
       "subcategory": null,
       "abv": 5.6,
       "ibu": null,
-      "rating": 3.52,
+      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3567,7 +3567,7 @@
       "subcategory": "Saison - Farmhouse Ale",
       "abv": 6.5,
       "ibu": 30,
-      "rating": 3.68,
+      "rating": 3.67,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
