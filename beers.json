@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-06T23:57:10.783Z",
+  "fetched_at": "2026-08-07T07:12:54.822Z",
   "count": 436,
-  "scrape_duration_seconds": 1.91,
+  "scrape_duration_seconds": 1.96,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
@@ -4460,7 +4460,7 @@
       "name": "Mont des Cats",
       "beer_url": "https://untappd.com/b/abbaye-du-mont-des-cats-mont-des-cats/61759",
       "image_url": "https://labels.untappd.com/61759",
-      "style": "Belgian Strong Dark Ale",
+      "style": "Red Ale - American Amber / Red",
       "brewery": "Abbaye du Mont des Cats",
       "brewery_url": "https://untappd.com/w/abbaye-du-mont-des-cats/13395",
       "category": "Bierbijbel",
