@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-09T12:57:08.554Z",
+  "fetched_at": "2026-08-09T18:38:30.532Z",
   "count": 436,
-  "scrape_duration_seconds": 2.21,
+  "scrape_duration_seconds": 2.22,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "Snowclaws",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-snowclaws/6733379",
+      "image_url": "https://labels.untappd.com/6733379",
+      "style": "IPA - Cold",
+      "brewery": "Rock City Brewing",
+      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 15,
+      "rating": 3.79,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "La Trappe Witte Trappist",
       "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-witte-trappist/17860",
@@ -73,21 +88,6 @@
       "abv": 8.1,
       "ibu": 30,
       "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mango Bay",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-mango-bay/6767109",
-      "image_url": "https://labels.untappd.com/6767109",
-      "style": "IPA - Other",
-      "brewery": "Brouwerij Kees",
-      "brewery_url": "https://untappd.com/w/brouwerij-kees/188723",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 16,
-      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -257,6 +257,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Bon Appetit Amelié - Dubai Chocolate Bar",
+      "beer_url": "https://untappd.com/b/dutch-bargain-dutch-bargain-bon-appetit-amelie-dubai-chocolate-bar/6433478",
+      "image_url": "https://labels.untappd.com/6433478",
+      "style": "Porter - Imperial / Double",
+      "brewery": "Dutch Bargain",
+      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 25,
+      "rating": 3.25,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Nessi (Little Giants)",
       "beer_url": "https://untappd.com/b/rock-city-brewing-nessi-little-giants/6775933",
       "image_url": "https://labels.untappd.com/6775933",
@@ -282,7 +297,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.13,
+      "rating": 4.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -357,7 +372,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": null,
-      "rating": 3.07,
+      "rating": 3.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -477,7 +492,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.05,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -568,21 +583,6 @@
       "abv": 8.5,
       "ibu": null,
       "rating": 3.86,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Iced Coffee Connaisseur, Moi? - Frappuccino Editions V6 - Whippedcream, Salted Caramel Popcorndrip, Hazelnut Sprinkle",
-      "beer_url": "https://untappd.com/b/dutch-bargain-iced-coffee-connaisseur-moi-frappuccino-editions-v6-whippedcream-salted-caramel-popcorndrip-hazelnut-sprinkle/6490452",
-      "image_url": "https://labels.untappd.com/6490452",
-      "style": "Freeze-Distilled Beer",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 18,
-      "ibu": 45,
-      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2172,7 +2172,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6,
       "ibu": 20,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3057,7 +3057,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4482,7 +4482,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.66,
+      "rating": 3.65,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
