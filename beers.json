@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-11T13:12:35.175Z",
+  "fetched_at": "2026-08-11T19:00:31.775Z",
   "count": 436,
-  "scrape_duration_seconds": 2.16,
+  "scrape_duration_seconds": 2,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
@@ -17,6 +17,36 @@
   },
   "beers": [
     {
+      "name": "BLUEBERRY FLUFF",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-blueberry-fluff/6560672",
+      "image_url": "https://labels.untappd.com/6560672",
+      "style": "Sour - Smoothie / Pastry",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.96,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Korenwolf",
+      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
+      "image_url": "https://labels.untappd.com/33861",
+      "style": "Wheat Beer - Witbier / Blanche",
+      "brewery": "Gulpener Bierbrouwerij",
+      "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.43,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
       "name": "Snowclaws",
       "beer_url": "https://untappd.com/b/rock-city-brewing-snowclaws/6733379",
       "image_url": "https://labels.untappd.com/6733379",
@@ -28,21 +58,6 @@
       "abv": 8,
       "ibu": 15,
       "rating": 3.79,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "La Trappe Witte Trappist",
-      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-witte-trappist/17860",
-      "image_url": "https://labels.untappd.com/17860",
-      "style": "Wheat Beer - Witbier / Blanche",
-      "brewery": "Bierbrouwerij De Koningshoeven",
-      "brewery_url": "https://untappd.com/w/bierbrouwerij-de-koningshoeven/110",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.5,
-      "ibu": 14,
-      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -88,21 +103,6 @@
       "abv": 8.1,
       "ibu": 30,
       "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Floris Cactus",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-cactus/83654",
-      "image_url": "https://labels.untappd.com/83654",
-      "style": "Wheat Beer - Fruited",
-      "brewery": "Delirium - Huyghe Brewery",
-      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.2,
-      "ibu": null,
-      "rating": 3.2,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -312,7 +312,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.09,
+      "rating": 4.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -372,7 +372,7 @@
       "subcategory": null,
       "abv": 5.2,
       "ibu": null,
-      "rating": 3.07,
+      "rating": 3.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1227,7 +1227,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 4.01,
+      "rating": 4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1362,7 +1362,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.41,
+      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1512,7 +1512,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 29,
-      "rating": 3.43,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2172,7 +2172,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6,
       "ibu": 20,
-      "rating": 3.41,
+      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
