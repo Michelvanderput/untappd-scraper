@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-11T07:04:50.679Z",
+  "fetched_at": "2026-08-11T13:12:35.175Z",
   "count": 436,
-  "scrape_duration_seconds": 2.14,
+  "scrape_duration_seconds": 2.16,
   "stats": {
     "total_fetched": 436,
     "total_valid": 436,
@@ -192,7 +192,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.19,
+      "rating": 3.18,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -747,7 +747,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.19,
+      "rating": 3.18,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1167,7 +1167,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.64,
+      "rating": 3.63,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
