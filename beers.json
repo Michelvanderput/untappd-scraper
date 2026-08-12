@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-12T07:22:10.130Z",
-  "count": 435,
-  "scrape_duration_seconds": 2.09,
+  "fetched_at": "2026-08-12T13:16:55.686Z",
+  "count": 437,
+  "scrape_duration_seconds": 2.15,
   "stats": {
-    "total_fetched": 435,
-    "total_valid": 435,
+    "total_fetched": 437,
+    "total_valid": 437,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 113,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 115,
       "Bierbijbel": 295
     }
   },
@@ -147,7 +147,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": null,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -257,6 +257,51 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Flirt With the Bartender",
+      "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-flirt-with-the-bartender/6602997",
+      "image_url": "https://labels.untappd.com/6602997",
+      "style": "IPA - Imperial / Double",
+      "brewery": "Brouwerij The Musketeers",
+      "brewery_url": "https://untappd.com/w/brouwerij-the-musketeers/299",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 7.5,
+      "ibu": 45,
+      "rating": 3.44,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "OBLIVION",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-oblivion/6225053",
+      "image_url": "https://labels.untappd.com/6225053",
+      "style": "Stout - Russian Imperial",
+      "brewery": "Brouwerij LOST",
+      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 12,
+      "ibu": 42,
+      "rating": 4.04,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Famous Pastries: Crepe Suzette",
+      "beer_url": "https://untappd.com/b/dutch-bargain-famous-pastries-crepe-suzette/6516516",
+      "image_url": "https://labels.untappd.com/6516516",
+      "style": "Stout - Imperial / Double Pastry",
+      "brewery": "Dutch Bargain",
+      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 12,
+      "ibu": 40,
+      "rating": 3.82,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Bon Appetit Amelié - Dubai Chocolate Bar",
       "beer_url": "https://untappd.com/b/dutch-bargain-dutch-bargain-bon-appetit-amelie-dubai-chocolate-bar/6433478",
       "image_url": "https://labels.untappd.com/6433478",
@@ -328,21 +373,6 @@
       "abv": 6.6,
       "ibu": null,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "JUNGLE JUICE",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-jungle-juice/6560678",
-      "image_url": "https://labels.untappd.com/6560678",
-      "style": "Sour - Smoothie / Pastry",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -462,7 +492,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.54,
+      "rating": 3.53,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -732,7 +762,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.18,
+      "rating": 3.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -747,7 +777,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.95,
+      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1152,7 +1182,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.63,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2337,7 +2367,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6.4,
       "ibu": 30,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3117,7 +3147,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.8,
       "ibu": 10,
-      "rating": 3.38,
+      "rating": 3.39,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
