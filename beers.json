@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-11T19:00:31.775Z",
-  "count": 436,
-  "scrape_duration_seconds": 2,
+  "fetched_at": "2026-08-12T07:22:10.130Z",
+  "count": 435,
+  "scrape_duration_seconds": 2.09,
   "stats": {
-    "total_fetched": 436,
-    "total_valid": 436,
+    "total_fetched": 435,
+    "total_valid": 435,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 114,
+      "Op=Op kaart": 113,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Vocking Lekker Bier",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-vocking-lekker-bier/6637266",
+      "image_url": "https://labels.untappd.com/6637266",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery": "vandeStreek bier",
+      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 35,
+      "rating": 3.32,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "LOLA",
+      "beer_url": "https://untappd.com/b/zuyd-craft-lola/5140623",
+      "image_url": "https://labels.untappd.com/5140623",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Zuyd Craft",
+      "brewery_url": "https://untappd.com/w/zuyd-craft/272353",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.8,
+      "ibu": 15,
+      "rating": 3.65,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "BLUEBERRY FLUFF",
       "beer_url": "https://untappd.com/b/brouwerij-lost-blueberry-fluff/6560672",
@@ -43,21 +73,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.43,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Snowclaws",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-snowclaws/6733379",
-      "image_url": "https://labels.untappd.com/6733379",
-      "style": "IPA - Cold",
-      "brewery": "Rock City Brewing",
-      "brewery_url": "https://untappd.com/w/rock-city-beers/41477",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 15,
-      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -178,21 +193,6 @@
       "abv": 5,
       "ibu": 15,
       "rating": 3.4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tranentrekker",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
-      "image_url": "https://labels.untappd.com/6744109",
-      "style": "Sour - Fruited Gose",
-      "brewery": "vandeStreek bier",
-      "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4,
-      "ibu": 15,
-      "rating": 3.18,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -703,21 +703,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.69,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Piece of Cake: Blueberry Vanilla Chocolate Muffin",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-blueberry-vanilla-chocolate-muffin/6441586",
-      "image_url": "https://labels.untappd.com/6441586",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery": "Frontaal Brewing Co.",
-      "brewery_url": "https://untappd.com/w/frontaal-brewing-co/106897",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
