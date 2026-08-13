@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-12T19:00:10.541Z",
+  "fetched_at": "2026-08-13T07:24:31.141Z",
   "count": 437,
-  "scrape_duration_seconds": 3.31,
+  "scrape_duration_seconds": 2.45,
   "stats": {
     "total_fetched": 437,
     "total_valid": 437,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 115,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Gua've Got the Love",
+      "beer_url": "https://untappd.com/b/jopen-gua-ve-got-the-love/6753508",
+      "image_url": "https://labels.untappd.com/6753508",
+      "style": "IPA - Fruited",
+      "brewery": "Jopen",
+      "brewery_url": "https://untappd.com/w/jopen/620",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 3.5,
+      "ibu": 17,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Polyamorie",
+      "beer_url": "https://untappd.com/b/oedipus-brewing-polyamorie/1627564",
+      "image_url": "https://labels.untappd.com/1627564",
+      "style": "Sour - Fruited Berliner Weisse",
+      "brewery": "Oedipus Brewing",
+      "brewery_url": "https://untappd.com/w/oedipus-brewing/18058",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 15,
+      "rating": 3.4,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Vocking Lekker Bier",
       "beer_url": "https://untappd.com/b/vandestreek-bier-vocking-lekker-bier/6637266",
@@ -92,21 +122,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "XXX-Bitter",
-      "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
-      "image_url": "https://labels.untappd.com/463346",
-      "style": "IPA - Belgian",
-      "brewery": "Brouwerij De Ranke",
-      "brewery_url": "https://untappd.com/w/brouwerij-de-ranke/277",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 70,
-      "rating": 3.65,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Ter Dolen Tripel",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-tripel/70991",
       "image_url": "https://labels.untappd.com/70991",
@@ -133,21 +148,6 @@
       "abv": 10,
       "ibu": null,
       "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gulpse Wulp",
-      "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
-      "image_url": "https://labels.untappd.com/6738639",
-      "style": "Farmhouse Ale - Saison",
-      "brewery": "Bird Brewery",
-      "brewery_url": "https://untappd.com/w/bird-brewery/246149",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 4.5,
-      "ibu": null,
-      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },

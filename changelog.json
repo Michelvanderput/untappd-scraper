@@ -1,6 +1,137 @@
 {
   "changes": [
     {
+      "date": "2026-08-13T07:24:31.249Z",
+      "summary": {
+        "added": 1,
+        "removed": 2,
+        "updated": 8,
+        "total_beers": 437
+      },
+      "added": [
+        {
+          "name": "Gua've Got the Love",
+          "beer_url": "https://untappd.com/b/jopen-gua-ve-got-the-love/6753508",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Jopen",
+          "style": "IPA - Fruited",
+          "abv": 3.5,
+          "image_url": "https://labels.untappd.com/6753508"
+        }
+      ],
+      "removed": [
+        {
+          "name": "XXX-Bitter",
+          "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Brouwerij De Ranke"
+        },
+        {
+          "name": "Gulpse Wulp",
+          "beer_url": "https://untappd.com/b/bird-brewery-gulpse-wulp/6738639",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "brewery": "Bird Brewery"
+        }
+      ],
+      "updated": [
+        {
+          "name": "Polyamorie",
+          "beer_url": "https://untappd.com/b/oedipus-brewing-polyamorie/1627564",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Korenwolf",
+          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf/33861",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Brugs Tarwebier / Blanche de Bruges",
+          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-des-bruges/3106414",
+          "changes": {
+            "container": {
+              "old": "25cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Blonde",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Freddy",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-08-12T19:00:10.656Z",
       "summary": {
         "added": 0,
@@ -4546,140 +4677,6 @@
             "rating": {
               "old": 2.77,
               "new": 2.78
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-08-03T09:41:37.103Z",
-      "summary": {
-        "added": 2,
-        "removed": 1,
-        "updated": 8,
-        "total_beers": 436
-      },
-      "added": [
-        {
-          "name": "Mango Wit",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-mango-wit/6777434",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Frontaal Brewing Co.",
-          "style": "IPA - White / Wheat",
-          "abv": 5.2,
-          "image_url": "https://labels.untappd.com/6777434"
-        },
-        {
-          "name": "The Pom",
-          "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-the-pom/703866",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "brewery": "Brasserie Grain d'Orge",
-          "style": "Fruit Beer",
-          "abv": 4.8,
-          "image_url": "https://labels.untappd.com/703866"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Mongozo Mango",
-          "beer_url": "https://untappd.com/b/mongozo-mongozo-mango/52228",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "brewery": "Mongozo"
-        }
-      ],
-      "updated": [
-        {
-          "name": "Floris Cactus",
-          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-cactus/83654",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Brugs Tarwebier / Blanche de Bruges",
-          "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-des-bruges/3106414",
-          "changes": {
-            "container": {
-              "old": "25cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tranentrekker",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-tranentrekker/6744109",
-          "changes": {
-            "category": {
-              "old": "Op=Op kaart",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Blonde",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Freddy",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
             }
           }
         }
