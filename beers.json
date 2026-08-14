@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-14T13:13:32.637Z",
+  "fetched_at": "2026-08-14T18:52:16.490Z",
   "count": 437,
-  "scrape_duration_seconds": 1.83,
+  "scrape_duration_seconds": 2.66,
   "stats": {
     "total_fetched": 437,
     "total_valid": 437,
@@ -257,6 +257,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Zuster Agatha",
+      "beer_url": "https://untappd.com/b/muifelbrouwerij-zuster-agatha/107477",
+      "image_url": "https://labels.untappd.com/107477",
+      "style": "Belgian Quadrupel",
+      "brewery": "Muifelbrouwerij",
+      "brewery_url": "https://untappd.com/w/muifelbrouwerij/20031",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 30,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Flirt With the Bartender",
       "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-flirt-with-the-bartender/6602997",
       "image_url": "https://labels.untappd.com/6602997",
@@ -312,7 +327,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 25,
-      "rating": 3.25,
+      "rating": 3.26,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -342,7 +357,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.12,
+      "rating": 4.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -632,21 +647,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Get Pitted",
-      "beer_url": "https://untappd.com/b/dutch-bargain-get-pitted/6481752",
-      "image_url": "https://labels.untappd.com/6481752",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 38,
-      "rating": 3.63,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Daura",
       "beer_url": "https://untappd.com/b/damm-daura/12107",
       "image_url": "https://labels.untappd.com/12107",
@@ -852,7 +852,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 40,
-      "rating": 3.63,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1565,7 +1565,7 @@
       "name": "Snare Affair",
       "beer_url": "https://untappd.com/b/vandestreek-bier-snare-affair/6681632",
       "image_url": "https://labels.untappd.com/6681632",
-      "style": "Blonde / Golden Ale - Other",
+      "style": "Chilli / Chile Beer",
       "brewery": "vandeStreek bier",
       "brewery_url": "https://untappd.com/w/vandestreek-bier/61168",
       "category": "Op=Op kaart",
@@ -3072,7 +3072,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.46,
+      "rating": 3.45,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -3912,7 +3912,7 @@
       "subcategory": "Abdijbieren",
       "abv": 7.1,
       "ibu": 28,
-      "rating": 3.42,
+      "rating": 3.43,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4497,7 +4497,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.65,
+      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6387,7 +6387,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.22,
+      "rating": 3.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
