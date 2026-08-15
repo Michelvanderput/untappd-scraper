@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-15T12:42:53.642Z",
-  "count": 436,
-  "scrape_duration_seconds": 2.02,
+  "fetched_at": "2026-08-15T18:27:10.881Z",
+  "count": 430,
+  "scrape_duration_seconds": 1.86,
   "stats": {
-    "total_fetched": 436,
-    "total_valid": 436,
+    "total_fetched": 430,
+    "total_valid": 430,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 114,
+      "Op=Op kaart": 108,
       "Bierbijbel": 295
     }
   },
@@ -467,21 +467,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Zundert 8",
-      "beer_url": "https://untappd.com/b/trappistenbrouwerij-de-kievit-b-v-zundert-8/503520",
-      "image_url": "https://labels.untappd.com/503520",
-      "style": "Belgian Tripel",
-      "brewery": "Trappistenbrouwerij de Kievit",
-      "brewery_url": "https://untappd.com/w/trappistenbrouwerij-de-kievit/90997",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 34,
-      "rating": 3.65,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Oud Bruin",
       "beer_url": "https://untappd.com/b/brouwerij-t-verzet-oud-bruin/238983",
       "image_url": "https://labels.untappd.com/238983",
@@ -597,7 +582,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": null,
-      "rating": 3.43,
+      "rating": 3.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -613,21 +598,6 @@
       "abv": 8.5,
       "ibu": null,
       "rating": 3.86,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "HOHOHO",
-      "beer_url": "https://untappd.com/b/dutch-bargain-hohoho/5598387",
-      "image_url": "https://labels.untappd.com/5598387",
-      "style": "IPA - American",
-      "brewery": "Dutch Bargain",
-      "brewery_url": "https://untappd.com/w/dutch-bargain/53536",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.5,
-      "ibu": 65,
-      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -658,21 +628,6 @@
       "abv": 6.7,
       "ibu": null,
       "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "CLOUDS",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-clouds/6560686",
-      "image_url": "https://labels.untappd.com/6560686",
-      "style": "Sour - Smoothie / Pastry",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -777,7 +732,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.9,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -793,21 +748,6 @@
       "abv": 5.6,
       "ibu": null,
       "rating": 3.51,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Hop Holland Hop",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-hop-holland-hop/6674627",
-      "image_url": "https://labels.untappd.com/6674627",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Moersleutel Craft Brewery",
-      "brewery_url": "https://untappd.com/w/moersleutel-craft-brewery/269726",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +927,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": 33,
-      "rating": 3.67,
+      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1112,21 +1052,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "AMORTENTIA",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-amortentia/6390174",
-      "image_url": "https://labels.untappd.com/6390174",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8.1,
-      "ibu": null,
-      "rating": 3.78,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "DUBAI CHOCO",
       "beer_url": "https://untappd.com/b/brouwerij-lost-dubai-choco/6225050",
       "image_url": "https://labels.untappd.com/6225050",
@@ -1197,7 +1122,7 @@
       "subcategory": null,
       "abv": 4.5,
       "ibu": 30,
-      "rating": 3.39,
+      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1272,21 +1197,6 @@
       "subcategory": null,
       "abv": 7.5,
       "ibu": 30,
-      "rating": 3.38,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Duustere Gringel",
-      "beer_url": "https://untappd.com/b/gringel-bier-duustere-gringel/208113",
-      "image_url": "https://labels.untappd.com/208113",
-      "style": "Brown Ale - Belgian",
-      "brewery": "Gringel Bier",
-      "brewery_url": "https://untappd.com/w/gringel-bier/133457",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7.5,
-      "ibu": null,
       "rating": 3.37,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
@@ -2172,7 +2082,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6,
       "ibu": 20,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6087,7 +5997,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 8,
       "ibu": 45,
-      "rating": 3.76,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6372,7 +6282,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.23,
+      "rating": 3.22,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
