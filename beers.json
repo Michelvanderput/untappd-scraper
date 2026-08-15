@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-15T06:35:24.812Z",
-  "count": 437,
-  "scrape_duration_seconds": 2.15,
+  "fetched_at": "2026-08-15T12:42:53.642Z",
+  "count": 436,
+  "scrape_duration_seconds": 2.02,
   "stats": {
-    "total_fetched": 437,
-    "total_valid": 437,
+    "total_fetched": 436,
+    "total_valid": 436,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 115,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 114,
       "Bierbijbel": 295
     }
   },
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 15,
-      "rating": 4.23,
+      "rating": 4.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -373,21 +373,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 4.08,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Crazy Lines Series: Psycho Juice",
-      "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-psycho-juice/6730534",
-      "image_url": "https://labels.untappd.com/6730534",
-      "style": "IPA - Cold",
-      "brewery": "Nepo Brewing",
-      "brewery_url": "https://untappd.com/w/nepo-brewing/192779",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": null,
-      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -672,7 +657,7 @@
       "subcategory": null,
       "abv": 6.7,
       "ibu": null,
-      "rating": 3.83,
+      "rating": 3.84,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2277,7 +2262,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6.2,
       "ibu": 30,
-      "rating": 3.44,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2322,7 +2307,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 8,
       "ibu": 15,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2367,7 +2352,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 6.4,
       "ibu": 30,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4947,7 +4932,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8,
       "ibu": 32,
-      "rating": 3.61,
+      "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
