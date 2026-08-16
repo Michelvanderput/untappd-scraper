@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-15T18:27:10.881Z",
-  "count": 430,
-  "scrape_duration_seconds": 1.86,
+  "fetched_at": "2026-08-16T06:36:51.535Z",
+  "count": 429,
+  "scrape_duration_seconds": 2.33,
   "stats": {
-    "total_fetched": 430,
-    "total_valid": 430,
+    "total_fetched": 429,
+    "total_valid": 429,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 108,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 107,
       "Bierbijbel": 295
     }
   },
@@ -1603,21 +1603,6 @@
       "abv": 8.4,
       "ibu": null,
       "rating": 4.15,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Every Fragment Still Knows The Shape of The Whole",
-      "beer_url": "https://untappd.com/b/parish-brewing-co-every-fragment-still-knows-the-shape-of-the-hole/6612136",
-      "image_url": "https://labels.untappd.com/6612136",
-      "style": "IPA - Imperial / Double New England / Hazy",
-      "brewery": "Parish Brewing Co.",
-      "brewery_url": "https://untappd.com/w/parish-brewing-co/10253",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 4.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
