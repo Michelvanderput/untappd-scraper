@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-16T18:26:50.233Z",
-  "count": 431,
-  "scrape_duration_seconds": 2.94,
+  "fetched_at": "2026-08-17T06:52:26.201Z",
+  "count": 430,
+  "scrape_duration_seconds": 2.23,
   "stats": {
-    "total_fetched": 431,
-    "total_valid": 431,
+    "total_fetched": 430,
+    "total_valid": 430,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 109,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 108,
       "Bierbijbel": 295
     }
   },
@@ -838,21 +838,6 @@
       "abv": 6,
       "ibu": 37,
       "rating": 3.67,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "OBLIVION",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-oblivion/6225053",
-      "image_url": "https://labels.untappd.com/6225053",
-      "style": "Stout - Russian Imperial",
-      "brewery": "Brouwerij LOST",
-      "brewery_url": "https://untappd.com/w/brouwerij-lost/477804",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 12,
-      "ibu": 42,
-      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
