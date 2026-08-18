@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-18T12:51:55.656Z",
-  "count": 429,
-  "scrape_duration_seconds": 2.44,
+  "fetched_at": "2026-08-18T18:36:05.778Z",
+  "count": 426,
+  "scrape_duration_seconds": 2.29,
   "stats": {
-    "total_fetched": 429,
-    "total_valid": 429,
+    "total_fetched": 426,
+    "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
-      "Op=Op kaart": 107,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 104,
       "Bierbijbel": 295
     }
   },
@@ -1032,7 +1032,7 @@
       "subcategory": null,
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.78,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1547,21 +1547,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Genesis",
-      "beer_url": "https://untappd.com/b/wicked-weed-brewing-genesis/286069",
-      "image_url": "https://labels.untappd.com/286069",
-      "style": "Sour - Fruited",
-      "brewery": "Wicked Weed Brewing",
-      "brewery_url": "https://untappd.com/w/wicked-weed-brewing/37851",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.7,
-      "ibu": 18,
-      "rating": 4,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Braincake",
       "beer_url": "https://untappd.com/b/parish-brewing-co-braincake/3630887",
       "image_url": "https://labels.untappd.com/3630887",
@@ -1573,36 +1558,6 @@
       "abv": 8.4,
       "ibu": null,
       "rating": 4.15,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Mosaic Dream",
-      "beer_url": "https://untappd.com/b/other-half-brewing-co-mosaic-dream/2466988",
-      "image_url": "https://labels.untappd.com/2466988",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Other Half Brewing Co.",
-      "brewery_url": "https://untappd.com/w/other-half-brewing-co/94785",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 4.14,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "SIPS: Two Fingers Blue",
-      "beer_url": "https://untappd.com/b/parish-brewing-co-sips-two-fingers-blue/2765654",
-      "image_url": "https://labels.untappd.com/2765654",
-      "style": "Sour - Fruited Berliner Weisse",
-      "brewery": "Parish Brewing Co.",
-      "brewery_url": "https://untappd.com/w/parish-brewing-co/10253",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.8,
-      "ibu": null,
-      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5982,7 +5937,7 @@
       "subcategory": "Sterk Gehopte Bieren - IPA",
       "abv": 8,
       "ibu": 45,
-      "rating": 3.75,
+      "rating": 3.76,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
