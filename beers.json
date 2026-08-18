@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-17T18:37:14.691Z",
-  "count": 430,
-  "scrape_duration_seconds": 2.22,
+  "fetched_at": "2026-08-18T06:40:07.347Z",
+  "count": 429,
+  "scrape_duration_seconds": 1.97,
   "stats": {
-    "total_fetched": 430,
-    "total_valid": 430,
+    "total_fetched": 429,
+    "total_valid": 429,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 108,
+      "Op=Op kaart": 107,
       "Bierbijbel": 295
     }
   },
@@ -257,6 +257,21 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Sansho Showdown",
+      "beer_url": "https://untappd.com/b/baxbier-sansho-showdown/6735999",
+      "image_url": "https://labels.untappd.com/6735999",
+      "style": "Farmhouse Ale - Saison",
+      "brewery": "Baxbier",
+      "brewery_url": "https://untappd.com/w/baxbier/93801",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.9,
+      "ibu": 20,
+      "rating": 3.52,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Double Trouble",
       "beer_url": "https://untappd.com/b/brasserie-surrealiste-double-trouble/4277039",
       "image_url": "https://labels.untappd.com/4277039",
@@ -283,36 +298,6 @@
       "abv": 4.5,
       "ibu": 7,
       "rating": 3.48,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Hefeweissbier Naturtrüb (Tap 01)",
-      "beer_url": "https://untappd.com/b/schneider-weisse-g-schneider-and-sohn-hefeweissbier-naturtrub-tap-01/6232155",
-      "image_url": "https://labels.untappd.com/6232155",
-      "style": "Wheat Beer - Hefeweizen",
-      "brewery": "Schneider Weisse G. Schneider & Sohn",
-      "brewery_url": "https://untappd.com/w/schneider-weisse-g-schneider-sohn/1023",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 4.9,
-      "ibu": 14,
-      "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Joey Greenhorn Restless IPA",
-      "beer_url": "https://untappd.com/b/kompaan-bier-brouwerij-kompaan-joey-greenhorn-restless-ipa/1953229",
-      "image_url": "https://labels.untappd.com/1953229",
-      "style": "IPA - American",
-      "brewery": "KOMPAAN Dutch Craft Beer Company",
-      "brewery_url": "https://untappd.com/w/kompaan-dutch-craft-beer-company/32296",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 60,
-      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
