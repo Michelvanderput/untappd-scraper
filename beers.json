@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-18T18:36:05.778Z",
-  "count": 426,
-  "scrape_duration_seconds": 2.29,
+  "fetched_at": "2026-08-19T06:40:43.278Z",
+  "count": 425,
+  "scrape_duration_seconds": 1.96,
   "stats": {
-    "total_fetched": 426,
-    "total_valid": 426,
+    "total_fetched": 425,
+    "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 104,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 103,
       "Bierbijbel": 295
     }
   },
@@ -343,21 +343,6 @@
       "abv": 10,
       "ibu": 25,
       "rating": 3.26,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Panja Paloma",
-      "beer_url": "https://untappd.com/b/brouwerij-t-ij-panja-paloma/5943178",
-      "image_url": "https://labels.untappd.com/5943178",
-      "style": "Wheat Beer - Fruited",
-      "brewery": "Brouwerij 't IJ",
-      "brewery_url": "https://untappd.com/w/brouwerij-t-ij/261",
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5.2,
-      "ibu": null,
-      "rating": 3.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
