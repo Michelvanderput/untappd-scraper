@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-20T12:54:59.269Z",
-  "count": 425,
-  "scrape_duration_seconds": 1.85,
+  "fetched_at": "2026-08-20T18:37:09.157Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.83,
   "stats": {
-    "total_fetched": 425,
-    "total_valid": 425,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
+      "Wisseltap bieren": 15,
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
       "Op=Op kaart": 103,
       "Bierbijbel": 295
     }
@@ -87,7 +87,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -163,21 +163,6 @@
       "abv": 6,
       "ibu": null,
       "rating": 3.47,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Corsendonk Gold Tripel",
-      "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-gold-tripel/860361",
-      "image_url": "https://labels.untappd.com/860361",
-      "style": "Belgian Tripel",
-      "brewery": "Brouwerij Corsendonk",
-      "brewery_url": "https://untappd.com/w/brouwerij-corsendonk/246",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9.8,
-      "ibu": 20,
-      "rating": 3.7,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -927,7 +912,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.09,
+      "rating": 4.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1737,7 +1722,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 4.02,
+      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1820,7 +1805,7 @@
       "name": "Biologisch IPA",
       "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-biologisch-ipa/5717795",
       "image_url": "https://labels.untappd.com/5717795",
-      "style": "Lager - IPL (India Pale Lager)",
+      "style": "IPA - Other",
       "brewery": "Gulpener Bierbrouwerij",
       "brewery_url": "https://untappd.com/w/gulpener-bierbrouwerij/619",
       "category": "Vaste bieren van de tap",
@@ -5412,7 +5397,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 11.2,
       "ibu": null,
-      "rating": 3.66,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -6177,7 +6162,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 2.76,
+      "rating": 2.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
