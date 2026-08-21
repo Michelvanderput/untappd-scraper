@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-20T18:37:09.157Z",
+  "fetched_at": "2026-08-21T06:42:52.822Z",
   "count": 424,
-  "scrape_duration_seconds": 2.83,
+  "scrape_duration_seconds": 2.44,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -152,7 +152,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Schuppenboer Summer  of '26",
+      "name": "Schuppenboer Summer of '26",
       "beer_url": "https://untappd.com/b/brouwerij-het-nest-schuppenboer-summer-of-26/6684890",
       "image_url": "https://labels.untappd.com/6684890",
       "style": "IPA - Belgian",
