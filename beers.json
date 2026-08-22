@@ -1,21 +1,51 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-22T06:37:10.475Z",
-  "count": 422,
-  "scrape_duration_seconds": 2,
+  "fetched_at": "2026-08-22T12:44:38.209Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.12,
   "stats": {
-    "total_fetched": 422,
-    "total_valid": 422,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 14,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 102,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Aubel Pomme Cerise",
+      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-pomme-cerise/5766892",
+      "image_url": "https://labels.untappd.com/5766892",
+      "style": "Fruit Beer",
+      "brewery": "Brasserie Grain d'Orge",
+      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.8,
+      "ibu": null,
+      "rating": 3.22,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Geloaje Blond 2.0",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-geloaje-blond-2-0/6837836",
+      "image_url": "https://labels.untappd.com/6837836",
+      "style": "Belgian Blonde",
+      "brewery": "Delirium - Huyghe Brewery",
+      "brewery_url": "https://untappd.com/w/delirium-huyghe-brewery/285",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tripel",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-moersleutel-tripel/6731205",
@@ -27,7 +57,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 3.75,
+      "rating": 3.74,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -42,7 +72,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -642,7 +672,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.95,
+      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1032,7 +1062,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.2,
+      "rating": 3.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1332,7 +1362,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 20,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1722,7 +1752,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 19,
-      "rating": 4.13,
+      "rating": 4.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
