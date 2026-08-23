@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-23T06:38:07.104Z",
+  "fetched_at": "2026-08-23T12:45:45.713Z",
   "count": 425,
-  "scrape_duration_seconds": 2.4,
+  "scrape_duration_seconds": 3.57,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 103,
       "Bierbijbel": 295
     }
@@ -432,7 +432,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.82,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -687,7 +687,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1077,7 +1077,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.19,
+      "rating": 3.2,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1767,7 +1767,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 19,
-      "rating": 4.14,
+      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2082,7 +2082,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 5.5,
       "ibu": 17,
-      "rating": 3.56,
+      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2142,7 +2142,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 8,
       "ibu": 15,
-      "rating": 3.68,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4147,7 +4147,7 @@
       "image_url": "https://labels.untappd.com/3986134",
       "style": "Belgian Tripel",
       "brewery": "Abbaye Notre-Dame de Saint-Rémy",
-      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
+      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-racmy/1650",
       "category": "Bierbijbel",
       "subcategory": "Trappistenbieren",
       "abv": 8.1,
@@ -4162,7 +4162,7 @@
       "image_url": "https://labels.untappd.com/10722",
       "style": "Belgian Dubbel",
       "brewery": "Abbaye Notre-Dame de Saint-Rémy",
-      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
+      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-racmy/1650",
       "category": "Bierbijbel",
       "subcategory": "Trappistenbieren",
       "abv": 7.5,
@@ -4177,7 +4177,7 @@
       "image_url": "https://labels.untappd.com/11473",
       "style": "Belgian Strong Dark Ale",
       "brewery": "Abbaye Notre-Dame de Saint-Rémy",
-      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
+      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-racmy/1650",
       "category": "Bierbijbel",
       "subcategory": "Trappistenbieren",
       "abv": 9.2,
@@ -4192,7 +4192,7 @@
       "image_url": "https://labels.untappd.com/6766",
       "style": "Belgian Quadrupel",
       "brewery": "Abbaye Notre-Dame de Saint-Rémy",
-      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-remy/1650",
+      "brewery_url": "https://untappd.com/w/abbaye-notre-dame-de-saint-racmy/1650",
       "category": "Bierbijbel",
       "subcategory": "Trappistenbieren",
       "abv": 11.3,
