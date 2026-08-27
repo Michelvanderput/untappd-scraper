@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-27T17:21:07.556Z",
+  "fetched_at": "2026-08-27T22:00:20.932Z",
   "count": 424,
-  "scrape_duration_seconds": 2.11,
+  "scrape_duration_seconds": 2.84,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "La Trappe Quadrupel",
+      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-quadrupel/1830",
+      "image_url": "https://labels.untappd.com/1830",
+      "style": "Belgian Quadrupel",
+      "brewery": "Bierbrouwerij de Koningshoeven",
+      "brewery_url": "https://untappd.com/w/bierbrouwerij-de-koningshoeven/110",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 22,
+      "rating": 3.9,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Brugse Zot Wit",
       "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugse-zot-wit/6839172",
@@ -163,21 +178,6 @@
       "abv": 6,
       "ibu": 35,
       "rating": 3.32,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "LOLA",
-      "beer_url": "https://untappd.com/b/zuyd-craft-lola/5140623",
-      "image_url": "https://labels.untappd.com/5140623",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Zuyd Craft",
-      "brewery_url": "https://untappd.com/w/zuyd-craft/272353",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.8,
-      "ibu": 15,
-      "rating": 3.65,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
