@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-08-31T12:47:44.935Z",
+  "fetched_at": "2026-08-31T18:57:42.729Z",
   "count": 428,
-  "scrape_duration_seconds": 2.57,
+  "scrape_duration_seconds": 2.62,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
@@ -117,7 +117,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.56,
+      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 4.24,
+      "rating": 4.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -312,7 +312,7 @@
       "subcategory": null,
       "abv": 6.8,
       "ibu": null,
-      "rating": 4.06,
+      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -662,8 +662,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "La Crispissima",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-la-crispissima/6755087",
+      "name": "La Crispissima ( Collab with Folkinge Brew )",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-la-crispissima-collab-with-folkinge-brew/6755087",
       "image_url": "https://labels.untappd.com/6755087",
       "style": "Pilsner - Italian",
       "brewery": "Brouwerij Kees",
@@ -1002,7 +1002,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": null,
-      "rating": 4.03,
+      "rating": 4.04,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1137,7 +1137,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.23,
+      "rating": 3.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1467,7 +1467,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 36,
-      "rating": 3.54,
+      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1782,7 +1782,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 4.03,
+      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -3897,7 +3897,7 @@
       "subcategory": "Abdijbieren",
       "abv": 6.1,
       "ibu": 25,
-      "rating": 3.5,
+      "rating": 3.51,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5457,7 +5457,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 11.2,
       "ibu": null,
-      "rating": 3.66,
+      "rating": 3.67,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
