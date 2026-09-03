@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-03T10:43:37.756Z",
+  "fetched_at": "2026-09-03T16:04:53.939Z",
   "count": 428,
-  "scrape_duration_seconds": 2.51,
+  "scrape_duration_seconds": 3.18,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 16,
       "Op=Op kaart": 106,
+      "Wisseltap bieren": 16,
       "Bierbijbel": 295
     }
   },
@@ -42,7 +42,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": 20,
-      "rating": 3.61,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -87,7 +87,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 15,
-      "rating": 3.6,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -117,7 +117,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.55,
+      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -297,7 +297,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": null,
-      "rating": 4.2,
+      "rating": 4.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -312,13 +312,13 @@
       "subcategory": null,
       "abv": 6.8,
       "ibu": null,
-      "rating": 4.02,
+      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Geitenbreier",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-geitenbreier/6330562",
+      "name": "Geitenbreier 2025",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-geitenbreier-2025/6330562",
       "image_url": "https://labels.untappd.com/6330562",
       "style": "Bock - Single / Traditional",
       "brewery": "Moersleutel Craft Brewery",
@@ -342,7 +342,7 @@
       "subcategory": null,
       "abv": 6.9,
       "ibu": 20,
-      "rating": 3.5,
+      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -732,7 +732,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.94,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -987,7 +987,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 4.06,
+      "rating": 4.05,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1122,7 +1122,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.21,
+      "rating": 3.22,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
