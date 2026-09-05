@@ -1,21 +1,36 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-05T14:51:26.323Z",
+  "fetched_at": "2026-09-05T19:58:27.850Z",
   "count": 428,
-  "scrape_duration_seconds": 2.04,
+  "scrape_duration_seconds": 13.5,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Bierbijbel": 295,
       "Op=Op kaart": 106,
-      "Bierbijbel": 295
+      "Vaste bieren van de tap": 11
     }
   },
   "beers": [
+    {
+      "name": "Hazy Little Thing",
+      "beer_url": "https://untappd.com/b/sierra-nevada-brewing-co-hazy-little-thing/2412786",
+      "image_url": "https://labels.untappd.com/2412786",
+      "style": "IPA - New England / Hazy",
+      "brewery": "Sierra Nevada Brewing Co.",
+      "brewery_url": "https://untappd.com/w/sierra-nevada-brewing-co/1142",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.7,
+      "ibu": 35,
+      "rating": 3.77,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Chimay 150 (Green)",
       "beer_url": "https://untappd.com/b/bieres-de-chimay-chimay-150-green/4286765",
@@ -133,21 +148,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Frontwerf",
-      "beer_url": "https://untappd.com/b/brouwerij-kompel-frontwerf/6776393",
-      "image_url": "https://labels.untappd.com/6776393",
-      "style": "IPA - New England / Hazy",
-      "brewery": "Brouwerij Kompel",
-      "brewery_url": "https://untappd.com/w/brouwerij-kompel/242769",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 20,
-      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
