@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-07T17:33:11.927Z",
+  "fetched_at": "2026-09-07T21:09:16.965Z",
   "count": 428,
-  "scrape_duration_seconds": 3.61,
+  "scrape_duration_seconds": 2.57,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
@@ -16,6 +16,21 @@
     }
   },
   "beers": [
+    {
+      "name": "La Trappe Bockbier",
+      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-bockbier/38104",
+      "image_url": "https://labels.untappd.com/38104",
+      "style": "Bock - Single / Traditional",
+      "brewery": "Bierbrouwerij de Koningshoeven",
+      "brewery_url": "https://untappd.com/w/bierbrouwerij-de-koningshoeven/110",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 38,
+      "rating": 3.52,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Hazy Little Thing",
       "beer_url": "https://untappd.com/b/sierra-nevada-brewing-co-hazy-little-thing/2412786",
@@ -148,21 +163,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Betty Ford",
-      "beer_url": "https://untappd.com/b/brouwerij-wilderen-betty-ford/3143559",
-      "image_url": "https://labels.untappd.com/3143559",
-      "style": "Pale Ale - Belgian",
-      "brewery": "Brouwerij Wilderen",
-      "brewery_url": "https://untappd.com/w/brouwerij-wilderen/18146",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.2,
-      "ibu": null,
-      "rating": 3.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
