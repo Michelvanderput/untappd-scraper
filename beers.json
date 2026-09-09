@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-09T16:13:24.981Z",
-  "count": 428,
-  "scrape_duration_seconds": 3.12,
+  "fetched_at": "2026-09-09T20:29:01.432Z",
+  "count": 427,
+  "scrape_duration_seconds": 2.82,
   "stats": {
-    "total_fetched": 428,
-    "total_valid": 428,
+    "total_fetched": 427,
+    "total_valid": 427,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
-      "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 106,
-      "Bierbijbel": 295
+      "Op=Op kaart": 105,
+      "Bierbijbel": 295,
+      "Vaste bieren van de tap": 11
     }
   },
   "beers": [
@@ -243,6 +243,34 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
+      "name": "Gouden Carolus Indulgence 2026 - Symposium",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-indulgence-2026-symposium/6727923",
+      "image_url": "https://labels.untappd.com/6727923",
+      "style": "Belgian Tripel",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8.1,
+      "ibu": 25,
+      "rating": 3.88,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Blueprints: Suitcase",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-suitcase/6490801",
+      "image_url": "https://labels.untappd.com/6490801",
+      "style": "IPA - Imperial / Double",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": null,
+      "rating": 3.85,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
       "name": "Pannepot - Old Fisherman's Ale (2020)",
       "beer_url": "https://untappd.com/b/de-struise-brouwers-pannepot-old-fisherman-s-ale-vintage-2020/3924558",
       "image_url": "https://labels.untappd.com/3924558",
@@ -463,20 +491,6 @@
       "abv": 6,
       "ibu": 57,
       "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Limburgse Koffie... Wat Els?!",
-      "beer_url": "https://untappd.com/b/aspro-brews-limburgse-koffie-wat-els/6497004",
-      "image_url": "https://labels.untappd.com/6497004",
-      "style": "Stout - Imperial / Double Coffee",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": 33,
-      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -857,20 +871,6 @@
       "abv": 12.5,
       "ibu": 42,
       "rating": 3.91,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "DUBAI CHOCO",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-dubai-choco/6225050",
-      "image_url": "https://labels.untappd.com/6225050",
-      "style": "Stout - Imperial / Double",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 12,
-      "ibu": 33,
-      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1431,20 +1431,6 @@
       "abv": 9.5,
       "ibu": 27,
       "rating": 3.55,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Gulden Draak Blond",
-      "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-blond/6203603",
-      "image_url": "https://labels.untappd.com/6203603",
-      "style": "Belgian Blonde",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
