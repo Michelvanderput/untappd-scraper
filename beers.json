@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-08T20:45:34.652Z",
+  "fetched_at": "2026-09-09T10:48:30.170Z",
   "count": 428,
-  "scrape_duration_seconds": 2.36,
+  "scrape_duration_seconds": 2.45,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 106,
-      "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
+      "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
   },
@@ -2108,7 +2108,7 @@
     },
     {
       "name": "Brugs Tarwebier / Blanche de Bruges",
-      "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-des-bruges/3106414",
+      "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugs-tarwebier-blanche-de-bruges/3106414",
       "image_url": "https://labels.untappd.com/3106414",
       "style": "Wheat Beer - Witbier / Blanche",
       "brewery_url": null,
@@ -2489,7 +2489,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Oude Mûre Tilquin à l'Ancienne",
+      "name": "Oude Mûre Tilquin à l'ancienne",
       "beer_url": "https://untappd.com/b/gueuzerie-tilquin-oude-mure-tilquin-a-l-ancienne/1066226",
       "image_url": "https://labels.untappd.com/1066226",
       "style": "Lambic - Fruit",
@@ -2503,7 +2503,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Oude Quetsche Tilquin à l'Ancienne",
+      "name": "Oude Quetsche Tilquin à l'ancienne",
       "beer_url": "https://untappd.com/b/gueuzerie-tilquin-oude-quetsche-tilquin-a-l-ancienne/226919",
       "image_url": "https://labels.untappd.com/226919",
       "style": "Lambic - Fruit",
