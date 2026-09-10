@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-10T16:04:52.981Z",
+  "fetched_at": "2026-09-10T20:27:31.704Z",
   "count": 427,
-  "scrape_duration_seconds": 4.5,
+  "scrape_duration_seconds": 2.7,
   "stats": {
     "total_fetched": 427,
     "total_valid": 427,
@@ -16,6 +16,20 @@
     }
   },
   "beers": [
+    {
+      "name": "Kriek",
+      "beer_url": "https://untappd.com/b/brouwerij-lindemans-kriek/3095",
+      "image_url": "https://labels.untappd.com/3095",
+      "style": "Lambic - Kriek",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 3.5,
+      "ibu": 18,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "La Trappe Bockbier",
       "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-bockbier/38104",
@@ -111,21 +125,6 @@
       "abv": 5,
       "ibu": 15,
       "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Aubel Pomme Cerise",
-      "beer_url": "https://untappd.com/b/brasserie-grain-d-orge-aubel-pomme-cerise/5766892",
-      "image_url": "https://labels.untappd.com/5766892",
-      "style": "Fruit Beer",
-      "brewery": "Brasserie Grain d'Orge",
-      "brewery_url": "https://untappd.com/w/brasserie-grain-d-orge/193",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.8,
-      "ibu": null,
-      "rating": 3.22,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
