@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-12T15:16:04.808Z",
+  "fetched_at": "2026-09-12T20:13:39.206Z",
   "count": 427,
-  "scrape_duration_seconds": 3.12,
+  "scrape_duration_seconds": 3.88,
   "stats": {
     "total_fetched": 427,
     "total_valid": 427,
@@ -16,6 +16,49 @@
     }
   },
   "beers": [
+    {
+      "name": "10 Years: Liftoff",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-liftoff/6728531",
+      "image_url": "https://labels.untappd.com/6728531",
+      "style": "IPA - Triple New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": null,
+      "rating": 4.04,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Maneblusser",
+      "beer_url": "https://untappd.com/b/brouwerij-het-anker-maneblusser/58686",
+      "image_url": "https://labels.untappd.com/58686",
+      "style": "Belgian Blonde",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.8,
+      "ibu": 20,
+      "rating": 3.46,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Val-Dieu Triple",
+      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+      "image_url": "https://labels.untappd.com/442",
+      "style": "Belgian Tripel",
+      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
+      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 20,
+      "rating": 3.67,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kriek",
       "beer_url": "https://untappd.com/b/brouwerij-lindemans-kriek/3095",
@@ -129,34 +172,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Geloaje Blond 2.0",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-geloaje-blond-2-0/6837836",
-      "image_url": "https://labels.untappd.com/6837836",
-      "style": "Belgian Blonde",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.6,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Tripel",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-moersleutel-tripel/6731205",
-      "image_url": "https://labels.untappd.com/6731205",
-      "style": "Belgian Tripel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": null,
-      "rating": 3.71,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Gua've Got the Love",
       "beer_url": "https://untappd.com/b/jopen-gua-ve-got-the-love/6753508",
       "image_url": "https://labels.untappd.com/6753508",
@@ -223,21 +238,6 @@
       "abv": 8.8,
       "ibu": 20,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Val-Dieu Blonde",
-      "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-blonde/40880",
-      "image_url": "https://labels.untappd.com/40880",
-      "style": "Belgian Blonde",
-      "brewery": "Brasserie de l'Abbaye du Val-Dieu",
-      "brewery_url": "https://untappd.com/w/brasserie-de-l-abbaye-du-val-dieu/175",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 18,
-      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
