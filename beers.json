@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-12T20:13:39.206Z",
-  "count": 427,
-  "scrape_duration_seconds": 3.88,
+  "fetched_at": "2026-09-13T11:08:38.130Z",
+  "count": 428,
+  "scrape_duration_seconds": 4.36,
   "stats": {
-    "total_fetched": 427,
-    "total_valid": 427,
+    "total_fetched": 428,
+    "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 16,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 105,
+      "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
   },
@@ -240,6 +240,20 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Tamera",
+      "beer_url": "https://untappd.com/b/enigma-belgian-brewery-tamera/1477291",
+      "image_url": "https://labels.untappd.com/1477291",
+      "style": "Belgian Tripel",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 29,
+      "rating": 3.56,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Gouden Carolus Indulgence 2026 - Symposium",
