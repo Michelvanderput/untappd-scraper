@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-16T10:53:56.826Z",
+  "fetched_at": "2026-09-16T16:28:07.134Z",
   "count": 428,
-  "scrape_duration_seconds": 2.85,
+  "scrape_duration_seconds": 2.87,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
@@ -167,7 +167,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 15,
-      "rating": 3.56,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -181,7 +181,7 @@
       "subcategory": null,
       "abv": 3.5,
       "ibu": 17,
-      "rating": 3.53,
+      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -265,7 +265,7 @@
       "subcategory": null,
       "abv": 8.1,
       "ibu": 25,
-      "rating": 3.84,
+      "rating": 3.82,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4835,7 +4835,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 7.5,
       "ibu": null,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5258,7 +5258,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 8.5,
       "ibu": 18,
-      "rating": 3.43,
+      "rating": 3.42,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
