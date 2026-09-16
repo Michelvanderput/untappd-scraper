@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-16T16:28:07.134Z",
+  "fetched_at": "2026-09-16T20:54:50.523Z",
   "count": 428,
-  "scrape_duration_seconds": 2.87,
+  "scrape_duration_seconds": 2.93,
   "stats": {
     "total_fetched": 428,
     "total_valid": 428,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 16,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 106,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Jutters Bock",
+      "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-jutters-bock/8288",
+      "image_url": "https://labels.untappd.com/8288",
+      "style": "Bock - Single / Traditional",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 22,
+      "rating": 3.48,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "10 Years: Liftoff",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-liftoff/6728531",
@@ -140,20 +154,6 @@
       "abv": 6.6,
       "ibu": 20,
       "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "La Trappe Quadrupel",
-      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-quadrupel/1830",
-      "image_url": "https://labels.untappd.com/1830",
-      "style": "Belgian Quadrupel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 22,
-      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
