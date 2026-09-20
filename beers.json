@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-20T10:41:38.948Z",
+  "fetched_at": "2026-09-20T15:43:43.056Z",
   "count": 424,
-  "scrape_duration_seconds": 3.15,
+  "scrape_duration_seconds": 3.83,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -10,12 +10,40 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 101,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Blurred Lines",
+      "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
+      "image_url": "https://labels.untappd.com/3322269",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.3,
+      "ibu": 20,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Fresh Hop Blond - Klophop",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-fresh-hop-blond-klophop/6415774",
+      "image_url": "https://labels.untappd.com/6415774",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 29,
+      "rating": 3.39,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Framboise Boon",
       "beer_url": "https://untappd.com/b/brouwerij-boon-framboise-boon/14323",
@@ -159,20 +187,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Hazy Weekend",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend/3647985",
-      "image_url": "https://labels.untappd.com/3647985",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 20,
-      "rating": 3.61,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Brugse Zot Wit",
       "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugse-zot-wit/6839172",
       "image_url": "https://labels.untappd.com/6839172",
@@ -182,21 +196,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 15,
-      "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Gua've Got the Love",
-      "beer_url": "https://untappd.com/b/jopen-gua-ve-got-the-love/6753508",
-      "image_url": "https://labels.untappd.com/6753508",
-      "style": "IPA - Fruited",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 3.5,
-      "ibu": 17,
-      "rating": 3.52,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -421,7 +421,7 @@
       "subcategory": null,
       "abv": 8.1,
       "ibu": 25,
-      "rating": 3.82,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1024,7 +1024,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1080,7 +1080,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.81,
+      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1248,7 +1248,7 @@
       "subcategory": null,
       "abv": 7.6,
       "ibu": 14,
-      "rating": 3.8,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1500,7 +1500,7 @@
       "subcategory": null,
       "abv": 13,
       "ibu": 42,
-      "rating": 3.96,
+      "rating": 3.97,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4045,7 +4045,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 35,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5203,7 +5203,7 @@
       "subcategory": "Donker - Sterk Donker",
       "abv": 8.5,
       "ibu": 18,
-      "rating": 3.42,
+      "rating": 3.43,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
