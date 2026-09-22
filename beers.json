@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-22T16:35:36.438Z",
+  "fetched_at": "2026-09-22T20:55:45.288Z",
   "count": 424,
-  "scrape_duration_seconds": 2.96,
+  "scrape_duration_seconds": 2.82,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Geloaje Blond 2.0",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-geloaje-blond-2-0/6837836",
+      "image_url": "https://labels.untappd.com/6837836",
+      "style": "Belgian Blonde",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": null,
+      "rating": 3.6,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Blurred Lines",
       "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
@@ -126,20 +140,6 @@
       "abv": 9,
       "ibu": null,
       "rating": 4.03,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Maneblusser",
-      "beer_url": "https://untappd.com/b/brouwerij-het-anker-maneblusser/58686",
-      "image_url": "https://labels.untappd.com/58686",
-      "style": "Belgian Blonde",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.8,
-      "ibu": 20,
-      "rating": 3.46,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
