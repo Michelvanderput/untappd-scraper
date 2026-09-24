@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-23T21:08:03.527Z",
-  "count": 424,
-  "scrape_duration_seconds": 2.88,
+  "fetched_at": "2026-09-24T11:10:00.979Z",
+  "count": 426,
+  "scrape_duration_seconds": 2.49,
   "stats": {
-    "total_fetched": 424,
-    "total_valid": 424,
+    "total_fetched": 426,
+    "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 101,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 103,
       "Bierbijbel": 295
     }
   },
@@ -255,6 +255,34 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Master Mind",
+      "beer_url": "https://untappd.com/b/nepo-brewing-master-mind/6851996",
+      "image_url": "https://labels.untappd.com/6851996",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.1,
+      "ibu": null,
+      "rating": 4.01,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "BAIA",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-baia/6560697",
+      "image_url": "https://labels.untappd.com/6560697",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 40,
+      "rating": 4.19,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Proemevlaai",
