@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-24T16:47:42.137Z",
+  "fetched_at": "2026-09-24T21:11:00.954Z",
   "count": 425,
-  "scrape_duration_seconds": 2.65,
+  "scrape_duration_seconds": 2.85,
   "stats": {
     "total_fetched": 425,
     "total_valid": 425,
@@ -11,11 +11,39 @@
     "by_category": {
       "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Bierbijbel": 295,
-      "Op=Op kaart": 102
+      "Op=Op kaart": 102,
+      "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Top-Tier",
+      "beer_url": "https://untappd.com/b/nepo-brewing-top-tier/6748324",
+      "image_url": "https://labels.untappd.com/6748324",
+      "style": "IPA - Imperial / Double New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.8,
+      "ibu": null,
+      "rating": 3.81,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Lellebel",
+      "beer_url": "https://untappd.com/b/brouwerij-de-eeuwige-jeugd-lellebel/1988420",
+      "image_url": "https://labels.untappd.com/1988420",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.7,
+      "ibu": 15,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Geloaje Blond 2.0",
       "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-geloaje-blond-2-0/6837836",
@@ -87,21 +115,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Artevelde Gentse Leute",
-      "beer_url": "https://untappd.com/b/stadsbrouwerij-artevelde-artevelde-gentse-leute/4994755",
-      "image_url": "https://labels.untappd.com/4994755",
-      "style": "Belgian Blonde",
-      "brewery": "Stadsbrouwerij Artevelde",
-      "brewery_url": "https://untappd.com/w/stadsbrouwerij-artevelde/528216",
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.2,
-      "ibu": 24,
-      "rating": 3.5,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Brugge Tripel",
       "beer_url": "https://untappd.com/b/brouwerij-palm-brugge-tripel/17873",
       "image_url": "https://labels.untappd.com/17873",
@@ -169,20 +182,6 @@
       "abv": 7,
       "ibu": 38,
       "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Hazy Little Thing",
-      "beer_url": "https://untappd.com/b/sierra-nevada-brewing-co-hazy-little-thing/2412786",
-      "image_url": "https://labels.untappd.com/2412786",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.7,
-      "ibu": 35,
-      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
