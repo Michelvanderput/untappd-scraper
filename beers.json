@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-25T16:52:29.845Z",
-  "count": 425,
-  "scrape_duration_seconds": 2.51,
+  "fetched_at": "2026-09-25T21:07:56.026Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.78,
   "stats": {
-    "total_fetched": 425,
-    "total_valid": 425,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
-      "Op=Op kaart": 102,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Mr. Anderson, Welcome Back",
+      "beer_url": "https://untappd.com/b/uiltje-brewing-company-mr-anderson-welcome-back/6527495",
+      "image_url": "https://labels.untappd.com/6527495",
+      "style": "IPA - Triple",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9.5,
+      "ibu": null,
+      "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Top-Tier",
       "beer_url": "https://untappd.com/b/nepo-brewing-top-tier/6748324",
@@ -139,20 +153,6 @@
       "abv": 7,
       "ibu": 22,
       "rating": 3.48,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "10 Years: Liftoff",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-liftoff/6728531",
-      "image_url": "https://labels.untappd.com/6728531",
-      "style": "IPA - Triple New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9,
-      "ibu": null,
-      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1416,20 +1416,6 @@
       "abv": 4.8,
       "ibu": null,
       "rating": 3.87,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Genesis",
-      "beer_url": "https://untappd.com/b/wicked-weed-brewing-genesis/286069",
-      "image_url": "https://labels.untappd.com/286069",
-      "style": "Sour - Fruited",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.7,
-      "ibu": 18,
-      "rating": 4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
