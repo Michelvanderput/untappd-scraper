@@ -1,140 +1,89 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
-import { Sparkles, RefreshCw, Download, Share2, Shuffle, Map, PartyPopper, GraduationCap, ChevronDown, Zap, Beer, ArrowRight, Check } from 'lucide-react';
+import { useState, lazy, Suspense } from 'react';
+import {
+  Sparkles,
+  RefreshCw,
+  Download,
+  Share2,
+  Shuffle,
+  Map,
+  PartyPopper,
+  GraduationCap,
+  ChevronDown,
+  Minus,
+  Plus,
+  ArrowRight,
+  Check,
+  Scale,
+  Beer,
+} from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
+import BottleCap from '../components/BottleCap';
 import PageLayout from '../components/PageLayout';
-import Card from '../components/Card';
-import SectionHeading from '../components/SectionHeading';
-import { beerCache } from '../utils/cache';
+import SEO from '../components/SEO';
+import { useBeers } from '../hooks/useBeers';
+import { haptics } from '../utils/haptic';
 
 const BeerModal = lazy(() => import('../components/BeerModal'));
 
-const GENERATION_MODES = [
-  { 
-    id: 'random' as const, 
-    label: 'Random', 
-    icon: Shuffle, 
-    description: 'Het lot beslist',
-    color: 'from-purple-500 to-pink-500',
-    emoji: '🎲'
-  },
-  { 
-    id: 'balanced' as const, 
-    label: 'Balans', 
-    icon: Sparkles, 
-    description: 'Mooie mix',
-    color: 'from-blue-500 to-cyan-500',
-    emoji: '⚖️'
-  },
-  { 
-    id: 'journey' as const, 
-    label: 'Reis', 
-    icon: Map, 
-    description: 'Opbouwende smaak',
-    color: 'from-green-500 to-emerald-500',
-    emoji: '🗺️'
-  },
-  { 
-    id: 'party' as const, 
-    label: 'Party', 
-    icon: PartyPopper, 
-    description: 'Crowd pleasers',
-    color: 'from-orange-500 to-red-500',
-    emoji: '🎉'
-  },
-  { 
-    id: 'expert' as const, 
-    label: 'Expert', 
-    icon: GraduationCap, 
-    description: 'Voor kenners',
-    color: 'from-amber-500 to-yellow-500',
-    emoji: '🎓'
-  },
+type Mode = MenuGenerationOptions['mode'];
+
+const GENERATION_MODES: { id: Mode; label: string; icon: LucideIcon; description: string }[] = [
+  { id: 'balanced', label: 'Balans', icon: Scale, description: 'Een mooie mix van stijlen' },
+  { id: 'journey', label: 'Reis', icon: Map, description: 'Van licht naar zwaar' },
+  { id: 'party', label: 'Party', icon: PartyPopper, description: 'Crowd pleasers' },
+  { id: 'expert', label: 'Expert', icon: GraduationCap, description: 'Voor kenners' },
+  { id: 'random', label: 'Random', icon: Shuffle, description: 'Het lot beslist' },
 ];
 
+// Generator themes start with an emoji; the UI uses Lucide icons instead
+const cleanTheme = (theme: string) => theme.replace(/^[\p{Extended_Pictographic}\uFE0F\s]+/u, '');
+
+const MIN_SIZE = 3;
+const MAX_SIZE = 8;
+
 export default function MenuBuilderPage() {
-  const [beers, setBeers] = useState<BeerData[]>([]);
-  const [loading, setLoading] = useState(true);
-  
-  // Setup State
+  const { beers, loading } = useBeers();
+
   const [menuSize, setMenuSize] = useState(4);
-  const [mode, setMode] = useState<'random' | 'balanced' | 'journey' | 'party' | 'expert'>('balanced');
+  const [mode, setMode] = useState<Mode>('balanced');
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [minABV, setMinABV] = useState<number | undefined>(undefined);
   const [maxABV, setMaxABV] = useState<number | undefined>(undefined);
   const [minRating, setMinRating] = useState<number | undefined>(undefined);
 
-  // Flow State
   const [viewState, setViewState] = useState<'setup' | 'revealing' | 'summary'>('setup');
   const [generatedMenu, setGeneratedMenu] = useState<GeneratedMenu | null>(null);
   const [revealIndex, setRevealIndex] = useState(0);
   const [generating, setGenerating] = useState(false);
-  
+  const [note, setNote] = useState<string | null>(null);
   const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
-
-  useEffect(() => {
-    const fetchBeers = async () => {
-      try {
-        const cached = await beerCache.get<BeerData[]>('beers');
-        if (cached) {
-          setBeers(cached);
-          setLoading(false);
-        }
-
-        let response;
-        try {
-          response = await fetch('/api/beers?limit=5000');
-        } catch {
-          response = await fetch('/beers.json');
-        }
-        
-        if (response.ok) {
-            const data = await response.json();
-            const freshBeers = data.beers || [];
-            setBeers(freshBeers);
-            await beerCache.set('beers', freshBeers);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.error('Failed to fetch beers:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchBeers();
-  }, []);
 
   const handleGenerate = () => {
     setGenerating(true);
-    
+    haptics.select();
+    // Short pause so the build-up animation reads as "composing"
     setTimeout(() => {
-      const options: MenuGenerationOptions = {
+      const menu = generateBeerMenu(beers, {
         size: menuSize,
         mode,
-        preferences: {
-          minABV,
-          maxABV,
-          minRating,
-        },
-      };
-
-      const menu = generateBeerMenu(beers, options);
+        preferences: { minABV, maxABV, minRating },
+      });
       setGeneratedMenu(menu);
       setRevealIndex(0);
       setViewState('revealing');
       setGenerating(false);
-    }, 800);
+    }, 700);
   };
 
   const handleNextReveal = () => {
     if (!generatedMenu) return;
-    if (revealIndex < generatedMenu.beers.length - 1) {
-        setRevealIndex(prev => prev + 1);
-    } else {
-        setViewState('summary');
-    }
+    haptics.tap();
+    if (revealIndex < generatedMenu.beers.length - 1) setRevealIndex((i) => i + 1);
+    else setViewState('summary');
   };
 
   const handleReset = () => {
@@ -143,340 +92,312 @@ export default function MenuBuilderPage() {
     setRevealIndex(0);
   };
 
-  const handleExport = () => {
-    if (!generatedMenu) return;
-
-    const text = `
-🍺 ${generatedMenu.theme}
-${generatedMenu.description}
+  const menuText = (menu: GeneratedMenu) =>
+    `
+${menu.theme}
+${menu.description}
 
 Bieren:
-${generatedMenu.beers.map((beer, i) => 
-  `${i + 1}. ${beer.name} - ${beer.brewery}
-   ${beer.abv}% ABV ${beer.ibu ? `| ${beer.ibu} IBU` : ''} | ⭐ ${beer.rating?.toFixed(2)}
+${menu.beers
+  .map(
+    (beer, i) => `${i + 1}. ${beer.name} - ${beer.brewery}
+   ${beer.abv}% ABV ${beer.ibu ? `| ${beer.ibu} IBU` : ''} | ${beer.rating?.toFixed(2)}
    ${beer.style}`
-).join('\n\n')}
+  )
+  .join('\n\n')}
+${menu.pairingNotes ? '\nTips:\n' + menu.pairingNotes.join('\n') : ''}
 
-${generatedMenu.pairingNotes ? '\nTips:\n' + generatedMenu.pairingNotes.join('\n') : ''}
+${generatePairingSuggestions(menu).join('\n')}
+`.trim();
 
-${generatePairingSuggestions(generatedMenu).join('\n')}
-    `.trim();
-
-    const blob = new Blob([text], { type: 'text/plain' });
+  const handleExport = () => {
+    if (!generatedMenu) return;
+    const blob = new Blob([menuText(generatedMenu)], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `beer-menu-${Date.now()}.txt`;
+    a.download = `bier-menu-${Date.now()}.txt`;
     a.click();
     URL.revokeObjectURL(url);
   };
 
   const handleShare = async () => {
     if (!generatedMenu) return;
-
-    const text = `Check mijn bier menu: ${generatedMenu.theme}\n${generatedMenu.beers.map(b => b.name).join(', ')}`;
-    
-    if (navigator.share) {
-      try {
+    const text = `Mijn biermenu: ${cleanTheme(generatedMenu.theme)}\n${generatedMenu.beers.map((b) => b.name).join(', ')}`;
+    try {
+      if (navigator.share) {
         await navigator.share({ text });
-      } catch (err) {
-        console.log('Share cancelled');
+      } else {
+        await navigator.clipboard.writeText(text);
+        setNote('Menu gekopieerd');
+        setTimeout(() => setNote(null), 2000);
       }
-    } else {
-      navigator.clipboard.writeText(text);
-      alert('Menu gekopieerd naar clipboard!');
+    } catch {
+      // share cancelled
     }
   };
 
-  if (loading) {
+  if (loading && beers.length === 0) {
     return (
-      <PageLayout title="Menu Builder" subtitle="Laden...">
-        <div className="flex justify-center items-center py-20">
-          <div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      </PageLayout>
+      <div className="grid place-items-center min-h-[70vh]" role="status" aria-label="Bieren laden">
+        <BottleCap className="w-14 h-14" spinning />
+      </div>
     );
   }
 
-  const selectedMode = GENERATION_MODES.find(m => m.id === mode);
+  const selectedMode = GENERATION_MODES.find((m) => m.id === mode)!;
 
   return (
-    <PageLayout
-      title="Menu Builder"
-      subtitle={viewState === 'setup' ? "Stel je perfecte bier menu samen" : generatedMenu?.theme || "Menu"}
-      contentWidth={viewState === 'setup' ? 'compact' : 'default'}
-    >
-      {/* SETUP VIEW */}
-      {viewState === 'setup' && (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-        >
-            <SectionHeading
-              title="Kies een sfeer"
-              description="Welk type menu past bij je?"
-              icon={Sparkles}
-              className="mb-4"
-            />
-            <Card className="p-6 relative overflow-hidden mb-8" hoverable={false}>
-                <div className="mb-6">
-                    <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 block">Sfeer</label>
-                    <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
-                        {GENERATION_MODES.map(modeOption => {
-                        const isSelected = mode === modeOption.id;
-                        return (
-                            <button
-                            key={modeOption.id}
-                            onClick={() => setMode(modeOption.id)}
-                            className={`relative p-2 rounded-xl transition-all duration-300 flex flex-col items-center justify-center border-2 ${
-                                isSelected
-                                ? `bg-gradient-to-br ${modeOption.color} text-white border-transparent shadow-md scale-105`
-                                : 'bg-gray-50 dark:bg-gray-800/50 text-gray-600 dark:text-gray-400 border-transparent hover:bg-gray-100 dark:hover:bg-gray-700'
-                            }`}
-                            >
-                            <span className="text-2xl mb-1">{modeOption.emoji}</span>
-                            <span className="text-[10px] font-bold leading-tight text-center">{modeOption.label}</span>
-                            </button>
-                        );
-                        })}
-                    </div>
-                    {selectedMode && (
-                        <p className="text-xs text-center mt-2 text-gray-500 dark:text-gray-400 italic">
-                            "{selectedMode.description}"
-                        </p>
-                    )}
+    <>
+      <SEO title="Menu Builder – BeerMenu" description="Stel een proeverij-menu samen van de kaart." />
+      <PageLayout
+        eyebrow={viewState === 'setup' ? 'Proeverij' : 'Jouw menu'}
+        title={viewState === 'setup' ? 'Menu Builder' : generatedMenu ? cleanTheme(generatedMenu.theme) : 'Menu'}
+        subtitle={viewState === 'setup' ? 'Stel een proeverij samen: kies een sfeer en het aantal glazen.' : undefined}
+        contentWidth="compact"
+      >
+        <AnimatePresence mode="wait">
+          {viewState === 'setup' && (
+            <motion.div key="setup" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="space-y-6">
+              <fieldset>
+                <legend className="stat-label mb-3">Sfeer</legend>
+                <div className="grid grid-cols-2 gap-2" role="radiogroup">
+                  {GENERATION_MODES.map(({ id, label, icon: Icon, description }, i) => {
+                    const active = mode === id;
+                    return (
+                      <button
+                        key={id}
+                        type="button"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => {
+                          haptics.tap();
+                          setMode(id);
+                        }}
+                        className={`relative text-left p-4 rounded-3xl border transition-[background-color,border-color,transform] duration-200 active:scale-[0.98] ${
+                          i === GENERATION_MODES.length - 1 ? 'col-span-2' : ''
+                        } ${active ? 'bg-fg text-bg border-fg' : 'bg-surface border-line/10 hover:border-line/25'}`}
+                      >
+                        <Icon className={`w-6 h-6 mb-6 ${active ? 'text-bg' : 'text-gold'}`} aria-hidden />
+                        <span className="block font-display italic font-extrabold text-2xl leading-none">{label}</span>
+                        <span className={`block mt-1 text-sm ${active ? 'text-bg/70' : 'text-muted'}`}>{description}</span>
+                        {active && <Check className="absolute top-4 right-4 w-5 h-5" aria-hidden />}
+                      </button>
+                    );
+                  })}
                 </div>
+              </fieldset>
 
-                <div className="mb-6 pt-2 border-t border-gray-100 dark:border-gray-700">
-                    <div className="flex justify-between items-center mb-2">
-                        <label className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Aantal bieren</label>
-                        <span className="text-xl font-bold text-amber-600 dark:text-amber-500">{menuSize}</span>
-                    </div>
-                    <input
-                        type="range"
-                        min="3"
-                        max="8"
-                        value={menuSize}
-                        onChange={(e) => setMenuSize(parseInt(e.target.value))}
-                        className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                    />
-                    <div className="flex justify-between text-[10px] text-gray-400 mt-1">
-                        <span>3 (Klein)</span>
-                        <span>8 (Groot)</span>
-                    </div>
+              <div className="surface p-4 flex items-center justify-between">
+                <div>
+                  <p className="stat-label">Aantal glazen</p>
+                  <p className="text-sm text-muted mt-1">
+                    {MIN_SIZE}–{MAX_SIZE}
+                  </p>
                 </div>
-
-                {/* Advanced Options Toggle */}
-                <div className="mb-6">
-                    <button
-                        onClick={() => setShowAdvanced(!showAdvanced)}
-                        className="text-xs font-bold text-amber-600 dark:text-amber-500 flex items-center gap-1 hover:underline"
-                    >
-                        <ChevronDown className={`w-3 h-3 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
-                        Meer opties
-                    </button>
-                    
-                    <div className={`grid grid-cols-3 gap-3 overflow-hidden transition-all duration-300 ${showAdvanced ? 'mt-3 opacity-100 max-h-24' : 'mt-0 opacity-0 max-h-0'}`}>
-                        <div>
-                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Min ABV</label>
-                            <input
-                                type="number"
-                                placeholder="0"
-                                value={minABV || ''}
-                                onChange={(e) => setMinABV(e.target.value ? parseFloat(e.target.value) : undefined)}
-                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Max ABV</label>
-                            <input
-                                type="number"
-                                placeholder="15"
-                                value={maxABV || ''}
-                                onChange={(e) => setMaxABV(e.target.value ? parseFloat(e.target.value) : undefined)}
-                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-gray-400 block mb-1">Min Rating</label>
-                            <input
-                                type="number"
-                                placeholder="0"
-                                step="0.1"
-                                value={minRating || ''}
-                                onChange={(e) => setMinRating(e.target.value ? parseFloat(e.target.value) : undefined)}
-                                className="w-full px-2 py-1.5 bg-gray-50 dark:bg-gray-800 rounded-lg text-sm border border-gray-200 dark:border-gray-700 focus:ring-1 focus:ring-amber-500 outline-none"
-                            />
-                        </div>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    type="button"
+                    className="icon-btn border border-line/15"
+                    onClick={() => setMenuSize((n) => Math.max(MIN_SIZE, n - 1))}
+                    disabled={menuSize <= MIN_SIZE}
+                    aria-label="Minder glazen"
+                  >
+                    <Minus className="w-5 h-5" />
+                  </button>
+                  <span className="font-display italic font-extrabold text-4xl w-8 text-center tabular" aria-live="polite">
+                    {menuSize}
+                  </span>
+                  <button
+                    type="button"
+                    className="icon-btn border border-line/15"
+                    onClick={() => setMenuSize((n) => Math.min(MAX_SIZE, n + 1))}
+                    disabled={menuSize >= MAX_SIZE}
+                    aria-label="Meer glazen"
+                  >
+                    <Plus className="w-5 h-5" />
+                  </button>
                 </div>
+              </div>
 
+              <div>
                 <button
-                    onClick={handleGenerate}
-                    disabled={generating}
-                    className={`w-full py-4 rounded-xl font-bold text-lg text-white shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 ${
-                        generating 
-                        ? 'bg-gray-400 cursor-wait' 
-                        : 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-amber-500/30'
-                    }`}
+                  type="button"
+                  onClick={() => setShowAdvanced((v) => !v)}
+                  className="btn-ghost px-2 -ml-2"
+                  aria-expanded={showAdvanced}
                 >
-                    {generating ? (
-                        <>
-                            <RefreshCw className="w-5 h-5 animate-spin" />
-                            Menu Samenstellen...
-                        </>
-                    ) : (
-                        <>
-                            <Zap className="w-5 h-5" />
-                            Start Menu
-                        </>
-                    )}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
+                  Meer opties
                 </button>
-            </Card>
-        </motion.div>
-      )}
-
-      {/* REVEALING VIEW - Step by Step */}
-      {viewState === 'revealing' && generatedMenu && (
-        <div className="max-w-xl mx-auto">
-            <div className="text-center mb-6">
-                <span className="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-                    Gang {revealIndex + 1} van {generatedMenu.beers.length}
-                </span>
-                <div className="h-1 w-full bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
-                    <motion.div 
-                        className="h-full bg-amber-500"
-                        initial={{ width: `${(revealIndex / generatedMenu.beers.length) * 100}%` }}
-                        animate={{ width: `${((revealIndex + 1) / generatedMenu.beers.length) * 100}%` }}
-                        transition={{ duration: 0.5 }}
-                    />
-                </div>
-            </div>
-
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={revealIndex}
-                    initial={{ opacity: 0, x: 50, rotateY: -10 }}
-                    animate={{ opacity: 1, x: 0, rotateY: 0 }}
-                    exit={{ opacity: 0, x: -50, rotateY: 10 }}
-                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="perspective-1000"
-                >
-                    <div className="transform transition-transform duration-500 hover:scale-[1.02]">
-                        <BeerCard
-                            beer={generatedMenu.beers[revealIndex]}
-                            onClick={() => setSelectedBeer(generatedMenu.beers[revealIndex])}
-                        />
-                    </div>
-                </motion.div>
-            </AnimatePresence>
-
-            <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={handleNextReveal}
-                className="w-full mt-8 py-4 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-xl font-bold shadow-lg border border-gray-200 dark:border-gray-700 flex items-center justify-center gap-2 hover:border-amber-500 dark:hover:border-amber-500 transition-colors"
-            >
-                {revealIndex < generatedMenu.beers.length - 1 ? (
-                    <>
-                        Volgende Gang <ArrowRight className="w-5 h-5" />
-                    </>
-                ) : (
-                    <>
-                        Naar Overzicht <Check className="w-5 h-5" />
-                    </>
-                )}
-            </motion.button>
-        </div>
-      )}
-
-      {/* SUMMARY VIEW */}
-      {viewState === 'summary' && generatedMenu && (
-        <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="max-w-2xl mx-auto"
-        >
-            <Card className="bg-gradient-to-br from-gray-900 to-gray-800 text-white border-none p-6 md:p-8 relative overflow-hidden mb-8" hoverable={false}>
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-[80px] pointer-events-none" />
-                
-                <div className="relative z-10 text-center">
-                    <div className="inline-block p-3 bg-white/10 rounded-full mb-4">
-                        <span className="text-4xl">{selectedMode?.emoji}</span>
-                    </div>
-                    <h2 className="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-orange-100 mb-2">
-                        {generatedMenu.theme}
-                    </h2>
-                    <p className="text-gray-300 mb-6">{generatedMenu.description}</p>
-
-                    <div className="flex justify-center gap-3">
-                        <button
-                            onClick={handleExport}
-                            className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl transition-all font-medium text-sm"
-                        >
-                            <Download className="w-4 h-4" /> Opslaan
-                        </button>
-                        <button
-                            onClick={handleShare}
-                            className="flex items-center gap-2 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all font-medium text-sm shadow-lg shadow-amber-500/20"
-                        >
-                            <Share2 className="w-4 h-4" /> Delen
-                        </button>
-                    </div>
-                </div>
-            </Card>
-
-            <div className="space-y-3 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 dark:text-white px-2">Jouw Menu</h3>
-                {generatedMenu.beers.map((beer, index) => (
-                    <motion.div 
-                        key={beer.beer_url}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="bg-white dark:bg-gray-800/50 p-3 rounded-xl border border-gray-100 dark:border-gray-700/50 flex items-center gap-4 cursor-pointer hover:border-amber-500/50 transition-colors"
-                        onClick={() => setSelectedBeer(beer)}
+                <AnimatePresence initial={false}>
+                  {showAdvanced && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
                     >
-                        <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-700 dark:text-amber-500 font-bold text-sm shrink-0">
-                            {index + 1}
-                        </div>
-                        {beer.image_url ? (
-                            <img src={beer.image_url} alt="" className="w-10 h-10 object-contain" />
-                        ) : (
-                            <Beer className="w-8 h-8 text-gray-300" />
-                        )}
-                        <div className="flex-1 min-w-0">
-                            <h4 className="font-bold text-gray-900 dark:text-white truncate">{beer.name}</h4>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{beer.brewery}</p>
-                        </div>
-                        <div className="text-xs font-medium bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-gray-600 dark:text-gray-300">
-                            {beer.abv}%
-                        </div>
+                      <div className="grid grid-cols-3 gap-2 pt-3">
+                        {[
+                          { id: 'min-abv', label: 'Min ABV', value: minABV, set: setMinABV, placeholder: '0', step: '0.5' },
+                          { id: 'max-abv', label: 'Max ABV', value: maxABV, set: setMaxABV, placeholder: '15', step: '0.5' },
+                          { id: 'min-rating', label: 'Min rating', value: minRating, set: setMinRating, placeholder: '0', step: '0.1' },
+                        ].map((f) => (
+                          <div key={f.id}>
+                            <label htmlFor={f.id} className="stat-label block mb-1.5">
+                              {f.label}
+                            </label>
+                            <input
+                              id={f.id}
+                              type="number"
+                              inputMode="decimal"
+                              step={f.step}
+                              placeholder={f.placeholder}
+                              value={f.value ?? ''}
+                              onChange={(e) => f.set(e.target.value ? parseFloat(e.target.value) : undefined)}
+                              className="field tabular"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </motion.div>
-                ))}
-            </div>
+                  )}
+                </AnimatePresence>
+              </div>
 
-            <div className="flex justify-center">
-                <button
-                    onClick={handleReset}
-                    className="text-gray-500 hover:text-amber-600 dark:text-gray-400 dark:hover:text-amber-500 font-medium flex items-center gap-2 transition-colors"
-                >
-                    <RefreshCw className="w-4 h-4" />
-                    Nieuw Menu Maken
+              <button type="button" onClick={handleGenerate} disabled={generating} className="btn-primary w-full h-14 text-lg">
+                {generating ? (
+                  <>
+                    <RefreshCw className="w-5 h-5 animate-spin" />
+                    Menu samenstellen…
+                  </>
+                ) : (
+                  <>
+                    <Sparkles className="w-5 h-5" />
+                    Stel mijn {selectedMode.label.toLowerCase()}-menu samen
+                  </>
+                )}
+              </button>
+            </motion.div>
+          )}
+
+          {viewState === 'revealing' && generatedMenu && (
+            <motion.div key="reveal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+              <div className="flex items-center justify-between mb-3">
+                <p className="stat-label">
+                  Glas <span className="text-fg tabular">{revealIndex + 1}</span> van <span className="tabular">{generatedMenu.beers.length}</span>
+                </p>
+                <button type="button" className="btn-ghost min-h-[40px] px-3 text-sm" onClick={() => setViewState('summary')}>
+                  Sla over
                 </button>
-            </div>
-        </motion.div>
-      )}
-      
+              </div>
+              <div className="flex gap-1 mb-6" aria-hidden>
+                {generatedMenu.beers.map((_, i) => (
+                  <span key={i} className="h-1 flex-1 rounded-full bg-line/10 overflow-hidden">
+                    <motion.span
+                      className="block h-full bg-gold"
+                      initial={false}
+                      animate={{ width: i <= revealIndex ? '100%' : '0%' }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </span>
+                ))}
+              </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={revealIndex}
+                  initial={{ opacity: 0, x: 60, rotate: 4 }}
+                  animate={{ opacity: 1, x: 0, rotate: 0 }}
+                  exit={{ opacity: 0, x: -60, rotate: -4 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 24 }}
+                >
+                  <BeerCard beer={generatedMenu.beers[revealIndex]} size="large" onClick={() => setSelectedBeer(generatedMenu.beers[revealIndex])} />
+                </motion.div>
+              </AnimatePresence>
+
+              <button type="button" onClick={handleNextReveal} className="btn-primary w-full h-14 text-lg mt-6">
+                {revealIndex < generatedMenu.beers.length - 1 ? (
+                  <>
+                    Volgend glas <ArrowRight className="w-5 h-5" />
+                  </>
+                ) : (
+                  <>
+                    Naar overzicht <Check className="w-5 h-5" />
+                  </>
+                )}
+              </button>
+            </motion.div>
+          )}
+
+          {viewState === 'summary' && generatedMenu && (
+            <motion.div key="summary" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
+              {/* Ticket */}
+              <div className="relative surface overflow-hidden">
+                <div className="p-6 pb-5 bg-[radial-gradient(circle_at_100%_0%,rgb(var(--gold)/0.18),transparent_55%)]">
+                  <p className="eyebrow mb-2 flex items-center gap-2">
+                    <selectedMode.icon className="w-3.5 h-3.5 text-gold" aria-hidden />
+                    {selectedMode.label}
+                  </p>
+                  <p className="text-muted">{generatedMenu.description}</p>
+                </div>
+                <div className="relative border-t border-dashed border-line/20">
+                  <span className="absolute -left-3 -top-3 w-6 h-6 rounded-full bg-bg" aria-hidden />
+                  <span className="absolute -right-3 -top-3 w-6 h-6 rounded-full bg-bg" aria-hidden />
+                </div>
+                <ol className="divide-y divide-line/10">
+                  {generatedMenu.beers.map((beer, index) => (
+                    <motion.li key={beer.beer_url} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.06 }}>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedBeer(beer)}
+                        className="w-full flex items-center gap-4 px-5 py-3 text-left hover:bg-line/5 transition-colors"
+                      >
+                        <span className="font-display italic font-extrabold text-2xl w-6 text-gold tabular">{index + 1}</span>
+                        {beer.image_url ? (
+                          <img src={beer.image_url} alt="" className="w-10 h-10 object-contain" loading="lazy" />
+                        ) : (
+                          <Beer className="w-8 h-8 text-muted" aria-hidden />
+                        )}
+                        <span className="flex-1 min-w-0">
+                          <span className="block font-medium truncate">{beer.name}</span>
+                          <span className="block text-xs text-muted truncate">{beer.brewery}</span>
+                        </span>
+                        <span className="text-sm tabular text-ember">{beer.abv != null ? `${beer.abv}%` : '–'}</span>
+                      </button>
+                    </motion.li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <button type="button" onClick={handleExport} className="btn-secondary">
+                  <Download className="w-4 h-4" /> Opslaan
+                </button>
+                <button type="button" onClick={handleShare} className="btn-primary">
+                  <Share2 className="w-4 h-4" /> Delen
+                </button>
+              </div>
+              {note && (
+                <p role="status" className="text-center text-sm text-hop">
+                  {note}
+                </p>
+              )}
+              <div className="flex justify-center">
+                <button type="button" onClick={handleReset} className="btn-ghost">
+                  <RefreshCw className="w-4 h-4" />
+                  Nieuw menu
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </PageLayout>
+
       <Suspense fallback={null}>
-        {selectedBeer && (
-          <BeerModal
-            beer={selectedBeer}
-            onClose={() => setSelectedBeer(null)}
-          />
-        )}
+        {selectedBeer && <BeerModal beer={selectedBeer} onClose={() => setSelectedBeer(null)} />}
       </Suspense>
-    </PageLayout>
+    </>
   );
 }

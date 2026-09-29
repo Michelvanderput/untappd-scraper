@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { LucideIcon } from 'lucide-react';
 
 interface SectionHeadingProps {
@@ -5,37 +6,38 @@ interface SectionHeadingProps {
   /** Optional short description under the title */
   description?: string;
   icon?: LucideIcon;
-  /** Extra margin bottom (default: mb-6) */
+  /** Optional right-aligned slot (e.g. a link or count) */
+  action?: ReactNode;
+  /** Extra margin bottom (default: mb-5) */
   className?: string;
 }
 
 /**
- * Consistent section heading (H2) for clear content hierarchy.
- * Use to separate logical blocks on a page.
+ * Section heading (H2) with a thin rule, for clear content hierarchy.
  */
 export default function SectionHeading({
   title,
   description,
   icon: Icon,
-  className = 'mb-6',
+  action,
+  className = 'mb-5',
 }: SectionHeadingProps) {
   return (
-    <div className={`flex items-start gap-3 ${className}`}>
-      {Icon && (
-        <div className="flex-shrink-0 p-2 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400" aria-hidden>
-          <Icon className="w-5 h-5" />
-        </div>
-      )}
-      <div className="min-w-0">
-        <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white font-heading">
-          {title}
-        </h2>
-        {description && (
-          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-            {description}
-          </p>
+    <div className={`flex items-end justify-between gap-4 border-b border-line/10 pb-3 ${className}`}>
+      <div className="min-w-0 flex items-center gap-3">
+        {Icon && (
+          <span className="shrink-0 grid place-items-center w-9 h-9 rounded-full bg-gold/15 text-gold" aria-hidden>
+            <Icon className="w-4 h-4" />
+          </span>
         )}
+        <div className="min-w-0">
+          <h2 className="font-display italic font-extrabold text-2xl md:text-3xl leading-none">
+            {title}
+          </h2>
+          {description && <p className="mt-1.5 text-sm text-muted">{description}</p>}
+        </div>
       </div>
+      {action}
     </div>
   );
 }

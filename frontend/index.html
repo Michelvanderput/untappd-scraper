@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
     <meta name="description" content="Ontdek het complete biermenu van Biertaverne De Gouverneur met 400+ unieke bieren" />
-    <meta name="theme-color" content="#f59e0b" />
+    <meta name="theme-color" content="#0E0B09" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F7F1E6" media="(prefers-color-scheme: light)" />
     
     <!-- Cache Control - Force revalidation on every visit -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -20,6 +21,13 @@
     <meta name="apple-mobile-web-app-title" content="BeerMenu" />
     <meta name="mobile-web-app-capable" content="yes" />
     
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t !== 'light') document.documentElement.classList.add('dark');
+      } catch (e) { document.documentElement.classList.add('dark'); }
+    </script>
+
     <title>BeerMenu - Biertaverne De Gouverneur</title>
   </head>
   <body>

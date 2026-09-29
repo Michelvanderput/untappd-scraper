@@ -1,29 +1,48 @@
-import { useComparison } from '../contexts/ComparisonContext';
-import { Beer, Star, ArrowLeft, Trash2, Plus, X, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ArrowLeft, Beer, Plus, Trash2, X, ExternalLink, Scale } from 'lucide-react';
+import { useComparison } from '../contexts/ComparisonContext';
+import type { BeerData } from '../types/beer';
 import PageLayout from '../components/PageLayout';
-import Card from '../components/Card';
 import EmptyState from '../components/EmptyState';
-import SectionHeading from '../components/SectionHeading';
+
+type Attr = {
+  key: keyof BeerData;
+  label: string;
+  suffix?: string;
+  /** numeric attributes get a bar; `max` is the bar's full scale */
+  max?: number;
+  decimals?: number;
+};
+
+const NUMERIC: Attr[] = [
+  { key: 'abv', label: 'Alcohol', suffix: '%', max: 14 },
+  { key: 'ibu', label: 'Bitterheid (IBU)', max: 100 },
+  { key: 'rating', label: 'Rating', max: 5, decimals: 2 },
+];
+
+const TEXT: Attr[] = [
+  { key: 'style', label: 'Stijl' },
+  { key: 'brewery', label: 'Brouwerij' },
+  { key: 'category', label: 'Categorie' },
+  { key: 'container', label: 'Verpakking' },
+];
 
 export default function ComparePage() {
   const { comparisonBeers, clearComparison, removeFromComparison } = useComparison();
+  const n = comparisonBeers.length;
 
-  if (comparisonBeers.length === 0) {
+  if (n === 0) {
     return (
-      <PageLayout title="Vergelijken" subtitle="Vergelijk je favoriete bieren" contentWidth="narrow">
+      <PageLayout eyebrow="Vergelijken" title="Naast elkaar" contentWidth="narrow">
         <EmptyState
-          icon={Beer}
-          title="Geen bieren geselecteerd"
-          description="Selecteer minimaal 2 bieren uit de bierenlijst om ze naast elkaar te vergelijken. Gebruik de vergelijk-knop op een bierkaart."
+          icon={Scale}
+          title="Nog niks gekozen"
+          description="Open een bier en tik op het weegschaal-icoon om het toe te voegen. Je kunt tot 4 bieren vergelijken."
           action={
-            <Link
-              to="/"
-              className="btn-primary inline-flex items-center gap-2 min-h-[48px]"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Naar bieren
+            <Link to="/" className="btn-primary">
+              <ArrowLeft className="w-4 h-4" />
+              Naar de kaart
             </Link>
           }
         />
@@ -31,183 +50,116 @@ export default function ComparePage() {
     );
   }
 
-  const attributes = [
-    { key: 'brewery', label: 'Brouwerij' },
-    { key: 'style', label: 'Stijl' },
-    { key: 'abv', label: 'ABV', suffix: '%' },
-    { key: 'ibu', label: 'IBU' },
-    { key: 'rating', label: 'Rating' },
-    { key: 'container', label: 'Verpakking' },
-    { key: 'category', label: 'Categorie' },
-    { key: 'subcategory', label: 'Subcategorie' },
-  ];
+  const cols = { gridTemplateColumns: `repeat(${n + (n < 4 ? 1 : 0)}, minmax(140px, 1fr))` };
 
   return (
-    <PageLayout title="Bier Vergelijking" subtitle={`Je vergelijkt ${comparisonBeers.length} bieren`}>
-      <SectionHeading
-        title="Vergelijking"
-        description={`${comparisonBeers.length} bieren naast elkaar`}
-        className="mb-6"
-      />
-      <div className="mb-8 flex flex-wrap justify-between items-center gap-4">
-        <Link
-          to="/"
-          className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 font-medium transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Meer bieren toevoegen
-        </Link>
-        <button
-          onClick={clearComparison}
-          className="flex items-center gap-2 px-4 py-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors font-medium"
-        >
+    <PageLayout
+      eyebrow="Vergelijken"
+      title="Naast elkaar"
+      subtitle={`${n} ${n === 1 ? 'bier' : 'bieren'} op een rij. De beste waarde licht op.`}
+      aside={
+        <button type="button" onClick={clearComparison} className="btn-ghost text-ember">
           <Trash2 className="w-4 h-4" />
           Alles wissen
         </button>
-      </div>
+      }
+    >
+      <div className="-mx-4 px-4 sm:mx-0 sm:px-0 overflow-x-auto no-scrollbar">
+        <div className="min-w-max sm:min-w-0 space-y-6">
+          {/* Beer headers */}
+          <div className="grid gap-3" style={cols}>
+            {comparisonBeers.map((beer, i) => (
+              <motion.div
+                key={beer.beer_url}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.06 }}
+                className="relative surface p-4 flex flex-col items-center text-center"
+              >
+                <button
+                  type="button"
+                  onClick={() => removeFromComparison(beer.beer_url)}
+                  className="absolute top-1 right-1 icon-btn w-10 h-10 text-muted"
+                  aria-label={`${beer.name} verwijderen`}
+                >
+                  <X className="w-4 h-4" />
+                </button>
+                {beer.image_url ? (
+                  <img src={beer.image_url} alt="" className="w-20 h-20 object-contain mb-3 drop-shadow-lg" />
+                ) : (
+                  <Beer className="w-12 h-12 text-muted/60 my-4" aria-hidden />
+                )}
+                <a
+                  href={beer.beer_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium leading-tight line-clamp-2 hover:text-gold transition-colors"
+                >
+                  {beer.name}
+                  <ExternalLink className="inline w-3 h-3 ml-1 opacity-60" aria-hidden />
+                </a>
+              </motion.div>
+            ))}
+            {n < 4 && (
+              <Link
+                to="/"
+                className="rounded-3xl border border-dashed border-line/20 grid place-items-center text-muted hover:text-gold hover:border-gold/40 transition-colors min-h-[160px]"
+              >
+                <span className="flex flex-col items-center gap-2 text-sm">
+                  <Plus className="w-6 h-6" />
+                  Voeg toe
+                </span>
+              </Link>
+            )}
+          </div>
 
-      <Card className="overflow-hidden border-none shadow-xl" hoverable={false}>
-        <div className="overflow-x-auto relative">
-          <table className="w-full">
-            <thead>
-              <tr className="border-b border-gray-100 dark:border-gray-800">
-                <th className="p-6 text-left font-bold text-gray-900 dark:text-white sticky left-0 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm min-w-[150px] z-20 shadow-[2px_0_10px_rgba(0,0,0,0.05)] dark:shadow-[2px_0_10px_rgba(0,0,0,0.2)]">
-                  Eigenschap
-                </th>
-                {comparisonBeers.map((beer) => (
-                  <th key={beer.beer_url} className="p-6 min-w-[240px] relative group">
-                    <button
-                      onClick={() => removeFromComparison(beer.beer_url)}
-                      className="absolute top-2 right-2 p-1.5 bg-gray-100 dark:bg-gray-700 text-gray-400 hover:text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110"
-                      title="Verwijder uit vergelijking"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                    <div className="flex flex-col items-center gap-4">
-                      {beer.image_url ? (
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-amber-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                          <img
-                            src={beer.image_url}
-                            alt={beer.name}
-                            className="w-24 h-24 object-contain relative z-10 transition-transform group-hover:scale-110 duration-300"
+          {/* Numeric attributes */}
+          {NUMERIC.map((attr) => {
+            const values = comparisonBeers.map((b) => b[attr.key] as number | null);
+            const present = values.filter((v): v is number => v != null);
+            const best = present.length > 1 ? Math.max(...present) : null;
+            return (
+              <section key={attr.key}>
+                <h3 className="stat-label mb-2">{attr.label}</h3>
+                <div className="grid gap-3" style={cols}>
+                  {values.map((v, i) => {
+                    const isBest = v != null && v === best && present.some((p) => p !== best);
+                    return (
+                      <div key={i} className={`rounded-2xl p-3 border ${isBest ? 'border-gold/60 bg-gold/10' : 'border-line/10'}`}>
+                        <p className={`text-2xl font-medium tabular ${isBest ? 'text-gold' : ''}`}>
+                          {v != null ? `${attr.decimals ? v.toFixed(attr.decimals) : v}${attr.suffix ?? ''}` : '–'}
+                        </p>
+                        <div className="mt-2 h-1.5 rounded-full bg-line/10 overflow-hidden">
+                          <motion.div
+                            className={`h-full rounded-full ${isBest ? 'bg-gold' : 'bg-fg/40'}`}
+                            initial={{ width: 0 }}
+                            animate={{ width: `${Math.min(100, ((v ?? 0) / (attr.max ?? 1)) * 100)}%` }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                           />
                         </div>
-                      ) : (
-                        <div className="w-24 h-24 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/40 dark:to-orange-900/40 rounded-2xl flex items-center justify-center">
-                          <Beer className="w-10 h-10 text-amber-600/50" />
-                        </div>
-                      )}
-                      <div className="text-center">
-                        <a 
-                          href={beer.beer_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 hover:text-amber-600 dark:hover:text-amber-400 transition-colors group/link"
-                        >
-                          <h3 className="font-bold text-gray-900 dark:text-white text-lg leading-tight mb-1 group-hover/link:underline decoration-amber-500/50 underline-offset-4">
-                            {beer.name}
-                          </h3>
-                          <ExternalLink className="w-4 h-4 opacity-0 group-hover/link:opacity-100 transition-opacity" />
-                        </a>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">
-                          {beer.brewery}
-                        </p>
                       </div>
-                    </div>
-                  </th>
+                    );
+                  })}
+                  {n < 4 && <div />}
+                </div>
+              </section>
+            );
+          })}
+
+          {/* Text attributes */}
+          {TEXT.map((attr) => (
+            <section key={attr.key}>
+              <h3 className="stat-label mb-2">{attr.label}</h3>
+              <div className="grid gap-3" style={cols}>
+                {comparisonBeers.map((beer) => (
+                  <p key={beer.beer_url} className="text-sm px-1">
+                    {(beer[attr.key] as string | null) || <span className="text-muted">–</span>}
+                  </p>
                 ))}
-                {comparisonBeers.length < 4 && (
-                  <th className="p-6 min-w-[200px] border-l border-dashed border-gray-200 dark:border-gray-700/50">
-                    <Link 
-                      to="/"
-                      className="flex flex-col items-center justify-center gap-3 text-gray-400 hover:text-amber-500 transition-colors h-full min-h-[160px] group"
-                    >
-                      <div className="w-16 h-16 rounded-full border-2 border-dashed border-gray-300 dark:border-gray-700 flex items-center justify-center group-hover:border-amber-500 transition-colors">
-                        <Plus className="w-8 h-8" />
-                      </div>
-                      <span className="font-medium">Voeg toe</span>
-                    </Link>
-                  </th>
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              {attributes.map((attr, index) => {
-                const values = comparisonBeers.map(beer => beer[attr.key as keyof typeof beer]);
-                const isNumeric = attr.key === 'abv' || attr.key === 'ibu' || attr.key === 'rating';
-                
-                let maxValue: number | null = null;
-                let minValue: number | null = null;
-                
-                if (isNumeric) {
-                  const numericValues = values.filter(v => v !== null && v !== undefined) as number[];
-                  if (numericValues.length > 0) {
-                    maxValue = Math.max(...numericValues);
-                    minValue = Math.min(...numericValues);
-                  }
-                }
-
-                return (
-                  <motion.tr
-                    key={attr.key}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="border-b border-gray-100 dark:border-gray-800 last:border-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors"
-                  >
-                    <td className="p-6 font-semibold text-gray-600 dark:text-gray-300 sticky left-0 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm z-10 shadow-[2px_0_10px_rgba(0,0,0,0.05)] dark:shadow-[2px_0_10px_rgba(0,0,0,0.2)]">
-                      {attr.label}
-                    </td>
-                    {comparisonBeers.map((beer) => {
-                      const value = beer[attr.key as keyof typeof beer];
-                      const displayValue = value !== null && value !== undefined
-                        ? `${value}${attr.suffix || ''}`
-                        : '-';
-                      
-                      const isMax = isNumeric && value === maxValue && maxValue !== minValue;
-                      const isMin = isNumeric && value === minValue && maxValue !== minValue;
-
-                      return (
-                        <td
-                          key={beer.beer_url}
-                          className="p-6 text-center"
-                        >
-                          <div className={`
-                            inline-flex items-center justify-center px-4 py-2 rounded-xl transition-all
-                            ${isMax ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-bold shadow-sm' : ''}
-                            ${isMin ? 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400' : ''}
-                            ${!isMax && !isMin ? 'text-gray-700 dark:text-gray-300' : ''}
-                          `}>
-                            {attr.key === 'rating' && value ? (
-                              <div className="flex items-center gap-1.5">
-                                <Star className={`w-4 h-4 ${isMax ? 'fill-green-600 text-green-600' : 'fill-yellow-400 text-yellow-400'}`} />
-                                {typeof value === 'number' ? value.toFixed(2) : value}
-                              </div>
-                            ) : (
-                              displayValue
-                            )}
-                          </div>
-                        </td>
-                      );
-                    })}
-                    {comparisonBeers.length < 4 && <td className="border-l border-dashed border-gray-200 dark:border-gray-700/50" />}
-                  </motion.tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </Card>
-
-      <div className="mt-8 flex justify-center gap-6 text-sm font-medium">
-        <div className="flex items-center gap-2 text-green-600 dark:text-green-400">
-          <div className="w-3 h-3 rounded-full bg-green-500" />
-          Hoogste waarde
-        </div>
-        <div className="flex items-center gap-2 text-red-500 dark:text-red-400">
-          <div className="w-3 h-3 rounded-full bg-red-500" />
-          Laagste waarde
+                {n < 4 && <div />}
+              </div>
+            </section>
+          ))}
         </div>
       </div>
     </PageLayout>

@@ -1,210 +1,268 @@
 import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import { Shuffle, Sparkles, TrendingUp, Flame, Zap, Star, ExternalLink, Beer as BeerIcon, RotateCcw, ArrowLeft, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Shuffle, Star, Flame, Feather, Zap, ExternalLink, Beer as BeerIcon, RotateCcw, SlidersHorizontal, Radio } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { motion, AnimatePresence, animate, useReducedMotion } from 'framer-motion';
 import gsap from 'gsap';
 import type { BeerData, RandomizerMode } from '../types/beer';
 import { secureRandomIndex, shuffled } from '../utils/random';
+import { haptics } from '../utils/haptic';
+import BottleCap from './BottleCap';
+import Sheet from './Sheet';
+import Bubbles from './Bubbles';
 
 interface BeerRandomizerProps {
   beers: BeerData[];
   onBeerSelect?: (beer: BeerData) => void;
 }
 
-const MODES = [
-  { id: 'all' as RandomizerMode, label: 'Alles', icon: Shuffle, color: 'from-amber-500 to-orange-500' },
-  { id: 'top-rated' as RandomizerMode, label: 'Top Rated', icon: Star, color: 'from-yellow-500 to-amber-500' },
-  { id: 'high-abv' as RandomizerMode, label: 'Sterk', icon: Flame, color: 'from-red-500 to-orange-500' },
-  { id: 'low-abv' as RandomizerMode, label: 'Licht', icon: Sparkles, color: 'from-blue-500 to-cyan-500' },
-  { id: 'high-ibu' as RandomizerMode, label: 'Bitter', icon: Zap, color: 'from-green-500 to-emerald-500' },
+const MODES: { id: RandomizerMode; label: string; icon: LucideIcon }[] = [
+  { id: 'all', label: 'Alles', icon: Shuffle },
+  { id: 'top-rated', label: 'Top rated', icon: Star },
+  { id: 'high-abv', label: 'Sterk', icon: Flame },
+  { id: 'low-abv', label: 'Licht', icon: Feather },
+  { id: 'high-ibu', label: 'Bitter', icon: Zap },
 ];
 
 const LIVE_REGISTER_URL = '/api/last-randomized';
+const ITEM_H = 88; // px, one row in the reel
+const REEL_LENGTH = 32; // rows before the winner
+const SPIN_SECONDS = 3.8;
+
+type Phase = 'idle' | 'spinning' | 'result';
+
+// Bierfamilie: eerste deel van stijl ("Stout - Imperial" → "Stout"), anders categorie
+const getBeerFamily = (beer: BeerData): string => {
+  if (beer.style) return beer.style.split(' - ')[0].trim() || beer.category || '';
+  return beer.category || '';
+};
+
+function applyMode(list: BeerData[], mode: RandomizerMode): BeerData[] {
+  switch (mode) {
+    case 'high-abv':
+      return list.filter((b) => b.abv && b.abv >= 7);
+    case 'low-abv':
+      return list.filter((b) => b.abv && b.abv <= 5);
+    case 'top-rated':
+      return list.filter((b) => b.rating && b.rating >= 3.75);
+    case 'high-ibu':
+      return list.filter((b) => b.ibu && b.ibu >= 60);
+    default:
+      return list;
+  }
+}
+
+function Label({ beer, className = '' }: { beer: BeerData; className?: string }) {
+  const [broken, setBroken] = useState(false);
+  return beer.image_url && !broken ? (
+    <img
+      src={beer.image_url}
+      alt=""
+      className={`object-contain rounded-2xl ${className}`}
+      draggable={false}
+      onError={() => setBroken(true)}
+    />
+  ) : (
+    <span className={`grid place-items-center bg-surface-2 rounded-2xl ${className}`}>
+      <BeerIcon className="w-1/2 h-1/2 text-muted" aria-hidden />
+    </span>
+  );
+}
+
+/** Number that counts up from 0 once mounted */
+function CountUp({ value, decimals = 0, suffix = '' }: { value: number | null; decimals?: number; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (value == null || !ref.current) return;
+    const el = ref.current;
+    if (reduce) {
+      el.textContent = value.toFixed(decimals) + suffix;
+      return;
+    }
+    const controls = animate(0, value, {
+      duration: 1.1,
+      delay: 0.45,
+      ease: [0.16, 1, 0.3, 1],
+      onUpdate: (v) => {
+        el.textContent = v.toFixed(decimals) + suffix;
+      },
+    });
+    return () => controls.stop();
+  }, [value, decimals, suffix, reduce]);
+
+  if (value == null) return <span className="text-muted">–</span>;
+  return <span ref={ref} className="tabular">{(0).toFixed(decimals) + suffix}</span>;
+}
+
+
+/** Slot-machine reel. Animates on mount and calls onDone when the winner sits in the centre slot. */
+function Reel({ items, onDone }: { items: BeerData[]; onDone: () => void }) {
+  const stripRef = useRef<HTMLDivElement>(null);
+  const doneRef = useRef(onDone);
+  useEffect(() => {
+    doneRef.current = onDone;
+  }, [onDone]);
+
+  useEffect(() => {
+    const strip = stripRef.current;
+    if (!strip) return;
+    const start = ITEM_H; // row 0 in the centre slot
+    const end = ITEM_H - REEL_LENGTH * ITEM_H; // winner in the centre slot
+    let lastRow = 0;
+
+    const tl = gsap.timeline({ onComplete: () => doneRef.current() });
+    tl.fromTo(
+      strip,
+      { y: start },
+      {
+        y: end - ITEM_H * 0.35,
+        duration: SPIN_SECONDS - 0.45,
+        ease: 'power4.out',
+        onUpdate: () => {
+          const row = Math.round((start - (gsap.getProperty(strip, 'y') as number)) / ITEM_H);
+          if (row !== lastRow) {
+            lastRow = row;
+            navigator.vibrate?.(4);
+          }
+        },
+      }
+    ).to(strip, { y: end, duration: 0.45, ease: 'back.out(2.2)' });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
+
+  return (
+    <div className="relative w-full max-w-sm overflow-hidden mask-fade-y" style={{ height: ITEM_H * 3 }} aria-hidden>
+      <div
+        className="absolute inset-x-0 z-10 rounded-2xl border-2 border-gold/70 shadow-[0_0_40px_-8px_rgb(var(--gold)/0.6)] pointer-events-none"
+        style={{ top: ITEM_H, height: ITEM_H }}
+      />
+      <div ref={stripRef} className="will-change-transform" style={{ transform: `translateY(${ITEM_H}px)` }}>
+        {items.map((beer, i) => (
+          <div key={i} className="flex items-center gap-4 px-4" style={{ height: ITEM_H }}>
+            <Label beer={beer} className="w-14 h-14 shrink-0" />
+            <div className="min-w-0 text-left">
+              <p className="font-medium truncate">{beer.name}</p>
+              <p className="text-sm text-muted truncate">{beer.brewery}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerProps) {
-  const [currentBeer, setCurrentBeer] = useState<BeerData | null>(null);
+  const [phase, setPhase] = useState<Phase>('idle');
+  const [winner, setWinner] = useState<BeerData | null>(null);
+  const [reel, setReel] = useState<BeerData[]>([]);
   const [history, setHistory] = useState<BeerData[]>([]);
   const [liveList, setLiveList] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
-  const [isRandomizing, setIsRandomizing] = useState(false);
-  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set()); // family names to exclude (e.g. "Stout", "IPA")
-  
-  const resultRef = useRef<HTMLDivElement>(null);
-  const confettiRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [excludedStyles, setExcludedStyles] = useState<Set<string>>(new Set());
+  const [sheetOpen, setSheetOpen] = useState(false);
 
-  const fetchLiveRegister = useCallback(async () => {
-    try {
-      const res = await fetch(LIVE_REGISTER_URL, { cache: 'no-store' });
-      if (res.ok) {
-        const data = await res.json();
-        setLiveList(Array.isArray(data.list) ? data.list : []);
-      }
-    } catch {
-      setLiveList([]);
-    }
+  const [capTurns, setCapTurns] = useState(0);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  // Live register: last 10 draws by everyone, refreshed every 30s
+  useEffect(() => {
+    let cancelled = false;
+    const load = () =>
+      fetch(LIVE_REGISTER_URL, { cache: 'no-store' })
+        .then((res) => (res.ok && res.headers.get('content-type')?.includes('json') ? res.json() : null))
+        .then((data) => {
+          if (!cancelled && data) setLiveList(Array.isArray(data.list) ? data.list : []);
+        })
+        .catch(() => {});
+    load();
+    const interval = setInterval(load, 30000);
+    return () => {
+      cancelled = true;
+      clearInterval(interval);
+    };
   }, []);
 
-  useEffect(() => {
-    fetchLiveRegister();
-    const interval = setInterval(fetchLiveRegister, 30000);
-    return () => clearInterval(interval);
-  }, [fetchLiveRegister]);
-
-  // Bierfamilie: eerste deel van stijl ("Stout - Imperial" → "Stout"), anders categorie
-  const getBeerFamily = (beer: BeerData): string => {
-    if (beer.style) {
-      const part = beer.style.split(' - ')[0].trim();
-      return part || beer.category || '';
-    }
-    return beer.category || '';
-  };
-
-  // Unieke families (Stout, IPA, Bierbijbel, etc.) – geen "Stout - ..." en "Stout - ..." dubbel
   const availableFamilies = useMemo(() => {
-    const set = new Set<string>();
-    beers.forEach(beer => {
-      const family = beer.style ? (beer.style.split(' - ')[0].trim() || beer.category) : beer.category;
-      if (family) set.add(family);
+    const counts = new Map<string, number>();
+    beers.forEach((beer) => {
+      const family = getBeerFamily(beer);
+      if (family) counts.set(family, (counts.get(family) ?? 0) + 1);
     });
-    return Array.from(set).sort();
+    return Array.from(counts.entries()).sort((a, b) => a[0].localeCompare(b[0]));
   }, [beers]);
 
-  const getFilteredBeers = (selectedMode: RandomizerMode): BeerData[] => {
-    let filtered = [...beers];
-    if (excludedStyles.size > 0) {
-      filtered = filtered.filter(b => !excludedStyles.has(getBeerFamily(b)));
-    }
-    
-    // Then apply mode filters
-    switch (selectedMode) {
-      case 'high-abv':
-        filtered = filtered.filter(b => b.abv && b.abv >= 7);
-        break;
-      case 'low-abv':
-        filtered = filtered.filter(b => b.abv && b.abv <= 5);
-        break;
-      case 'top-rated':
-        filtered = filtered.filter(b => b.rating && b.rating >= 3.75);
-        break;
-      case 'high-ibu':
-        filtered = filtered.filter(b => b.ibu && b.ibu >= 60);
-        break;
-    }
-    
+  const pool = useMemo(() => {
+    const base = excludedStyles.size ? beers.filter((b) => !excludedStyles.has(getBeerFamily(b))) : beers;
+    const filtered = applyMode(base, mode);
     return filtered.length > 0 ? filtered : beers;
-  };
+  }, [beers, mode, excludedStyles]);
 
-  const createConfetti = () => {
-    if (!confettiRef.current) return;
-    
-    const colors = ['#f59e0b', '#f97316', '#eab308', '#ef4444', '#ec4899'];
-    const confettiCount = 50;
-    
-    for (let i = 0; i < confettiCount; i++) {
-      const confetti = document.createElement('div');
-      confetti.className = 'absolute w-2 h-2 rounded-full';
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      confetti.style.left = '50%';
-      confetti.style.top = '50%';
-      confettiRef.current.appendChild(confetti);
-      
-      gsap.to(confetti, {
-        x: (Math.random() - 0.5) * 600,
-        y: (Math.random() - 0.5) * 600,
-        opacity: 0,
-        duration: 1.5 + Math.random(),
-        ease: 'power2.out',
-        onComplete: () => confetti.remove()
-      });
-    }
-  };
+  // Three labels fanned out on the idle stage
+  const teaser = useMemo(() => shuffled(pool.filter((b) => b.image_url)).slice(0, 3), [pool]);
 
-  const poolSize = useMemo(() => getFilteredBeers(mode).length, [beers, mode, excludedStyles]);
-
-  const randomizeBeer = () => {
-    const filteredBeers = getFilteredBeers(mode);
-    
-    if (filteredBeers.length === 0 || isRandomizing) return;
-    
-    // Exclude last 10 shown from pool to reduce immediate repeats (then pick from full pool if needed)
-    const recentUrls = new Set(history.slice(0, 10).map(b => b.beer_url));
-    const availableBeers = filteredBeers.filter(b => !recentUrls.has(b.beer_url));
-    const poolToUse = availableBeers.length > 0 ? availableBeers : filteredBeers;
-    const shuffledPool = shuffled(poolToUse);
-    const finalIndex = secureRandomIndex(shuffledPool.length);
-    const finalBeer = shuffledPool[finalIndex];
-    
-    // Immediately hide existing content before state update
-    if (currentBeer) {
-        gsap.set('.reveal-item', { opacity: 0, y: 20, scale: 0.9 });
-    }
-    
-    // Reset state
-    setIsRandomizing(true);
-    setCurrentBeer(finalBeer);
-    
-    // Small delay to allow element to render and create suspense
-    setTimeout(() => {
-        runRevealAnimation(finalBeer);
-    }, 400);
-  };
-
-  const runRevealAnimation = (beer: BeerData) => {
-    if (!resultRef.current) return;
-    
-    // Reset elements for animation
-    gsap.set('.reveal-item', { opacity: 0, y: 20, scale: 0.9 });
-    
-    const tl = gsap.timeline({
-      onComplete: () => {
-        setHistory(prev => {
-            if (prev.some(b => b.beer_url === beer.beer_url)) return prev;
-            return [beer, ...prev.slice(0, 9)];
-        });
-        setIsRandomizing(false);
-        createConfetti();
-        if (onBeerSelect) onBeerSelect(beer);
-        fetch(LIVE_REGISTER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ beer: { name: beer.name, beer_url: beer.beer_url, brewery: beer.brewery, image_url: beer.image_url, rating: beer.rating, style: beer.style, category: beer.category, abv: beer.abv } }),
+  const finish = useCallback(
+    (beer: BeerData) => {
+      setPhase('result');
+      haptics.success();
+      setHistory((prev) => (prev.some((b) => b.beer_url === beer.beer_url) ? prev : [beer, ...prev.slice(0, 9)]));
+      onBeerSelect?.(beer);
+      fetch(LIVE_REGISTER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          beer: {
+            name: beer.name,
+            beer_url: beer.beer_url,
+            brewery: beer.brewery,
+            image_url: beer.image_url,
+            rating: beer.rating,
+            style: beer.style,
+            category: beer.category,
+            abv: beer.abv,
+          },
+        }),
+      })
+        .then((r) => (r.ok && r.headers.get('content-type')?.includes('json') ? r.json() : null))
+        .then((data) => {
+          if (data?.list) setLiveList(data.list);
         })
-          .then((r) => r.ok ? r.json() : null)
-          .then((data) => { if (data?.list) setLiveList(data.list); })
-          .catch(() => {});
-      }
-    });
-    
-    // Reveal each step sequentially
-    // Style -> Rating -> ABV -> IBU -> Image -> Name
-    const steps = [
-        '.reveal-style', 
-        '.reveal-rating', 
-        '.reveal-abv', 
-        '.reveal-ibu', 
-        '.reveal-image', 
-        '.reveal-name'
-    ];
-    
-    steps.forEach((selector, index) => {
-        // Slower animation: 0.8s duration, staggered by 1.2s
-        tl.to(selector, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: 'back.out(1.2)'
-        }, index * 1.2); 
-    });
+        .catch(() => {});
+    },
+    [onBeerSelect]
+  );
+
+  const spin = () => {
+    if (phase === 'spinning' || pool.length === 0) return;
+
+    // Skip the last 10 winners so you don't get the same beer twice in a row
+    const recent = new Set(history.map((b) => b.beer_url));
+    const fresh = pool.filter((b) => !recent.has(b.beer_url));
+    const candidates = fresh.length > 0 ? fresh : pool;
+    const picked = shuffled(candidates)[secureRandomIndex(candidates.length)];
+
+    if (picked.image_url) new Image().src = picked.image_url;
+
+    const fillers = Array.from({ length: REEL_LENGTH }, () => pool[secureRandomIndex(pool.length)]);
+    setReel([...fillers, picked, pool[secureRandomIndex(pool.length)]]);
+    setWinner(picked);
+    haptics.select();
+    stageRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    if (reduce) {
+      finish(picked);
+      return;
+    }
+    setCapTurns((n) => n + 1);
+    setPhase('spinning');
   };
 
-  const resetSearch = () => {
-    setCurrentBeer(null);
-    setIsRandomizing(false);
-  };
-
-  const toggleFamilyExclusion = (family: string) => {
-    setExcludedStyles(prev => {
+  const toggleFamily = (family: string) => {
+    haptics.tap();
+    setExcludedStyles((prev) => {
       const next = new Set(prev);
       if (next.has(family)) next.delete(family);
       else next.add(family);
@@ -212,267 +270,300 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     });
   };
 
-  const clearExcludedFamilies = () => setExcludedStyles(new Set());
+  const isSpinning = phase === 'spinning';
 
   return (
-    <div className="space-y-8" ref={containerRef}>
-      <AnimatePresence mode="wait">
-        {!currentBeer ? (
-            <motion.div
-                key="search-ui"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="space-y-8"
-            >
-                {/* Stijlen/categorieën uitsluiten (gegroepeerd: alle Stout-* onder "Stout") */}
-                {availableFamilies.length > 0 && (
-                  <div className="glass-panel rounded-2xl p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                        <BeerIcon className="w-4 h-4 text-amber-600" />
-                        Sluit bierstijlen uit
-                      </h3>
-                      {excludedStyles.size > 0 && (
-                        <button
-                          type="button"
-                          onClick={clearExcludedFamilies}
-                          className="text-xs text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400 font-medium flex items-center gap-1"
-                        >
-                          <X className="w-3 h-3" />
-                          Wis alles
-                        </button>
-                      )}
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {availableFamilies.map((family) => {
-                        const isExcluded = excludedStyles.has(family);
-                        return (
-                          <motion.button
-                            key={family}
-                            type="button"
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
-                            onClick={() => toggleFamilyExclusion(family)}
-                            className={`px-3 py-2 rounded-xl text-sm font-medium transition-all ${
-                              isExcluded
-                                ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 line-through border border-red-300 dark:border-red-700'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
-                            }`}
-                          >
-                            {family}
-                          </motion.button>
-                        );
-                      })}
-                    </div>
-                    {excludedStyles.size > 0 && (
-                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
-                        {excludedStyles.size === 1 ? '1 stijl uitgesloten' : `${excludedStyles.size} stijlen uitgesloten`}
-                      </p>
-                    )}
-                  </div>
-                )}
+    <div className="space-y-8">
+      {/* Controls */}
+      <div className={`space-y-3 transition-opacity ${isSpinning ? 'opacity-40 pointer-events-none' : ''}`}>
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-2 overflow-x-auto no-scrollbar snap-x" role="radiogroup" aria-label="Modus">
+          {MODES.map(({ id, label, icon: Icon }) => {
+            const active = mode === id;
+            return (
+              <button
+                key={id}
+                type="button"
+                role="radio"
+                aria-checked={active}
+                onClick={() => {
+                  haptics.tap();
+                  setMode(id);
+                }}
+                className={`chip snap-start ${active ? 'chip-active' : ''}`}
+              >
+                <Icon className="w-4 h-4" aria-hidden />
+                {label}
+              </button>
+            );
+          })}
+        </div>
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-sm text-muted" aria-live="polite">
+            <span className="text-fg tabular font-medium">{pool.length}</span> bieren in de pot
+          </p>
+          <button type="button" onClick={() => setSheetOpen(true)} className="chip">
+            <SlidersHorizontal className="w-4 h-4" aria-hidden />
+            Stijlen
+            {excludedStyles.size > 0 && (
+              <span className="grid place-items-center min-w-5 h-5 px-1 rounded-full bg-ember text-white text-[11px] tabular">
+                −{excludedStyles.size}
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
 
-                {/* Mode Selection */}
-                <div className="flex flex-wrap md:justify-center gap-3 overflow-x-auto pb-4 md:pb-0 px-2 -mx-2 no-scrollbar touch-pan-x">
-                    {MODES.map((m) => {
-                    const Icon = m.icon;
-                    const isActive = mode === m.id;
-                    return (
-                        <motion.button
-                        key={m.id}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => setMode(m.id)}
-                        className={`flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all ${
-                            isActive
-                            ? `bg-gradient-to-r ${m.color} text-white shadow-lg shadow-orange-500/20`
-                            : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
-                        }`}
-                        >
-                        <Icon className="w-4 h-4" />
-                        {m.label}
-                        </motion.button>
-                    );
-                    })}
-                </div>
-
-                {/* Pool size + Main Randomizer Button */}
-                <div className="flex flex-col items-center gap-3">
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                        Je randomize uit <span className="font-semibold text-amber-600 dark:text-amber-400">{poolSize}</span> bieren
-                    </p>
-                    <motion.button
-                    whileHover={{ scale: isRandomizing ? 1 : 1.05 }}
-                    whileTap={{ scale: isRandomizing ? 1 : 0.95 }}
-                    onClick={randomizeBeer}
-                    disabled={isRandomizing}
-                    className={`relative group flex items-center gap-3 px-8 py-5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 text-white rounded-2xl font-bold text-xl transition-all shadow-2xl ${
-                        isRandomizing 
-                        ? 'opacity-75 cursor-not-allowed animate-pulse' 
-                        : 'hover:shadow-amber-500/50 hover:from-amber-600 hover:via-orange-600 hover:to-amber-700'
-                    }`}
-                    >
-                    <div className="absolute inset-0 bg-white/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <Shuffle className={`w-7 h-7 ${isRandomizing ? 'animate-spin' : ''}`} />
-                    <span>{isRandomizing ? 'Aan het zoeken...' : 'Verras Me!'}</span>
-                    </motion.button>
-                </div>
-            </motion.div>
-        ) : (
-            <motion.div
-                key="result-ui"
-                ref={resultRef}
-                initial={{ opacity: 0, scale: 0.95 }}
+      {/* Stage */}
+      <div ref={stageRef} className="relative scroll-mt-20">
+        <div className="relative surface overflow-hidden min-h-[360px] sm:min-h-[460px] pb-14 flex flex-col">
+          {/* Rotating light rays behind the result */}
+          <AnimatePresence>
+            {phase === 'result' && (
+              <motion.div
+                key="rays"
+                initial={{ opacity: 0, scale: 0.6 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                className="relative w-full max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-800"
-            >
-                {/* Result Header */}
-                <div className="flex justify-between items-center p-4 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/50">
-                    <button 
-                        onClick={resetSearch}
-                        className="flex items-center gap-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors text-sm font-medium"
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] pointer-events-none"
+                aria-hidden
+              >
+                <div
+                  className="w-full h-full rounded-full animate-spin-slow opacity-60"
+                  style={{
+                    background:
+                      'repeating-conic-gradient(from 0deg, rgb(var(--gold) / 0.16) 0deg 8deg, transparent 8deg 24deg)',
+                    maskImage: 'radial-gradient(circle, black 10%, transparent 62%)',
+                    WebkitMaskImage: 'radial-gradient(circle, black 10%, transparent 62%)',
+                  }}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence mode="wait">
+            {phase === 'idle' && (
+              <motion.div
+                key="idle"
+                className="flex-1 flex flex-col items-center justify-center p-6 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.25 }}
+              >
+                <div className="relative w-56 h-36 mb-6" aria-hidden>
+                  {teaser.map((beer, i) => (
+                    <motion.div
+                      key={beer.beer_url}
+                      className="absolute left-1/2 top-0 w-24 h-32 -ml-12 rounded-2xl bg-surface-2 border border-line/10 p-3 shadow-xl"
+                      initial={{ rotate: 0, x: 0, opacity: 0 }}
+                      animate={{ rotate: (i - 1) * 12, x: (i - 1) * 52, y: i === 1 ? -8 : 6, opacity: 1 }}
+                      transition={{ type: 'spring', stiffness: 160, damping: 16, delay: 0.1 + i * 0.08 }}
                     >
-                        <ArrowLeft className="w-4 h-4" />
-                        Terug
-                    </button>
-                    <div className="flex items-center gap-2 text-amber-500 font-bold">
-                        <Sparkles className="w-5 h-5" />
-                        <span>Je Match!</span>
-                    </div>
-                    <div className="w-16" /> {/* Spacer for centering */}
+                      <Label beer={beer} className="w-full h-full" />
+                    </motion.div>
+                  ))}
                 </div>
+                <p className="font-display italic font-extrabold text-3xl sm:text-4xl leading-tight text-balance mb-2">
+                  Geen idee wat je wilt?
+                </p>
+                <p className="text-muted max-w-xs">Tik op de dop en laat het lot een bier van de kaart kiezen.</p>
+              </motion.div>
+            )}
 
-                <div className="p-6 md:p-8">
-                    {/* 1. Stats Grid (Top-Left to Bottom-Right) */}
-                    <div className="grid grid-cols-2 gap-4 mb-8">
-                        {/* Style (Top-Left) */}
-                        <div className="reveal-item reveal-style bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-blue-500 shadow-lg opacity-0 transform translate-y-4">
-                            <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">Stijl</p>
-                            <p className="text-white font-bold text-sm leading-tight">{currentBeer.style || currentBeer.category}</p>
-                        </div>
+            {phase === 'spinning' && (
+              <motion.div
+                key="reel"
+                className="flex-1 flex items-center justify-center p-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Reel items={reel} onDone={() => winner && finish(winner)} />
+                <p className="sr-only" role="status">Aan het draaien…</p>
+              </motion.div>
+            )}
 
-                        {/* Rating (Top-Right) */}
-                        <div className="reveal-item reveal-rating bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-yellow-500 shadow-lg opacity-0 transform translate-y-4">
-                            <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">Rating</p>
-                            <div className="flex items-center gap-2">
-                                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                                <span className="text-white font-bold text-lg">{currentBeer.rating?.toFixed(2) || 'N/A'}</span>
-                            </div>
-                        </div>
+            {phase === 'result' && winner && (
+              <motion.div
+                key={`result-${winner.beer_url}`}
+                className="relative flex-1 flex flex-col items-center p-6 pt-8 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                {!reduce && <Bubbles />}
+                <motion.div
+                  initial={{ scale: 0.3, rotate: -25, opacity: 0 }}
+                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
+                  transition={{ type: 'spring', stiffness: 220, damping: 14 }}
+                  className="relative w-40 h-40 sm:w-48 sm:h-48 mb-6"
+                >
+                  <div className="absolute inset-4 rounded-full bg-gold/30 blur-2xl" aria-hidden />
+                  <Label beer={winner} className="relative w-full h-full drop-shadow-2xl" />
+                </motion.div>
 
-                        {/* ABV (Bottom-Left) */}
-                        <div className="reveal-item reveal-abv bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-red-500 shadow-lg opacity-0 transform translate-y-4">
-                            <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">ABV</p>
-                            <p className="text-white font-bold text-lg">{currentBeer.abv}%</p>
-                        </div>
+                <motion.p
+                  className="eyebrow mb-2"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {winner.style || winner.category}
+                </motion.p>
+                <h2 className="font-display italic font-extrabold text-4xl sm:text-5xl leading-[0.95] text-balance mb-2" role="status">
+                  {winner.name.split(' ').map((word, i) => (
+                    <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]">
+                      <motion.span
+                        className="inline-block"
+                        initial={{ y: '110%' }}
+                        animate={{ y: 0 }}
+                        transition={{ delay: 0.25 + i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      >
+                        {word}&nbsp;
+                      </motion.span>
+                    </span>
+                  ))}
+                </h2>
+                <motion.p className="text-muted mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}>
+                  {winner.brewery}
+                </motion.p>
 
-                        {/* IBU (Bottom-Right) */}
-                        <div className="reveal-item reveal-ibu bg-gray-800/90 dark:bg-gray-800 p-4 rounded-xl border-l-4 border-green-500 shadow-lg opacity-0 transform translate-y-4">
-                            <p className="text-[10px] text-gray-400 uppercase tracking-wider mb-1 font-bold">IBU</p>
-                            <p className="text-white font-bold text-lg">{currentBeer.ibu || 'N/A'}</p>
-                        </div>
-                    </div>
+                <motion.dl
+                  className="grid grid-cols-3 w-full max-w-sm rounded-2xl border border-line/10 divide-x divide-line/10 bg-bg/40 mb-6"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <div className="py-3">
+                    <dt className="stat-label">ABV</dt>
+                    <dd className="mt-1 text-xl font-medium text-ember">
+                      <CountUp value={winner.abv} decimals={1} suffix="%" />
+                    </dd>
+                  </div>
+                  <div className="py-3">
+                    <dt className="stat-label">IBU</dt>
+                    <dd className="mt-1 text-xl font-medium text-hop">
+                      <CountUp value={winner.ibu} />
+                    </dd>
+                  </div>
+                  <div className="py-3">
+                    <dt className="stat-label">Rating</dt>
+                    <dd className="mt-1 text-xl font-medium text-gold">
+                      <CountUp value={winner.rating} decimals={2} />
+                    </dd>
+                  </div>
+                </motion.dl>
 
-                    {/* 2. Beer Image (Center) */}
-                    <div className="reveal-item reveal-image flex justify-center mb-6 opacity-0 transform translate-y-4 scale-90">
-                        {currentBeer.image_url ? (
-                            <div className="relative">
-                                <div className="absolute inset-0 bg-amber-500/20 blur-2xl rounded-full" />
-                                <img 
-                                    src={currentBeer.image_url} 
-                                    alt={currentBeer.name}
-                                    className="w-48 h-48 object-contain relative z-10 drop-shadow-2xl"
-                                />
-                            </div>
-                        ) : (
-                            <div className="w-40 h-40 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center relative z-10">
-                                <BeerIcon className="w-20 h-20 text-gray-300 dark:text-gray-600" />
-                            </div>
-                        )}
-                    </div>
+                <motion.div
+                  className="w-full max-w-sm"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <a href={winner.beer_url} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
+                    Bekijk op Untappd
+                    <ExternalLink className="w-4 h-4" aria-hidden />
+                  </a>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
-                    {/* 3. Name & Brewery (Bottom) */}
-                    <div className="reveal-item reveal-name text-center opacity-0 transform translate-y-4">
-                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-heading">{currentBeer.name}</h2>
-                        <p className="text-gray-500 dark:text-gray-400 mb-6">{currentBeer.brewery}</p>
-                        
-                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                            <a
-                                href={currentBeer.beer_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-xl transition-colors shadow-lg shadow-amber-500/30"
-                            >
-                                Bekijk op Untappd
-                                <ExternalLink className="w-4 h-4" />
-                            </a>
-                            
-                            <button
-                                onClick={randomizeBeer}
-                                disabled={isRandomizing}
-                                className="inline-flex items-center justify-center gap-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-bold py-3 px-6 rounded-xl transition-colors"
-                            >
-                                <RotateCcw className={`w-4 h-4 ${isRandomizing ? 'animate-spin' : ''}`} />
-                                Nog een keer
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                {/* Confetti Container inside Result Card */}
-                <div ref={confettiRef} className="absolute inset-0 pointer-events-none overflow-hidden z-20" />
-            </motion.div>
-        )}
-      </AnimatePresence>
+        {/* The cap: primary action, overlapping the stage edge */}
+        <div className="relative -mt-12 flex flex-col items-center">
+          <motion.button
+            type="button"
+            onClick={spin}
+            disabled={isSpinning}
+            whileHover={isSpinning ? undefined : { scale: 1.05 }}
+            whileTap={isSpinning ? undefined : { scale: 0.88 }}
+            animate={{ rotate: capTurns * 1080 }}
+            transition={{ duration: SPIN_SECONDS, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-full disabled:cursor-wait"
+            aria-label={phase === 'result' ? 'Draai nog een keer' : 'Draai: kies een willekeurig bier'}
+          >
+            <BottleCap className="w-24 h-24 drop-shadow-[0_16px_28px_rgba(242,179,61,0.35)]">
+              {phase === 'result' ? <RotateCcw className="w-8 h-8" /> : <Shuffle className="w-8 h-8" />}
+            </BottleCap>
+          </motion.button>
+          <p className="mt-2 text-sm font-medium text-muted">
+            {isSpinning ? 'Draaien…' : phase === 'result' ? 'Nog een keer' : 'Draai'}
+          </p>
+        </div>
+      </div>
 
-      {/* Live register: laatste 10 verrassingen van iedereen */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="glass-panel rounded-2xl p-6"
-      >
-        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 flex items-center gap-2">
-          <TrendingUp className="w-5 h-5 text-amber-600" />
-          Laatste 10 verrassingen <span className="text-sm font-normal text-amber-600 dark:text-amber-400">(live)</span>
-        </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Bieren die iedereen zojuist heeft gegenereerd</p>
+      {/* Live register */}
+      <section aria-labelledby="live-title">
+        <div className="flex items-center justify-between mb-4">
+          <h3 id="live-title" className="font-display italic font-extrabold text-2xl">Net gedraaid</h3>
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-hop">
+            <Radio className="w-3.5 h-3.5 animate-pulse" aria-hidden />
+            Live
+          </span>
+        </div>
         {liveList.length === 0 ? (
-          <p className="text-sm text-gray-500 dark:text-gray-400 py-6 text-center">Nog geen verrassingen gedeeld. Gebruik &quot;Verras Me!&quot; om de eerste te zijn.</p>
+          <p className="text-sm text-muted py-6 text-center surface">Nog niks gedraaid. Wees de eerste.</p>
         ) : (
-          <div className="flex md:grid md:grid-cols-5 gap-4 overflow-x-auto pb-4 md:pb-0 -mx-2 px-2 no-scrollbar snap-x">
+          <div className="-mx-4 px-4 sm:mx-0 sm:px-0 flex gap-3 overflow-x-auto no-scrollbar snap-x pb-1">
             {liveList.map((beer, index) => (
               <a
                 key={`${beer.beer_url}-${index}`}
                 href={beer.beer_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-shrink-0 w-32 md:w-auto snap-center bg-white dark:bg-gray-800 rounded-xl p-3 border border-gray-200 dark:border-gray-700 hover:border-amber-500 dark:hover:border-amber-500 hover:shadow-lg transition-all group block"
+                className="snap-start shrink-0 w-32 surface rounded-2xl p-3 hover:border-gold/40 transition-colors"
               >
-                {beer.image_url ? (
-                  <img
-                    src={beer.image_url}
-                    alt=""
-                    className="w-full h-24 object-contain mb-3 group-hover:scale-110 transition-transform duration-300"
-                  />
-                ) : (
-                  <div className="w-full h-24 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-3 group-hover:bg-amber-50 dark:group-hover:bg-amber-900/20 transition-colors">
-                    <BeerIcon className="w-8 h-8 text-amber-600/50" />
-                  </div>
-                )}
-                <p className="text-xs font-bold text-gray-900 dark:text-white truncate">
-                  {beer.name}
-                </p>
-                <p className="text-[10px] text-gray-500 truncate">
-                  {beer.brewery ?? ''}
-                </p>
+                <Label beer={beer} className="w-full h-20 mb-3" />
+                <p className="text-sm font-medium truncate">{beer.name}</p>
+                <p className="text-xs text-muted truncate">{beer.brewery ?? ''}</p>
               </a>
             ))}
           </div>
         )}
-      </motion.div>
+      </section>
+
+      <Sheet
+        open={sheetOpen}
+        onClose={() => setSheetOpen(false)}
+        title="Stijlen uitsluiten"
+        footer={
+          <div className="flex gap-3">
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => setExcludedStyles(new Set())}
+              disabled={excludedStyles.size === 0}
+            >
+              Wis alles
+            </button>
+            <button type="button" className="btn-primary flex-1" onClick={() => setSheetOpen(false)}>
+              {pool.length} bieren in de pot
+            </button>
+          </div>
+        }
+      >
+        <p className="text-sm text-muted mb-4">Tik op een stijl om die over te slaan.</p>
+        <div className="flex flex-wrap gap-2">
+          {availableFamilies.map(([family, count]) => {
+            const excluded = excludedStyles.has(family);
+            return (
+              <button
+                key={family}
+                type="button"
+                aria-pressed={excluded}
+                onClick={() => toggleFamily(family)}
+                className={`chip ${excluded ? 'line-through bg-ember/10 border-ember/40 text-ember hover:text-ember' : ''}`}
+              >
+                {family}
+                <span className="text-xs opacity-60 tabular no-underline">{count}</span>
+              </button>
+            );
+          })}
+        </div>
+      </Sheet>
     </div>
   );
 }

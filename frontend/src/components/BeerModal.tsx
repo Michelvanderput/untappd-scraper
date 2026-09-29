@@ -1,236 +1,154 @@
-import { useEffect, useRef } from 'react';
-import { X, Share2, Star } from 'lucide-react';
-import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, Legend } from 'recharts';
+import { useState } from 'react';
+import { Share2, Star, ExternalLink, Scale, Check, Beer } from 'lucide-react';
+import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts';
 import type { BeerData } from '../types/beer';
-import { animateModalOpen, animateModalClose } from '../utils/animations';
+import { useComparison } from '../contexts/ComparisonContext';
+import { useTheme } from '../contexts/ThemeContext';
+import { haptics } from '../utils/haptic';
+import Sheet from './Sheet';
 
 interface BeerModalProps {
   beer: BeerData | null;
   onClose: () => void;
 }
 
+// Menu averages used as the dashed baseline in the taste profile
+const AVG = { abv: 6.5, ibu: 35, rating: 3.6 };
+
+// SVG attributes can't read CSS variables, so mirror the tokens from index.css
+const CHART_COLORS = {
+  dark: { gold: '#F2B33D', muted: '#B0A391', grid: 'rgba(246,238,223,0.15)' },
+  light: { gold: '#8A5204', muted: '#66584A', grid: 'rgba(27,18,12,0.15)' },
+};
+
 export default function BeerModal({ beer, onClose }: BeerModalProps) {
-  const modalRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
+  const { addToComparison, removeFromComparison, isInComparison, comparisonBeers } = useComparison();
+  const [broken, setBroken] = useState(false);
+  const [shareNote, setShareNote] = useState<string | null>(null);
+  const { theme } = useTheme();
+  const c = CHART_COLORS[theme];
 
-  // Open animation
-  useEffect(() => {
-    if (beer && modalRef.current && contentRef.current && overlayRef.current) {
-      // Prevent body scroll
-      document.body.style.overflow = 'hidden';
+  if (!beer) return null;
 
-      animateModalOpen(overlayRef.current, contentRef.current);
-
-      return () => {
-        document.body.style.overflow = '';
-      };
-    }
-  }, [beer]);
-
-  const handleClose = () => {
-    if (contentRef.current && overlayRef.current) {
-      animateModalClose(overlayRef.current, contentRef.current, () => {
-        document.body.style.overflow = '';
-        onClose();
-      });
-    }
-  };
+  const inCompare = isInComparison(beer.beer_url);
+  const compareFull = !inCompare && comparisonBeers.length >= 4;
 
   const handleShare = async () => {
-    if (!beer) return;
-
     const shareData = {
-      title: `${beer.name} - BeerMenu`,
-      text: `Check out ${beer.name} by ${beer.brewery || 'Unknown'} - ${beer.style || ''} (${beer.abv}% ABV)`,
-      url: window.location.href
+      title: `${beer.name} – BeerMenu`,
+      text: `${beer.name} van ${beer.brewery || 'onbekend'} – ${beer.style || ''} (${beer.abv}% ABV)`,
+      url: beer.beer_url,
     };
-
     try {
       if (navigator.share) {
         await navigator.share(shareData);
       } else {
-        // Fallback: copy to clipboard
-        await navigator.clipboard.writeText(`${shareData.title}\n${shareData.text}\n${shareData.url}`);
-        alert('Link gekopieerd naar klembord!');
+        await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
+        setShareNote('Link gekopieerd');
+        setTimeout(() => setShareNote(null), 2000);
       }
-    } catch (error) {
-      console.error('Share failed:', error);
+    } catch {
+      // share cancelled
     }
   };
 
-  if (!beer) return null;
+  const toggleCompare = () => {
+    haptics.select();
+    if (inCompare) removeFromComparison(beer.beer_url);
+    else addToComparison(beer);
+  };
 
-  // Prepare data for Radar Chart
-  // Normalize values to 0-100 scale for visual comparison
-  // Baseline (Average): ABV ~6.5%, IBU ~35, Rating ~3.6
   const chartData = [
-    {
-      subject: 'Sterkte',
-      A: Math.min(((beer.abv || 0) / 12) * 100, 100), // Cap at 12% for full scale
-      B: (6.5 / 12) * 100, // Avg 6.5%
-      fullMark: 100,
-    },
-    {
-      subject: 'Bitterheid',
-      A: Math.min(((beer.ibu || 0) / 70) * 100, 100), // Cap at 70 IBU for full scale (unless higher)
-      B: (35 / 70) * 100, // Avg 35 IBU
-      fullMark: 100,
-    },
-    {
-      subject: 'Waardering',
-      A: ((beer.rating || 0) / 5) * 100,
-      B: (3.6 / 5) * 100, // Avg 3.6
-      fullMark: 100,
-    },
+    { subject: 'Sterkte', A: Math.min(((beer.abv || 0) / 12) * 100, 100), B: (AVG.abv / 12) * 100 },
+    { subject: 'Bitterheid', A: Math.min(((beer.ibu || 0) / 70) * 100, 100), B: (AVG.ibu / 70) * 100 },
+    { subject: 'Waardering', A: ((beer.rating || 0) / 5) * 100, B: (AVG.rating / 5) * 100 },
+  ];
+
+  const stats = [
+    { label: 'ABV', value: beer.abv != null ? `${beer.abv}%` : '–', tone: 'text-ember' },
+    { label: 'IBU', value: beer.ibu ?? '–', tone: 'text-hop' },
+    { label: 'Rating', value: beer.rating != null ? beer.rating.toFixed(2) : '–', tone: 'text-gold' },
   ];
 
   return (
-    <div
-      ref={modalRef}
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-0 md:p-4"
-    >
-      {/* Overlay */}
-      <div
-        ref={overlayRef}
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
-        onClick={handleClose}
-      />
-
-      {/* Content */}
-      <div
-        ref={contentRef}
-        className="relative w-full h-full md:h-auto md:max-w-lg md:max-h-[90vh] bg-white dark:bg-gray-900 md:rounded-[2rem] shadow-2xl overflow-hidden flex flex-col"
-      >
-        <div
-          className="relative flex-1 overflow-y-auto overscroll-contain flex flex-col"
-        >
-          {/* Close Button - Absolute */}
+    <Sheet
+      open
+      onClose={onClose}
+      title={beer.name}
+      footer={
+        <div className="flex gap-2">
+          <a href={beer.beer_url} target="_blank" rel="noopener noreferrer" className="btn-primary flex-1">
+            Check-in op Untappd
+            <ExternalLink className="w-4 h-4" aria-hidden />
+          </a>
           <button
-            onClick={handleClose}
-            className="absolute top-4 right-4 z-30 p-2 bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10 backdrop-blur-md rounded-full text-gray-500 dark:text-gray-400 transition-colors"
+            type="button"
+            onClick={toggleCompare}
+            disabled={compareFull}
+            className={`icon-btn w-12 h-12 border ${inCompare ? 'bg-fg text-bg border-fg hover:bg-fg' : 'border-line/15'}`}
+            aria-pressed={inCompare}
+            aria-label={inCompare ? 'Uit vergelijking halen' : compareFull ? 'Vergelijking zit vol (max 4)' : 'Toevoegen aan vergelijking'}
+            title={compareFull ? 'Maximaal 4 bieren' : 'Vergelijk'}
           >
-            <X className="w-5 h-5" />
+            {inCompare ? <Check className="w-5 h-5" /> : <Scale className="w-5 h-5" />}
           </button>
+          <button type="button" onClick={handleShare} className="icon-btn w-12 h-12 border border-line/15" aria-label="Delen">
+            <Share2 className="w-5 h-5" />
+          </button>
+        </div>
+      }
+    >
+      <div className="relative -mx-5 -mt-1 mb-5 h-52 grid place-items-center bg-[radial-gradient(circle_at_50%_60%,rgb(var(--gold)/0.18),transparent_60%)]">
+        {beer.image_url && !broken ? (
+          <img
+            src={beer.image_url}
+            alt={beer.name}
+            onError={() => setBroken(true)}
+            className="h-44 w-44 object-contain drop-shadow-2xl"
+          />
+        ) : (
+          <Beer className="w-16 h-16 text-muted/60" aria-hidden />
+        )}
+      </div>
 
-          {/* Image Section - Compact */}
-          <div className="relative h-48 shrink-0 bg-gradient-to-b from-amber-50 to-white dark:from-gray-800 dark:to-gray-900">
-            {/* Image */}
-            <div className="absolute inset-0 flex items-center justify-center p-4">
-              {beer.image_url ? (
-                <img
-                  src={beer.image_url}
-                  alt={beer.name}
-                  className="h-full w-auto object-contain drop-shadow-xl"
-                />
-              ) : (
-                <div className="w-24 h-24 bg-amber-100 dark:bg-amber-900/50 rounded-2xl flex items-center justify-center">
-                  <Star className="w-10 h-10 text-amber-500" />
-                </div>
-              )}
-            </div>
+      <p className="eyebrow mb-1">{beer.style || beer.category}</p>
+      <p className="text-muted mb-5">{beer.brewery}</p>
+
+      <dl className="grid grid-cols-3 rounded-2xl border border-line/10 divide-x divide-line/10 mb-5 text-center">
+        {stats.map((s) => (
+          <div key={s.label} className="py-3">
+            <dt className="stat-label">{s.label}</dt>
+            <dd className={`mt-1 text-xl font-medium tabular ${s.tone}`}>{s.value}</dd>
           </div>
+        ))}
+      </dl>
 
-          {/* Info Section */}
-          <div className="flex-1 p-6 bg-white dark:bg-gray-900">
-            {/* Header */}
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white font-heading leading-tight mb-1">
-                {beer.name}
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 font-medium">
-                {beer.brewery}
-              </p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-4 gap-2 mb-6">
-              <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-2 text-center border border-amber-100 dark:border-amber-900/30">
-                <span className="block text-[10px] uppercase tracking-wider text-amber-800 dark:text-amber-500 font-bold mb-0.5">ABV</span>
-                <span className="block font-bold text-gray-900 dark:text-white text-sm">{beer.abv ? `${beer.abv}%` : '-'}</span>
-              </div>
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-2 text-center border border-green-100 dark:border-green-900/30">
-                <span className="block text-[10px] uppercase tracking-wider text-green-800 dark:text-green-500 font-bold mb-0.5">IBU</span>
-                <span className="block font-bold text-gray-900 dark:text-white text-sm">{beer.ibu || '-'}</span>
-              </div>
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-2 text-center border border-blue-100 dark:border-blue-900/30">
-                <span className="block text-[10px] uppercase tracking-wider text-blue-800 dark:text-blue-500 font-bold mb-0.5">Stijl</span>
-                <span className="block font-bold text-gray-900 dark:text-white text-xs truncate leading-tight">{beer.style || beer.category}</span>
-              </div>
-              <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-2 text-center border border-yellow-100 dark:border-yellow-900/30">
-                <span className="block text-[10px] uppercase tracking-wider text-yellow-800 dark:text-yellow-500 font-bold mb-0.5">Rating</span>
-                <div className="flex items-center justify-center gap-0.5">
-                  <span className="font-bold text-gray-900 dark:text-white text-sm">{beer.rating?.toFixed(2) || '-'}</span>
-                  <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                </div>
-              </div>
-            </div>
-
-            {/* Smaakprofiel Radar Chart */}
-            <div className="mb-6 bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-4 border border-gray-100 dark:border-gray-700">
-              <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-2 text-center flex items-center justify-center gap-2">
-                <Star className="w-4 h-4 text-amber-500" />
-                Smaakprofiel
-              </h3>
-              <div className="h-[200px] w-full">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart cx="50%" cy="50%" outerRadius="70%" data={chartData}>
-                    <PolarGrid stroke="#e5e7eb" strokeOpacity={0.5} />
-                    <PolarAngleAxis dataKey="subject" tick={{ fill: '#9ca3af', fontSize: 10, fontWeight: 'bold' }} />
-                    <Radar
-                      name="Dit Bier"
-                      dataKey="A"
-                      stroke="#f59e0b"
-                      strokeWidth={2}
-                      fill="#f59e0b"
-                      fillOpacity={0.5}
-                    />
-                    <Radar
-                      name="Gemiddeld"
-                      dataKey="B"
-                      stroke="#9ca3af"
-                      strokeWidth={1}
-                      strokeDasharray="3 3"
-                      fill="#9ca3af"
-                      fillOpacity={0.1}
-                    />
-                    <Legend 
-                      iconSize={8} 
-                      wrapperStyle={{ fontSize: '10px', paddingTop: '10px' }} 
-                    />
-                  </RadarChart>
-                </ResponsiveContainer>
-              </div>
-              <p className="text-[10px] text-center text-gray-400 mt-2 italic">
-                * Vergeleken met het gemiddelde van de kaart
-              </p>
-            </div>
-
-            {/* Actions */}
-            <div className="space-y-3 mt-auto">
-              <a
-                href={beer.beer_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-[#ffc000] hover:bg-[#ffd000] text-black font-bold py-3 rounded-xl transition-all shadow-lg shadow-amber-500/20 active:scale-95"
-              >
-                <img src="https://cdn.simpleicons.org/untappd/000000" alt="" className="w-5 h-5" />
-                <span>Check-in op Untappd</span>
-              </a>
-
-              <div className="flex gap-3">
-                <button
-                  onClick={handleShare}
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 text-gray-600 dark:text-gray-300 transition-all"
-                >
-                  <Share2 className="w-5 h-5" />
-                  Delen
-                </button>
-              </div>
-            </div>
+      <div className="rounded-2xl border border-line/10 p-4">
+        <div className="flex items-center justify-between mb-1">
+          <h3 className="stat-label flex items-center gap-1.5">
+            <Star className="w-3.5 h-3.5 text-gold" aria-hidden />
+            Smaakprofiel
+          </h3>
+          <div className="flex items-center gap-3 text-[11px] text-muted">
+            <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-gold" />Dit bier</span>
+            <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-0.5 bg-muted" />Gemiddeld</span>
           </div>
         </div>
+        <div className="h-[200px] w-full" role="img" aria-label={`Sterkte ${beer.abv ?? '?'}%, bitterheid ${beer.ibu ?? '?'} IBU, waardering ${beer.rating?.toFixed(2) ?? '?'} vergeleken met het gemiddelde van de kaart`}>
+          <ResponsiveContainer width="100%" height="100%">
+            <RadarChart cx="50%" cy="52%" outerRadius="70%" data={chartData}>
+              <PolarGrid stroke={c.grid} />
+              <PolarAngleAxis dataKey="subject" tick={{ fill: c.muted, fontSize: 11 }} />
+              <Radar dataKey="B" stroke={c.muted} strokeWidth={1} strokeDasharray="3 3" fill="transparent" isAnimationActive={false} />
+              <Radar dataKey="A" stroke={c.gold} strokeWidth={2} fill={c.gold} fillOpacity={0.35} />
+            </RadarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
-    </div>
+
+      {shareNote && (
+        <p role="status" className="mt-4 text-center text-sm text-hop">{shareNote}</p>
+      )}
+    </Sheet>
   );
 }
