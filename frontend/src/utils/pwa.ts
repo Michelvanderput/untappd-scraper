@@ -127,6 +127,10 @@ export function setupInstallPrompt() {
   });
 }
 
+export function canPromptInstall(): boolean {
+  return deferredPrompt !== null;
+}
+
 export async function promptInstall(): Promise<boolean> {
   if (!deferredPrompt) {
     return false;

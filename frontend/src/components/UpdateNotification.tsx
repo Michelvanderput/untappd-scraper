@@ -1,115 +1,47 @@
 import { useEffect, useState } from 'react';
-import { RefreshCw, X } from 'lucide-react';
-import gsap from 'gsap';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Sparkles, X } from 'lucide-react';
 
 export default function UpdateNotification() {
-  const [showUpdate, setShowUpdate] = useState(false);
   const [onUpdate, setOnUpdate] = useState<(() => void) | null>(null);
 
   useEffect(() => {
     const handleUpdateAvailable = (event: Event) => {
-      const customEvent = event as CustomEvent;
-      if (customEvent.detail && customEvent.detail.onUpdate) {
-        setOnUpdate(() => customEvent.detail.onUpdate);
-        setShowUpdate(true);
-      }
+      const detail = (event as CustomEvent).detail;
+      if (detail?.onUpdate) setOnUpdate(() => detail.onUpdate);
     };
-
     window.addEventListener('pwa-update-available', handleUpdateAvailable);
-
-    return () => {
-      window.removeEventListener('pwa-update-available', handleUpdateAvailable);
-    };
+    return () => window.removeEventListener('pwa-update-available', handleUpdateAvailable);
   }, []);
 
-  useEffect(() => {
-    if (showUpdate) {
-      const notification = document.getElementById('update-notification');
-      if (notification) {
-        gsap.fromTo(
-          notification,
-          { y: 100, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }
-        );
-      }
-    }
-  }, [showUpdate]);
-
-  const handleUpdate = () => {
-    if (onUpdate) {
-      const notification = document.getElementById('update-notification');
-      if (notification) {
-        gsap.to(notification, {
-          scale: 0.9,
-          opacity: 0,
-          duration: 0.3,
-          ease: 'power2.in',
-          onComplete: () => {
-            onUpdate();
-          }
-        });
-      } else {
-        onUpdate();
-      }
-    }
-  };
-
-  const handleDismiss = () => {
-    const notification = document.getElementById('update-notification');
-    if (notification) {
-      gsap.to(notification, {
-        y: 100,
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power2.in',
-        onComplete: () => {
-          setShowUpdate(false);
-        }
-      });
-    } else {
-      setShowUpdate(false);
-    }
-  };
-
-  if (!showUpdate) return null;
-
   return (
-    <div
-      id="update-notification"
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-[9999] safe-bottom"
-    >
-      <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-2xl shadow-2xl p-4 backdrop-blur-lg border border-white/20">
-        <div className="flex items-start gap-3">
-          <div className="flex-shrink-0 mt-1">
-            <RefreshCw className="w-6 h-6 animate-spin" />
+    <AnimatePresence>
+      {onUpdate && (
+        <motion.div
+          role="status"
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 80, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+          className="fixed z-[65] inset-x-3 md:inset-x-auto md:right-6 md:w-96 bottom-[calc(5.5rem+env(safe-area-inset-bottom))] md:bottom-6"
+        >
+          <div className="flex items-center gap-3 p-2 pl-4 rounded-full bg-fg text-bg shadow-2xl">
+            <Sparkles className="w-5 h-5 shrink-0 text-gold" aria-hidden />
+            <p className="flex-1 text-sm font-medium">Nieuwe versie klaar</p>
+            <button type="button" onClick={() => onUpdate()} className="btn min-h-[40px] h-10 px-4 text-sm bg-gold text-on-gold">
+              Updaten
+            </button>
+            <button
+              type="button"
+              onClick={() => setOnUpdate(null)}
+              className="grid place-items-center w-10 h-10 rounded-full hover:bg-bg/10"
+              aria-label="Sluiten"
+            >
+              <X className="w-4 h-4" />
+            </button>
           </div>
-          
-          <div className="flex-1">
-            <h3 className="font-bold text-lg mb-1">
-              🎉 Nieuwe versie beschikbaar!
-            </h3>
-            <p className="text-sm text-white/90 mb-3">
-              Er is een update beschikbaar. Klik op "Updaten" om de nieuwste versie te laden.
-            </p>
-            
-            <div className="flex gap-2">
-              <button
-                onClick={handleUpdate}
-                className="flex-1 bg-white text-amber-600 font-semibold px-4 py-2 rounded-xl hover:bg-amber-50 transition-all active:scale-95 shadow-md"
-              >
-                Updaten
-              </button>
-              <button
-                onClick={handleDismiss}
-                className="p-2 hover:bg-white/20 rounded-xl transition-all active:scale-95"
-                aria-label="Sluiten"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

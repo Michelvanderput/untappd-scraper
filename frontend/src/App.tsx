@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Beer, TrendingUp, Sparkles, Shuffle, Menu, X, Download, Loader2, Instagram } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import gsap from 'gsap';
+import { useEffect, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
+import { Beer, TrendingUp, Sparkles, Spade, Download, Instagram, Dices } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { AnimatePresence, MotionConfig, motion } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
@@ -11,175 +11,190 @@ import ThemeToggle from './components/ThemeToggle';
 import UpdateNotification from './components/UpdateNotification';
 import ComparisonBar from './components/ComparisonBar';
 import ErrorBoundary from './components/ErrorBoundary';
+import BottleCap from './components/BottleCap';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
-import './App.css';
+import { haptics } from './utils/haptic';
 
 // Lazy load pages
 const BeersPage = lazy(() => import('./pages/BeersPage'));
 const TrendsPage = lazy(() => import('./pages/TrendsPage'));
 const MenuBuilderPage = lazy(() => import('./pages/MenuBuilderPage'));
 const SurprisePage = lazy(() => import('./pages/SurprisePage'));
+const ToepenPage = lazy(() => import('./pages/ToepenPage'));
 const InstallPage = lazy(() => import('./pages/InstallPage'));
 const ComparePage = lazy(() => import('./pages/ComparePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-function LoadingSpinner() {
+interface NavItem {
+  path: string;
+  icon: LucideIcon;
+  label: string;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { path: '/', icon: Beer, label: 'Bieren' },
+  { path: '/trends', icon: TrendingUp, label: 'Trends' },
+  { path: '/surprise', icon: Dices, label: 'Verras me' },
+  { path: '/menu-builder', icon: Sparkles, label: 'Menu' },
+  { path: '/toepen', icon: Spade, label: 'Toepen' },
+];
+
+function PageFallback() {
   return (
-    <div className="flex items-center justify-center min-h-[50vh]">
-      <Loader2 className="w-10 h-10 text-amber-500 animate-spin" />
+    <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Laden">
+      <BottleCap className="w-12 h-12" spinning />
     </div>
   );
 }
 
-function Navigation() {
-  const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navRef = useRef<HTMLDivElement>(null);
-  const navLinksRef = useRef<HTMLDivElement>(null);
-  const isActive = (path: string) => location.pathname === path;
-
-  const navItems = [
-    { path: '/', icon: Beer, label: 'Bieren', color: 'from-amber-500 to-orange-500' },
-    { path: '/trends', icon: TrendingUp, label: 'Trends', color: 'from-blue-500 to-cyan-500' },
-    { path: '/menu-builder', icon: Sparkles, label: 'Menu', color: 'from-purple-500 to-pink-500' },
-    { path: '/surprise', icon: Shuffle, label: 'Surprise', color: 'from-green-500 to-emerald-500' },
-  ];
-
-  const handleNavClick = () => {
-    setIsMenuOpen(false);
-  };
-
-  // Initial nav animation
-  useEffect(() => {
-    if (navRef.current) {
-      gsap.fromTo(
-        navRef.current,
-        { y: -100, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
-      );
-    }
-
-    // Stagger nav links
-    if (navLinksRef.current) {
-      gsap.fromTo(
-        navLinksRef.current.querySelectorAll('a'),
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.4, stagger: 0.08, delay: 0.4, ease: 'power2.out' }
-      );
-    }
-  }, []);
-
+function Logo() {
   return (
-    <nav 
-      ref={navRef} 
-      className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-white/20 dark:border-gray-800 shadow-lg shadow-black/5"
-    >
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group" onClick={handleNavClick}>
-            <div className="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform duration-300">
-              <Beer className="w-6 h-6 text-white" />
-            </div>
-            <h1 className="text-2xl font-bold font-heading">
-              <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200 bg-clip-text text-transparent">Beer</span>
-              <span className="bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">Menu</span>
-            </h1>
+    <Link to="/" className="flex items-center gap-2.5 min-h-[44px] group" aria-label="BeerMenu – naar bieren">
+      <BottleCap className="w-9 h-9 transition-transform duration-500 ease-out-expo group-hover:rotate-[30deg]">
+        <span className="font-display italic font-extrabold text-sm">B</span>
+      </BottleCap>
+      <span className="font-display italic font-extrabold text-xl tracking-tight">
+        Beer<span className="text-gold">Menu</span>
+      </span>
+    </Link>
+  );
+}
+
+function TopBar() {
+  return (
+    <header className="sticky top-0 z-40 pt-safe bg-bg/75 backdrop-blur-xl border-b border-line/5">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 h-14 md:h-16 flex items-center justify-between gap-4">
+        <Logo />
+
+        <nav className="hidden md:flex items-center gap-1" aria-label="Hoofdnavigatie">
+          {NAV_ITEMS.map(({ path, label }) => (
+            <NavLink
+              key={path}
+              to={path}
+              end={path === '/'}
+              className={({ isActive }) =>
+                `relative px-4 min-h-[40px] inline-flex items-center rounded-full text-sm font-medium transition-colors ${
+                  isActive ? 'text-bg' : 'text-muted hover:text-fg'
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  {isActive && (
+                    <motion.span
+                      layoutId="desktop-nav-pill"
+                      className="absolute inset-0 rounded-full bg-fg"
+                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative">{label}</span>
+                </>
+              )}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-1">
+          <Link to="/install" className="icon-btn" aria-label="Installeer de app">
+            <Download className="w-5 h-5" />
           </Link>
-
-          {/* Desktop Navigation */}
-          <div ref={navLinksRef} className="hidden md:flex items-center gap-2">
-            {navItems.map(({ path, icon: Icon, label, color }) => (
-              <Link
-                key={path}
-                to={path}
-                className={`relative px-4 py-2.5 rounded-xl font-medium transition-all duration-300 group overflow-hidden ${
-                  isActive(path)
-                    ? 'text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
-                }`}
-              >
-                {isActive(path) && (
-                  <div className={`absolute inset-0 bg-gradient-to-r ${color} rounded-xl`} />
-                )}
-                <div className="relative flex items-center gap-2">
-                  <Icon className={`w-4 h-4 ${isActive(path) ? 'animate-pulse' : 'group-hover:scale-110 transition-transform'}`} />
-                  <span>{label}</span>
-                </div>
-              </Link>
-            ))}
-            
-            <div className="w-px h-8 bg-gray-200 dark:bg-gray-700 mx-2" />
-            
-            <Link
-              to="/install"
-              className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-300 transition-all hover:scale-105 active:scale-95"
-              title="Installeer app"
-            >
-              <Download className="w-5 h-5" />
-            </Link>
-            <ThemeToggle />
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 md:hidden">
-            <Link
-              to="/install"
-              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            >
-              <Download className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-            </Link>
-            <ThemeToggle />
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all active:scale-95 text-gray-700 dark:text-gray-300"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          <ThemeToggle />
         </div>
       </div>
+    </header>
+  );
+}
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="md:hidden overflow-hidden border-t border-gray-100 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl"
-          >
-            <div className="p-4 space-y-2">
-              {navItems.map(({ path, icon: Icon, label, color }) => (
-                <Link
-                  key={path}
-                  to={path}
-                  onClick={handleNavClick}
-                  className={`flex items-center gap-4 p-4 rounded-2xl font-bold transition-all active:scale-98 ${
-                    isActive(path)
-                      ? `bg-gradient-to-r ${color} text-white shadow-lg`
-                      : 'bg-gray-50 dark:bg-gray-800/50 text-gray-700 dark:text-gray-300'
-                  }`}
-                >
-                  <div className={`p-2 rounded-xl ${isActive(path) ? 'bg-white/20' : 'bg-white dark:bg-gray-700'}`}>
-                    <Icon className="w-5 h-5" />
-                  </div>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+function TabBar() {
+  return (
+    <nav
+      className="md:hidden fixed inset-x-3 z-50 bottom-[calc(0.75rem+env(safe-area-inset-bottom))]"
+      aria-label="Hoofdnavigatie"
+    >
+      <div className="relative flex items-stretch justify-between h-16 px-1.5 rounded-full bg-surface/85 backdrop-blur-2xl border border-line/10 shadow-[0_18px_40px_-12px_rgba(0,0,0,0.55)]">
+        {NAV_ITEMS.map(({ path, icon: Icon, label }) => {
+          const isCenter = path === '/surprise';
+          return (
+            <NavLink
+              key={path}
+              to={path}
+              end={path === '/'}
+              onClick={() => haptics.tap()}
+              aria-label={label}
+              className="relative flex-1 flex flex-col items-center justify-center gap-0.5 min-w-[44px]"
+            >
+              {({ isActive }) =>
+                isCenter ? (
+                  <motion.span
+                    className="-mt-7 flex flex-col items-center gap-1"
+                    whileTap={{ scale: 0.9, rotate: -20 }}
+                  >
+                    <BottleCap className={`w-[60px] h-[60px] drop-shadow-[0_10px_18px_rgba(242,179,61,0.35)] ${isActive ? '' : 'saturate-[0.85]'}`}>
+                      <Icon className="w-6 h-6" strokeWidth={2.2} />
+                    </BottleCap>
+                    <span className={`text-[10px] font-medium ${isActive ? 'text-gold' : 'text-muted'}`}>{label}</span>
+                  </motion.span>
+                ) : (
+                  <>
+                    {isActive && (
+                      <motion.span
+                        layoutId="tab-pill"
+                        className="absolute inset-x-1 inset-y-1.5 rounded-full bg-line/10"
+                        transition={{ type: 'spring', stiffness: 500, damping: 36 }}
+                      />
+                    )}
+                    <Icon className={`relative w-5 h-5 transition-colors ${isActive ? 'text-gold' : 'text-muted'}`} />
+                    <span className={`relative text-[10px] font-medium transition-colors ${isActive ? 'text-fg' : 'text-muted'}`}>
+                      {label}
+                    </span>
+                  </>
+                )
+              }
+            </NavLink>
+          );
+        })}
+      </div>
     </nav>
+  );
+}
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location.pathname]);
+
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={location.pathname}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -6 }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <Suspense fallback={<PageFallback />}>
+          <ErrorBoundary>
+            <Routes location={location}>
+              <Route path="/" element={<BeersPage />} />
+              <Route path="/trends" element={<TrendsPage />} />
+              <Route path="/menu-builder" element={<MenuBuilderPage />} />
+              <Route path="/surprise" element={<SurprisePage />} />
+              <Route path="/toepen" element={<ToepenPage />} />
+              <Route path="/install" element={<InstallPage />} />
+              <Route path="/compare" element={<ComparePage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </ErrorBoundary>
+        </Suspense>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 
 function App() {
   useEffect(() => {
-    // Register service worker for PWA
     registerServiceWorker();
     setupInstallPrompt();
   }, []);
@@ -188,46 +203,43 @@ function App() {
     <ThemeProvider>
       <FavoritesProvider>
         <ComparisonProvider>
-          <BrowserRouter>
-            <div className="min-h-screen flex flex-col bg-amber-50 dark:bg-gray-900 transition-colors pt-20">
-              <Navigation />
+          <MotionConfig reducedMotion="user">
+            <BrowserRouter>
+              <div className="min-h-[100dvh] flex flex-col">
+                {/* Ambient tap-light glow */}
+                <div
+                  className="pointer-events-none fixed inset-x-0 top-0 h-[60vh] -z-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgb(var(--gold)/0.10),transparent_70%)]"
+                  aria-hidden
+                />
 
-              <main className="flex-1">
-              <Suspense fallback={<LoadingSpinner />}>
-                <ErrorBoundary>
-                  <Routes>
-                    <Route path="/" element={<BeersPage />} />
-                    <Route path="/trends" element={<TrendsPage />} />
-                    <Route path="/menu-builder" element={<MenuBuilderPage />} />
-                  <Route path="/surprise" element={<SurprisePage />} />
-                  <Route path="/install" element={<InstallPage />} />
-                    <Route path="/compare" element={<ComparePage />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                  </Routes>
-                </ErrorBoundary>
-              </Suspense>
-              </main>
+                <TopBar />
 
-              <ComparisonBar />
-              <UpdateNotification />
-              <Analytics />
+                <main className="relative flex-1">
+                  <AnimatedRoutes />
+                </main>
 
-              <footer className="mt-auto py-6 px-4 border-t border-amber-200/50 dark:border-gray-800">
-                <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                  <span>Gemaakt door</span>
-                  <a
-                    href="https://instagram.com/michelvdput"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-medium text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
-                  >
-                    <Instagram className="w-4 h-4" />
-                    @michelvdput
-                  </a>
-                </div>
-              </footer>
-            </div>
-          </BrowserRouter>
+                <footer className="border-t border-line/5 pt-6 px-4 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pb-6">
+                  <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted">
+                    <span className="font-display italic">Biertaverne De Gouverneur</span>
+                    <a
+                      href="https://instagram.com/michelvdput"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 hover:text-fg transition-colors"
+                    >
+                      <Instagram className="w-4 h-4" />
+                      @michelvdput
+                    </a>
+                  </div>
+                </footer>
+
+                <TabBar />
+                <ComparisonBar />
+                <UpdateNotification />
+                <Analytics />
+              </div>
+            </BrowserRouter>
+          </MotionConfig>
         </ComparisonProvider>
       </FavoritesProvider>
     </ThemeProvider>

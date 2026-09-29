@@ -11,16 +11,13 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // Dark-first: the app is mostly used inside a dim taverne. Light only when chosen.
   const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) {
-      return saved as Theme;
-    }
-    // Check system preference
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    try {
+      return localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
+    } catch {
       return 'dark';
     }
-    return 'light';
   });
 
   useEffect(() => {
@@ -30,7 +27,14 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } else {
       root.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      // storage unavailable (private mode) — theme still applies for this session
+    }
+    document
+      .querySelectorAll('meta[name="theme-color"]')
+      .forEach((m) => m.setAttribute('content', theme === 'dark' ? '#0E0B09' : '#F7F1E6'));
   }, [theme]);
 
   const toggleTheme = () => {

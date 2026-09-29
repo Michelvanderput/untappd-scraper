@@ -1,640 +1,504 @@
 import { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
-import { Beer, Search, Filter, X, Sparkles, Car, Zap, Candy, Flame, RefreshCw } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Search, SlidersHorizontal, X, Car, Zap, Candy, Flame, RefreshCw, Beer } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
-import { useDebounce } from '../hooks/useDebounce';
-import { beerCache } from '../utils/cache';
+import BottleCap from '../components/BottleCap';
+import EmptyState from '../components/EmptyState';
+import PageLayout from '../components/PageLayout';
+import Sheet from '../components/Sheet';
 import SEO from '../components/SEO';
-import { animatePageHeader, animateFadeIn, animateGrid } from '../utils/animations';
+import { useDebounce } from '../hooks/useDebounce';
+import { useBeers } from '../hooks/useBeers';
+import { haptics } from '../utils/haptic';
 
 const BeerModal = lazy(() => import('../components/BeerModal'));
 
 type SmartTag = 'debob' | 'hopbom' | 'zoetekauw' | 'zwaar';
+type SortKey = 'default' | 'rating' | 'abv-desc' | 'abv-asc' | 'name';
 
-const SMART_TAGS = [
-  { id: 'debob' as SmartTag, label: 'De Bob', icon: Car, color: 'text-blue-500 bg-blue-50 dark:bg-blue-900/20' },
-  { id: 'hopbom' as SmartTag, label: 'Hopbom', icon: Zap, color: 'text-green-500 bg-green-50 dark:bg-green-900/20' },
-  { id: 'zoetekauw' as SmartTag, label: 'Zoetekauw', icon: Candy, color: 'text-pink-500 bg-pink-50 dark:bg-pink-900/20' },
-  { id: 'zwaar' as SmartTag, label: 'Zwaar Geschut', icon: Flame, color: 'text-red-500 bg-red-50 dark:bg-red-900/20' },
+const SMART_TAGS: { id: SmartTag; label: string; icon: LucideIcon }[] = [
+  { id: 'debob', label: 'De Bob', icon: Car },
+  { id: 'hopbom', label: 'Hopbom', icon: Zap },
+  { id: 'zoetekauw', label: 'Zoetekauw', icon: Candy },
+  { id: 'zwaar', label: 'Zwaar geschut', icon: Flame },
 ];
 
+const SORTS: { id: SortKey; label: string }[] = [
+  { id: 'default', label: 'Kaartvolgorde' },
+  { id: 'rating', label: 'Hoogste rating' },
+  { id: 'abv-desc', label: 'Sterkste eerst' },
+  { id: 'abv-asc', label: 'Lichtste eerst' },
+  { id: 'name', label: 'Naam A–Z' },
+];
+
+const ABV_MAX = 15;
+const IBU_MAX = 120;
+const PAGE = 24;
+
+function deduplicateBeers(beerList: BeerData[]) {
+  const seen = new Map<string, BeerData>();
+  const score = (b: BeerData) => (b.rating ? 1 : 0) + (b.image_url ? 1 : 0) + (b.ibu ? 1 : 0);
+  for (const beer of beerList) {
+    const key = `${beer.name.toLowerCase().trim()}-${(beer.brewery || '').toLowerCase().trim()}`;
+    const existing = seen.get(key);
+    if (!existing || score(beer) > score(existing)) seen.set(key, beer);
+  }
+  return Array.from(seen.values());
+}
+
+function searchBeers(beerList: BeerData[], term: string) {
+  const terms = term.toLowerCase().trim().split(/\s+/);
+  return beerList.filter((beer) => {
+    const text = [beer.name, beer.brewery, beer.style, beer.category, beer.subcategory].filter(Boolean).join(' ').toLowerCase();
+    return terms.every((t) => text.includes(t));
+  });
+}
+
+function matchesSmartTag(b: BeerData, tag: SmartTag) {
+  const style = b.style?.toLowerCase() || '';
+  switch (tag) {
+    case 'debob':
+      return (b.abv || 0) <= 0.5;
+    case 'hopbom':
+      return (style.includes('ipa') || style.includes('pale ale')) && (b.ibu || 0) > 40;
+    case 'zoetekauw':
+      return ['stout', 'porter', 'sour', 'fruit', 'pastry'].some((s) => style.includes(s));
+    case 'zwaar':
+      return (b.abv || 0) >= 10;
+  }
+}
+
+function RangeField({
+  label,
+  value,
+  display,
+  min,
+  max,
+  step,
+  onChange,
+}: {
+  label: string;
+  value: [number, number];
+  display: string;
+  min: number;
+  max: number;
+  step: number;
+  onChange: (v: [number, number]) => void;
+}) {
+  return (
+    <fieldset>
+      <legend className="flex w-full items-center justify-between mb-2">
+        <span className="stat-label">{label}</span>
+        <span className="text-sm tabular">{display}</span>
+      </legend>
+      <div className="space-y-1">
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          value={value[0]}
+          aria-label={`${label} minimum`}
+          onChange={(e) => onChange([Math.min(parseFloat(e.target.value), value[1]), value[1]])}
+          className="w-full accent-gold h-8"
+        />
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          value={value[1]}
+          aria-label={`${label} maximum`}
+          onChange={(e) => onChange([value[0], Math.max(parseFloat(e.target.value), value[0])])}
+          className="w-full accent-gold h-8"
+        />
+      </div>
+    </fieldset>
+  );
+}
+
 export default function BeersPage() {
-  const [beers, setBeers] = useState<BeerData[]>([]);
-  const [filteredBeers, setFilteredBeers] = useState<BeerData[]>([]);
+  const { beers, loading, error, reload } = useBeers();
   const [selectedBeer, setSelectedBeer] = useState<BeerData | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedSubcategory, setSelectedSubcategory] = useState('');
   const [activeSmartTag, setActiveSmartTag] = useState<SmartTag | null>(null);
-  const [abvRange, setAbvRange] = useState<[number, number]>([0, 15]);
-  const [ibuRange, setIbuRange] = useState<[number, number]>([0, 120]);
-  const [minRating, setMinRating] = useState<number>(0);
-  const [loading, setLoading] = useState(true);
-  const [fetchError, setFetchError] = useState<string | null>(null);
+  const [abvRange, setAbvRange] = useState<[number, number]>([0, ABV_MAX]);
+  const [ibuRange, setIbuRange] = useState<[number, number]>([0, IBU_MAX]);
+  const [minRating, setMinRating] = useState(0);
+  const [sort, setSort] = useState<SortKey>('default');
   const [showFilters, setShowFilters] = useState(false);
-  const [displayCount, setDisplayCount] = useState(24);
-  
-  const headerRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
-  const filterRef = useRef<HTMLDivElement>(null);
+  const [displayCount, setDisplayCount] = useState(PAGE);
   const loadMoreRef = useRef<HTMLDivElement>(null);
 
-  // ... (animations and data fetching logic remains same) ...
+  const debouncedSearchTerm = useDebounce(searchTerm, 250);
+  const unique = useMemo(() => deduplicateBeers(beers), [beers]);
 
-  // Animate header on mount
-  useEffect(() => {
-    if (headerRef.current && !loading) {
-      animatePageHeader(headerRef.current);
+  const filteredBeers = useMemo(() => {
+    let list = unique;
+    if (activeSmartTag) list = list.filter((b) => matchesSmartTag(b, activeSmartTag));
+    if (selectedCategory) list = list.filter((b) => b.category === selectedCategory);
+    if (selectedSubcategory) list = list.filter((b) => b.subcategory === selectedSubcategory);
+    if (debouncedSearchTerm) list = searchBeers(list, debouncedSearchTerm);
+    if (abvRange[0] > 0 || abvRange[1] < ABV_MAX) {
+      list = list.filter((b) => (b.abv || 0) >= abvRange[0] && (b.abv || 0) <= abvRange[1]);
     }
-  }, [loading]);
-
-  // Animate search bar on mount
-  useEffect(() => {
-    if (searchRef.current && !loading) {
-      animateFadeIn(searchRef.current, 0.3);
+    if (ibuRange[0] > 0 || ibuRange[1] < IBU_MAX) {
+      list = list.filter((b) => (b.ibu || 0) >= ibuRange[0] && (b.ibu || 0) <= ibuRange[1]);
     }
-  }, [loading]);
+    if (minRating > 0) list = list.filter((b) => (b.rating || 0) >= minRating);
 
-  // Animate grid on mount
-  useEffect(() => {
-    if (gridRef.current && !loading) {
-      animateGrid(gridRef.current);
+    switch (sort) {
+      case 'rating':
+        return [...list].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+      case 'abv-desc':
+        return [...list].sort((a, b) => (b.abv ?? 0) - (a.abv ?? 0));
+      case 'abv-asc':
+        return [...list].sort((a, b) => (a.abv ?? 99) - (b.abv ?? 99));
+      case 'name':
+        return [...list].sort((a, b) => a.name.localeCompare(b.name, 'nl'));
+      default:
+        return list;
     }
-  }, [filteredBeers, loading, displayCount]);
+  }, [unique, debouncedSearchTerm, selectedCategory, selectedSubcategory, activeSmartTag, abvRange, ibuRange, minRating, sort]);
 
-  // Animate filter panel
+  // New result set → start paging from the top again
+  const [pagedList, setPagedList] = useState(filteredBeers);
+  if (pagedList !== filteredBeers) {
+    setPagedList(filteredBeers);
+    setDisplayCount(PAGE);
+  }
+
+  // Infinite scroll
   useEffect(() => {
-    if (filterRef.current && showFilters) {
-      animateFadeIn(filterRef.current, 0.1);
-    }
-  }, [showFilters]);
-
-  // Infinite scroll observer
-  useEffect(() => {
-    if (!loadMoreRef.current) return;
-
+    const el = loadMoreRef.current;
+    if (!el) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && displayCount < filteredBeers.length) {
-          setDisplayCount(prev => Math.min(prev + 24, filteredBeers.length));
-        }
+        if (entries[0].isIntersecting) setDisplayCount((n) => Math.min(n + PAGE, filteredBeers.length));
       },
-      { threshold: 0.1 }
+      { rootMargin: '400px' }
     );
-
-    observer.observe(loadMoreRef.current);
-
+    observer.observe(el);
     return () => observer.disconnect();
-  }, [displayCount, filteredBeers.length]);
+  }, [filteredBeers.length, displayCount]);
 
-  const fetchAndCache = useCallback(async () => {
-    setFetchError(null);
-    try {
-      let response;
-      try {
-        response = await fetch('/api/beers?limit=1000');
-      } catch {
-        response = await fetch('/beers.json');
-      }
+  const categories = useMemo(() => Array.from(new Set(beers.map((b) => b.category))).filter(Boolean), [beers]);
+  const subcategories = useMemo(
+    () =>
+      Array.from(
+        new Set(beers.filter((b) => !selectedCategory || b.category === selectedCategory).map((b) => b.subcategory))
+      ).filter(Boolean) as string[],
+    [beers, selectedCategory]
+  );
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const data = await response.json();
-      const beersList = data.beers || [];
-
-      setBeers(beersList);
-      setFilteredBeers(beersList);
-      await beerCache.set('beers', beersList);
-    } catch (error) {
-      console.error('Failed to fetch beers:', error);
-      setFetchError('De bieren konden niet worden geladen. Controleer je internetverbinding.');
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchBeers = async () => {
-      setLoading(true);
-      setFetchError(null);
-      try {
-        const cached = await beerCache.get<BeerData[]>('beers');
-        if (cached) {
-          setBeers(cached);
-          setFilteredBeers(cached);
-          setLoading(false);
-          fetchAndCache();
-          return;
-        }
-        await fetchAndCache();
-      } catch (error) {
-        console.error('Failed to fetch beers:', error);
-        setFetchError('De bieren konden niet worden geladen. Controleer je internetverbinding.');
-        setLoading(false);
-      }
-    };
-
-    fetchBeers();
-  }, [fetchAndCache]);
-
-  const deduplicateBeers = (beerList: BeerData[]) => {
-    const seen = new Map<string, BeerData>();
-    
-    beerList.forEach(beer => {
-      const key = `${beer.name.toLowerCase().trim()}-${(beer.brewery || '').toLowerCase().trim()}`;
-      
-      if (!seen.has(key)) {
-        seen.set(key, beer);
-      } else {
-        const existing = seen.get(key)!;
-        const newScore = (beer.rating ? 1 : 0) + (beer.image_url ? 1 : 0) + (beer.ibu ? 1 : 0);
-        const existingScore = (existing.rating ? 1 : 0) + (existing.image_url ? 1 : 0) + (existing.ibu ? 1 : 0);
-        
-        if (newScore > existingScore) {
-          seen.set(key, beer);
-        }
-      }
-    });
-    
-    return Array.from(seen.values());
-  };
-
-  const searchBeers = (beerList: BeerData[], term: string) => {
-    const searchTerms = term.toLowerCase().trim().split(/\s+/);
-    
-    return beerList.filter(beer => {
-      const searchableText = [
-        beer.name,
-        beer.brewery,
-        beer.style,
-        beer.category,
-        beer.subcategory
-      ]
-        .filter(Boolean)
-        .join(' ')
-        .toLowerCase();
-      
-      return searchTerms.every(term => searchableText.includes(term));
-    });
-  };
-
-  const debouncedSearchTerm = useDebounce(searchTerm, 300);
-  const isSearching = searchTerm !== debouncedSearchTerm;
-
-  const filteredBeersResult = useMemo(() => {
-    let filtered = beers;
-
-    filtered = deduplicateBeers(filtered);
-
-    // Apply Smart Tags logic
-    if (activeSmartTag) {
-        switch (activeSmartTag) {
-            case 'debob':
-                filtered = filtered.filter(b => (b.abv || 0) <= 0.5);
-                break;
-            case 'hopbom':
-                filtered = filtered.filter(b => 
-                    (b.style?.toLowerCase().includes('ipa') || b.style?.toLowerCase().includes('pale ale')) && 
-                    (b.ibu || 0) > 40
-                );
-                break;
-            case 'zoetekauw':
-                filtered = filtered.filter(b => {
-                    const style = b.style?.toLowerCase() || '';
-                    return style.includes('stout') || style.includes('porter') || style.includes('sour') || style.includes('fruit') || style.includes('pastry');
-                });
-                break;
-            case 'zwaar':
-                filtered = filtered.filter(b => (b.abv || 0) >= 10);
-                break;
-        }
-    }
-
-    if (selectedCategory) {
-      filtered = filtered.filter(b => b.category === selectedCategory);
-    }
-
-    if (selectedSubcategory) {
-      filtered = filtered.filter(b => b.subcategory === selectedSubcategory);
-    }
-
-    if (debouncedSearchTerm) {
-      filtered = searchBeers(filtered, debouncedSearchTerm);
-    }
-
-    // ABV filter
-    if (abvRange[0] > 0 || abvRange[1] < 15) {
-      filtered = filtered.filter(b => {
-        const abv = b.abv || 0;
-        return abv >= abvRange[0] && abv <= abvRange[1];
-      });
-    }
-
-    // IBU filter
-    if (ibuRange[0] > 0 || ibuRange[1] < 120) {
-      filtered = filtered.filter(b => {
-        const ibu = b.ibu || 0;
-        return ibu >= ibuRange[0] && ibu <= ibuRange[1];
-      });
-    }
-
-    // Rating filter
-    if (minRating > 0) {
-      filtered = filtered.filter(b => (b.rating || 0) >= minRating);
-    }
-
-    return filtered;
-  }, [debouncedSearchTerm, selectedCategory, selectedSubcategory, beers, activeSmartTag, abvRange, ibuRange, minRating]);
-
-  useEffect(() => {
-    setFilteredBeers(filteredBeersResult);
-    setDisplayCount(24); // Reset display count on filter change
-  }, [filteredBeersResult]);
-
-  const categories = Array.from(new Set(beers.map(b => b.category)));
-  const subcategories = Array.from(new Set(
-    beers
-      .filter(b => !selectedCategory || b.category === selectedCategory)
-      .map(b => b.subcategory)
-      .filter(Boolean)
-  )) as string[];
+  const sheetFilterCount =
+    (selectedSubcategory ? 1 : 0) +
+    (abvRange[0] > 0 || abvRange[1] < ABV_MAX ? 1 : 0) +
+    (ibuRange[0] > 0 || ibuRange[1] < IBU_MAX ? 1 : 0) +
+    (minRating > 0 ? 1 : 0) +
+    (sort !== 'default' ? 1 : 0);
+  const anyFilter = !!(searchTerm || selectedCategory || activeSmartTag || sheetFilterCount);
 
   const clearFilters = () => {
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
     setActiveSmartTag(null);
-    setAbvRange([0, 15]);
-    setIbuRange([0, 120]);
+    setAbvRange([0, ABV_MAX]);
+    setIbuRange([0, IBU_MAX]);
     setMinRating(0);
+    setSort('default');
   };
 
-  const handleBeerClick = useCallback((beer: BeerData) => {
-    setSelectedBeer(beer);
-  }, []);
+  const handleBeerClick = useCallback((beer: BeerData) => setSelectedBeer(beer), []);
+  const handleModalClose = useCallback(() => setSelectedBeer(null), []);
 
-  const handleModalClose = useCallback(() => {
-    setSelectedBeer(null);
-  }, []);
+  if (loading && beers.length === 0) {
+    return (
+      <div className="grid place-items-center min-h-[70vh]" role="status" aria-label="Bieren laden">
+        <BottleCap className="w-14 h-14" spinning />
+      </div>
+    );
+  }
+
+  if (error && beers.length === 0) {
+    return (
+      <EmptyState
+        icon={Beer}
+        title="Tap staat droog"
+        description={error}
+        className="min-h-[70vh]"
+        action={
+          <button type="button" onClick={reload} className="btn-primary">
+            <RefreshCw className="w-4 h-4" />
+            Opnieuw proberen
+          </button>
+        }
+      />
+    );
+  }
 
   const displayedBeers = filteredBeers.slice(0, displayCount);
   const hasMore = displayCount < filteredBeers.length;
 
-  if (loading && beers.length === 0) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center">
-        <div className="text-center">
-          <Beer className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce mx-auto mb-4" />
-          <p className="text-xl text-gray-700 dark:text-gray-300 font-heading">Bieren laden...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (fetchError && beers.length === 0) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-6">
-        <div className="text-center max-w-md">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-4">
-            <Beer className="w-8 h-8" aria-hidden />
-          </div>
-          <p className="text-xl text-gray-700 dark:text-gray-300 font-medium mb-2">{fetchError}</p>
-          <button
-            type="button"
-            onClick={() => { setLoading(true); fetchAndCache(); }}
-            className="btn-primary inline-flex items-center gap-2 mt-4"
-          >
-            <RefreshCw className="w-5 h-5" />
-            Opnieuw proberen
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
-      <SEO 
-        title={selectedBeer ? `${selectedBeer.name} - BeerMenu` : 'BeerMenu - Ontdek de Beste Bieren'}
-        description={selectedBeer ? `${selectedBeer.name} - ${selectedBeer.category} | ${selectedBeer.subcategory || ''} | ABV: ${selectedBeer.abv}%` : `Ontdek ${filteredBeers.length} unieke bieren. Zoek, filter en vind je favoriete bier!`}
+      <SEO
+        title="BeerMenu – Biertaverne De Gouverneur"
+        description={`Ontdek ${unique.length} unieke bieren. Zoek, filter en vind je favoriete bier.`}
       />
-      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        {/* Abstract Background Elements */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-amber-200/20 dark:bg-amber-900/10 rounded-full blur-3xl animate-float" />
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-200/20 dark:bg-orange-900/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '-2s' }} />
+      <PageLayout
+        eyebrow="Biertaverne De Gouverneur"
+        title="Wat drink je vanavond?"
+        subtitle={`${unique.length} bieren op de kaart — van de tap, uit de bierbijbel en op=op.`}
+      >
+        {/* Sticky search */}
+        <div className="sticky z-30 top-[calc(3.5rem+env(safe-area-inset-top))] md:top-16 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-bg/85 backdrop-blur-xl">
+          <div className="flex gap-2">
+            <label className="relative flex-1">
+              <span className="sr-only">Zoek bieren</span>
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted pointer-events-none" aria-hidden />
+              <input
+                type="search"
+                inputMode="search"
+                enterKeyHint="search"
+                placeholder="Naam, brouwerij of stijl"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="field pl-12 pr-11 rounded-full"
+              />
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-1 top-1/2 -translate-y-1/2 icon-btn w-10 h-10 text-muted"
+                  aria-label="Zoekopdracht wissen"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </label>
+            <button
+              type="button"
+              onClick={() => setShowFilters(true)}
+              className="relative icon-btn w-12 h-12 bg-surface-2 border border-line/10"
+              aria-label={`Filters${sheetFilterCount ? ` (${sheetFilterCount} actief)` : ''}`}
+            >
+              <SlidersHorizontal className="w-5 h-5" />
+              {sheetFilterCount > 0 && (
+                <span className="absolute -top-1 -right-1 grid place-items-center w-5 h-5 rounded-full bg-gold text-on-gold text-[11px] font-medium tabular">
+                  {sheetFilterCount}
+                </span>
+              )}
+            </button>
+          </div>
+
+          {/* Categories */}
+          <div className="mt-3 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-2 overflow-x-auto no-scrollbar" role="radiogroup" aria-label="Categorie">
+            {['', ...categories].map((cat) => {
+              const active = selectedCategory === cat;
+              return (
+                <button
+                  key={cat || 'all'}
+                  type="button"
+                  role="radio"
+                  aria-checked={active}
+                  onClick={() => {
+                    haptics.tap();
+                    setSelectedCategory(cat);
+                    setSelectedSubcategory('');
+                  }}
+                  className={`chip ${active ? 'chip-active' : ''}`}
+                >
+                  {cat || 'Alles'}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
-        <div className="container mx-auto px-4 py-8 max-w-7xl relative z-10">
-          {/* Header */}
-          <div ref={headerRef} className="text-center mb-12">
-            <h1 className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-white mb-6 font-heading tracking-tight">
-              Bier <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">Menu</span>
-            </h1>
-            <div className="divider w-32 h-1.5 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500 mx-auto mb-8 rounded-full shadow-lg shadow-amber-500/20" />
-            
-            {/* Smart Tags - Mobile Friendly Scrollable */}
-            <div className="flex flex-wrap justify-center gap-3 mb-8 px-2">
-                {SMART_TAGS.map(tag => {
-                    const isActive = activeSmartTag === tag.id;
-                    const Icon = tag.icon;
-                    return (
-                        <button
-                            key={tag.id}
-                            onClick={() => setActiveSmartTag(isActive ? null : tag.id)}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all border-2 ${
-                                isActive 
-                                    ? `${tag.color} border-transparent shadow-md scale-105` 
-                                    : 'bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
-                            }`}
-                        >
-                            <Icon className={`w-4 h-4 ${isActive ? 'animate-pulse' : ''}`} />
-                            {tag.label}
-                        </button>
-                    )
-                })}
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-md rounded-full border border-amber-100 dark:border-gray-700">
-              <Sparkles className="w-4 h-4 text-amber-500" />
-              <p className="text-lg text-gray-600 dark:text-gray-300 font-medium">
-                {filteredBeers.length} unieke bieren beschikbaar
-              </p>
-            </div>
-          </div>
-
-          {/* Search and Filters */}
-          <div 
-            ref={searchRef} 
-            className="glass-panel rounded-2xl p-6 mb-12 opacity-0 relative overflow-hidden"
-          >
-            {/* Decorative gradient */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent opacity-50" />
-
-            <div className="flex flex-col md:flex-row gap-4 mb-4">
-              {/* Search */}
-              <div className="flex-1 relative group">
-                <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 transition-colors ${
-                  isSearching ? 'text-amber-500 animate-pulse' : 'text-gray-400 dark:text-gray-500 group-focus-within:text-amber-500'
-                }`} />
-                <input
-                  type="text"
-                  placeholder="Zoek op naam, brouwerij of stijl..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all placeholder:text-gray-400 dark:placeholder:text-gray-500 text-gray-900 dark:text-white text-lg"
-                />
-                {isSearching && (
-                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
-                    <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-                  </div>
-                )}
-              </div>
-
-              {/* Filter Toggle */}
-              <motion.button
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setShowFilters(!showFilters)}
-                className={`flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold transition-all shadow-lg ${
-                  showFilters
-                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-2 ring-amber-500 ring-inset'
-                    : 'bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:shadow-amber-500/30'
-                }`}
-              >
-                <Filter className={`w-5 h-5 ${showFilters ? 'rotate-180' : ''} transition-transform duration-300`} />
-                <span>Filters</span>
-              </motion.button>
-            </div>
-
-            {/* Filters Panel */}
-            <AnimatePresence>
-              {showFilters && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: 'auto', opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
-                  className="overflow-hidden"
-                >
-                  <div className="grid md:grid-cols-2 gap-6 pt-6 border-t border-gray-200 dark:border-gray-700/50 max-h-[60vh] overflow-y-auto pr-2">
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
-                        Categorie
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={selectedCategory}
-                          onChange={(e) => {
-                            setSelectedCategory(e.target.value);
-                            setSelectedSubcategory('');
-                          }}
-                          className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none appearance-none text-gray-900 dark:text-white"
-                        >
-                          <option value="">Alle categorieën</option>
-                          {categories.map(cat => (
-                            <option key={cat} value={cat}>{cat}</option>
-                          ))}
-                        </select>
-                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
-                          ▼
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1">
-                        Subcategorie
-                      </label>
-                      <div className="relative">
-                        <select
-                          value={selectedSubcategory}
-                          onChange={(e) => setSelectedSubcategory(e.target.value)}
-                          className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none appearance-none text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
-                          disabled={!selectedCategory}
-                        >
-                          <option value="">Alle subcategorieën</option>
-                          {subcategories.map(sub => (
-                            <option key={sub} value={sub}>{sub}</option>
-                          ))}
-                        </select>
-                        <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-400">
-                          ▼
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* ABV Range Filter */}
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
-                        <span>Alcohol % (ABV)</span>
-                        <span className="text-xs text-amber-600 dark:text-amber-400 font-bold">
-                          {abvRange[0]}% - {abvRange[1]}%
-                        </span>
-                      </label>
-                      <div className="px-2 space-y-2">
-                        <input
-                          type="range"
-                          min="0"
-                          max="15"
-                          step="0.5"
-                          value={abvRange[0]}
-                          onChange={(e) => setAbvRange([parseFloat(e.target.value), abvRange[1]])}
-                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                        />
-                        <input
-                          type="range"
-                          min="0"
-                          max="15"
-                          step="0.5"
-                          value={abvRange[1]}
-                          onChange={(e) => setAbvRange([abvRange[0], parseFloat(e.target.value)])}
-                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                        />
-                      </div>
-                    </div>
-
-                    {/* IBU Range Filter */}
-                    <div className="space-y-2">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
-                        <span>Bitterheid (IBU)</span>
-                        <span className="text-xs text-green-600 dark:text-green-400 font-bold">
-                          {ibuRange[0]} - {ibuRange[1]}
-                        </span>
-                      </label>
-                      <div className="px-2 space-y-2">
-                        <input
-                          type="range"
-                          min="0"
-                          max="120"
-                          step="5"
-                          value={ibuRange[0]}
-                          onChange={(e) => setIbuRange([parseInt(e.target.value), ibuRange[1]])}
-                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
-                        />
-                        <input
-                          type="range"
-                          min="0"
-                          max="120"
-                          step="5"
-                          value={ibuRange[1]}
-                          onChange={(e) => setIbuRange([ibuRange[0], parseInt(e.target.value)])}
-                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Rating Filter */}
-                    <div className="space-y-2 md:col-span-2">
-                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 flex items-center justify-between">
-                        <span>Minimale Rating</span>
-                        <span className="text-xs text-yellow-600 dark:text-yellow-400 font-bold">
-                          {minRating > 0 ? `★ ${minRating.toFixed(1)}+` : 'Alle ratings'}
-                        </span>
-                      </label>
-                      <div className="px-2">
-                        <input
-                          type="range"
-                          min="0"
-                          max="5"
-                          step="0.1"
-                          value={minRating}
-                          onChange={(e) => setMinRating(parseFloat(e.target.value))}
-                          className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500"
-                        />
-                        <div className="flex justify-between text-xs text-gray-400 dark:text-gray-500 mt-1">
-                          <span>0</span>
-                          <span>2.5</span>
-                          <span>5.0</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {(searchTerm || selectedCategory || selectedSubcategory || activeSmartTag || abvRange[0] > 0 || abvRange[1] < 15 || ibuRange[0] > 0 || ibuRange[1] < 120 || minRating > 0) && (
-                      <div className="md:col-span-2 flex justify-end">
-                        <button
-                          onClick={clearFilters}
-                          className="flex items-center gap-2 px-6 py-2 text-sm font-medium text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors"
-                        >
-                          <X className="w-4 h-4" />
-                          Alles wissen
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* Beer Grid */}
-          <div
-            ref={gridRef}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8"
-          >
-            {displayedBeers.map((beer) => (
-              <div key={beer.beer_url} className="h-full">
-                <BeerCard
-                  beer={beer}
-                  onClick={() => handleBeerClick(beer)}
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Loading More Indicator */}
-          {hasMore && (
-            <div ref={loadMoreRef} className="flex justify-center py-12">
-              <div className="glass-panel px-6 py-3 rounded-full flex items-center gap-3">
-                <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent rounded-full animate-spin"></div>
-                <span className="text-gray-600 dark:text-gray-300 font-medium">Meer bieren laden...</span>
-              </div>
-            </div>
-          )}
-
-          {/* End of List */}
-          {!hasMore && filteredBeers.length > 0 && (
-            <div className="text-center py-12">
-              <div className="inline-flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
-                <Beer className="w-8 h-8 opacity-50" />
-                <p className="font-medium">Dat waren ze allemaal!</p>
-              </div>
-            </div>
-          )}
-
-          {/* Empty State */}
-          {filteredBeers.length === 0 && (
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-20"
-            >
-              <div className="w-24 h-24 bg-amber-100 dark:bg-amber-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Search className="w-10 h-10 text-amber-600 dark:text-amber-500" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 font-heading">Geen bieren gevonden</h3>
-              <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-                We konden geen bieren vinden die aan je criteria voldoen. Probeer een andere zoekopdracht of filter.
-              </p>
+        {/* Smart tags */}
+        <div className="mt-1 mb-6 -mx-4 px-4 sm:mx-0 sm:px-0 flex gap-2 overflow-x-auto no-scrollbar" aria-label="Snelle selecties">
+          {SMART_TAGS.map(({ id, label, icon: Icon }) => {
+            const active = activeSmartTag === id;
+            return (
               <button
-                onClick={clearFilters}
-                className="btn-primary"
+                key={id}
+                type="button"
+                aria-pressed={active}
+                onClick={() => {
+                  haptics.tap();
+                  setActiveSmartTag(active ? null : id);
+                }}
+                className={`chip border-dashed ${active ? 'bg-gold/15 border-gold/60 border-solid text-gold hover:text-gold' : ''}`}
               >
+                <Icon className="w-4 h-4" aria-hidden />
+                {label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center justify-between mb-4 min-h-[40px]">
+          <p className="text-sm text-muted" aria-live="polite">
+            <span className="text-fg tabular font-medium">{filteredBeers.length}</span>{' '}
+            {filteredBeers.length === 1 ? 'bier' : 'bieren'}
+            {debouncedSearchTerm && <> voor “{debouncedSearchTerm}”</>}
+          </p>
+          {anyFilter && (
+            <button type="button" onClick={clearFilters} className="btn-ghost min-h-[40px] px-3 text-sm">
+              <X className="w-4 h-4" />
+              Wis filters
+            </button>
+          )}
+        </div>
+
+        {filteredBeers.length === 0 ? (
+          <EmptyState
+            icon={Search}
+            title="Niks gevonden"
+            description="Geen bier dat aan al je wensen voldoet. Probeer een andere zoekterm of minder filters."
+            action={
+              <button type="button" onClick={clearFilters} className="btn-primary">
                 Filters wissen
               </button>
-            </motion.div>
-          )}
-        </div>
-      </div>
-
-      {/* Beer Modal */}
-      <Suspense fallback={null}>
-        {selectedBeer && (
-          <BeerModal
-            beer={selectedBeer}
-            onClose={handleModalClose}
+            }
           />
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {displayedBeers.map((beer, i) => (
+              <motion.div
+                key={beer.beer_url}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: Math.min(i % PAGE, 12) * 0.03, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <BeerCard beer={beer} onClick={() => handleBeerClick(beer)} />
+              </motion.div>
+            ))}
+          </div>
         )}
+
+        {hasMore && (
+          <div ref={loadMoreRef} className="grid place-items-center py-10" role="status" aria-label="Meer bieren laden">
+            <BottleCap className="w-8 h-8" spinning />
+          </div>
+        )}
+        {!hasMore && filteredBeers.length > PAGE && (
+          <p className="text-center text-sm text-muted py-10 font-display italic">Dat was de hele kaart. Proost.</p>
+        )}
+      </PageLayout>
+
+      <Sheet
+        open={showFilters}
+        onClose={() => setShowFilters(false)}
+        title="Filters"
+        footer={
+          <div className="flex gap-3">
+            <button
+              type="button"
+              className="btn-ghost"
+              onClick={() => {
+                setSelectedSubcategory('');
+                setAbvRange([0, ABV_MAX]);
+                setIbuRange([0, IBU_MAX]);
+                setMinRating(0);
+                setSort('default');
+              }}
+              disabled={sheetFilterCount === 0}
+            >
+              Reset
+            </button>
+            <button type="button" className="btn-primary flex-1" onClick={() => setShowFilters(false)}>
+              Toon {filteredBeers.length} bieren
+            </button>
+          </div>
+        }
+      >
+        <div className="space-y-7">
+          <fieldset>
+            <legend className="stat-label mb-3">Sorteren</legend>
+            <div className="flex flex-wrap gap-2" role="radiogroup">
+              {SORTS.map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  role="radio"
+                  aria-checked={sort === s.id}
+                  onClick={() => setSort(s.id)}
+                  className={`chip ${sort === s.id ? 'chip-active' : ''}`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
+          {subcategories.length > 0 && (
+            <div>
+              <label htmlFor="subcat" className="stat-label block mb-2">
+                Subcategorie
+              </label>
+              <select
+                id="subcat"
+                value={selectedSubcategory}
+                onChange={(e) => setSelectedSubcategory(e.target.value)}
+                className="field appearance-none"
+              >
+                <option value="">Alle subcategorieën</option>
+                {subcategories.map((sub) => (
+                  <option key={sub} value={sub}>
+                    {sub}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
+          <RangeField
+            label="Alcohol (ABV)"
+            value={abvRange}
+            display={`${abvRange[0]}% – ${abvRange[1]}${abvRange[1] === ABV_MAX ? '+' : ''}%`}
+            min={0}
+            max={ABV_MAX}
+            step={0.5}
+            onChange={setAbvRange}
+          />
+          <RangeField
+            label="Bitterheid (IBU)"
+            value={ibuRange}
+            display={`${ibuRange[0]} – ${ibuRange[1]}${ibuRange[1] === IBU_MAX ? '+' : ''}`}
+            min={0}
+            max={IBU_MAX}
+            step={5}
+            onChange={setIbuRange}
+          />
+
+          <fieldset>
+            <legend className="flex w-full items-center justify-between mb-2">
+              <span className="stat-label">Minimale rating</span>
+              <span className="text-sm tabular">{minRating > 0 ? `${minRating.toFixed(1)}+` : 'Alle'}</span>
+            </legend>
+            <input
+              type="range"
+              min={0}
+              max={5}
+              step={0.1}
+              value={minRating}
+              aria-label="Minimale rating"
+              onChange={(e) => setMinRating(parseFloat(e.target.value))}
+              className="w-full accent-gold h-8"
+            />
+          </fieldset>
+        </div>
+      </Sheet>
+
+      <Suspense fallback={null}>
+        {selectedBeer && <BeerModal beer={selectedBeer} onClose={handleModalClose} />}
       </Suspense>
     </>
   );

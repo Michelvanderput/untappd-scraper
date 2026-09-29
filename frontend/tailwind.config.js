@@ -1,4 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
+// Semantic colour tokens. Values live as RGB triplets in src/index.css
+// (light + dark), so every utility supports opacity modifiers like bg-gold/20.
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 export default {
   darkMode: 'class',
   content: [
@@ -8,50 +13,49 @@ export default {
   theme: {
     extend: {
       colors: {
-        amber: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
-        },
-        beer: {
-          foam: '#FFFDF5',
-          blonde: '#F4D06F',
-          ipa: '#E6A33B',
-          dubbel: '#A65B27',
-          stout: '#3E2723',
-          glass: 'rgba(255, 255, 255, 0.1)',
-        }
+        bg: token('bg'),
+        surface: token('surface'),
+        'surface-2': token('surface-2'),
+        line: token('line'),
+        fg: token('fg'),
+        muted: token('muted'),
+        gold: token('gold'),
+        'on-gold': token('on-gold'),
+        ember: token('ember'),
+        hop: token('hop'),
+        foam: '#F6EEDF',
+        stout: '#0E0B09',
       },
       fontFamily: {
-        'heading': ['Distortion', 'serif'],
-        'sans': ['"Neue Montreal"', 'system-ui', 'sans-serif'],
+        display: ['Migra', 'Georgia', 'serif'],
+        heading: ['Migra', 'Georgia', 'serif'],
+        sans: ['"Neue Montreal"', 'system-ui', 'sans-serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'beer-pattern': "url('/assets/beer-texture.png')", // Placeholder for texture
+      borderRadius: {
+        '4xl': '2rem',
       },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+        rise: {
+          '0%': { transform: 'translateY(0) scale(1)', opacity: '0' },
+          '10%': { opacity: '0.7' },
+          '100%': { transform: 'translateY(-110vh) scale(1.3)', opacity: '0' },
         },
-        'pulse-glow': {
-          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-          '50%': { opacity: '.8', transform: 'scale(1.05)' },
-        }
-      }
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        'spin-slow': {
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        rise: 'rise linear infinite',
+        shimmer: 'shimmer 2.4s linear infinite',
+        'spin-slow': 'spin-slow 18s linear infinite',
+      },
     },
   },
   plugins: [],

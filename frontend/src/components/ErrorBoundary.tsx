@@ -31,23 +31,15 @@ export default class ErrorBoundary extends Component<Props, State> {
       if (this.props.fallback) return this.props.fallback;
 
       return (
-        <div className="min-h-[60vh] flex items-center justify-center p-6">
+        <div className="min-h-[60vh] flex items-center justify-center p-6" role="alert">
           <div className="max-w-md w-full text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 mb-6">
-              <AlertTriangle className="w-8 h-8" aria-hidden />
+            <div className="inline-grid place-items-center w-16 h-16 rounded-full border border-dashed border-ember/40 text-ember mb-6">
+              <AlertTriangle className="w-7 h-7" aria-hidden />
             </div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-              Er ging iets mis
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              De pagina kon niet worden geladen. Probeer de pagina te vernieuwen.
-            </p>
-            <button
-              type="button"
-              onClick={this.handleRetry}
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <RefreshCw className="w-5 h-5" />
+            <h2 className="font-display italic font-extrabold text-3xl mb-2">Er ging iets mis</h2>
+            <p className="text-muted mb-6">De pagina kon niet worden geladen. Probeer het opnieuw.</p>
+            <button type="button" onClick={this.handleRetry} className="btn-primary">
+              <RefreshCw className="w-4 h-4" />
               Opnieuw proberen
             </button>
           </div>

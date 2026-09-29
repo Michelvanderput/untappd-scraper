@@ -1,74 +1,24 @@
-import { useState, useEffect } from 'react';
-import { Sparkles } from 'lucide-react';
 import BeerRandomizer from '../components/BeerRandomizer';
-import { beerCache } from '../utils/cache';
-import type { BeerData } from '../types/beer';
+import BottleCap from '../components/BottleCap';
 import PageLayout from '../components/PageLayout';
+import SEO from '../components/SEO';
+import { useBeers } from '../hooks/useBeers';
 
 export default function SurprisePage() {
-  const [beers, setBeers] = useState<BeerData[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchBeers = async () => {
-      try {
-        const cached = await beerCache.get<BeerData[]>('beers');
-        if (cached && cached.length > 0) {
-          setBeers(cached);
-          setLoading(false);
-          // Fetch fresh data in background
-          fetchAndCache();
-          return;
-        }
-
-        await fetchAndCache();
-      } catch (error) {
-        console.error('Failed to fetch beers:', error);
-        setLoading(false);
-      }
-    };
-
-    const fetchAndCache = async () => {
-      try {
-        let response;
-        try {
-          response = await fetch('/api/beers?limit=5000');
-        } catch {
-          response = await fetch('/beers.json');
-        }
-        
-        const data = await response.json();
-        const beersList = data.beers || [];
-        
-        setBeers(beersList);
-        setLoading(false);
-        
-        await beerCache.set('beers', beersList);
-      } catch (error) {
-        console.error('Failed to fetch beers:', error);
-        setLoading(false);
-      }
-    };
-
-    fetchBeers();
-  }, []);
-
-  if (loading) {
-    return (
-      <PageLayout title="Surprise" subtitle="Laden...">
-        <div className="flex justify-center items-center py-20">
-          <Sparkles className="w-16 h-16 text-amber-600 dark:text-amber-500 animate-bounce" />
-        </div>
-      </PageLayout>
-    );
-  }
+  const { beers, loading } = useBeers();
 
   return (
-    <PageLayout title="Surprise" subtitle="Laat het lot beslissen! 🎲" contentWidth="narrow">
-      <p className="text-center text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-        Klik op de knop en krijg een willekeurig bier uit onze kaart. Ideaal als je even geen keuze kunt maken.
-      </p>
-      <BeerRandomizer beers={beers} />
-    </PageLayout>
+    <>
+      <SEO title="Verras me – BeerMenu" description="Laat het lot een bier van de kaart kiezen." />
+      <PageLayout eyebrow="Het lot beslist" title="Verras me" contentWidth="compact">
+        {loading && beers.length === 0 ? (
+          <div className="grid place-items-center py-24" role="status" aria-label="Bieren laden">
+            <BottleCap className="w-14 h-14" spinning />
+          </div>
+        ) : (
+          <BeerRandomizer beers={beers} />
+        )}
+      </PageLayout>
+    </>
   );
 }

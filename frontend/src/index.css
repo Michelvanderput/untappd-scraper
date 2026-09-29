@@ -2,132 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+ * BeerMenu design tokens — "Taverne bij nacht".
+ * Dark-first: warm stout black, foam-cream text, craft gold accent, ember for heat/danger.
+ * Light mode swaps to a cream paper look with darker gold/ember for 4.5:1 text contrast.
+ * See DESIGN_SYSTEM.md for rationale.
+ */
 @layer base {
+  :root {
+    --bg: 247 241 230;         /* #F7F1E6 cream paper */
+    --surface: 255 252 246;    /* #FFFCF6 */
+    --surface-2: 238 229 212;  /* #EEE5D4 */
+    --line: 27 18 12;          /* ink, used at low alpha */
+    --fg: 27 18 12;            /* #1B120C */
+    --muted: 102 88 74;        /* #66584A */
+    --gold: 138 82 4;          /* #8A5204 */
+    --on-gold: 255 255 255;
+    --ember: 178 34 34;        /* #B22222 */
+    --hop: 63 110 18;          /* #3F6E12 */
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 14 11 9;             /* #0E0B09 stout */
+    --surface: 25 20 16;       /* #191410 */
+    --surface-2: 38 30 24;     /* #261E18 */
+    --line: 246 238 223;       /* foam, used at low alpha */
+    --fg: 246 238 223;         /* #F6EEDF */
+    --muted: 176 163 145;      /* #B0A391 */
+    --gold: 242 179 61;        /* #F2B33D */
+    --on-gold: 26 17 8;
+    --ember: 240 104 78;       /* #F0684E */
+    --hop: 155 197 61;         /* #9BC53D */
+    color-scheme: dark;
+  }
+
   html {
     -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
-    scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  
-  .pull-to-refresh {
-    overscroll-behavior-y: contain;
-  }
-
-  .mask-gradient-x {
-    mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+    @apply bg-bg;
   }
 
   body {
     overscroll-behavior-y: none;
-    @apply bg-amber-50 text-gray-900 selection:bg-amber-200 selection:text-amber-900;
+    @apply bg-bg text-fg font-sans selection:bg-gold/30;
   }
 
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  /* Film grain over everything — static SVG noise, no runtime cost */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-300/50 rounded-full hover:bg-gray-400/50 transition-colors;
-  }
-
-  .dark ::-webkit-scrollbar-thumb {
-    @apply bg-gray-700/50 hover:bg-gray-600/50;
-  }
-
-  * {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  input, textarea, button, select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  :focus-visible {
+    outline: 2px solid rgb(var(--gold));
+    outline-offset: 2px;
   }
 
   button {
     user-select: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgb(var(--line) / 0.15); border-radius: 999px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
 @layer components {
+  .surface {
+    @apply bg-surface border border-line/10 rounded-3xl;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-medium uppercase tracking-[0.18em] text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 min-h-[48px] px-5 rounded-full font-medium
+           transition-[transform,background-color,color,box-shadow] duration-200 ease-out
+           active:scale-[0.97] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-600 text-white rounded-xl 
-           font-bold shadow-lg shadow-amber-500/20 
-           hover:shadow-amber-500/30 hover:scale-[1.02] active:scale-[0.98] 
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900
-           transition-all duration-200 ease-out;
+    @apply btn bg-gold text-on-gold shadow-[0_8px_24px_-8px_rgb(var(--gold)/0.6)] hover:brightness-110
+           disabled:opacity-100 disabled:bg-surface-2 disabled:text-muted disabled:shadow-none;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 rounded-xl
-           font-semibold border border-gray-200 dark:border-gray-700
-           hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-300 dark:hover:border-gray-600
-           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900
-           active:scale-[0.98] transition-all duration-200 ease-out;
+    @apply btn bg-surface-2 text-fg border border-line/10 hover:bg-line/10;
   }
 
+  .btn-ghost {
+    @apply btn text-muted hover:text-fg hover:bg-line/5;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center w-11 h-11 rounded-full text-fg
+           hover:bg-line/10 active:scale-95 transition-[transform,background-color] duration-150;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 shrink-0 min-h-[40px] px-4 rounded-full text-sm font-medium
+           border border-line/10 bg-surface text-muted
+           transition-[background-color,color,border-color,transform] duration-200 active:scale-95
+           hover:text-fg hover:border-line/25;
+  }
+
+  .chip-active {
+    @apply bg-fg text-bg border-fg hover:text-bg;
+  }
+
+  .field {
+    @apply w-full min-h-[48px] px-4 rounded-2xl bg-surface-2 border border-line/10 text-fg
+           placeholder:text-muted/80 outline-none transition-colors
+           focus:border-gold/60 focus:ring-2 focus:ring-gold/20;
+  }
+
+  .stat-label {
+    @apply text-[11px] font-medium uppercase tracking-[0.14em] text-muted;
+  }
+
+  /* Legacy names still used in a few places */
   .glass-panel {
-    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border border-white/20 dark:border-gray-700/30 shadow-xl;
+    @apply surface;
   }
 }
 
 @layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  .no-scrollbar {
+    scrollbar-width: none;
   }
-  
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-
-  .touch-manipulation {
-    touch-action: manipulation;
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 
-  .safe-padding {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+  .mask-fade-x {
+    mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 16px, black calc(100% - 16px), transparent);
   }
 
-  /* Animation Utilities */
-  .animate-enter {
-    animation: enter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  .mask-fade-y {
+    mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
   }
 
-  @keyframes enter {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .pt-safe { padding-top: env(safe-area-inset-top); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  .text-balance { text-wrap: balance; }
 }
 
-/* Distortion Font Family - For Headings */
+/* PP Migra — editorial display serif (headings) */
 @font-face {
-  font-family: 'Distortion';
-  src: url('./assets/Distortion-ALmog.ttf') format('truetype');
-  font-weight: 400;
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-Extrabold.woff2') format('woff2');
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 
-/* Neue Montreal Font Family - For Body Text */
+@font-face {
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-ExtraboldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Migra';
+  src: url('./assets/Migra/PPMigra-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Neue Montreal — body text */
 @font-face {
   font-family: 'Neue Montreal';
-  src: url('./assets/Neue Montreal/PPNeueMontreal-Bold.woff2') format('woff2'),
-       url('./assets/Neue Montreal/PPNeueMontreal-Bold.woff') format('woff');
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -135,8 +207,7 @@
 
 @font-face {
   font-family: 'Neue Montreal';
-  src: url('./assets/Neue Montreal/PPNeueMontreal-Medium.woff2') format('woff2'),
-       url('./assets/Neue Montreal/PPNeueMontreal-Medium.woff') format('woff');
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -144,18 +215,8 @@
 
 @font-face {
   font-family: 'Neue Montreal';
-  src: url('./assets/Neue Montreal/PPNeueMontreal-Regular.woff2') format('woff2'),
-       url('./assets/Neue Montreal/PPNeueMontreal-Regular.woff') format('woff');
+  src: url('./assets/Neue Montreal/PPNeueMontreal-Regular.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Neue Montreal';
-  src: url('./assets/Neue Montreal/PPNeueMontreal-Light.woff2') format('woff2'),
-       url('./assets/Neue Montreal/PPNeueMontreal-Light.woff') format('woff');
-  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
