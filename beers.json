@@ -1,21 +1,49 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-09-30T17:48:14.358Z",
-  "count": 423,
-  "scrape_duration_seconds": 2.55,
+  "fetched_at": "2026-09-30T21:54:31.563Z",
+  "count": 421,
+  "scrape_duration_seconds": 2.73,
   "stats": {
-    "total_fetched": 423,
-    "total_valid": 423,
+    "total_fetched": 421,
+    "total_valid": 421,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
+      "Op=Op kaart": 98,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 100,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Cuvée des Trolls",
+      "beer_url": "https://untappd.com/b/brasserie-dubuisson-cuvee-des-trolls/7318",
+      "image_url": "https://labels.untappd.com/7318",
+      "style": "Belgian Blonde",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 19,
+      "rating": 3.48,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Thai Thai",
+      "beer_url": "https://untappd.com/b/oedipus-brewing-thai-thai/213365",
+      "image_url": "https://labels.untappd.com/213365",
+      "style": "Belgian Tripel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8,
+      "ibu": 20,
+      "rating": 3.49,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Mr. Anderson, Welcome Back",
       "beer_url": "https://untappd.com/b/uiltje-brewing-company-mr-anderson-welcome-back/6527495",
@@ -83,20 +111,6 @@
       "abv": 7.8,
       "ibu": null,
       "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Lellebel",
-      "beer_url": "https://untappd.com/b/brouwerij-de-eeuwige-jeugd-lellebel/1988420",
-      "image_url": "https://labels.untappd.com/1988420",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.7,
-      "ibu": 15,
-      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -210,20 +224,6 @@
       "abv": 7,
       "ibu": 38,
       "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Polyamorie",
-      "beer_url": "https://untappd.com/b/oedipus-brewing-polyamorie/1627564",
-      "image_url": "https://labels.untappd.com/1627564",
-      "style": "Sour - Fruited Berliner Weisse",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 15,
-      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -406,20 +406,6 @@
       "abv": 6,
       "ibu": 37,
       "rating": 3.68,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Vrijer Blond",
-      "beer_url": "https://untappd.com/b/brouwerij-de-eeuwige-jeugd-vrijer-blond/5197058",
-      "image_url": "https://labels.untappd.com/5197058",
-      "style": "Non-Alcoholic - Blonde / Golden Ale",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 0.4,
-      "ibu": null,
-      "rating": 3.22,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -884,20 +870,6 @@
       "abv": 4.3,
       "ibu": null,
       "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Kasteel Tropical Twist",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-twist/6733348",
-      "image_url": "https://labels.untappd.com/6733348",
-      "style": "Other",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": null,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
