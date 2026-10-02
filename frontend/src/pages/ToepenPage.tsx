@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { Minus, Plus, Undo2, RotateCcw, UserPlus, X, Play, Crown, Skull, Users } from 'lucide-react';
+import { Minus, Pencil, Undo2, RotateCcw, UserPlus, X, Play, Crown, Skull, Users } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import BottleCap from '../components/BottleCap';
 import SEO from '../components/SEO';
@@ -11,7 +11,7 @@ import { haptics } from '../utils/haptic';
 
 /*
  * Toepen scoreboard.
- * Everyone starts at 0. Losers of a round get the round's stake (1, raised by every "toep").
+ * Everyone starts at 0. Points are written down as tally marks on a beer coaster.
  * 14 points → "P" next to your name. 15 points → out. Last one standing wins.
  */
 
@@ -126,51 +126,63 @@ function ConfirmSheet({
 
 /* ------------------------------------------------------------------ */
 
-function Pips({ score }: { score: number }) {
+const INK = '#1f2a4d';
+const INK_RED = '#b22222';
+
+/** One group of up to five strokes: four uprights and a diagonal strike-through */
+function TallyGroup({ count, seed, red }: { count: number; seed: number; red: boolean }) {
+  const reduce = useReducedMotion();
+  const color = red ? INK_RED : INK;
+  // Slightly wobbly, hand-drawn looking strokes (deterministic so they don't jump on re-render)
+  const wob = (i: number) => (((seed * 7 + i * 13) % 5) - 2) * 0.7;
+  const strokes = [
+    ...Array.from({ length: Math.min(count, 4) }, (_, i) => ({
+      d: `M${7 + i * 10 + wob(i)} ${6 + wob(i + 3) / 2} L${8 + i * 10 + wob(i + 1)} ${42 + wob(i + 2) / 2}`,
+    })),
+    ...(count === 5 ? [{ d: `M1 ${38 + wob(9)} L45 ${9 + wob(8)}` }] : []),
+  ];
+
   return (
-    <div className="flex gap-[3px]" aria-hidden>
-      {Array.from({ length: MAX_POINTS }, (_, i) => {
-        const filled = i < score;
-        const tone =
-          i === MAX_POINTS - 1 ? 'bg-ember' : i === P_POINTS - 1 ? 'bg-ember/70' : i >= 10 ? 'bg-gold' : 'bg-fg/70';
-        return (
-          <span
-            key={i}
-            className={`h-1.5 flex-1 rounded-full transition-colors duration-300 ${filled ? tone : 'bg-line/10'}`}
-          />
-        );
-      })}
+    <svg viewBox="0 0 46 48" className="w-[38px] h-10 shrink-0" fill="none" aria-hidden>
+      {strokes.map((st, i) => (
+        <motion.path
+          key={i}
+          d={st.d}
+          stroke={color}
+          strokeWidth={2.6}
+          strokeLinecap="round"
+          initial={reduce ? false : { pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 0.92 }}
+          transition={{ duration: 0.22, ease: 'easeOut' }}
+        />
+      ))}
+    </svg>
+  );
+}
+
+function Tally({ score, red }: { score: number; red: boolean }) {
+  const groups = Array.from({ length: Math.ceil(score / 5) }, (_, g) => Math.min(5, score - g * 5));
+  return (
+    <div className="flex flex-wrap gap-x-2 gap-y-1 min-h-10 items-center" aria-hidden>
+      {groups.length === 0 ? (
+        <span className="text-lg opacity-40" style={HAND}>
+          nog niks…
+        </span>
+      ) : (
+        groups.map((count, g) => <TallyGroup key={g} count={count} seed={g + 1} red={red} />)
+      )}
     </div>
   );
 }
 
-function ScoreNumber({ value }: { value: number }) {
-  return (
-    <span className="relative inline-flex h-[1em] overflow-hidden tabular leading-none">
-      <AnimatePresence mode="popLayout" initial={false}>
-        <motion.span
-          key={value}
-          initial={{ y: '-100%', opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: '100%', opacity: 0 }}
-          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-          className="inline-block"
-        >
-          {value}
-        </motion.span>
-      </AnimatePresence>
-    </span>
-  );
-}
+const HAND = { fontFamily: "'Caveat','Segoe Print','Bradley Hand','Comic Sans MS',cursive" } as const;
 
 function PlayerRow({
   player,
-  stake,
   onAdd,
   onSubtract,
 }: {
   player: Player;
-  stake: number;
   onAdd: () => void;
   onSubtract: () => void;
 }) {
@@ -181,26 +193,31 @@ function PlayerRow({
   return (
     <motion.li
       layout
-      initial={{ opacity: 0, y: 12 }}
-      animate={out && !reduce ? { opacity: 1, y: 0, x: [0, -6, 6, -4, 4, 0] } : { opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={out && !reduce ? { opacity: 1, y: 0, x: [0, -5, 5, -3, 3, 0] } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className={`surface p-4 sm:p-5 transition-colors ${out ? 'bg-surface/40 border-dashed' : ''} ${
-        p ? 'border-ember/50 shadow-[0_0_0_1px_rgb(var(--ember)/0.25),0_12px_30px_-12px_rgb(var(--ember)/0.45)]' : ''
-      }`}
+      className="py-3 border-b-2 border-dashed last:border-b-0"
+      style={{ borderColor: `${INK}33` }}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-end gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 min-w-0">
-            <span className={`font-medium text-lg truncate ${out ? 'line-through text-muted' : ''}`}>{player.name}</span>
+            <span
+              className={`text-3xl leading-none truncate ${out ? 'line-through decoration-2 opacity-60' : ''}`}
+              style={{ ...HAND, fontWeight: 700 }}
+            >
+              {player.name}
+            </span>
             <AnimatePresence>
               {p && (
                 <motion.span
                   key="p"
                   initial={{ scale: 0, rotate: -30 }}
-                  animate={{ scale: 1, rotate: 0 }}
+                  animate={{ scale: 1, rotate: -8 }}
                   exit={{ scale: 0 }}
                   transition={{ type: 'spring', stiffness: 600, damping: 18 }}
-                  className="shrink-0 grid place-items-center w-7 h-7 rounded-full bg-ember text-white font-display italic font-extrabold text-sm"
+                  className="shrink-0 grid place-items-center w-7 h-7 rounded-full border-2 text-lg leading-none"
+                  style={{ ...HAND, fontWeight: 700, color: INK_RED, borderColor: INK_RED }}
                   aria-label="P: nog één punt"
                   title="P — nog één punt en je ligt eruit"
                 >
@@ -211,31 +228,38 @@ function PlayerRow({
                 <motion.span
                   key="out"
                   initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="shrink-0 inline-flex items-center gap-1 px-2 h-6 rounded-full bg-line/10 text-muted text-xs font-medium"
+                  animate={{ scale: 1, rotate: -6 }}
+                  className="shrink-0 inline-flex items-center gap-1 text-xl leading-none"
+                  style={{ ...HAND, fontWeight: 700, color: INK_RED }}
                 >
-                  <Skull className="w-3.5 h-3.5" aria-hidden />
-                  Eruit
+                  <Skull className="w-4 h-4" aria-hidden />
+                  eruit!
                 </motion.span>
               )}
             </AnimatePresence>
           </div>
-          <div className="mt-3">
-            <Pips score={player.score} />
-          </div>
         </div>
-
-        <div className={`font-display italic font-extrabold text-5xl w-14 text-right ${p || out ? 'text-ember' : ''}`}>
-          <ScoreNumber value={player.score} />
-        </div>
+        <span className="text-4xl leading-none tabular pr-1" style={{ ...HAND, fontWeight: 700, color: p || out ? INK_RED : INK }} aria-label={`${player.score} punten`}>
+          {player.score}
+        </span>
       </div>
 
-      <div className="mt-4 flex items-center gap-2">
+      <div className="mt-1 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={onAdd}
+          disabled={out}
+          className="flex-1 text-left rounded-lg px-1 -mx-1 active:bg-black/5 disabled:pointer-events-none"
+          aria-label={`Punt bijschrijven voor ${player.name}`}
+        >
+          <Tally score={player.score} red={out || p} />
+        </button>
         <button
           type="button"
           onClick={onSubtract}
           disabled={player.score === 0}
-          className="icon-btn border border-line/10 disabled:opacity-30 disabled:pointer-events-none"
+          className="grid place-items-center w-11 h-11 rounded-full border-2 disabled:opacity-25 disabled:pointer-events-none active:scale-95 transition-transform"
+          style={{ borderColor: `${INK}55`, color: INK }}
           aria-label={`Eén punt eraf bij ${player.name}`}
         >
           <Minus className="w-5 h-5" />
@@ -244,13 +268,12 @@ function PlayerRow({
           type="button"
           onClick={onAdd}
           disabled={out}
-          whileTap={{ scale: 0.96 }}
-          className="flex-1 btn bg-fg text-bg hover:bg-fg/90 disabled:opacity-30"
-          aria-label={`${stake} ${stake === 1 ? 'punt' : 'punten'} erbij voor ${player.name}`}
+          whileTap={{ scale: 0.92, rotate: -8 }}
+          className="grid place-items-center w-11 h-11 rounded-full disabled:opacity-25"
+          style={{ background: INK, color: '#f7f1e6' }}
+          aria-label={`Punt bijschrijven voor ${player.name}`}
         >
-          <Plus className="w-5 h-5" />
-          <span className="tabular">{stake}</span>
-          <span className="text-bg/70 font-normal">{stake === 1 ? 'punt' : 'punten'}</span>
+          <Pencil className="w-5 h-5" />
         </motion.button>
       </div>
     </motion.li>
@@ -360,7 +383,7 @@ function Setup({ onStart }: { onStart: (names: string[]) => void }) {
       <div className="surface p-5">
         <p className="stat-label mb-3">Spelregels in dit spel</p>
         <ul className="space-y-2 text-sm text-muted">
-          <li className="flex gap-3"><span className="text-fg tabular w-8 shrink-0">+1</span>Wie een ronde verliest krijgt de inzet. Elke toep verhoogt de inzet met 1.</li>
+          <li className="flex gap-3"><span className="text-fg tabular w-8 shrink-0">+1</span>Wie een ronde verliest krijgt er een streepje bij.</li>
           <li className="flex gap-3"><span className="w-8 shrink-0"><span className="grid place-items-center w-6 h-6 rounded-full bg-ember text-white font-display italic font-extrabold text-xs">P</span></span>Op 14 punten krijg je een P naast je naam.</li>
           <li className="flex gap-3"><span className="text-ember tabular w-8 shrink-0">15</span>Op 15 punten lig je eruit. De laatste die overblijft wint.</li>
         </ul>
@@ -459,7 +482,6 @@ function WinnerOverlay({
 export default function ToepenPage() {
   const [game, setGame] = useState<GameState>(() => readStorage<GameState>(STORAGE_KEY, EMPTY));
   const [confirm, setConfirm] = useState<null | 'reset'>(null);
-  const [stakeBump, setStakeBump] = useState(0);
 
   useEffect(() => writeStorage(STORAGE_KEY, game), [game]);
 
@@ -488,7 +510,7 @@ export default function ToepenPage() {
   const addPoints = (id: string) => {
     const player = game.players.find((p) => p.id === id);
     if (!player || isOut(player)) return;
-    const score = Math.min(MAX_POINTS, player.score + game.stake);
+    const score = Math.min(MAX_POINTS, player.score + 1);
     if (score >= MAX_POINTS) haptics.error();
     else if (score === P_POINTS) haptics.warning();
     else haptics.select();
@@ -498,17 +520,6 @@ export default function ToepenPage() {
   const subtractPoint = (id: string) => {
     haptics.tap();
     commit({ players: game.players.map((p) => (p.id === id ? { ...p, score: Math.max(0, p.score - 1) } : p)) });
-  };
-
-  const toep = () => {
-    haptics.select();
-    setStakeBump((n) => n + 1);
-    commit({ stake: Math.min(MAX_POINTS, game.stake + 1) });
-  };
-
-  const nextRound = () => {
-    haptics.tap();
-    commit({ stake: 1, round: game.round + 1 });
   };
 
   const undo = () => {
@@ -541,67 +552,50 @@ export default function ToepenPage() {
           <Setup onStart={start} />
         ) : (
           <div className="space-y-5">
-            {/* Round + stake */}
-            <section className="surface p-4 sm:p-5 overflow-hidden relative" aria-label="Ronde en inzet">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="stat-label">Ronde</p>
-                  <p className="font-display italic font-extrabold text-4xl leading-none mt-1 tabular">{game.round}</p>
-                </div>
-                <div className="text-center">
-                  <p className="stat-label">Inzet</p>
-                  <motion.p
-                    key={stakeBump}
-                    initial={stakeBump ? { scale: 1.6 } : false}
-                    animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                    className="font-display italic font-extrabold text-4xl leading-none mt-1 tabular"
-                    aria-live="polite"
-                  >
-                    {game.stake}
-                  </motion.p>
-                </div>
-                <motion.button
-                  type="button"
-                  onClick={toep}
-                  whileTap={{ scale: 0.9, rotate: -12 }}
-                  className="shrink-0"
-                  aria-label={`Toep! Verhoog de inzet naar ${game.stake + 1}`}
-                  disabled={game.stake >= MAX_POINTS}
-                >
-                  <BottleCap className="w-[76px] h-[76px] drop-shadow-[0_10px_20px_rgba(242,179,61,0.3)]">
-                    <span className="font-display italic font-extrabold text-lg">Toep!</span>
-                  </BottleCap>
-                </motion.button>
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                <button type="button" className="btn-secondary px-3" onClick={nextRound}>
-                  Volgende ronde
-                </button>
-                <button type="button" className="btn-secondary px-3" onClick={undo} disabled={game.history.length === 0}>
-                  <Undo2 className="w-4 h-4" />
-                  Ongedaan
-                </button>
-              </div>
-            </section>
-
             {leader && alive.length > 1 && (
               <p className="text-sm text-muted px-1">
                 <span className="text-fg">{leader.name}</span> staat er het best voor · {alive.length} van {game.players.length} nog in het spel
               </p>
             )}
 
-            <ul className="space-y-3" aria-label="Scorebord">
-              {game.players.map((player) => (
-                <PlayerRow
-                  key={player.id}
-                  player={player}
-                  stake={game.stake}
-                  onAdd={() => addPoints(player.id)}
-                  onSubtract={() => subtractPoint(player.id)}
-                />
-              ))}
-            </ul>
+            {/* Beer coaster with the tally */}
+            <section
+              className="relative rounded-[2rem] px-5 pt-6 pb-3 sm:px-8 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.55)] ring-1 ring-black/10"
+              style={{
+                color: INK,
+                backgroundColor: '#e9dcbc',
+                backgroundImage:
+                  'radial-gradient(circle at 20% 15%, rgba(255,255,255,0.55), transparent 55%), radial-gradient(circle at 85% 90%, rgba(120,90,40,0.18), transparent 60%)',
+              }}
+              aria-label="Bierviltje met stand"
+            >
+              <div className="absolute inset-2 rounded-[1.6rem] border-2 border-dashed pointer-events-none" style={{ borderColor: `${INK}22` }} aria-hidden />
+              <div className="relative flex items-center justify-between mb-1">
+                <h2 className="text-2xl leading-none" style={{ ...HAND, fontWeight: 700 }}>
+                  De stand
+                </h2>
+                <button
+                  type="button"
+                  onClick={undo}
+                  disabled={game.history.length === 0}
+                  className="inline-flex items-center gap-1.5 px-3 h-9 rounded-full border-2 text-lg leading-none disabled:opacity-25 active:scale-95 transition-transform"
+                  style={{ ...HAND, fontWeight: 700, borderColor: `${INK}55` }}
+                >
+                  <Undo2 className="w-4 h-4" />
+                  Ongedaan
+                </button>
+              </div>
+              <ul className="relative" aria-label="Scorebord">
+                {game.players.map((player) => (
+                  <PlayerRow
+                    key={player.id}
+                    player={player}
+                    onAdd={() => addPoints(player.id)}
+                    onSubtract={() => subtractPoint(player.id)}
+                  />
+                ))}
+              </ul>
+            </section>
 
             <div className="flex justify-center pt-2">
               <button type="button" className="btn-ghost text-ember" onClick={() => setConfirm('reset')}>
