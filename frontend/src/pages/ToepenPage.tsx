@@ -203,7 +203,7 @@ function PlayerRow({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 min-w-0">
             <span
-              className={`text-3xl leading-none truncate ${out ? 'line-through decoration-2 opacity-60' : ''}`}
+              className={`text-3xl leading-[1.35] py-0.5 pr-3 break-words [overflow-wrap:anywhere] ${out ? 'line-through decoration-2 opacity-60' : ''}`}
               style={{ ...HAND, fontWeight: 700 }}
             >
               {player.name}
