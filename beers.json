@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-03T15:57:37.936Z",
+  "fetched_at": "2026-10-03T20:38:10.753Z",
   "count": 418,
-  "scrape_duration_seconds": 2.13,
+  "scrape_duration_seconds": 2.59,
   "stats": {
     "total_fetched": 418,
     "total_valid": 418,
@@ -16,6 +16,34 @@
     }
   },
   "beers": [
+    {
+      "name": "Frank The DANK",
+      "beer_url": "https://untappd.com/b/warpigs-brewpub-frank-the-dank/6668361",
+      "image_url": "https://labels.untappd.com/6668361",
+      "style": "Pale Ale - New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5.3,
+      "ibu": null,
+      "rating": 3.96,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Delirium Blond Barrel Aged",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-blond-barrel-aged/3575229",
+      "image_url": "https://labels.untappd.com/3575229",
+      "style": "Belgian Strong Golden Ale",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 11.5,
+      "ibu": 22,
+      "rating": 4.03,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Filou",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-filou/850530",
@@ -87,20 +115,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Rug's Topography",
-      "beer_url": "https://untappd.com/b/warpigs-brewpub-rug-s-topography/6680866",
-      "image_url": "https://labels.untappd.com/6680866",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.4,
-      "ibu": null,
-      "rating": 3.87,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Ter Dolen Blond",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
       "image_url": "https://labels.untappd.com/55364",
@@ -125,20 +139,6 @@
       "abv": 7.8,
       "ibu": null,
       "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blurred Lines",
-      "beer_url": "https://untappd.com/b/jopen-blurred-lines/3322269",
-      "image_url": "https://labels.untappd.com/3322269",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5.3,
-      "ibu": 20,
-      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
