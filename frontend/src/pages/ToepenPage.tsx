@@ -126,20 +126,73 @@ function ConfirmSheet({
 
 /* ------------------------------------------------------------------ */
 
-const INK = '#1f2a4d';
+const INK = '#1b2a63'; // ballpoint blue
 const INK_RED = '#b22222';
+
+const svgUri = (svg: string) => `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+
+/* Cardboard fibres + blotchy mottling for the coaster */
+const CARDBOARD_FIBRE = svgUri(
+  "<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .32 0 0 0 0 .22 0 0 0 0 .1 0 0 0 .7 -.12'/></filter><rect width='100%' height='100%' filter='url(#f)'/></svg>"
+);
+const CARDBOARD_MOTTLE = svgUri(
+  "<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.014' numOctaves='3' seed='5' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5 0 0 0 0 .34 0 0 0 0 .15 0 0 0 .9 -.28'/></filter><rect width='100%' height='100%' filter='url(#f)'/></svg>"
+);
+/* Horizontal wood grain for the bar top */
+const WOOD_GRAIN = svgUri(
+  "<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.006 .2' numOctaves='4' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1 0 0 0 0 .045 0 0 0 0 .01 0 0 0 2.2 -.7'/></filter><rect width='100%' height='100%' filter='url(#f)'/></svg>"
+);
+
+const PEN = { filter: 'url(#pen-ink)' } as const;
+
+/** Ballpoint look: wobbly line edges plus tiny gaps where the ink skips */
+function PenFilter() {
+  return (
+    <svg width="0" height="0" className="absolute" aria-hidden focusable="false">
+      <defs>
+        <filter id="pen-ink" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="warp" />
+          <feDisplacementMap in="SourceGraphic" in2="warp" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="wobbly" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="8" result="grain" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -1.5 0 0 0 1.75" result="skips" />
+          <feComposite in="wobbly" in2="skips" operator="in" />
+        </filter>
+      </defs>
+    </svg>
+  );
+}
+
+/** Hand-drawn divider line between players */
+function PenLine() {
+  return (
+    <svg viewBox="0 0 300 8" preserveAspectRatio="none" className="absolute left-0 right-0 bottom-0 w-full h-2" aria-hidden fill="none">
+      <path
+        d="M2 4 C40 2 70 6.5 110 4 S190 1.8 230 4.6 S282 4 298 3"
+        stroke={INK}
+        strokeOpacity=".32"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
 
 /** One group of up to five strokes: four uprights and a diagonal strike-through */
 function TallyGroup({ count, seed, red }: { count: number; seed: number; red: boolean }) {
   const reduce = useReducedMotion();
   const color = red ? INK_RED : INK;
   // Slightly wobbly, hand-drawn looking strokes (deterministic so they don't jump on re-render)
-  const wob = (i: number) => (((seed * 7 + i * 13) % 5) - 2) * 0.7;
+  const wob = (i: number) => (((seed * 7 + i * 13) % 5) - 2) * 0.9;
   const strokes = [
-    ...Array.from({ length: Math.min(count, 4) }, (_, i) => ({
-      d: `M${7 + i * 10 + wob(i)} ${6 + wob(i + 3) / 2} L${8 + i * 10 + wob(i + 1)} ${42 + wob(i + 2) / 2}`,
-    })),
-    ...(count === 5 ? [{ d: `M1 ${38 + wob(9)} L45 ${9 + wob(8)}` }] : []),
+    ...Array.from({ length: Math.min(count, 4) }, (_, i) => {
+      const x = 7 + i * 10;
+      return {
+        d: `M${x + wob(i)} ${5 + wob(i + 3) / 2} Q${x + 1 + wob(i + 5) * 1.2} 24 ${x + 1 + wob(i + 1)} ${42 + wob(i + 2) / 2}`,
+        w: 2.1 + (i % 2) * 0.4,
+      };
+    }),
+    ...(count === 5 ? [{ d: `M1 ${38 + wob(9)} Q22 ${24 + wob(4)} 45 ${9 + wob(8)}`, w: 2.3 }] : []),
   ];
 
   return (
@@ -149,10 +202,10 @@ function TallyGroup({ count, seed, red }: { count: number; seed: number; red: bo
           key={i}
           d={st.d}
           stroke={color}
-          strokeWidth={2.6}
+          strokeWidth={st.w}
           strokeLinecap="round"
           initial={reduce ? false : { pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.92 }}
+          animate={{ pathLength: 1, opacity: 0.9 }}
           transition={{ duration: 0.22, ease: 'easeOut' }}
         />
       ))}
@@ -179,10 +232,12 @@ const HAND = { fontFamily: "'Caveat','Segoe Print','Bradley Hand','Comic Sans MS
 
 function PlayerRow({
   player,
+  last,
   onAdd,
   onSubtract,
 }: {
   player: Player;
+  last: boolean;
   onAdd: () => void;
   onSubtract: () => void;
 }) {
@@ -196,15 +251,14 @@ function PlayerRow({
       initial={{ opacity: 0, y: 8 }}
       animate={out && !reduce ? { opacity: 1, y: 0, x: [0, -5, 5, -3, 3, 0] } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="py-3 border-b-2 border-dashed last:border-b-0"
-      style={{ borderColor: `${INK}33` }}
+      className="relative pt-3 pb-4"
     >
       <div className="flex items-end gap-3">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 min-w-0">
             <span
-              className={`text-3xl leading-[1.35] py-0.5 pr-3 break-words [overflow-wrap:anywhere] ${out ? 'line-through decoration-2 opacity-60' : ''}`}
-              style={{ ...HAND, fontWeight: 700 }}
+              className={`text-[2rem] leading-[1.35] py-0.5 pr-3 break-words [overflow-wrap:anywhere] ${out ? 'line-through decoration-2 opacity-60' : ''}`}
+              style={{ ...HAND, fontWeight: 600 }}
             >
               {player.name}
             </span>
@@ -217,7 +271,7 @@ function PlayerRow({
                   exit={{ scale: 0 }}
                   transition={{ type: 'spring', stiffness: 600, damping: 18 }}
                   className="shrink-0 grid place-items-center w-7 h-7 rounded-full border-2 text-lg leading-none"
-                  style={{ ...HAND, fontWeight: 700, color: INK_RED, borderColor: INK_RED }}
+                  style={{ ...HAND, fontWeight: 600, color: INK_RED, borderColor: INK_RED }}
                   aria-label="P: nog één punt"
                   title="P — nog één punt en je ligt eruit"
                 >
@@ -230,7 +284,7 @@ function PlayerRow({
                   initial={{ scale: 0 }}
                   animate={{ scale: 1, rotate: -6 }}
                   className="shrink-0 inline-flex items-center gap-1 text-xl leading-none"
-                  style={{ ...HAND, fontWeight: 700, color: INK_RED }}
+                  style={{ ...HAND, fontWeight: 600, color: INK_RED }}
                 >
                   <Skull className="w-4 h-4" aria-hidden />
                   eruit!
@@ -239,7 +293,7 @@ function PlayerRow({
             </AnimatePresence>
           </div>
         </div>
-        <span className="text-4xl leading-none tabular pr-1" style={{ ...HAND, fontWeight: 700, color: p || out ? INK_RED : INK }} aria-label={`${player.score} punten`}>
+        <span className="text-4xl leading-none tabular pr-1" style={{ ...HAND, fontWeight: 600, color: p || out ? INK_RED : INK }} aria-label={`${player.score} punten`}>
           {player.score}
         </span>
       </div>
@@ -276,6 +330,7 @@ function PlayerRow({
           <Pencil className="w-5 h-5" />
         </motion.button>
       </div>
+      {!last && <PenLine />}
     </motion.li>
   );
 }
@@ -558,44 +613,106 @@ export default function ToepenPage() {
               </p>
             )}
 
-            {/* Beer coaster with the tally */}
-            <section
-              className="relative rounded-[2rem] px-5 pt-6 pb-3 sm:px-8 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.55)] ring-1 ring-black/10"
+            {/* Bar top with a beer coaster on it */}
+            <div
+              className="relative overflow-hidden rounded-[1.75rem] px-6 py-8 sm:px-10 sm:py-10 shadow-[inset_0_2px_0_rgba(255,255,255,0.08),inset_0_0_70px_rgba(0,0,0,0.55),0_20px_50px_-24px_rgba(0,0,0,0.7)]"
               style={{
-                color: INK,
-                backgroundColor: '#e9dcbc',
-                backgroundImage:
-                  'radial-gradient(circle at 20% 15%, rgba(255,255,255,0.55), transparent 55%), radial-gradient(circle at 85% 90%, rgba(120,90,40,0.18), transparent 60%)',
+                backgroundColor: '#5a3519',
+                backgroundImage: [
+                  'radial-gradient(ellipse at 50% 0%, rgba(255,184,96,0.34), transparent 62%)',
+                  'radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(0,0,0,0.5) 100%)',
+                  'repeating-linear-gradient(180deg, transparent 0 168px, rgba(0,0,0,0.6) 168px 170px, rgba(255,210,150,0.08) 170px 172px)',
+                  WOOD_GRAIN,
+                  'linear-gradient(180deg, #7a4a24, #55321a)',
+                ].join(', '),
+                backgroundSize: 'auto, auto, auto, 600px 400px, auto',
               }}
-              aria-label="Bierviltje met stand"
             >
-              <div className="absolute inset-2 rounded-[1.6rem] border-2 border-dashed pointer-events-none" style={{ borderColor: `${INK}22` }} aria-hidden />
-              <div className="relative flex items-center justify-between mb-1">
-                <h2 className="text-2xl leading-none" style={{ ...HAND, fontWeight: 700 }}>
-                  De stand
-                </h2>
-                <button
-                  type="button"
-                  onClick={undo}
-                  disabled={game.history.length === 0}
-                  className="inline-flex items-center gap-1.5 px-3 h-9 rounded-full border-2 text-lg leading-none disabled:opacity-25 active:scale-95 transition-transform"
-                  style={{ ...HAND, fontWeight: 700, borderColor: `${INK}55` }}
+              {/* Old glass rings on the wood */}
+              <div
+                className="absolute -left-10 top-1/3 w-36 h-36 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, transparent 55%, rgba(20,8,0,0.35) 58%, rgba(20,8,0,0.14) 66%, transparent 72%)' }}
+                aria-hidden
+              />
+              <div
+                className="absolute -right-12 bottom-10 w-44 h-44 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, transparent 55%, rgba(255,200,130,0.16) 58%, rgba(255,200,130,0.06) 66%, transparent 72%)' }}
+                aria-hidden
+              />
+
+              <section className="relative mx-auto max-w-md" style={{ transform: 'rotate(-0.8deg)' }} aria-label="Bierviltje met stand">
+                {/* Second coaster peeking out underneath */}
+                <div
+                  className="absolute inset-0 rounded-[2rem]"
+                  style={{ background: '#bfa677', transform: 'rotate(3deg) translate(6px, 4px)', boxShadow: '0 8px 14px -6px rgba(0,0,0,0.6)' }}
+                  aria-hidden
+                />
+                <div
+                  className="relative overflow-hidden rounded-[2rem] px-7 pt-7 pb-4 sm:px-9"
+                  style={{
+                    color: INK,
+                    backgroundColor: '#dcc59a',
+                    backgroundImage: [
+                      'radial-gradient(circle at 22% 10%, rgba(255,255,255,0.5), transparent 55%)',
+                      'radial-gradient(circle at 90% 105%, rgba(110,75,30,0.3), transparent 60%)',
+                      CARDBOARD_FIBRE,
+                      CARDBOARD_MOTTLE,
+                    ].join(', '),
+                    backgroundSize: 'auto, auto, 260px 260px, 400px 400px',
+                    boxShadow:
+                      'inset 0 1px 0 rgba(255,255,255,0.4), inset 0 0 22px rgba(90,60,25,0.25), 0 0 0 1px rgba(70,45,15,0.4), 0 2px 3px rgba(0,0,0,0.5), 0 16px 24px -10px rgba(0,0,0,0.75)',
+                  }}
                 >
-                  <Undo2 className="w-4 h-4" />
-                  Ongedaan
-                </button>
-              </div>
-              <ul className="relative" aria-label="Scorebord">
-                {game.players.map((player) => (
-                  <PlayerRow
-                    key={player.id}
-                    player={player}
-                    onAdd={() => addPoints(player.id)}
-                    onSubtract={() => subtractPoint(player.id)}
+                  <PenFilter />
+
+                  {/* Pressed + printed rim */}
+                  <div className="absolute inset-3 rounded-[1.5rem] pointer-events-none" style={{ border: '2px solid rgba(150,55,38,0.42)' }} aria-hidden />
+                  <div className="absolute inset-[18px] rounded-[1.25rem] pointer-events-none" style={{ border: '1px solid rgba(150,55,38,0.28)', boxShadow: 'inset 0 1px 2px rgba(60,35,10,0.18)' }} aria-hidden />
+                  {/* Beer ring stain */}
+                  <div
+                    className="absolute -right-10 bottom-16 w-40 h-40 rounded-full pointer-events-none mix-blend-multiply"
+                    style={{ background: 'radial-gradient(circle, transparent 54%, rgba(120,70,20,0.3) 57%, rgba(120,70,20,0.14) 64%, transparent 70%)' }}
+                    aria-hidden
                   />
-                ))}
-              </ul>
-            </section>
+
+                  <p
+                    className="relative text-center text-[9px] font-bold uppercase tracking-[0.2em] mb-4 whitespace-nowrap mix-blend-multiply"
+                    style={{ color: 'rgba(150,55,38,0.7)', fontFamily: "Georgia, 'Times New Roman', serif" }}
+                  >
+                    ★ Biertaverne De Gouverneur ★
+                  </p>
+
+                  <div className="relative" style={PEN}>
+                    <div className="flex items-center justify-between mb-1">
+                      <h2 className="text-3xl leading-none py-1 pr-2" style={{ ...HAND, fontWeight: 600 }}>
+                        De stand
+                      </h2>
+                      <button
+                        type="button"
+                        onClick={undo}
+                        disabled={game.history.length === 0}
+                        className="inline-flex items-center gap-1.5 px-3 h-9 rounded-full border-2 text-xl leading-none disabled:opacity-25 active:scale-95 transition-transform"
+                        style={{ ...HAND, fontWeight: 600, borderColor: `${INK}66` }}
+                      >
+                        <Undo2 className="w-4 h-4" />
+                        Ongedaan
+                      </button>
+                    </div>
+                    <ul aria-label="Scorebord">
+                      {game.players.map((player, i) => (
+                        <PlayerRow
+                          key={player.id}
+                          player={player}
+                          last={i === game.players.length - 1}
+                          onAdd={() => addPoints(player.id)}
+                          onSubtract={() => subtractPoint(player.id)}
+                        />
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            </div>
 
             <div className="flex justify-center pt-2">
               <button type="button" className="btn-ghost text-ember" onClick={() => setConfirm('reset')}>
