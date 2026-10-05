@@ -8,10 +8,19 @@ on:
     - cron: '0 18 * * *'  # 18:00 UTC (19:00 CET / 20:00 CEST) - Avond
   workflow_dispatch: # Handmatig kunnen triggeren
 
+# Never let two scrapes (e.g. a delayed schedule plus a manual re-run) push at the same time
+concurrency:
+  group: scrape-daily
+  cancel-in-progress: false
+
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    
+    # A normal run takes well under a minute; fail fast instead of hanging for hours
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,6 +42,7 @@ jobs:
           fi
       
       - name: Run scraper
+        timeout-minutes: 3
         run: node scrape.js
       
       - name: Detect changes and create changelog
@@ -48,5 +58,6 @@ jobs:
             echo "No changes detected"
           else
             git commit -m "🍺 Update beer menu - $(date +'%Y-%m-%d %H:%M')"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
             git push
           fi

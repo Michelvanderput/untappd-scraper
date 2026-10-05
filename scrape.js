@@ -46,30 +46,34 @@ function logInfo(message, data = {}) {
 
 async function fetchWithTimeout(url, options = {}) {
   const controller = new AbortController();
+  // The timer must also cover reading the body: a server that sends headers and then
+  // stalls would otherwise hang the whole run until GitHub kills the job.
   const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT);
-  
+
   try {
     const response = await fetch(url, {
       ...options,
       signal: controller.signal
     });
-    clearTimeout(timeoutId);
-    return response;
+    const body = await response.text();
+    return { response, body };
   } catch (error) {
-    clearTimeout(timeoutId);
     if (error.name === 'AbortError') {
       throw new ScraperError(`Request timeout after ${FETCH_TIMEOUT}ms`, url, error);
     }
     throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 
+/** Fetch a page and return its HTML, retrying on errors, timeouts and rate limits */
 async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       logInfo(`Fetching ${url} (attempt ${attempt}/${retries})`);
-      const response = await fetchWithTimeout(url, options);
-      
+      const { response, body } = await fetchWithTimeout(url, options);
+
       if (!response.ok) {
         if (response.status === 429) {
           // Rate limited - wait longer
@@ -80,18 +84,20 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
         }
         throw new ScraperError(`HTTP ${response.status}`, url);
       }
-      
-      return response;
+
+      return body;
     } catch (error) {
       if (attempt === retries) {
         logError(error, { url, attempts: attempt });
         throw error;
       }
-      
+
       logInfo(`Attempt ${attempt} failed, retrying in ${RETRY_DELAY}ms...`);
       await sleep(RETRY_DELAY * attempt);
     }
   }
+  // Every attempt was rate limited
+  throw new ScraperError(`Gave up after ${retries} rate-limited attempts`, url);
 }
 
 function validateBeerData(beer) {
@@ -275,8 +281,7 @@ async function main() {
     logInfo('Fetching all menus in parallel...');
     const fetchPromises = MENUS.map(async (menu) => {
       try {
-        const res = await fetchWithRetry(menu.url, { headers: HEADERS });
-        const html = await res.text();
+        const html = await fetchWithRetry(menu.url, { headers: HEADERS });
         const beers = extractBeersFromMenuPage(html, menu.name, menu.url);
         
         logInfo(`✅ ${menu.name}: found ${beers.length} beers`);
