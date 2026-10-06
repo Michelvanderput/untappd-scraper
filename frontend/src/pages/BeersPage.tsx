@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
+import { useState, useEffect, useLayoutEffect, useMemo, useRef, useCallback, lazy, Suspense } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Search, SlidersHorizontal, X, Car, Zap, Candy, Flame, RefreshCw, Beer } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import BeerCard from '../components/BeerCard';
 import BottleCap from '../components/BottleCap';
@@ -12,6 +12,9 @@ import SEO from '../components/SEO';
 import { useDebounce } from '../hooks/useDebounce';
 import { useBeers } from '../hooks/useBeers';
 import { haptics } from '../utils/haptic';
+import { gsap, Flip, prefersReducedMotion, EASE_OUT_EXPO } from '../lib/gsap';
+
+const HeroCap = lazy(() => import('../components/HeroCap'));
 
 const BeerModal = lazy(() => import('../components/BeerModal'));
 
@@ -133,9 +136,25 @@ export default function BeersPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [displayCount, setDisplayCount] = useState(PAGE);
   const loadMoreRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const flipState = useRef<Flip.FlipState | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const debouncedSearchTerm = useDebounce(searchTerm, 250);
   const unique = useMemo(() => deduplicateBeers(beers), [beers]);
+
+  // Deep link from the ⌘K menu: /?beer=<beer_url> opens that beer's sheet
+  const beerParam = searchParams.get('beer');
+  const deepLinkedBeer = useMemo(
+    () => (beerParam ? beers.find((b) => b.beer_url === beerParam) ?? null : null),
+    [beerParam, beers]
+  );
+
+  /** Remember where every card is right now, so Flip can glide them to their new spot */
+  const captureLayout = useCallback(() => {
+    const cards = gridRef.current?.querySelectorAll('[data-flip-id]');
+    if (cards?.length && !prefersReducedMotion()) flipState.current = Flip.getState(cards);
+  }, []);
 
   const filteredBeers = useMemo(() => {
     let list = unique;
@@ -204,6 +223,7 @@ export default function BeersPage() {
   const anyFilter = !!(searchTerm || selectedCategory || activeSmartTag || sheetFilterCount);
 
   const clearFilters = () => {
+    captureLayout();
     setSearchTerm('');
     setSelectedCategory('');
     setSelectedSubcategory('');
@@ -215,7 +235,43 @@ export default function BeersPage() {
   };
 
   const handleBeerClick = useCallback((beer: BeerData) => setSelectedBeer(beer), []);
-  const handleModalClose = useCallback(() => setSelectedBeer(null), []);
+  const handleModalClose = useCallback(() => {
+    setSelectedBeer(null);
+    if (beerParam) {
+      setSearchParams(
+        (prev) => {
+          prev.delete('beer');
+          return prev;
+        },
+        { replace: true }
+      );
+    }
+  }, [beerParam, setSearchParams]);
+
+  // Cards glide to their new place when filters change (Flip) and rise in when they first appear
+  useLayoutEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+    const reduce = prefersReducedMotion();
+    const cards = Array.from(grid.querySelectorAll<HTMLElement>('[data-flip-id]'));
+
+    if (flipState.current && !reduce) {
+      Flip.from(flipState.current, { duration: 0.7, ease: EASE_OUT_EXPO, stagger: 0.01, overwrite: true });
+    }
+    flipState.current = null;
+
+    const fresh = cards.filter((c) => !c.dataset.revealed);
+    fresh.forEach((c) => {
+      c.dataset.revealed = '1';
+    });
+    if (!reduce && fresh.length) {
+      gsap.fromTo(
+        fresh,
+        { autoAlpha: 0, y: 28, scale: 0.96 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.75, ease: EASE_OUT_EXPO, stagger: 0.035, clearProps: 'opacity,visibility,transform' }
+      );
+    }
+  }, [filteredBeers, displayCount]);
 
   if (loading && beers.length === 0) {
     return (
@@ -255,6 +311,12 @@ export default function BeersPage() {
         eyebrow="Biertaverne De Gouverneur"
         title="Wat drink je vanavond?"
         subtitle={`${unique.length} bieren op de kaart — van de tap, uit de bierbijbel en op=op.`}
+        floatAside
+        aside={
+          <Suspense fallback={<div className="w-28 h-28 sm:w-40 sm:h-40 md:w-60 md:h-60" aria-hidden />}>
+            <HeroCap />
+          </Suspense>
+        }
       >
         {/* Sticky search */}
         <div className="sticky z-30 top-[calc(3.5rem+env(safe-area-inset-top))] md:top-16 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-bg/85 backdrop-blur-xl">
@@ -268,13 +330,19 @@ export default function BeersPage() {
                 enterKeyHint="search"
                 placeholder="Naam, brouwerij of stijl"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  captureLayout();
+                  setSearchTerm(e.target.value);
+                }}
                 className="field pl-12 pr-11 rounded-full"
               />
               {searchTerm && (
                 <button
                   type="button"
-                  onClick={() => setSearchTerm('')}
+                  onClick={() => {
+                    captureLayout();
+                    setSearchTerm('');
+                  }}
                   className="absolute right-1 top-1/2 -translate-y-1/2 icon-btn w-10 h-10 text-muted"
                   aria-label="Zoekopdracht wissen"
                 >
@@ -309,6 +377,7 @@ export default function BeersPage() {
                   aria-checked={active}
                   onClick={() => {
                     haptics.tap();
+                    captureLayout();
                     setSelectedCategory(cat);
                     setSelectedSubcategory('');
                   }}
@@ -332,6 +401,7 @@ export default function BeersPage() {
                 aria-pressed={active}
                 onClick={() => {
                   haptics.tap();
+                  captureLayout();
                   setActiveSmartTag(active ? null : id);
                 }}
                 className={`chip border-dashed ${active ? 'bg-gold/15 border-gold/60 border-solid text-gold hover:text-gold' : ''}`}
@@ -369,16 +439,11 @@ export default function BeersPage() {
             }
           />
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {displayedBeers.map((beer, i) => (
-              <motion.div
-                key={beer.beer_url}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: Math.min(i % PAGE, 12) * 0.03, ease: [0.16, 1, 0.3, 1] }}
-              >
+          <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {displayedBeers.map((beer) => (
+              <div key={beer.beer_url} data-flip-id={beer.beer_url} className="[perspective:900px]">
                 <BeerCard beer={beer} onClick={() => handleBeerClick(beer)} />
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
@@ -429,7 +494,10 @@ export default function BeersPage() {
                   type="button"
                   role="radio"
                   aria-checked={sort === s.id}
-                  onClick={() => setSort(s.id)}
+                  onClick={() => {
+                    captureLayout();
+                    setSort(s.id);
+                  }}
                   className={`chip ${sort === s.id ? 'chip-active' : ''}`}
                 >
                   {s.label}
@@ -498,7 +566,9 @@ export default function BeersPage() {
       </Sheet>
 
       <Suspense fallback={null}>
-        {selectedBeer && <BeerModal beer={selectedBeer} onClose={handleModalClose} />}
+        {(selectedBeer ?? deepLinkedBeer) && (
+          <BeerModal beer={(selectedBeer ?? deepLinkedBeer)!} onClose={handleModalClose} />
+        )}
       </Suspense>
     </>
   );

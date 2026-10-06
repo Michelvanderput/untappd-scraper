@@ -220,3 +220,112 @@
   font-style: normal;
   font-display: swap;
 }
+
+
+/* ---------------------------------------------------------------------------
+ * Motion layer: SplitText masks, route view transitions, scroll-driven chrome
+ * ------------------------------------------------------------------------- */
+
+/* SplitText word masks: room for italic overhang so letters are never clipped */
+.split-mask {
+  padding: 0 0.12em 0.1em 0;
+  margin: 0 -0.12em -0.1em 0;
+}
+
+/* Route changes use the View Transitions API (react-router `viewTransition`).
+   The header and tab bar stay put, only the page itself cross-slides. */
+main {
+  view-transition-name: page;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+::view-transition-group(page) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-old(page) {
+  animation: page-out 0.25s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+::view-transition-new(page) {
+  animation: page-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Header gets a stronger edge as soon as you scroll — pure CSS, no JS */
+@supports (animation-timeline: scroll()) {
+  .header-edge {
+    animation: header-edge linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 120px;
+  }
+  @keyframes header-edge {
+    from {
+      border-bottom-color: rgb(var(--line) / 0);
+      box-shadow: 0 0 0 0 rgb(0 0 0 / 0);
+    }
+    to {
+      border-bottom-color: rgb(var(--line) / 0.12);
+      box-shadow: 0 14px 30px -18px rgb(0 0 0 / 0.55);
+    }
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Command menu (cmdk) */
+@layer components {
+  .palette-group [cmdk-group-heading] {
+    @apply px-3 pt-3 pb-1.5 text-[11px] uppercase tracking-[0.14em] text-muted;
+  }
+  .palette-item {
+    @apply flex items-center gap-3 rounded-2xl px-3 py-2.5 cursor-pointer select-none;
+  }
+  .palette-item[data-selected='true'] {
+    @apply bg-gold/15 text-fg;
+  }
+}
+@keyframes palette-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes palette-pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px) scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [cmdk-dialog] * {
+    animation: none !important;
+  }
+}

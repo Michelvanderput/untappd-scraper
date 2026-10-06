@@ -1,6 +1,7 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { Beer, Star } from 'lucide-react';
 import type { BeerData } from '../types/beer';
+import { gsap, prefersReducedMotion } from '../lib/gsap';
 
 interface BeerCardProps {
   beer: BeerData;
@@ -12,13 +13,59 @@ interface BeerCardProps {
 function BeerCard({ beer, onClick, size = 'default' }: BeerCardProps) {
   const [broken, setBroken] = useState(false);
   const large = size === 'large';
+  const card = useRef<HTMLButtonElement>(null);
+
+  // Stop any running tween when the card unmounts
+  useEffect(() => {
+    const el = card.current;
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
+  }, []);
+
+  // 3D tilt + moving glare on hover (mouse/pen only; touch and reduced motion keep it flat)
+  const canTilt = () => !prefersReducedMotion() && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  const onMove = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (!canTilt() || e.pointerType === 'touch') return;
+    const el = card.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width;
+    const py = (e.clientY - r.top) / r.height;
+    gsap.to(el, {
+      rotationY: (px - 0.5) * 10,
+      rotationX: (0.5 - py) * 8,
+      y: -4,
+      transformPerspective: 900,
+      duration: 0.5,
+      ease: 'power3.out',
+      overwrite: 'auto',
+    });
+    el.style.setProperty('--gx', `${px * 100}%`);
+    el.style.setProperty('--gy', `${py * 100}%`);
+  };
+
+  const onLeave = () => {
+    if (!card.current) return;
+    gsap.to(card.current, { rotationY: 0, rotationX: 0, y: 0, duration: 0.7, ease: 'elastic.out(1, 0.6)', overwrite: 'auto' });
+  };
 
   return (
     <button
+      ref={card}
       type="button"
       onClick={onClick}
-      className="group w-full h-full text-left surface overflow-hidden flex flex-col transition-[transform,border-color] duration-300 ease-out-expo hover:-translate-y-1 hover:border-gold/30 active:scale-[0.98]"
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      className="group relative w-full h-full text-left surface overflow-hidden flex flex-col transition-[border-color] duration-300 ease-out-expo hover:border-gold/30 active:brightness-95 will-change-transform"
     >
+      {/* Glare follows the pointer */}
+      <span
+        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [@media(hover:none)]:hidden"
+        style={{ background: 'radial-gradient(240px circle at var(--gx,50%) var(--gy,0%), rgb(var(--gold) / 0.14), transparent 70%)' }}
+        aria-hidden
+      />
       <div className={`relative bg-surface-2/60 grid place-items-center ${large ? 'h-64' : 'h-32 sm:h-40'}`}>
         {beer.image_url && !broken ? (
           <img

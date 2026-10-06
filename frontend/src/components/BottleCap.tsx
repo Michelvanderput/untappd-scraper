@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 // Crimped crown-cap outline: 21 teeth, alternating outer/inner radius (viewBox 0 0 100 100).
 const TEETH = 21;
-const CAP_PATH = (() => {
+export const CAP_PATH = (() => {
   const pts: string[] = [];
   for (let i = 0; i < TEETH * 2; i++) {
     const a = (Math.PI * i) / TEETH - Math.PI / 2;

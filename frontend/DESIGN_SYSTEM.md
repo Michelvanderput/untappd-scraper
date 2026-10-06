@@ -76,19 +76,39 @@ reveal (`PageLayout`). Body stays ≥ 16px; labels are 11px uppercase with wide 
 
 ## Motion
 
-Framer Motion for UI state, GSAP for the randomizer reel.
+**GSAP is the animation engine** for everything new (`src/lib/gsap.ts` registers ScrollTrigger,
+SplitText, Flip, DrawSVG and MorphSVG once). Framer Motion is still used in the older pages
+(Toepen, randomizer, menu builder, chatbot, Beerdle, trends, compare) and is being phased out;
+don't add new Framer code. Easing language: `expo.out` for things that arrive, `power3/4.inOut`
+for transitions, `elastic.out(1, 0.6)` for the card tilt returning home.
 
-| Pattern            | Timing                                  |
-|--------------------|-----------------------------------------|
-| Route change       | 220ms fade + 10px rise, `expo.out`      |
-| Title reveal       | 700ms per word, 70ms stagger            |
-| Pills / tabs       | spring (stiffness 420–500, damping 34)  |
-| Sheets             | spring (380 / 38)                       |
-| Randomizer reel    | 3.35s `power4.out` + 0.45s `back.out` settle, haptic tick per row |
-| Result stats       | count-up 1.1s after 450ms               |
+One signature moment per page; everything else is quiet.
 
-`<MotionConfig reducedMotion="user">` plus a global `prefers-reduced-motion` CSS rule: with
-reduced motion the reel is skipped, bubbles and rays are hidden, and results render immediately.
+| Where              | What                                                                      | Tool |
+|--------------------|---------------------------------------------------------------------------|------|
+| First visit        | Ring draws, morphs into the crown cap, curtain lifts (once per session)  | DrawSVG + MorphSVG (`Intro`) |
+| Home hero          | 3D crown cap: sways, leans toward the pointer, rolls with the scroll    | three.js + R3F, lazy (`HeroCap`) |
+| Page titles        | Word-by-word mask reveal                                                  | SplitText (`PageLayout`) |
+| Section headings   | Rule draws, title lifts in when scrolled into view                       | ScrollTrigger + SplitText |
+| Beer grid          | Cards glide to their new place when filters change, new cards rise in    | Flip (`BeersPage`) |
+| Beer cards         | 3D tilt + glare on hover (mouse only)                                     | GSAP quickly-eased tweens |
+| Route change       | Header and tab bar stay, the page cross-slides (500ms `expo.out`)        | View Transitions API (`viewTransition` on links) |
+| Nav pills          | One pill glides to the active link                                        | GSAP (`useSlidingPill`) |
+| Scrolling          | Smooth scroll, in sync with ScrollTrigger                                 | Lenis (`SmoothScroll`) |
+| Header edge        | Border + shadow strengthen after 120px of scroll                          | CSS `animation-timeline: scroll()` |
+| Search             | ⌘K / Ctrl+K command menu: pages + beers, deep links to `/?beer=<url>`    | cmdk (`CommandPalette`) |
+| Sheets             | Native-feeling drag-to-close drawer                                       | Vaul (`Sheet`) |
+| Randomizer reel    | 3.35s `power4.out` + 0.45s `back.out` settle, haptic tick per row        | GSAP |
+
+Rules:
+
+- Animate `transform` and `opacity` only. Never width/height/top.
+- Content must be visible without JS: reveals hide elements only after JS has started.
+- Lenis ignores dialogs, drawers and the command menu (`prevent` + `data-lenis-prevent`).
+- The 3D chunk (~250 kB gzip) loads only when the hero is on screen, WebGL works and Data Saver
+  is off. Otherwise the flat SVG cap is shown. Rendering pauses when scrolled out of view.
+- `prefers-reduced-motion`: no smooth scroll, no intro, no reveals, no tilt, no view transitions,
+  the 3D cap renders one still frame. (`<MotionConfig reducedMotion="user">` covers the old Framer pages.)
 
 ## Pre-delivery checklist (from the skill)
 
