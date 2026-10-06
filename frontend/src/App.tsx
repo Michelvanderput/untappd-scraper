@@ -1,4 +1,4 @@
-import { useEffect, useRef, lazy, Suspense } from 'react';
+import { useEffect, useRef, useState, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import { Beer, TrendingUp, Sparkles, Spade, Download, Instagram, Dices, Search } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -14,6 +14,7 @@ import BottleCap from './components/BottleCap';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import { haptics } from './utils/haptic';
 import { useSlidingPill } from './lib/useSlidingPill';
+import { prefetchAllRoutes, prefetchRoute, routeLoaders } from './lib/routes';
 import { scrollToTop } from './lib/lenis';
 import SmoothScroll from './components/SmoothScroll';
 import CommandPalette from './components/CommandPalette';
@@ -21,14 +22,14 @@ import { openCommandPalette } from './lib/command';
 import Intro from './components/Intro';
 
 // Lazy load pages
-const BeersPage = lazy(() => import('./pages/BeersPage'));
-const TrendsPage = lazy(() => import('./pages/TrendsPage'));
-const MenuBuilderPage = lazy(() => import('./pages/MenuBuilderPage'));
-const SurprisePage = lazy(() => import('./pages/SurprisePage'));
-const ToepenPage = lazy(() => import('./pages/ToepenPage'));
-const InstallPage = lazy(() => import('./pages/InstallPage'));
-const ComparePage = lazy(() => import('./pages/ComparePage'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const BeersPage = lazy(routeLoaders['/']);
+const TrendsPage = lazy(routeLoaders['/trends']);
+const MenuBuilderPage = lazy(routeLoaders['/menu-builder']);
+const SurprisePage = lazy(routeLoaders['/surprise']);
+const ToepenPage = lazy(routeLoaders['/toepen']);
+const InstallPage = lazy(routeLoaders['/install']);
+const ComparePage = lazy(routeLoaders['/compare']);
+const NotFoundPage = lazy(routeLoaders['*']);
 
 interface NavItem {
   path: string;
@@ -83,6 +84,8 @@ function TopBar() {
               to={path}
               end={path === '/'}
               viewTransition
+              onPointerEnter={() => prefetchRoute(path)}
+              onFocus={() => prefetchRoute(path)}
               className={({ isActive }) =>
                 `relative z-10 px-4 min-h-[40px] inline-flex items-center rounded-full text-sm font-medium transition-colors duration-300 ${
                   isActive ? 'text-bg' : 'text-muted hover:text-fg'
@@ -121,6 +124,8 @@ function TopBar() {
 function TabBar() {
   const bar = useRef<HTMLDivElement>(null);
   const pill = useRef<HTMLSpanElement>(null);
+  // Pressed feedback via pointer events: iOS Safari only applies :active when a touch listener exists
+  const [pressed, setPressed] = useState<string | null>(null);
   useSlidingPill(bar, pill, 'a[aria-current="page"]:not([data-no-pill])', useLocation().pathname);
 
   return (
@@ -142,21 +147,29 @@ function TabBar() {
               end={path === '/'}
               viewTransition
               data-no-pill={isCenter ? '' : undefined}
+              data-pressed={pressed === path ? '' : undefined}
+              onPointerDown={() => {
+                prefetchRoute(path);
+                setPressed(path);
+              }}
+              onPointerUp={() => setPressed(null)}
+              onPointerCancel={() => setPressed(null)}
+              onPointerLeave={() => setPressed(null)}
               onClick={() => haptics.tap()}
               aria-label={label}
-              className="relative z-10 flex-1 flex flex-col items-center justify-center gap-0.5 min-w-[44px] my-1.5"
+              className="group relative z-10 flex-1 flex flex-col items-center justify-center gap-0.5 min-w-[44px] my-1.5 touch-manipulation"
             >
               {({ isActive }) =>
                 isCenter ? (
-                  <span className="-mt-8 flex flex-col items-center gap-1 transition-transform duration-200 ease-out-expo active:scale-90 active:-rotate-[20deg]">
-                    <BottleCap className={`w-[60px] h-[60px] drop-shadow-[0_10px_18px_rgba(242,179,61,0.35)] ${isActive ? '' : 'saturate-[0.85]'}`}>
+                  <span className="-mt-8 flex flex-col items-center gap-1 transition-transform duration-150 ease-out-expo group-data-[pressed]:scale-90">
+                    <BottleCap className={`w-[60px] h-[60px] drop-shadow-[0_10px_18px_rgba(242,179,61,0.35)] ${isActive ? 'cap-pop' : 'saturate-[0.85]'}`}>
                       <Icon className="w-6 h-6" strokeWidth={2.2} />
                     </BottleCap>
                     <span className={`text-[10px] font-medium ${isActive ? 'text-gold' : 'text-muted'}`}>{label}</span>
                   </span>
                 ) : (
                   <>
-                    <Icon className={`w-5 h-5 transition-colors ${isActive ? 'text-gold' : 'text-muted'}`} />
+                    <Icon className={`w-5 h-5 transition-[color,transform] duration-150 group-data-[pressed]:scale-90 ${isActive ? 'text-gold' : 'text-muted'}`} />
                     <span className={`text-[10px] font-medium transition-colors ${isActive ? 'text-fg' : 'text-muted'}`}>
                       {label}
                     </span>
@@ -200,6 +213,7 @@ function App() {
   useEffect(() => {
     registerServiceWorker();
     setupInstallPrompt();
+    prefetchAllRoutes();
   }, []);
 
   return (

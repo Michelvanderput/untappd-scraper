@@ -24,7 +24,7 @@ export function useSlidingPill(
       if (!c || !p) return;
       const active = c.querySelector<HTMLElement>(activeSelector);
       if (!active) {
-        gsap.to(p, { autoAlpha: 0, duration: 0.2, overwrite: true });
+        gsap.to(p, { autoAlpha: 0, duration: 0.12, overwrite: true });
         placed.current = false;
         return;
       }
