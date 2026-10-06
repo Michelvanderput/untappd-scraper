@@ -138,11 +138,6 @@
   .stat-label {
     @apply text-[11px] font-medium uppercase tracking-[0.14em] text-muted;
   }
-
-  /* Legacy names still used in a few places */
-  .glass-panel {
-    @apply surface;
-  }
 }
 
 @layer utilities {
@@ -574,22 +569,6 @@ html.lenis body {
 }
 @media (prefers-reduced-motion: reduce) {
   .draw-stroke {
-    animation: none;
-  }
-}
-
-/* Chatbot typing dots */
-@keyframes typing-dot {
-  50% {
-    transform: translateY(-4px);
-  }
-}
-.typing-dot {
-  animation: typing-dot 0.6s ease-in-out infinite;
-  animation-delay: calc(var(--i, 0) * 45ms);
-}
-@media (prefers-reduced-motion: reduce) {
-  .typing-dot {
     animation: none;
   }
 }

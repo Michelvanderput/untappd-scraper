@@ -21,13 +21,7 @@ Automatische scraper voor het biermenu van Biertaverne De Gouverneur op Untappd,
 
 ### 0. Environment variables (optioneel)
 
-Voor de **AI-chatbot (BeerBot)** is een Ollama Cloud API key nodig. Zonder key werkt de rest van de app gewoon; alleen de chatbot is dan uitgeschakeld.
-
-1. Kopieer `.env.example` naar `.env`: `cp .env.example .env`
-2. Vul `VITE_OLLAMA_API_KEY` in (haal een key op via [Ollama Cloud](https://ollama.com))
-3. Voor **Vercel**: voeg dezelfde key toe in Project → Settings → Environment Variables als `VITE_OLLAMA_API_KEY`
-
-Zie `.env.example` voor alle optionele variabelen.
+Alles werkt zonder instellingen. Zie `.env.example` voor de optionele variabelen (live register, scraper-contact).
 
 ### 1. GitHub Repository
 

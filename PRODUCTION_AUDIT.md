@@ -7,7 +7,7 @@
 
 ## 1. Samenvatting
 
-Het project is al goed gestructureerd: duidelijke scheiding scraper/API/frontend, PWA, dagelijkse scraping via GitHub Actions, en een rijke frontend (filters, Beerdle, AI-chatbot, trends). Om het **production-ready** te verkopen zijn vooral verbeteringen nodig op: **configuratie & documentatie**, **foutafhandeling & robuustheid**, **security hardening**, **SEO/PWA-details** en **optioneel tests**.
+Het project is al goed gestructureerd: duidelijke scheiding scraper/API/frontend, PWA, dagelijkse scraping via GitHub Actions, en een rijke frontend (filters, trends). Om het **production-ready** te verkopen zijn vooral verbeteringen nodig op: **configuratie & documentatie**, **foutafhandeling & robuustheid**, **security hardening**, **SEO/PWA-details** en **optioneel tests**.
 
 ---
 
@@ -27,7 +27,7 @@ Het project is al goed gestructureerd: duidelijke scheiding scraper/API/frontend
 
 | Item | Prioriteit | Actie |
 |------|------------|--------|
-| Geen `.env.example` | Hoog | Toevoegen met `VITE_OLLAMA_API_KEY`, `VITE_OLLAMA_CLOUD_MODEL` (en optioneel scraper contact-email). |
+| Geen `.env.example` | Hoog | Toevoegen met de optionele variabelen (live register, scraper contact-email). |
 | Scraper User-Agent | Medium | `you@example.com` in `scrape.js` vervangen door env of placeholder; in README uitleggen. |
 | package.json (root) | Laag | `description`, `author` en eventueel `repository` invullen voor professionaliteit. |
 
@@ -37,7 +37,7 @@ Het project is al goed gestructureerd: duidelijke scheiding scraper/API/frontend
 |------|------------|--------|
 | Inputvalidatie `/api/beers` | Hoog | `sort` whitelisten (`name`, `brewery`, `abv`, `ibu`, `rating`, `style`); `order` alleen `asc`/`desc`. Nu kan een client ongeldige waarden sturen. |
 | Inputvalidatie `/api/changelog` | Hoog | `limit` cap (bijv. max 30) en `parseInt` met fallback; nu kan `limit=999999` worden meegegeven. |
-| Foutdetails in productie | Medium | In `api/health.js` en `api/ollama-proxy.js` geen stack/error.message naar client sturen; generieke boodschap retourneren. |
+| Foutdetails in productie | Medium | In `api/health.js` geen stack/error.message naar client sturen; generieke boodschap retourneren. |
 | CORS | Laag | Nu `*`; voor verkoop kan worden gedocumenteerd dat klant eigen origin kan beperken (Vercel env). |
 
 ### 3.3 Frontend – Foutafhandeling & UX
@@ -88,9 +88,7 @@ Het project is al goed gestructureerd: duidelijke scheiding scraper/API/frontend
 
 ### Verbeteren (geen verwijderen nodig)
 
-- **AI-chatbot:** Al goed afgeschermd (API key server-side). Optioneel: rate limit per IP/session in proxy als klant veel verkeer verwacht.
 - **Menu-builder:** Handig om te behouden; eventueel “Exporteer als PDF/afbeelding” als verkoopargument.
-- **Beerdle:** Blijft een sterke differentiator; geen wijziging nodig voor production.
 
 ### Niets verwijderen
 
@@ -114,7 +112,7 @@ Deze zijn geen blokkers; wel fijn voor een “af” gevoel bij verkoop.
 **Must-have voor “production ready”:**
 
 1. `.env.example` + README production/env-sectie  
-2. API: sort/order whitelist (beers), limit cap (changelog), generieke foutmeldingen (health, ollama-proxy)  
+2. API: sort/order whitelist (beers), limit cap (changelog), generieke foutmeldingen (health)  
 3. Error Boundary + 404-pagina  
 4. BeersPage: error state + retry bij mislukte fetch  
 5. SEO image en manifest icons corrigeren (icon.svg of echte PNG’s)
