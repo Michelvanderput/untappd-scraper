@@ -6,6 +6,7 @@ import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
 
 const TEETH = 21;
+const CAP_LIFT = 0.2;
 
 /** Crown cap: lathe profile (plate + flared skirt), then crimped with a triangle wave per tooth. */
 function buildCapGeometry() {
@@ -121,7 +122,8 @@ function Cap({ progress, animate }: CapProps) {
     const ty = animate ? state.pointer.y : 0;
     o.rotation.x = THREE.MathUtils.damp(o.rotation.x, 1.0 - ty * 0.28 + p * 0.5, 4, dt);
     o.rotation.z = THREE.MathUtils.damp(o.rotation.z, -tx * 0.3, 4, dt);
-    o.position.y = (animate ? Math.sin(t * 1.1) * 0.06 : 0) - p * 0.4;
+    // CAP_LIFT: the tilted cap's silhouette sits low around its origin; lift it so it is centred in the ring
+    o.position.y = CAP_LIFT + (animate ? Math.sin(t * 1.1) * 0.06 : 0) - p * 0.4;
     o.scale.setScalar(1 - p * 0.28);
   });
 
