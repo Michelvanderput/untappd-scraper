@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Minus, Pencil, Undo2, RotateCcw, UserPlus, X, Play, Crown, Skull, Users } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import BottleCap from '../components/BottleCap';
 import SEO from '../components/SEO';
 import Bubbles from '../components/Bubbles';
 import { haptics } from '../utils/haptic';
+import { usePresence } from '../lib/usePresence';
+import { stagger } from '../lib/stagger';
 
 /*
  * Toepen scoreboard.
@@ -87,40 +88,31 @@ function ConfirmSheet({
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onCancel]);
 
+  const { mounted, state } = usePresence(open, 250);
+  if (!mounted) return null;
+
   return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          className="fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onCancel} />
-          <motion.div
-            role="alertdialog"
-            aria-modal="true"
-            aria-labelledby="confirm-title"
-            className="relative w-full max-w-sm surface p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:pb-6"
-            initial={{ y: 40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 40, opacity: 0 }}
-            transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-          >
-            <h2 id="confirm-title" className="font-display italic font-extrabold text-2xl mb-2">{title}</h2>
-            <p className="text-muted mb-6">{body}</p>
-            <div className="grid grid-cols-2 gap-3">
-              <button type="button" className="btn-secondary" onClick={onCancel} autoFocus>
-                Annuleer
-              </button>
-              <button type="button" className="btn bg-ember text-white" onClick={onConfirm}>
-                {confirmLabel}
-              </button>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div data-state={state} className="fade fixed inset-0 z-[70] flex items-end sm:items-center justify-center p-3">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onCancel} />
+      <div
+        data-state={state}
+        role="alertdialog"
+        aria-modal="true"
+        aria-labelledby="confirm-title"
+        className="lift relative w-full max-w-sm surface p-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:pb-6"
+      >
+        <h2 id="confirm-title" className="font-display italic font-extrabold text-2xl mb-2">{title}</h2>
+        <p className="text-muted mb-6">{body}</p>
+        <div className="grid grid-cols-2 gap-3">
+          <button type="button" className="btn-secondary" onClick={onCancel} autoFocus>
+            Annuleer
+          </button>
+          <button type="button" className="btn bg-ember text-white" onClick={onConfirm}>
+            {confirmLabel}
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -131,7 +123,6 @@ const INK_RED = '#b22222';
 
 /** One group of up to five strokes: four uprights and a diagonal strike-through */
 function TallyGroup({ count, seed, red }: { count: number; seed: number; red: boolean }) {
-  const reduce = useReducedMotion();
   const color = red ? INK_RED : INK;
   // Slightly wobbly, hand-drawn looking strokes (deterministic so they don't jump on re-render)
   const wob = (i: number) => (((seed * 7 + i * 13) % 5) - 2) * 0.7;
@@ -145,15 +136,15 @@ function TallyGroup({ count, seed, red }: { count: number; seed: number; red: bo
   return (
     <svg viewBox="0 0 46 48" className="w-[38px] h-10 shrink-0" fill="none" aria-hidden>
       {strokes.map((st, i) => (
-        <motion.path
+        <path
           key={i}
           d={st.d}
           stroke={color}
           strokeWidth={2.6}
           strokeLinecap="round"
-          initial={reduce ? false : { pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 0.92 }}
-          transition={{ duration: 0.22, ease: 'easeOut' }}
+          strokeOpacity={0.92}
+          pathLength={1}
+          className="draw-stroke"
         />
       ))}
     </svg>
@@ -188,15 +179,10 @@ function PlayerRow({
 }) {
   const out = isOut(player);
   const p = hasP(player);
-  const reduce = useReducedMotion();
 
   return (
-    <motion.li
-      layout
-      initial={{ opacity: 0, y: 8 }}
-      animate={out && !reduce ? { opacity: 1, y: 0, x: [0, -5, 5, -3, 3, 0] } : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="py-3 border-b-2 border-dashed last:border-b-0"
+    <li
+      className={`enter-up py-3 border-b-2 border-dashed last:border-b-0 ${out ? 'shake-once' : ''}`}
       style={{ borderColor: `${INK}33` }}
     >
       <div className="flex items-end gap-3">
@@ -208,35 +194,29 @@ function PlayerRow({
             >
               {player.name}
             </span>
-            <AnimatePresence>
+            <>
               {p && (
-                <motion.span
+                <span
                   key="p"
-                  initial={{ scale: 0, rotate: -30 }}
-                  animate={{ scale: 1, rotate: -8 }}
-                  exit={{ scale: 0 }}
-                  transition={{ type: 'spring', stiffness: 600, damping: 18 }}
-                  className="shrink-0 grid place-items-center w-7 h-7 rounded-full border-2 text-lg leading-none"
+                  className="enter-pop shrink-0 grid place-items-center w-7 h-7 rounded-full border-2 text-lg leading-none"
                   style={{ ...HAND, fontWeight: 700, color: INK_RED, borderColor: INK_RED }}
                   aria-label="P: nog één punt"
                   title="P — nog één punt en je ligt eruit"
                 >
                   P
-                </motion.span>
+                </span>
               )}
               {out && (
-                <motion.span
+                <span
                   key="out"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1, rotate: -6 }}
-                  className="shrink-0 inline-flex items-center gap-1 text-xl leading-none"
+                  className="enter-pop shrink-0 inline-flex items-center gap-1 text-xl leading-none"
                   style={{ ...HAND, fontWeight: 700, color: INK_RED }}
                 >
                   <Skull className="w-4 h-4" aria-hidden />
                   eruit!
-                </motion.span>
+                </span>
               )}
-            </AnimatePresence>
+            </>
           </div>
         </div>
         <span className="text-4xl leading-none tabular pr-1" style={{ ...HAND, fontWeight: 700, color: p || out ? INK_RED : INK }} aria-label={`${player.score} punten`}>
@@ -264,19 +244,18 @@ function PlayerRow({
         >
           <Minus className="w-5 h-5" />
         </button>
-        <motion.button
+        <button
           type="button"
           onClick={onAdd}
           disabled={out}
-          whileTap={{ scale: 0.92, rotate: -8 }}
-          className="grid place-items-center w-11 h-11 rounded-full disabled:opacity-25"
+          className="grid place-items-center w-11 h-11 rounded-full transition-transform duration-150 enabled:active:scale-90 enabled:active:-rotate-6 disabled:opacity-25"
           style={{ background: INK, color: '#f7f1e6' }}
           aria-label={`Punt bijschrijven voor ${player.name}`}
         >
           <Pencil className="w-5 h-5" />
-        </motion.button>
+        </button>
       </div>
-    </motion.li>
+    </li>
   );
 }
 
@@ -346,15 +325,11 @@ function Setup({ onStart }: { onStart: (names: string[]) => void }) {
       </form>
 
       <ul className="space-y-2" aria-label="Spelers">
-        <AnimatePresence initial={false}>
+        <>
           {names.map((name, i) => (
-            <motion.li
+            <li
               key={name}
-              layout
-              initial={{ opacity: 0, x: -16 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 16 }}
-              className="surface flex items-center gap-3 pl-2 pr-2 py-2 rounded-2xl"
+              className="enter-left surface flex items-center gap-3 pl-2 pr-2 py-2 rounded-2xl"
             >
               <button
                 type="button"
@@ -368,9 +343,9 @@ function Setup({ onStart }: { onStart: (names: string[]) => void }) {
               <button type="button" onClick={() => remove(name)} className="icon-btn text-muted" aria-label={`Verwijder ${name}`}>
                 <X className="w-5 h-5" />
               </button>
-            </motion.li>
+            </li>
           ))}
-        </AnimatePresence>
+        </>
       </ul>
 
       {names.length === 0 && (
@@ -422,37 +397,27 @@ function WinnerOverlay({
 }) {
 
   return (
-    <motion.div
-      className="fixed inset-0 z-[70] grid place-items-center p-6 bg-bg/95 backdrop-blur-xl overflow-hidden"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+    <div
+      className="enter-fade fixed inset-0 z-[70] grid place-items-center p-6 bg-bg/95 backdrop-blur-xl overflow-hidden"
       role="dialog"
       aria-modal="true"
       aria-labelledby="winner-title"
     >
       <Bubbles count={24} duration={4} />
       <div className="relative text-center max-w-sm">
-        <motion.div
-          initial={{ scale: 0, rotate: -180 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: 'spring', stiffness: 200, damping: 14, delay: 0.1 }}
-          className="mx-auto mb-6 w-28 h-28"
-        >
+        <div className="result-pop mx-auto mb-6 w-28 h-28" style={stagger(2)}>
           <BottleCap className="w-28 h-28">
             <Crown className="w-10 h-10" />
           </BottleCap>
-        </motion.div>
+        </div>
         <p className="eyebrow mb-2">Winnaar van het potje</p>
-        <motion.h2
+        <h2
           id="winner-title"
-          className="font-display italic font-extrabold text-6xl leading-none mb-3 break-words"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.35, type: 'spring', stiffness: 200, damping: 20 }}
+          className="enter-up font-display italic font-extrabold text-6xl leading-none mb-3 break-words"
+          style={stagger(8)}
         >
           {winner.name}
-        </motion.h2>
+        </h2>
         <p className="text-muted mb-8">
           Overleefd met <span className="text-fg tabular">{winner.score}</span> {winner.score === 1 ? 'punt' : 'punten'}. Proost!
         </p>
@@ -473,7 +438,7 @@ function WinnerOverlay({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -618,9 +583,7 @@ export default function ToepenPage() {
             onCancel={() => setConfirm(null)}
           />
 
-          <AnimatePresence>
-            {winner && <WinnerOverlay winner={winner} onRematch={rematch} onNewPlayers={backToSetup} onUndo={undo} />}
-          </AnimatePresence>
+          {winner && <WinnerOverlay winner={winner} onRematch={rematch} onNewPlayers={backToSetup} onUndo={undo} />}
         </>,
         document.body
       )}

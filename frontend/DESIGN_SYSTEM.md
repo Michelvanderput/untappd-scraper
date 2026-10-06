@@ -76,11 +76,19 @@ reveal (`PageLayout`). Body stays ≥ 16px; labels are 11px uppercase with wide 
 
 ## Motion
 
-**GSAP is the animation engine** for everything new (`src/lib/gsap.ts` registers ScrollTrigger,
-SplitText, Flip, DrawSVG and MorphSVG once). Framer Motion is still used in the older pages
-(Toepen, randomizer, menu builder, chatbot, Beerdle, trends, compare) and is being phased out;
-don't add new Framer code. Easing language: `expo.out` for things that arrive, `power3/4.inOut`
-for transitions, `elastic.out(1, 0.6)` for the card tilt returning home.
+**GSAP is the only animation library** (`src/lib/gsap.ts` registers ScrollTrigger, SplitText, Flip,
+DrawSVG and MorphSVG once). Framer Motion is gone. Simple enter/exit effects are plain CSS
+keyframes in `index.css`:
+
+- `.enter-up`, `.enter-left`, `.enter-pop`, `.enter-fade`, `.grow-x`, `.shake-once`: play on mount;
+  stagger with `style={stagger(i)}` (`src/lib/stagger.ts`, 45 ms per step).
+- `usePresence(show)` keeps an element mounted for its exit; pair it with `.dock`, `.fade` or
+  `.lift` and `data-state`.
+- `useSlidingPill()` glides one pill to the active tab/nav item (replaces `layoutId`).
+- `.reveal-view` reveals on scroll with a native scroll-driven animation (no JS).
+
+Easing language: `expo.out` for things that arrive, `power3/4.inOut` for transitions,
+`elastic.out(1, 0.6)` for the card tilt returning home.
 
 One signature moment per page; everything else is quiet.
 
@@ -108,7 +116,7 @@ Rules:
 - The 3D chunk (~250 kB gzip) loads only when the hero is on screen, WebGL works and Data Saver
   is off. Otherwise the flat SVG cap is shown. Rendering pauses when scrolled out of view.
 - `prefers-reduced-motion`: no smooth scroll, no intro, no reveals, no tilt, no view transitions,
-  the 3D cap renders one still frame. (`<MotionConfig reducedMotion="user">` covers the old Framer pages.)
+  the 3D cap renders one still frame. The CSS keyframes are switched off in one `@media` block each.
 
 ## Pre-delivery checklist (from the skill)
 

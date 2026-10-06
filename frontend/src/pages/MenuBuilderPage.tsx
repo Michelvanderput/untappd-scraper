@@ -17,12 +17,12 @@ import {
   Beer,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { generateBeerMenu, generatePairingSuggestions, type GeneratedMenu, type MenuGenerationOptions } from '../utils/beerPairing';
 import BeerCard from '../components/BeerCard';
 import BottleCap from '../components/BottleCap';
 import PageLayout from '../components/PageLayout';
+import { stagger } from '../lib/stagger';
 import SEO from '../components/SEO';
 import { useBeers } from '../hooks/useBeers';
 import { haptics } from '../utils/haptic';
@@ -156,9 +156,9 @@ ${generatePairingSuggestions(menu).join('\n')}
         subtitle={viewState === 'setup' ? 'Stel een proeverij samen: kies een sfeer en het aantal glazen.' : undefined}
         contentWidth="compact"
       >
-        <AnimatePresence mode="wait">
+        <>
           {viewState === 'setup' && (
-            <motion.div key="setup" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} className="space-y-6">
+            <div key="setup" className="enter-up space-y-6">
               <fieldset>
                 <legend className="stat-label mb-3">Sfeer</legend>
                 <div className="grid grid-cols-2 gap-2" role="radiogroup">
@@ -230,40 +230,40 @@ ${generatePairingSuggestions(menu).join('\n')}
                   <ChevronDown className={`w-4 h-4 transition-transform ${showAdvanced ? 'rotate-180' : ''}`} />
                   Meer opties
                 </button>
-                <AnimatePresence initial={false}>
-                  {showAdvanced && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="grid grid-cols-3 gap-2 pt-3">
-                        {[
-                          { id: 'min-abv', label: 'Min ABV', value: minABV, set: setMinABV, placeholder: '0', step: '0.5' },
-                          { id: 'max-abv', label: 'Max ABV', value: maxABV, set: setMaxABV, placeholder: '15', step: '0.5' },
-                          { id: 'min-rating', label: 'Min rating', value: minRating, set: setMinRating, placeholder: '0', step: '0.1' },
-                        ].map((f) => (
-                          <div key={f.id}>
-                            <label htmlFor={f.id} className="stat-label block mb-1.5">
-                              {f.label}
-                            </label>
-                            <input
-                              id={f.id}
-                              type="number"
-                              inputMode="decimal"
-                              step={f.step}
-                              placeholder={f.placeholder}
-                              value={f.value ?? ''}
-                              onChange={(e) => f.set(e.target.value ? parseFloat(e.target.value) : undefined)}
-                              className="field tabular"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Collapsing row: grid-rows 0fr → 1fr animates to the content's natural height */}
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out-expo ${
+                    showAdvanced ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                  }`}
+                  aria-hidden={!showAdvanced}
+                >
+                  <div className="overflow-hidden min-h-0">
+                    <div className="grid grid-cols-3 gap-2 pt-3">
+                      {[
+                        { id: 'min-abv', label: 'Min ABV', value: minABV, set: setMinABV, placeholder: '0', step: '0.5' },
+                        { id: 'max-abv', label: 'Max ABV', value: maxABV, set: setMaxABV, placeholder: '15', step: '0.5' },
+                        { id: 'min-rating', label: 'Min rating', value: minRating, set: setMinRating, placeholder: '0', step: '0.1' },
+                      ].map((f) => (
+                        <div key={f.id}>
+                          <label htmlFor={f.id} className="stat-label block mb-1.5">
+                            {f.label}
+                          </label>
+                          <input
+                            id={f.id}
+                            type="number"
+                            inputMode="decimal"
+                            step={f.step}
+                            placeholder={f.placeholder}
+                            value={f.value ?? ''}
+                            onChange={(e) => f.set(e.target.value ? parseFloat(e.target.value) : undefined)}
+                            className="field tabular"
+                            tabIndex={showAdvanced ? 0 : -1}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <button type="button" onClick={handleGenerate} disabled={generating} className="btn-primary w-full h-14 text-lg">
@@ -279,11 +279,11 @@ ${generatePairingSuggestions(menu).join('\n')}
                   </>
                 )}
               </button>
-            </motion.div>
+            </div>
           )}
 
           {viewState === 'revealing' && generatedMenu && (
-            <motion.div key="reveal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <div key="reveal" className="enter-up">
               <div className="flex items-center justify-between mb-3">
                 <p className="stat-label">
                   Glas <span className="text-fg tabular">{revealIndex + 1}</span> van <span className="tabular">{generatedMenu.beers.length}</span>
@@ -295,27 +295,18 @@ ${generatePairingSuggestions(menu).join('\n')}
               <div className="flex gap-1 mb-6" aria-hidden>
                 {generatedMenu.beers.map((_, i) => (
                   <span key={i} className="h-1 flex-1 rounded-full bg-line/10 overflow-hidden">
-                    <motion.span
-                      className="block h-full bg-gold"
-                      initial={false}
-                      animate={{ width: i <= revealIndex ? '100%' : '0%' }}
-                      transition={{ duration: 0.4 }}
+                    <span
+                      className={`block h-full w-full origin-left bg-gold transition-transform duration-[400ms] ease-out-expo ${
+                        i <= revealIndex ? 'scale-x-100' : 'scale-x-0'
+                      }`}
                     />
                   </span>
                 ))}
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={revealIndex}
-                  initial={{ opacity: 0, x: 60, rotate: 4 }}
-                  animate={{ opacity: 1, x: 0, rotate: 0 }}
-                  exit={{ opacity: 0, x: -60, rotate: -4 }}
-                  transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-                >
-                  <BeerCard beer={generatedMenu.beers[revealIndex]} size="large" onClick={() => setSelectedBeer(generatedMenu.beers[revealIndex])} />
-                </motion.div>
-              </AnimatePresence>
+              <div key={revealIndex} className="enter-card">
+                <BeerCard beer={generatedMenu.beers[revealIndex]} size="large" onClick={() => setSelectedBeer(generatedMenu.beers[revealIndex])} />
+              </div>
 
               <button type="button" onClick={handleNextReveal} className="btn-primary w-full h-14 text-lg mt-6">
                 {revealIndex < generatedMenu.beers.length - 1 ? (
@@ -328,11 +319,11 @@ ${generatePairingSuggestions(menu).join('\n')}
                   </>
                 )}
               </button>
-            </motion.div>
+            </div>
           )}
 
           {viewState === 'summary' && generatedMenu && (
-            <motion.div key="summary" initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
+            <div key="summary" className="enter-up space-y-6">
               {/* Ticket */}
               <div className="relative surface overflow-hidden">
                 <div className="p-6 pb-5 bg-[radial-gradient(circle_at_100%_0%,rgb(var(--gold)/0.18),transparent_55%)]">
@@ -348,7 +339,7 @@ ${generatePairingSuggestions(menu).join('\n')}
                 </div>
                 <ol className="divide-y divide-line/10">
                   {generatedMenu.beers.map((beer, index) => (
-                    <motion.li key={beer.beer_url} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.06 }}>
+                    <li key={beer.beer_url} style={stagger(index * 1.3)} className="enter-left">
                       <button
                         type="button"
                         onClick={() => setSelectedBeer(beer)}
@@ -366,7 +357,7 @@ ${generatePairingSuggestions(menu).join('\n')}
                         </span>
                         <span className="text-sm tabular text-ember">{beer.abv != null ? `${beer.abv}%` : '–'}</span>
                       </button>
-                    </motion.li>
+                    </li>
                   ))}
                 </ol>
               </div>
@@ -390,9 +381,9 @@ ${generatePairingSuggestions(menu).join('\n')}
                   Nieuw menu
                 </button>
               </div>
-            </motion.div>
+            </div>
           )}
-        </AnimatePresence>
+        </>
       </PageLayout>
 
       <Suspense fallback={null}>

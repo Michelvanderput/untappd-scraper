@@ -1,9 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import type { RefObject } from 'react';
+import { useEffect, useRef, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import { Beer, TrendingUp, Sparkles, Spade, Download, Instagram, Dices, Search } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { MotionConfig } from 'framer-motion';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { FavoritesProvider } from './contexts/FavoritesContext';
@@ -15,7 +13,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import BottleCap from './components/BottleCap';
 import { registerServiceWorker, setupInstallPrompt } from './utils/pwa';
 import { haptics } from './utils/haptic';
-import { gsap, prefersReducedMotion } from './lib/gsap';
+import { useSlidingPill } from './lib/useSlidingPill';
 import { scrollToTop } from './lib/lenis';
 import SmoothScroll from './components/SmoothScroll';
 import CommandPalette from './components/CommandPalette';
@@ -46,39 +44,6 @@ const NAV_ITEMS: NavItem[] = [
   { path: '/toepen', icon: Spade, label: 'Toepen' },
 ];
 
-/**
- * One pill that glides to whichever nav link is active (GSAP, replaces the old layoutId trick).
- * Hidden when the active link opts out with `data-no-pill` (the raised centre tab).
- */
-function useSlidingPill(container: RefObject<HTMLElement | null>, pill: RefObject<HTMLElement | null>) {
-  const { pathname } = useLocation();
-  const placed = useRef(false);
-
-  useLayoutEffect(() => {
-    const place = (animate: boolean) => {
-      const c = container.current;
-      const p = pill.current;
-      if (!c || !p) return;
-      const active = c.querySelector<HTMLElement>('a[aria-current="page"]:not([data-no-pill])');
-      if (!active) {
-        gsap.to(p, { autoAlpha: 0, duration: 0.2, overwrite: true });
-        placed.current = false;
-        return;
-      }
-      const cr = c.getBoundingClientRect();
-      const ar = active.getBoundingClientRect();
-      const vars = { x: ar.left - cr.left, y: ar.top - cr.top, width: ar.width, height: ar.height, autoAlpha: 1 };
-      if (!animate || !placed.current || prefersReducedMotion()) gsap.set(p, vars);
-      else gsap.to(p, { ...vars, duration: 0.6, ease: 'expo.out', overwrite: true });
-      placed.current = true;
-    };
-    place(true);
-    const onResize = () => place(false);
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [pathname, container, pill]);
-}
-
 function PageFallback() {
   return (
     <div className="flex items-center justify-center min-h-[60vh]" role="status" aria-label="Laden">
@@ -103,7 +68,7 @@ function Logo() {
 function TopBar() {
   const nav = useRef<HTMLElement>(null);
   const pill = useRef<HTMLSpanElement>(null);
-  useSlidingPill(nav, pill);
+  useSlidingPill(nav, pill, 'a[aria-current="page"]', useLocation().pathname);
 
   return (
     <header className="header-edge sticky top-0 z-40 pt-safe bg-bg/75 backdrop-blur-xl border-b border-line/5">
@@ -156,7 +121,7 @@ function TopBar() {
 function TabBar() {
   const bar = useRef<HTMLDivElement>(null);
   const pill = useRef<HTMLSpanElement>(null);
-  useSlidingPill(bar, pill);
+  useSlidingPill(bar, pill, 'a[aria-current="page"]:not([data-no-pill])', useLocation().pathname);
 
   return (
     <nav
@@ -241,46 +206,44 @@ function App() {
     <ThemeProvider>
       <FavoritesProvider>
         <ComparisonProvider>
-          <MotionConfig reducedMotion="user">
-            <BrowserRouter>
-              <SmoothScroll />
-              <Intro />
-              <CommandPalette />
-              <div className="min-h-[100dvh] flex flex-col">
-                {/* Ambient tap-light glow */}
-                <div
-                  className="pointer-events-none fixed inset-x-0 top-0 h-[60vh] -z-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgb(var(--gold)/0.10),transparent_70%)]"
-                  aria-hidden
-                />
+          <BrowserRouter>
+            <SmoothScroll />
+            <Intro />
+            <CommandPalette />
+            <div className="min-h-[100dvh] flex flex-col">
+              {/* Ambient tap-light glow */}
+              <div
+                className="pointer-events-none fixed inset-x-0 top-0 h-[60vh] -z-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgb(var(--gold)/0.10),transparent_70%)]"
+                aria-hidden
+              />
 
-                <TopBar />
+              <TopBar />
 
-                <main className="relative flex-1">
-                  <AppRoutes />
-                </main>
+              <main className="relative flex-1">
+                <AppRoutes />
+              </main>
 
-                <footer className="border-t border-line/5 pt-6 px-4 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pb-6">
-                  <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted">
-                    <span className="font-display italic">Biertaverne De Gouverneur</span>
-                    <a
-                      href="https://instagram.com/michelvdput"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 hover:text-fg transition-colors"
-                    >
-                      <Instagram className="w-4 h-4" />
-                      @michelvdput
-                    </a>
-                  </div>
-                </footer>
+              <footer className="border-t border-line/5 pt-6 px-4 pb-[calc(6.5rem+env(safe-area-inset-bottom))] md:pb-6">
+                <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-muted">
+                  <span className="font-display italic">Biertaverne De Gouverneur</span>
+                  <a
+                    href="https://instagram.com/michelvdput"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-fg transition-colors"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    @michelvdput
+                  </a>
+                </div>
+              </footer>
 
-                <TabBar />
-                <ComparisonBar />
-                <UpdateNotification />
-                <Analytics />
-              </div>
-            </BrowserRouter>
-          </MotionConfig>
+              <TabBar />
+              <ComparisonBar />
+              <UpdateNotification />
+              <Analytics />
+            </div>
+          </BrowserRouter>
         </ComparisonProvider>
       </FavoritesProvider>
     </ThemeProvider>

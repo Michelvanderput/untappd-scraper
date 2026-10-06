@@ -1,8 +1,10 @@
 import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import { Shuffle, Star, Flame, Feather, Zap, ExternalLink, Beer as BeerIcon, RotateCcw, SlidersHorizontal, Radio } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { motion, AnimatePresence, animate, useReducedMotion } from 'framer-motion';
-import gsap from 'gsap';
+import { gsap } from '../lib/gsap';
+import { useReducedMotion } from '../lib/useReducedMotion';
+import { usePresence } from '../lib/usePresence';
+import { stagger } from '../lib/stagger';
 import type { BeerData, RandomizerMode } from '../types/beer';
 import { secureRandomIndex, shuffled } from '../utils/random';
 import { haptics } from '../utils/haptic';
@@ -80,15 +82,19 @@ function CountUp({ value, decimals = 0, suffix = '' }: { value: number | null; d
       el.textContent = value.toFixed(decimals) + suffix;
       return;
     }
-    const controls = animate(0, value, {
+    const counter = { v: 0 };
+    const tween = gsap.to(counter, {
+      v: value,
       duration: 1.1,
       delay: 0.45,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate: (v) => {
-        el.textContent = v.toFixed(decimals) + suffix;
+      ease: 'expo.out',
+      onUpdate: () => {
+        el.textContent = counter.v.toFixed(decimals) + suffix;
       },
     });
-    return () => controls.stop();
+    return () => {
+      tween.kill();
+    };
   }, [value, decimals, suffix, reduce]);
 
   if (value == null) return <span className="text-muted">–</span>;
@@ -167,7 +173,18 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
 
   const [capTurns, setCapTurns] = useState(0);
   const stageRef = useRef<HTMLDivElement>(null);
+  const capRef = useRef<HTMLSpanElement>(null);
   const reduce = useReducedMotion();
+  const rays = usePresence(phase === 'result', 800);
+
+  // The cap makes three full turns per spin; the reel and the cap finish together
+  useEffect(() => {
+    if (capTurns === 0 || !capRef.current) return;
+    const tween = gsap.to(capRef.current, { rotation: capTurns * 1080, duration: SPIN_SECONDS, ease: 'power4.out' });
+    return () => {
+      tween.kill();
+    };
+  }, [capTurns]);
 
   // Live register: last 10 draws by everyone, refreshed every 30s
   useEffect(() => {
@@ -317,17 +334,13 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
       <div ref={stageRef} className="relative scroll-mt-20">
         <div className="relative surface overflow-hidden min-h-[360px] sm:min-h-[460px] pb-14 flex flex-col">
           {/* Rotating light rays behind the result */}
-          <AnimatePresence>
-            {phase === 'result' && (
-              <motion.div
-                key="rays"
-                initial={{ opacity: 0, scale: 0.6 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] pointer-events-none"
-                aria-hidden
-              >
+          {rays.mounted && (
+            <div
+              data-state={rays.state}
+              className="fade absolute left-1/2 top-[34%] -translate-x-1/2 -translate-y-1/2 w-[640px] h-[640px] pointer-events-none"
+              aria-hidden
+            >
+              <div className="rays-in w-full h-full">
                 <div
                   className="w-full h-full rounded-full animate-spin-slow opacity-60"
                   style={{
@@ -337,104 +350,75 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                     WebkitMaskImage: 'radial-gradient(circle, black 10%, transparent 62%)',
                   }}
                 />
-              </motion.div>
-            )}
-          </AnimatePresence>
+              </div>
+            </div>
+          )}
 
-          <AnimatePresence mode="wait">
+          <>
             {phase === 'idle' && (
-              <motion.div
-                key="idle"
-                className="flex-1 flex flex-col items-center justify-center p-6 text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.25 }}
-              >
+              <div key="idle" className="enter-fade flex-1 flex flex-col items-center justify-center p-6 text-center">
                 <div className="relative w-56 h-36 mb-6" aria-hidden>
                   {teaser.map((beer, i) => (
-                    <motion.div
+                    <div
                       key={beer.beer_url}
-                      className="absolute left-1/2 top-0 w-24 h-32 -ml-12 rounded-2xl bg-surface-2 border border-line/10 p-3 shadow-xl"
-                      initial={{ rotate: 0, x: 0, opacity: 0 }}
-                      animate={{ rotate: (i - 1) * 12, x: (i - 1) * 52, y: i === 1 ? -8 : 6, opacity: 1 }}
-                      transition={{ type: 'spring', stiffness: 160, damping: 16, delay: 0.1 + i * 0.08 }}
+                      className="fan-card absolute left-1/2 top-0 w-24 h-32 -ml-12 rounded-2xl bg-surface-2 border border-line/10 p-3 shadow-xl"
+                      style={
+                        {
+                          '--i': i,
+                          '--r': `${(i - 1) * 12}deg`,
+                          '--x': `${(i - 1) * 52}px`,
+                          '--y': `${i === 1 ? -8 : 6}px`,
+                        } as React.CSSProperties
+                      }
                     >
                       <Label beer={beer} className="w-full h-full" />
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
                 <p className="font-display italic font-extrabold text-3xl sm:text-4xl leading-tight text-balance mb-2">
                   Geen idee wat je wilt?
                 </p>
                 <p className="text-muted max-w-xs">Tik op de dop en laat het lot een bier van de kaart kiezen.</p>
-              </motion.div>
+              </div>
             )}
 
             {phase === 'spinning' && (
-              <motion.div
-                key="reel"
-                className="flex-1 flex items-center justify-center p-4"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-              >
+              <div key="reel" className="enter-fade flex-1 flex items-center justify-center p-4">
                 <Reel items={reel} onDone={() => winner && finish(winner)} />
                 <p className="sr-only" role="status">Aan het draaien…</p>
-              </motion.div>
+              </div>
             )}
 
             {phase === 'result' && winner && (
-              <motion.div
+              <div
                 key={`result-${winner.beer_url}`}
-                className="relative flex-1 flex flex-col items-center p-6 pt-8 text-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                className="enter-fade relative flex-1 flex flex-col items-center p-6 pt-8 text-center"
               >
                 {!reduce && <Bubbles />}
-                <motion.div
-                  initial={{ scale: 0.3, rotate: -25, opacity: 0 }}
-                  animate={{ scale: 1, rotate: 0, opacity: 1 }}
-                  transition={{ type: 'spring', stiffness: 220, damping: 14 }}
-                  className="relative w-40 h-40 sm:w-48 sm:h-48 mb-6"
-                >
+                <div className="result-pop relative w-40 h-40 sm:w-48 sm:h-48 mb-6">
                   <div className="absolute inset-4 rounded-full bg-gold/30 blur-2xl" aria-hidden />
                   <Label beer={winner} className="relative w-full h-full drop-shadow-2xl" />
-                </motion.div>
+                </div>
 
-                <motion.p
-                  className="eyebrow mb-2"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
+                <p className="enter-up eyebrow mb-2" style={stagger(4.4)}>
                   {winner.style || winner.category}
-                </motion.p>
+                </p>
                 <h2 className="font-display italic font-extrabold text-4xl sm:text-5xl leading-[0.95] text-balance mb-2" role="status">
                   {winner.name.split(' ').map((word, i) => (
                     <span key={i} className="inline-block overflow-hidden align-bottom pb-[0.08em] -mb-[0.08em]">
-                      <motion.span
-                        className="inline-block"
-                        initial={{ y: '110%' }}
-                        animate={{ y: 0 }}
-                        transition={{ delay: 0.25 + i * 0.06, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                      >
+                      <span className="enter-word" style={stagger(i)}>
                         {word}&nbsp;
-                      </motion.span>
+                      </span>
                     </span>
                   ))}
                 </h2>
-                <motion.p className="text-muted mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}>
+                <p className="enter-fade text-muted mb-6" style={stagger(10)}>
                   {winner.brewery}
-                </motion.p>
+                </p>
 
-                <motion.dl
-                  className="grid grid-cols-3 w-full max-w-sm rounded-2xl border border-line/10 divide-x divide-line/10 bg-bg/40 mb-6"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                <dl
+                  className="enter-up grid grid-cols-3 w-full max-w-sm rounded-2xl border border-line/10 divide-x divide-line/10 bg-bg/40 mb-6"
+                  style={stagger(9)}
                 >
                   <div className="py-3">
                     <dt className="stat-label">ABV</dt>
@@ -454,41 +438,34 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                       <CountUp value={winner.rating} decimals={2} />
                     </dd>
                   </div>
-                </motion.dl>
+                </dl>
 
-                <motion.div
-                  className="w-full max-w-sm"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                >
+                <div className="enter-up w-full max-w-sm" style={stagger(13)}>
                   <a href={winner.beer_url} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
                     Bekijk op Untappd
                     <ExternalLink className="w-4 h-4" aria-hidden />
                   </a>
-                </motion.div>
-              </motion.div>
+                </div>
+              </div>
             )}
-          </AnimatePresence>
+          </>
         </div>
 
         {/* The cap: primary action, overlapping the stage edge */}
         <div className="relative -mt-12 flex flex-col items-center">
-          <motion.button
+          <button
             type="button"
             onClick={spin}
             disabled={isSpinning}
-            whileHover={isSpinning ? undefined : { scale: 1.05 }}
-            whileTap={isSpinning ? undefined : { scale: 0.88 }}
-            animate={{ rotate: capTurns * 1080 }}
-            transition={{ duration: SPIN_SECONDS, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-full disabled:cursor-wait"
+            className="rounded-full transition-transform duration-200 ease-out-expo enabled:hover:scale-105 enabled:active:scale-90 disabled:cursor-wait"
             aria-label={phase === 'result' ? 'Draai nog een keer' : 'Draai: kies een willekeurig bier'}
           >
-            <BottleCap className="w-24 h-24 drop-shadow-[0_16px_28px_rgba(242,179,61,0.35)]">
-              {phase === 'result' ? <RotateCcw className="w-8 h-8" /> : <Shuffle className="w-8 h-8" />}
-            </BottleCap>
-          </motion.button>
+            <span ref={capRef} className="inline-block">
+              <BottleCap className="w-24 h-24 drop-shadow-[0_16px_28px_rgba(242,179,61,0.35)]">
+                {phase === 'result' ? <RotateCcw className="w-8 h-8" /> : <Shuffle className="w-8 h-8" />}
+              </BottleCap>
+            </span>
+          </button>
           <p className="mt-2 text-sm font-medium text-muted">
             {isSpinning ? 'Draaien…' : phase === 'result' ? 'Nog een keer' : 'Draai'}
           </p>

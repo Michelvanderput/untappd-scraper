@@ -329,3 +329,267 @@ html.lenis body {
     animation: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Enter / exit animations (CSS keyframes, replaces Framer Motion's initial/animate/exit).
+ * Stagger with style={{ '--i': index }}. All of them are switched off for reduced motion.
+ * ------------------------------------------------------------------------- */
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+}
+@keyframes enter-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+@keyframes enter-swap {
+  from {
+    opacity: 0;
+    transform: translateY(14px) rotate(-45deg);
+  }
+}
+@keyframes enter-card {
+  from {
+    opacity: 0;
+    transform: translateX(60px) rotate(4deg);
+  }
+}
+@keyframes grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes dock-in {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+}
+@keyframes dock-out {
+  to {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes lift-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes lift-out {
+  to {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes shake {
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+.enter-up,
+.enter-left,
+.enter-pop,
+.enter-swap {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+.enter-up {
+  animation-name: enter-up;
+}
+.enter-left {
+  animation-name: enter-left;
+}
+.enter-pop {
+  animation-name: enter-pop;
+  animation-duration: 0.35s;
+}
+.enter-swap {
+  animation-name: enter-swap;
+  animation-duration: 0.3s;
+}
+.enter-card {
+  animation: enter-card 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.grow-x {
+  transform-origin: left center;
+  animation: grow-x 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+.shake-once {
+  animation: shake 0.4s ease-in-out both;
+}
+
+/* Mount/unmount pairs: data-state is driven by usePresence() */
+.dock[data-state='open'] {
+  animation: dock-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.dock[data-state='closed'] {
+  animation: dock-out 0.25s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+.fade[data-state='open'] {
+  animation: fade-in 0.2s ease-out both;
+}
+.fade[data-state='closed'] {
+  animation: fade-out 0.2s ease-in both;
+}
+.lift[data-state='open'] {
+  animation: lift-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.lift[data-state='closed'] {
+  animation: lift-out 0.25s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-up,
+  .enter-left,
+  .enter-pop,
+  .enter-swap,
+  .enter-card,
+  .grow-x,
+  .shake-once,
+  .dock,
+  .fade,
+  .lift {
+    animation: none !important;
+  }
+}
+
+/* Reveal as the element scrolls into view: native scroll-driven animation, no JS.
+   Browsers without support simply show the element. */
+@supports (animation-timeline: view()) {
+  .reveal-view {
+    animation: enter-left linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-view {
+      animation: none;
+    }
+  }
+}
+
+/* Randomizer / result pieces */
+@keyframes fan-in {
+  from {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0));
+  }
+}
+@keyframes result-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.3) rotate(-25deg);
+  }
+}
+@keyframes rays-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+@keyframes word-up {
+  from {
+    transform: translateY(110%);
+  }
+}
+.enter-fade {
+  animation: fade-in 0.3s ease-out both;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+.fan-card {
+  transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0));
+  animation: fan-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(0.1s + var(--i, 0) * 80ms);
+}
+.result-pop {
+  animation: result-pop 0.7s cubic-bezier(0.34, 1.7, 0.64, 1) both;
+}
+.rays-in {
+  animation: rays-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.enter-word {
+  display: inline-block;
+  animation: word-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(0.25s + var(--i, 0) * 60ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .enter-fade,
+  .fan-card,
+  .result-pop,
+  .rays-in,
+  .enter-word {
+    animation: none !important;
+  }
+}
+
+/* Tally strokes draw themselves (pathLength is normalised to 1 in the markup) */
+@keyframes draw-stroke {
+  from {
+    stroke-dashoffset: 1;
+    opacity: 0;
+  }
+}
+.draw-stroke {
+  stroke-dasharray: 1;
+  animation: draw-stroke 0.22s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-stroke {
+    animation: none;
+  }
+}
+
+/* Chatbot typing dots */
+@keyframes typing-dot {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.typing-dot {
+  animation: typing-dot 0.6s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 45ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .typing-dot {
+    animation: none;
+  }
+}

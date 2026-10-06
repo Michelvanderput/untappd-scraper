@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Beer, Check, X, Share2, HelpCircle, BarChart3, Sparkles, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import { beerCache } from '../utils/cache';
+import { stagger } from '../lib/stagger';
 import { 
   getDailyBeer, 
   getTodayString, 
@@ -223,11 +223,7 @@ export default function BeerdlePage() {
 
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
-        >
+        <div className="enter-up text-center mb-8">
           <div className="flex items-center justify-center gap-4 mb-2">
             <h1 className="text-6xl md:text-7xl font-bold text-gray-900 dark:text-white font-heading tracking-tight">
               Beer<span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-600">dle</span>
@@ -263,16 +259,11 @@ export default function BeerdlePage() {
               {remainingGuesses} {remainingGuesses === 1 ? 'poging' : 'pogingen'} over
             </span>
           </div>
-        </motion.div>
+        </div>
 
         {/* Beer Card with Progressive Hints */}
         {targetBeer && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-8"
-          >
+          <div className="enter-up mb-8" style={stagger((0.2) / 0.045)}>
             <div className="glass-panel rounded-3xl p-6 md:p-8 relative overflow-hidden">
               <div className="flex flex-col md:flex-row gap-8 items-center">
                 {/* Blurred Image */}
@@ -380,26 +371,14 @@ export default function BeerdlePage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         {/* Help Modal */}
-        <AnimatePresence>
+        <>
           {showHelp && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-              onClick={() => setShowHelp(false)}
-            >
-              <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="glass-panel rounded-3xl p-8 max-w-md w-full"
-                onClick={(e) => e.stopPropagation()}
-              >
+            <div className="enter-fade fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4" onClick={() => setShowHelp(false)}>
+              <div className="enter-up glass-panel rounded-3xl p-8 max-w-md w-full" onClick={(e) => e.stopPropagation()}>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold font-heading">Hoe speel je Beerdle?</h2>
                   <button onClick={() => setShowHelp(false)} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
@@ -443,18 +422,14 @@ export default function BeerdlePage() {
                 >
                   Ik snap het!
                 </button>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           )}
-        </AnimatePresence>
+        </>
 
         {/* Search Input */}
         {!gameState.completed && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 relative z-20"
-          >
+          <div className="enter-up mb-8 relative z-20">
             <div className="relative group">
               <input
                 type="text"
@@ -473,14 +448,9 @@ export default function BeerdlePage() {
             </div>
 
             {/* Dropdown */}
-            <AnimatePresence>
+            <>
               {showDropdown && filteredBeers.length > 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  className="absolute top-full left-0 right-0 mt-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-100 dark:border-gray-700 rounded-2xl shadow-2xl max-h-96 overflow-y-auto z-50 overflow-hidden"
-                >
+                <div className="enter-up absolute top-full left-0 right-0 mt-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl border border-gray-100 dark:border-gray-700 rounded-2xl shadow-2xl max-h-96 overflow-y-auto z-50 overflow-hidden">
                   {filteredBeers.map((beer) => (
                     <button
                       key={beer.beer_url}
@@ -498,10 +468,10 @@ export default function BeerdlePage() {
                       </div>
                     </button>
                   ))}
-                </motion.div>
+                </div>
               )}
-            </AnimatePresence>
-          </motion.div>
+            </>
+          </div>
         )}
 
         {/* Guesses */}
@@ -509,17 +479,11 @@ export default function BeerdlePage() {
           {gameState.guesses.map((guess, index) => {
             const isCorrect = guess.beer.beer_url === targetBeer.beer_url;
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className={`rounded-2xl shadow-sm p-4 border-l-4 transition-all ${
+              <div key={index} className={`enter-left rounded-2xl shadow-sm p-4 border-l-4 transition-all ${
                   isCorrect 
                     ? 'bg-white dark:bg-gray-800 border-green-500 shadow-green-500/10'
                     : 'bg-white/80 dark:bg-gray-800/80 border-gray-300 dark:border-gray-600'
-                }`}
-              >
+                }`} style={stagger((index * 0.1) / 0.045)}>
                 <div className="flex items-center gap-4">
                   <span className={`text-xl font-bold font-mono ${
                     isCorrect ? 'text-green-500' : 'text-gray-300 dark:text-gray-600'
@@ -558,18 +522,14 @@ export default function BeerdlePage() {
 
                   {/* Result Icon */}
                   {isCorrect ? (
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center"
-                    >
+                    <div className="enter-pop w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                       <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
-                    </motion.div>
+                    </div>
                   ) : (
                     <X className="w-6 h-6 text-red-400" />
                   )}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
 
@@ -587,34 +547,19 @@ export default function BeerdlePage() {
         </div>
 
         {/* Results Modal */}
-        <AnimatePresence>
+        <>
           {showResults && gameState.completed && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4"
-            >
-              <motion.div
-                initial={{ scale: 0.9, y: 20 }}
-                animate={{ scale: 1, y: 0 }}
-                exit={{ scale: 0.9, y: 20 }}
-                className="glass-panel rounded-3xl p-8 max-w-md w-full relative overflow-hidden"
-              >
+            <div className="enter-fade fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4">
+              <div className="enter-up glass-panel rounded-3xl p-8 max-w-md w-full relative overflow-hidden">
                 {/* Confetti / Sad bg effects */}
                 <div className={`absolute inset-0 opacity-10 ${
                   gameState.won ? 'bg-gradient-to-br from-green-500 to-emerald-600' : 'bg-gradient-to-br from-red-500 to-orange-600'
                 }`} />
 
                 <div className="relative z-10 text-center">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", bounce: 0.5 }}
-                    className="w-24 h-24 mx-auto mb-6 rounded-full bg-white shadow-xl flex items-center justify-center text-5xl"
-                  >
+                  <div className="enter-pop w-24 h-24 mx-auto mb-6 rounded-full bg-white shadow-xl flex items-center justify-center text-5xl">
                     {gameState.won ? '🏆' : '😢'}
-                  </motion.div>
+                  </div>
 
                   <h2 className="text-3xl font-bold mb-2 font-heading">
                     {gameState.won ? 'Gefeliciteerd!' : 'Helaas!'}
@@ -666,10 +611,10 @@ export default function BeerdlePage() {
                     Nieuw bier beschikbaar om 00:00
                   </p>
                 </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           )}
-        </AnimatePresence>
+        </>
       </div>
     </div>
   );

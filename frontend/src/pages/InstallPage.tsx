@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { Share, SquarePlus, MoreVertical, Download, Wifi, Zap, Maximize, RefreshCw, CheckCircle2 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import { canPromptInstall, isInstalled, promptInstall } from '../utils/pwa';
+import { stagger } from '../lib/stagger';
+import { useSlidingPill } from '../lib/useSlidingPill';
 
 type Platform = 'ios' | 'android';
 
@@ -29,6 +30,9 @@ const STEPS: Record<Platform, { icon: LucideIcon; title: string; text: string }[
 
 export default function InstallPage() {
   const [platform, setPlatform] = useState<Platform>(() => (/android/i.test(navigator.userAgent) ? 'android' : 'ios'));
+  const tabs = useRef<HTMLDivElement>(null);
+  const pill = useRef<HTMLSpanElement>(null);
+  useSlidingPill(tabs, pill, '[aria-selected="true"]', platform);
   const [installable, setInstallable] = useState(canPromptInstall);
   const [installed, setInstalled] = useState(isInstalled);
 
@@ -68,22 +72,17 @@ export default function InstallPage() {
 
         <div className="grid grid-cols-2 gap-3">
           {BENEFITS.map(({ icon: Icon, title, text }, i) => (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 + i * 0.05 }}
-              className="surface p-4"
-            >
+            <div key={title} style={stagger(4 + i)} className="enter-up surface p-4">
               <Icon className="w-5 h-5 text-gold mb-4" aria-hidden />
               <h2 className="font-medium mb-1">{title}</h2>
               <p className="text-sm text-muted">{text}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         <section>
-          <div className="relative inline-flex p-1 mb-6 rounded-full bg-surface border border-line/10" role="tablist" aria-label="Toestel">
+          <div ref={tabs} className="relative inline-flex p-1 mb-6 rounded-full bg-surface border border-line/10" role="tablist" aria-label="Toestel">
+            <span ref={pill} className="absolute left-0 top-0 rounded-full bg-fg opacity-0 invisible pointer-events-none" aria-hidden />
             {(['ios', 'android'] as const).map((p) => {
               const active = platform === p;
               return (
@@ -93,16 +92,9 @@ export default function InstallPage() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setPlatform(p)}
-                  className={`relative px-5 min-h-[40px] rounded-full text-sm font-medium transition-colors ${active ? 'text-bg' : 'text-muted hover:text-fg'}`}
+                  className={`relative z-10 px-5 min-h-[40px] rounded-full text-sm font-medium transition-colors ${active ? 'text-bg' : 'text-muted hover:text-fg'}`}
                 >
-                  {active && (
-                    <motion.span
-                      layoutId="platform-pill"
-                      className="absolute inset-0 rounded-full bg-fg"
-                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
-                    />
-                  )}
-                  <span className="relative">{p === 'ios' ? 'iPhone' : 'Android'}</span>
+                  {p === 'ios' ? 'iPhone' : 'Android'}
                 </button>
               );
             })}
@@ -111,13 +103,7 @@ export default function InstallPage() {
           <ol className="relative space-y-6" role="tabpanel">
             <span className="absolute left-5 top-5 bottom-5 w-px bg-line/15" aria-hidden />
             {STEPS[platform].map(({ icon: Icon, title, text }, i) => (
-              <motion.li
-                key={`${platform}-${i}`}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.08 }}
-                className="relative flex gap-4"
-              >
+              <li key={`${platform}-${i}`} style={stagger(i * 2)} className="enter-left relative flex gap-4">
                 <span className="relative z-10 grid place-items-center w-10 h-10 rounded-full bg-gold text-on-gold font-display italic font-extrabold shrink-0">
                   {i + 1}
                 </span>
@@ -128,7 +114,7 @@ export default function InstallPage() {
                   </h3>
                   <p className="text-sm text-muted mt-0.5">{text}</p>
                 </div>
-              </motion.li>
+              </li>
             ))}
           </ol>
         </section>

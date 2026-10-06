@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { usePresence } from '../lib/usePresence';
+import { stagger } from '../lib/stagger';
 import { MessageCircle, Send, Bot, Beer, Loader2, ChevronDown } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
 import type { BeerData } from '../types/beer';
 import type { ChatMessage, WeatherData } from '../lib/ollama';
 import { chatWithAI, buildSystemPrompt, fetchWeather } from '../lib/ollama';
@@ -162,20 +163,19 @@ export default function AIChatbot() {
   };
 
   const showSuggestions = messages.length === 1 && !isLoading;
+  const panel = usePresence(isOpen, 250);
+  const button = usePresence(!isOpen, 200);
 
   return (
     <>
       {/* Floating Button */}
       <div className="fixed bottom-6 right-6 z-[9998]">
-        <AnimatePresence>
-          {!isOpen && (
-            <motion.button
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+        <>
+          {button.mounted && (
+            <button
+              data-state={button.state}
               onClick={() => setIsOpen(true)}
-              className="relative w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl shadow-lg shadow-amber-500/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-transform"
+              className="fade relative w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl shadow-lg shadow-amber-500/30 flex items-center justify-center hover:scale-105 active:scale-95 transition-transform"
               aria-label="Open BeerBot chat"
             >
               <MessageCircle className="w-7 h-7 text-white" />
@@ -183,21 +183,18 @@ export default function AIChatbot() {
                 <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
               )}
               <span className="absolute inset-0 rounded-2xl animate-ping bg-amber-400 opacity-20" />
-            </motion.button>
+            </button>
           )}
-        </AnimatePresence>
+        </>
       </div>
 
       {/* Chat Panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
+      <>
+        {panel.mounted && (
+          <div
             ref={panelRef}
-            initial={{ opacity: 0, y: 24, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 24, scale: 0.97 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-6 right-6 z-[9998] w-[380px] max-w-[calc(100vw-2rem)] h-[580px] max-h-[calc(100vh-6rem)] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-800"
+            data-state={panel.state}
+            className="lift fixed bottom-6 right-6 z-[9998] w-[380px] max-w-[calc(100vw-2rem)] h-[580px] max-h-[calc(100vh-6rem)] bg-white dark:bg-gray-900 rounded-3xl shadow-2xl shadow-black/20 flex flex-col overflow-hidden border border-gray-100 dark:border-gray-800"
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3.5 bg-gradient-to-r from-amber-500 to-orange-600 shrink-0">
@@ -233,11 +230,7 @@ export default function AIChatbot() {
 
               {/* Quick Suggestions */}
               {showSuggestions && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="pt-2"
-                >
+                <div className="enter-up pt-2">
                   <p className="text-xs text-gray-400 dark:text-gray-500 mb-2 font-medium">
                     Snel beginnen:
                   </p>
@@ -252,7 +245,7 @@ export default function AIChatbot() {
                       </button>
                     ))}
                   </div>
-                </motion.div>
+                </div>
               )}
 
               <div ref={messagesEndRef} />
@@ -291,9 +284,9 @@ export default function AIChatbot() {
                 Aangedreven door Ollama AI • Advies kan afwijken
               </p>
             </form>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </>
     </>
   );
 }
@@ -302,12 +295,7 @@ function MessageBubble({ message }: { message: Message }) {
   const isUser = message.role === 'user';
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.2 }}
-      className={`flex items-end gap-2 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}
-    >
+    <div className={`enter-up flex items-end gap-2 ${isUser ? 'flex-row-reverse' : 'flex-row'}`}>
       {!isUser && (
         <div className="w-7 h-7 shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-lg flex items-center justify-center mb-0.5">
           <Bot className="w-4 h-4 text-white" />
@@ -322,7 +310,7 @@ function MessageBubble({ message }: { message: Message }) {
       >
         {message.content}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -335,17 +323,7 @@ function TypingIndicator() {
       <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-bl-md px-4 py-3">
         <div className="flex gap-1 items-center">
           {[0, 1, 2].map(i => (
-            <motion.span
-              key={i}
-              className="w-1.5 h-1.5 bg-amber-500 rounded-full"
-              animate={{ y: [0, -4, 0] }}
-              transition={{
-                duration: 0.6,
-                repeat: Infinity,
-                delay: i * 0.15,
-                ease: 'easeInOut',
-              }}
-            />
+            <span key={i} className="typing-dot w-1.5 h-1.5 bg-amber-500 rounded-full" style={stagger(i * 3.3)} />
           ))}
         </div>
       </div>

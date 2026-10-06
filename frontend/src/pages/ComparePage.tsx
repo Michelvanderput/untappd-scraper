@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { ArrowLeft, Beer, Plus, Trash2, X, ExternalLink, Scale } from 'lucide-react';
 import { useComparison } from '../contexts/ComparisonContext';
 import type { BeerData } from '../types/beer';
 import PageLayout from '../components/PageLayout';
+import { stagger } from '../lib/stagger';
 import EmptyState from '../components/EmptyState';
 
 type Attr = {
@@ -69,13 +69,7 @@ export default function ComparePage() {
           {/* Beer headers */}
           <div className="grid gap-3" style={cols}>
             {comparisonBeers.map((beer, i) => (
-              <motion.div
-                key={beer.beer_url}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.06 }}
-                className="relative surface p-4 flex flex-col items-center text-center"
-              >
+              <div key={beer.beer_url} style={stagger(i * 1.3)} className="enter-up relative surface p-4 flex flex-col items-center text-center">
                 <button
                   type="button"
                   onClick={() => removeFromComparison(beer.beer_url)}
@@ -98,7 +92,7 @@ export default function ComparePage() {
                   {beer.name}
                   <ExternalLink className="inline w-3 h-3 ml-1 opacity-60" aria-hidden />
                 </a>
-              </motion.div>
+              </div>
             ))}
             {n < 4 && (
               <Link
@@ -130,11 +124,9 @@ export default function ComparePage() {
                           {v != null ? `${attr.decimals ? v.toFixed(attr.decimals) : v}${attr.suffix ?? ''}` : '–'}
                         </p>
                         <div className="mt-2 h-1.5 rounded-full bg-line/10 overflow-hidden">
-                          <motion.div
-                            className={`h-full rounded-full ${isBest ? 'bg-gold' : 'bg-fg/40'}`}
-                            initial={{ width: 0 }}
-                            animate={{ width: `${Math.min(100, ((v ?? 0) / (attr.max ?? 1)) * 100)}%` }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                          <div
+                            className={`grow-x h-full rounded-full ${isBest ? 'bg-gold' : 'bg-fg/40'}`}
+                            style={{ width: `${Math.min(100, ((v ?? 0) / (attr.max ?? 1)) * 100)}%`, ...stagger(i) }}
                           />
                         </div>
                       </div>
