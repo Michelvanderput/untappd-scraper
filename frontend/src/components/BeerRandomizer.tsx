@@ -5,6 +5,8 @@ import { gsap } from '../lib/gsap';
 import { useReducedMotion } from '../lib/useReducedMotion';
 import { usePresence } from '../lib/usePresence';
 import { stagger } from '../lib/stagger';
+import { makeSpinPlan } from '../utils/spinPlan';
+import type { SpinPlan } from '../utils/spinPlan';
 import type { BeerData, RandomizerMode } from '../types/beer';
 import { secureRandomIndex, shuffled } from '../utils/random';
 import { haptics } from '../utils/haptic';
@@ -102,8 +104,12 @@ function CountUp({ value, decimals = 0, suffix = '' }: { value: number | null; d
 }
 
 
-/** Slot-machine reel. Animates on mount and calls onDone when the winner sits in the centre slot. */
-function Reel({ items, onDone }: { items: BeerData[]; onDone: () => void }) {
+/**
+ * Slot-machine reel. Plays the spin plan (see utils/spinPlan.ts) on mount and calls onDone with the
+ * row that ended up in the centre slot: that is the winner, which is not always the row the first
+ * big leg stopped on.
+ */
+function Reel({ items, plan, onDone }: { items: BeerData[]; plan: SpinPlan; onDone: (row: number) => void }) {
   const stripRef = useRef<HTMLDivElement>(null);
   const doneRef = useRef(onDone);
   useEffect(() => {
@@ -113,32 +119,27 @@ function Reel({ items, onDone }: { items: BeerData[]; onDone: () => void }) {
   useEffect(() => {
     const strip = stripRef.current;
     if (!strip) return;
-    const start = ITEM_H; // row 0 in the centre slot
-    const end = ITEM_H - REEL_LENGTH * ITEM_H; // winner in the centre slot
+    const rowY = (row: number) => ITEM_H - row * ITEM_H; // row centred in the middle slot
     let lastRow = 0;
 
-    const tl = gsap.timeline({ onComplete: () => doneRef.current() });
-    tl.fromTo(
-      strip,
-      { y: start },
-      {
-        y: end - ITEM_H * 0.35,
-        duration: SPIN_SECONDS - 0.45,
-        ease: 'power4.out',
-        onUpdate: () => {
-          const row = Math.round((start - (gsap.getProperty(strip, 'y') as number)) / ITEM_H);
-          if (row !== lastRow) {
-            lastRow = row;
-            navigator.vibrate?.(4);
-          }
-        },
+    const tick = () => {
+      const row = Math.round((ITEM_H - (gsap.getProperty(strip, 'y') as number)) / ITEM_H);
+      if (row !== lastRow) {
+        lastRow = row;
+        navigator.vibrate?.(4);
       }
-    ).to(strip, { y: end, duration: 0.45, ease: 'back.out(2.2)' });
+    };
+
+    const tl = gsap.timeline({ onComplete: () => doneRef.current(plan.finalRow) });
+    gsap.set(strip, { y: rowY(0) });
+    plan.legs.forEach((leg, i) => {
+      tl.to(strip, { y: rowY(leg.row), duration: leg.duration, ease: leg.ease, onUpdate: tick }, i === 0 ? 0 : `+=${leg.pause}`);
+    });
 
     return () => {
       tl.kill();
     };
-  }, []);
+  }, [plan]);
 
   return (
     <div className="relative w-full max-w-sm overflow-hidden mask-fade-y" style={{ height: ITEM_H * 3 }} aria-hidden>
@@ -165,6 +166,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const [phase, setPhase] = useState<Phase>('idle');
   const [winner, setWinner] = useState<BeerData | null>(null);
   const [reel, setReel] = useState<BeerData[]>([]);
+  const [plan, setPlan] = useState<SpinPlan | null>(null);
   const [history, setHistory] = useState<BeerData[]>([]);
   const [liveList, setLiveList] = useState<BeerData[]>([]);
   const [mode, setMode] = useState<RandomizerMode>('all');
@@ -180,10 +182,11 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   // The cap makes three full turns per spin; the reel and the cap finish together
   useEffect(() => {
     if (capTurns === 0 || !capRef.current) return;
-    const tween = gsap.to(capRef.current, { rotation: capTurns * 1080, duration: SPIN_SECONDS, ease: 'power4.out' });
+    const tween = gsap.to(capRef.current, { rotation: capTurns * 1080, duration: plan?.firstLegSeconds ?? SPIN_SECONDS, ease: 'power4.out' });
     return () => {
       tween.kill();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- the plan is set in the same click as capTurns
   }, [capTurns]);
 
   // Live register: last 10 draws by everyone, refreshed every 30s
@@ -262,10 +265,18 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
     const candidates = fresh.length > 0 ? fresh : pool;
     const picked = shuffled(candidates)[secureRandomIndex(candidates.length)];
 
-    if (picked.image_url) new Image().src = picked.image_url;
+    // The landing zone is three rows: before / main / after. Which one wins is up to the plan.
+    const neighbours = shuffled(pool.filter((b) => b.beer_url !== picked.beer_url)).slice(0, 2);
+    const before = neighbours[0] ?? picked;
+    const after = neighbours[1] ?? picked;
+    [before, picked, after].forEach((b) => {
+      if (b.image_url) new Image().src = b.image_url;
+    });
 
     const fillers = Array.from({ length: REEL_LENGTH }, () => pool[secureRandomIndex(pool.length)]);
-    setReel([...fillers, picked, pool[secureRandomIndex(pool.length)]]);
+    const spinPlan = makeSpinPlan(REEL_LENGTH);
+    setReel([...fillers, before, picked, after, pool[secureRandomIndex(pool.length)]]);
+    setPlan(spinPlan);
     setWinner(picked);
     haptics.select();
     stageRef.current?.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
@@ -384,7 +395,17 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
 
             {phase === 'spinning' && (
               <div key="reel" className="enter-fade flex-1 flex items-center justify-center p-4">
-                <Reel items={reel} onDone={() => winner && finish(winner)} />
+                {plan && (
+                  <Reel
+                    items={reel}
+                    plan={plan}
+                    onDone={(row) => {
+                      const beer = reel[row];
+                      setWinner(beer);
+                      finish(beer);
+                    }}
+                  />
+                )}
                 <p className="sr-only" role="status">Aan het draaien…</p>
               </div>
             )}
