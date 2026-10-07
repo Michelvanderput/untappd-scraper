@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-07T12:42:36.591Z",
+  "fetched_at": "2026-10-07T18:39:54.547Z",
   "count": 426,
-  "scrape_duration_seconds": 2.15,
+  "scrape_duration_seconds": 3.77,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
@@ -377,7 +377,7 @@
       "subcategory": null,
       "abv": 6.1,
       "ibu": null,
-      "rating": 3.95,
+      "rating": 3.96,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4792,7 +4792,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 20,
-      "rating": 3.59,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5931,7 +5931,7 @@
       "name": "Non ALC.: Motor Oil",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-non-alc-motor-oil/6126399",
       "image_url": "https://labels.untappd.com/6126399",
-      "style": "Non-Alcoholic - Porter / Stout",
+      "style": "Stout - Russian Imperial",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
