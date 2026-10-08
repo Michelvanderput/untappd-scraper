@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-07T22:46:33.719Z",
+  "fetched_at": "2026-10-08T12:52:09.965Z",
   "count": 426,
-  "scrape_duration_seconds": 2.32,
+  "scrape_duration_seconds": 2.4,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
@@ -82,7 +82,7 @@
       "subcategory": null,
       "abv": 5.3,
       "ibu": null,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -279,7 +279,7 @@
       "subcategory": null,
       "abv": 6.2,
       "ibu": 49,
-      "rating": 3.67,
+      "rating": 3.66,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1373,7 +1373,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.19,
+      "rating": 3.2,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -5761,7 +5761,7 @@
       "name": "Guinness Draught 0.0",
       "beer_url": "https://untappd.com/b/guinness-guinness-draught-0-0/4018564",
       "image_url": "https://labels.untappd.com/4018564",
-      "style": "Non-Alcoholic - Porter / Stout",
+      "style": "Stout - Irish Dry",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
