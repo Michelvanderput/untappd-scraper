@@ -1,18 +1,18 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-09T18:09:15.602Z",
-  "count": 430,
-  "scrape_duration_seconds": 3.73,
+  "fetched_at": "2026-10-09T22:19:03.333Z",
+  "count": 427,
+  "scrape_duration_seconds": 19.2,
   "stats": {
-    "total_fetched": 430,
-    "total_valid": 430,
+    "total_fetched": 427,
+    "total_valid": 427,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 107,
-      "Bierbijbel": 295
+      "Op=Op kaart": 104,
+      "Bierbijbel": 295,
+      "Vaste bieren van de tap": 11
     }
   },
   "beers": [
@@ -607,20 +607,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Gulden Draak Fire",
-      "beer_url": "https://untappd.com/b/brouwerij-van-steenberge-gulden-draak-fire/6062608",
-      "image_url": "https://labels.untappd.com/6062608",
-      "style": "Chilli / Chile Beer",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10.5,
-      "ibu": null,
-      "rating": 3.1,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Light Pants",
       "beer_url": "https://untappd.com/b/de-struise-brouwers-light-pants/5908104",
       "image_url": "https://labels.untappd.com/5908104",
@@ -659,20 +645,6 @@
       "abv": 10,
       "ibu": 25,
       "rating": 3.24,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Duvel Tripel Hop Cashmere",
-      "beer_url": "https://untappd.com/b/duvel-moortgat-duvel-tripel-hop-cashmere/3084617",
-      "image_url": "https://labels.untappd.com/3084617",
-      "style": "IPA - Belgian",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": 50,
-      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1066,20 +1038,6 @@
       "abv": 7,
       "ibu": null,
       "rating": 3.72,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Pastry Factory: Maple Bourbon Sponge Cake",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-pastry-factory-maple-bourbon-sponge-cake/6735436",
-      "image_url": "https://labels.untappd.com/6735436",
-      "style": "Stout - Imperial / Double Pastry",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 4.03,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
