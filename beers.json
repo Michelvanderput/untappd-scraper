@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-09T22:19:03.333Z",
+  "fetched_at": "2026-10-10T11:57:40.177Z",
   "count": 427,
-  "scrape_duration_seconds": 19.2,
+  "scrape_duration_seconds": 2.12,
   "stats": {
     "total_fetched": 427,
     "total_valid": 427,
@@ -10,9 +10,9 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 104,
-      "Bierbijbel": 295,
-      "Vaste bieren van de tap": 11
+      "Bierbijbel": 295
     }
   },
   "beers": [
@@ -5789,7 +5789,7 @@
       "name": "Hazy NON(netje)",
       "beer_url": "https://untappd.com/b/jopen-hazy-non-netje/5296212",
       "image_url": "https://labels.untappd.com/5296212",
-      "style": "Non-Alcoholic - IPA",
+      "style": "IPA - New England / Hazy",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5803,7 +5803,7 @@
       "name": "La Trappe Nillis 0.0%",
       "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-nillis-0-0/4467678",
       "image_url": "https://labels.untappd.com/4467678",
-      "style": "Non-Alcoholic - Other Beer",
+      "style": "Belgian Dubbel",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5832,7 +5832,7 @@
       "name": "Leffe Brune / Bruin 0,0%",
       "beer_url": "https://untappd.com/b/abbaye-de-leffe-leffe-brune-bruin-0-0/3818282",
       "image_url": "https://labels.untappd.com/3818282",
-      "style": "Non-Alcoholic - Brown Ale",
+      "style": "Brown Ale - Belgian",
       "brewery": "Abbaye de Leffe",
       "brewery_url": "https://untappd.com/w/abbaye-de-leffe/5",
       "category": "Bierbijbel",
@@ -5931,7 +5931,7 @@
       "name": "Fun House Non Alcoholic NEIPA",
       "beer_url": "https://untappd.com/b/vandestreek-bier-fun-house-non-alcoholic-neipa/3955069",
       "image_url": "https://labels.untappd.com/3955069",
-      "style": "Non-Alcoholic - IPA",
+      "style": "IPA - New England / Hazy",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
