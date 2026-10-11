@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-10T21:12:34.872Z",
+  "fetched_at": "2026-10-11T12:09:47.295Z",
   "count": 427,
-  "scrape_duration_seconds": 2.29,
+  "scrape_duration_seconds": 2.62,
   "stats": {
     "total_fetched": 427,
     "total_valid": 427,
@@ -10,12 +10,26 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 104,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Nickelbock",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-nickelbock/6920590",
+      "image_url": "https://labels.untappd.com/6920590",
+      "style": "Bock - Single / Traditional",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": null,
+      "rating": 3.43,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Tangled Strings",
       "beer_url": "https://untappd.com/b/warpigs-brewpub-tangled-strings/6654471",
@@ -167,20 +181,6 @@
       "abv": 6.5,
       "ibu": 26,
       "rating": 0,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Fresh Hop Blond - Klophop",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-fresh-hop-blond-klophop/6415774",
-      "image_url": "https://labels.untappd.com/6415774",
-      "style": "Blonde / Golden Ale - Other",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 29,
-      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -5747,7 +5747,7 @@
       "name": "La Chouffe 0.4%",
       "beer_url": "https://untappd.com/b/brasserie-d-achouffe-la-chouffe-0-4/5127446",
       "image_url": "https://labels.untappd.com/5127446",
-      "style": "Non-Alcoholic - Blonde / Golden Ale",
+      "style": "Belgian Blonde",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5875,7 +5875,7 @@
       "name": "Kasteel Rouge 0.0",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-rouge-0-0/5773823",
       "image_url": "https://labels.untappd.com/5773823",
-      "style": "Non-Alcoholic - Fruit Beer",
+      "style": "Fruit Beer",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5889,7 +5889,7 @@
       "name": "Kasteel Tropical 0.0",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-0-0/6249320",
       "image_url": "https://labels.untappd.com/6249320",
-      "style": "Non-Alcoholic - Fruit Beer",
+      "style": "Fruit Beer",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5993,7 +5993,7 @@
       "subcategory": "Flessen Om Te Delen",
       "abv": 10,
       "ibu": 17,
-      "rating": 3.92,
+      "rating": 3.91,
       "container": "75cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
