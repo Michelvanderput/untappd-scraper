@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-11T21:32:22.024Z",
+  "fetched_at": "2026-10-12T14:30:51.893Z",
   "count": 426,
-  "scrape_duration_seconds": 2.32,
+  "scrape_duration_seconds": 2.26,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 103,
       "Bierbijbel": 295
     }
@@ -40,7 +40,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": null,
-      "rating": 3.71,
+      "rating": 3.7,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -82,7 +82,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 3.91,
+      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -588,7 +588,7 @@
       "subcategory": null,
       "abv": 8,
       "ibu": 20,
-      "rating": 3.81,
+      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -630,7 +630,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 25,
-      "rating": 3.25,
+      "rating": 3.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -841,7 +841,7 @@
       "subcategory": null,
       "abv": 5.7,
       "ibu": 25,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1905,7 +1905,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 7,
       "ibu": 18,
-      "rating": 3.5,
+      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4792,7 +4792,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 20,
-      "rating": 3.59,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5847,7 +5847,7 @@
       "name": "Korenwolf 0.0",
       "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-korenwolf-0-0/6128684",
       "image_url": "https://labels.untappd.com/6128684",
-      "style": "Non-Alcoholic - Wheat",
+      "style": "Wheat Beer - Witbier / Blanche",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
@@ -5889,7 +5889,7 @@
       "name": "Tripel Karmeliet Alcoholvrij/Sans alcool",
       "beer_url": "https://untappd.com/b/brouwerij-bosteels-tripel-karmeliet-alcoholvrij-sans-alcool/6493195",
       "image_url": "https://labels.untappd.com/6493195",
-      "style": "Non-Alcoholic - Other Beer",
+      "style": "Belgian Tripel",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
