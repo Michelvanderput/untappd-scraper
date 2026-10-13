@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-13T13:37:35.862Z",
+  "fetched_at": "2026-10-13T19:03:21.773Z",
   "count": 426,
-  "scrape_duration_seconds": 2.89,
+  "scrape_duration_seconds": 7.84,
   "stats": {
     "total_fetched": 426,
     "total_valid": 426,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 103,
+      "Vaste bieren van de tap": 11,
       "Bierbijbel": 295
     }
   },
@@ -208,7 +208,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 22,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1009,7 +1009,7 @@
       "subcategory": null,
       "abv": 5.5,
       "ibu": null,
-      "rating": 3.74,
+      "rating": 3.73,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4792,7 +4792,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 8.5,
       "ibu": 20,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
