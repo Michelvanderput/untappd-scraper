@@ -1,21 +1,49 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-14T16:49:52.910Z",
-  "count": 426,
-  "scrape_duration_seconds": 2.93,
+  "fetched_at": "2026-10-14T21:18:31.907Z",
+  "count": 424,
+  "scrape_duration_seconds": 2.61,
   "stats": {
-    "total_fetched": 426,
-    "total_valid": 426,
+    "total_fetched": 424,
+    "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 103,
+      "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Scuse Me While I Kiss This Guy",
+      "beer_url": "https://untappd.com/b/uiltje-brewing-company-scuse-me-while-i-kiss-this-guy/6843046",
+      "image_url": "https://labels.untappd.com/6843046",
+      "style": "IPA - Imperial / Double",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 8.5,
+      "ibu": null,
+      "rating": 3.67,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Corsendonk Grand Hops (2026)",
+      "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-grand-hops-2026/6678573",
+      "image_url": "https://labels.untappd.com/6678573",
+      "style": "IPA - Belgian",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.9,
+      "ibu": null,
+      "rating": 3.58,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Nickelbock",
       "beer_url": "https://untappd.com/b/vandestreek-bier-nickelbock/6920590",
@@ -115,20 +143,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Filou",
-      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-filou/850530",
-      "image_url": "https://labels.untappd.com/850530",
-      "style": "Belgian Tripel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 35,
-      "rating": 3.54,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Cuvée des Trolls",
       "beer_url": "https://untappd.com/b/brasserie-dubuisson-cuvee-des-trolls/7318",
       "image_url": "https://labels.untappd.com/7318",
@@ -153,20 +167,6 @@
       "abv": 8,
       "ibu": 20,
       "rating": 3.49,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Mr. Anderson, Welcome Back",
-      "beer_url": "https://untappd.com/b/uiltje-brewing-company-mr-anderson-welcome-back/6527495",
-      "image_url": "https://labels.untappd.com/6527495",
-      "style": "IPA - Triple",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 9.5,
-      "ibu": null,
-      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -407,20 +407,6 @@
       "abv": 8.1,
       "ibu": 25,
       "rating": 3.81,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "La Crispissima ( Collab with Folkinge Brew )",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-la-crispissima-collab-with-folkinge-brew/6755087",
-      "image_url": "https://labels.untappd.com/6755087",
-      "style": "Pilsner - Italian",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 44,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1220,20 +1206,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.75,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Dikke Lul 3-0",
-      "beer_url": "https://untappd.com/b/uiltje-brewing-company-dikke-lul-3-0/5105284",
-      "image_url": "https://labels.untappd.com/5105284",
-      "style": "Pale Ale - Other",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5.6,
-      "ibu": null,
-      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
