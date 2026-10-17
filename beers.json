@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-16T20:32:51.276Z",
+  "fetched_at": "2026-10-17T10:11:18.816Z",
   "count": 424,
-  "scrape_duration_seconds": 3.11,
+  "scrape_duration_seconds": 2.07,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 101,
       "Wisseltap bieren": 17,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
@@ -5719,7 +5719,7 @@
       "name": "Gulpener 0.0%",
       "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-gulpener-0-0/5671213",
       "image_url": "https://labels.untappd.com/5671213",
-      "style": "Non-Alcoholic - Lager",
+      "style": "Lager - Other",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Alcoholvrij",
