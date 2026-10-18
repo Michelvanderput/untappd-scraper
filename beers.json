@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-18T10:27:27.589Z",
+  "fetched_at": "2026-10-18T15:36:07.350Z",
   "count": 424,
-  "scrape_duration_seconds": 4.75,
+  "scrape_duration_seconds": 2.54,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -11,11 +11,25 @@
     "by_category": {
       "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Bierbijbel": 295,
-      "Op=Op kaart": 101
+      "Op=Op kaart": 101,
+      "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Ouwen Duiker (Old Diver)",
+      "beer_url": "https://untappd.com/b/brouwerij-hedonis-ouwen-duiker-old-diver/1119008",
+      "image_url": "https://labels.untappd.com/1119008",
+      "style": "Pale Ale - American",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7,
+      "ibu": 37,
+      "rating": 3.52,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Scuse Me While I Kiss This Guy",
       "beer_url": "https://untappd.com/b/uiltje-brewing-company-scuse-me-while-i-kiss-this-guy/6843046",
@@ -40,7 +54,7 @@
       "subcategory": null,
       "abv": 6.9,
       "ibu": null,
-      "rating": 3.58,
+      "rating": 3.57,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -54,7 +68,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -129,20 +143,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Delirium Blond Barrel Aged",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-blond-barrel-aged/3575229",
-      "image_url": "https://labels.untappd.com/3575229",
-      "style": "Belgian Strong Golden Ale",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 11.5,
-      "ibu": 22,
-      "rating": 4.02,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Cuvée des Trolls",
       "beer_url": "https://untappd.com/b/brasserie-dubuisson-cuvee-des-trolls/7318",
       "image_url": "https://labels.untappd.com/7318",
@@ -180,7 +180,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 26,
-      "rating": 3.22,
+      "rating": 3.24,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -420,7 +420,7 @@
       "subcategory": null,
       "abv": 9,
       "ibu": 65,
-      "rating": 3.73,
+      "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -504,7 +504,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 40,
-      "rating": 3.99,
+      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -616,7 +616,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 25,
-      "rating": 3.24,
+      "rating": 3.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -644,7 +644,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": 50,
-      "rating": 3.98,
+      "rating": 3.99,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -686,7 +686,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 7,
-      "rating": 3.89,
+      "rating": 3.88,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -827,7 +827,7 @@
       "subcategory": null,
       "abv": 5.7,
       "ibu": 25,
-      "rating": 3.42,
+      "rating": 3.44,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1079,7 +1079,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": null,
-      "rating": 3.7,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1177,7 +1177,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 15,
-      "rating": 3.9,
+      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1261,7 +1261,7 @@
       "subcategory": null,
       "abv": 6.2,
       "ibu": 49,
-      "rating": 3.66,
+      "rating": 3.62,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1275,7 +1275,7 @@
       "subcategory": null,
       "abv": 7.2,
       "ibu": 31,
-      "rating": 3.53,
+      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1485,7 +1485,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 4.09,
+      "rating": 4.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2639,7 +2639,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8,
       "ibu": 10,
-      "rating": 3.59,
+      "rating": 3.58,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
