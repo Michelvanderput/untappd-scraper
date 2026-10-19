@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-18T20:09:02.977Z",
+  "fetched_at": "2026-10-19T12:13:54.750Z",
   "count": 424,
-  "scrape_duration_seconds": 3.23,
+  "scrape_duration_seconds": 2.39,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 101,
       "Wisseltap bieren": 17,
+      "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
@@ -2427,7 +2427,7 @@
       "subcategory": "Geuzes - Wild Ales - Sours",
       "abv": 6,
       "ibu": 21,
-      "rating": 3.72,
+      "rating": 3.71,
       "container": "37,5cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
