@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-19T22:01:21.045Z",
+  "fetched_at": "2026-10-20T10:58:03.405Z",
   "count": 424,
-  "scrape_duration_seconds": 2.34,
+  "scrape_duration_seconds": 2.43,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
@@ -439,15 +439,15 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Kompel Nostalgia Collection Schietmeester",
+      "name": "Kompel Nostalgia Collection \"Schietmeester\"",
       "beer_url": "https://untappd.com/b/brouwerij-kompel-kompel-nostalgia-collection-schietmeester/6622825",
       "image_url": "https://labels.untappd.com/6622825",
-      "style": "Other",
+      "style": "Belgian Blonde",
       "brewery_url": null,
       "category": "Op=Op kaart",
       "subcategory": null,
       "abv": 7,
-      "ibu": null,
+      "ibu": 30,
       "rating": 3.6,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
