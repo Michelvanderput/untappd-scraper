@@ -1,16 +1,16 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-20T21:17:19.427Z",
+  "fetched_at": "2026-10-21T11:13:29.072Z",
   "count": 424,
-  "scrape_duration_seconds": 2.7,
+  "scrape_duration_seconds": 2.23,
   "stats": {
     "total_fetched": 424,
     "total_valid": 424,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
@@ -5649,7 +5649,7 @@
       "name": "Special Extra Export Stout",
       "beer_url": "https://untappd.com/b/brouwerij-de-dolle-brouwers-special-extra-export-stout/1022",
       "image_url": "https://labels.untappd.com/1022",
-      "style": "Stout - Belgian",
+      "style": "Stout - Foreign / Export",
       "brewery_url": null,
       "category": "Bierbijbel",
       "subcategory": "Dark Ale - Stout",
