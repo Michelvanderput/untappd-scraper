@@ -1,21 +1,49 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-24T20:17:36.442Z",
-  "count": 422,
-  "scrape_duration_seconds": 2.82,
+  "fetched_at": "2026-10-25T10:47:42.910Z",
+  "count": 423,
+  "scrape_duration_seconds": 2.99,
   "stats": {
-    "total_fetched": 422,
-    "total_valid": 422,
+    "total_fetched": 423,
+    "total_valid": 423,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 15,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 16,
       "Op=Op kaart": 101,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Bottle Brew 8",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-bottle-brew-8/6647364",
+      "image_url": "https://labels.untappd.com/6647364",
+      "style": "Stout - Imperial / Double Coffee",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 14,
+      "ibu": 54,
+      "rating": 4.13,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Brugse Bok",
+      "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugse-bok/40277",
+      "image_url": "https://labels.untappd.com/40277",
+      "style": "Bock - Single / Traditional",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 25,
+      "rating": 3.42,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "When I Found Craft Beer, I Found Friends",
       "beer_url": "https://untappd.com/b/jopen-when-i-found-craft-beer-i-found-friends/6743383",
@@ -111,20 +139,6 @@
       "abv": 6.5,
       "ibu": 20,
       "rating": 3.67,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "10 Years: Slingshot",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-slingshot/6701075",
-      "image_url": "https://labels.untappd.com/6701075",
-      "style": "Stout - Imperial / Double",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 11,
-      "ibu": null,
-      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
