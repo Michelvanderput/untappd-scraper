@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-28T18:06:20.101Z",
-  "count": 411,
-  "scrape_duration_seconds": 4.36,
+  "fetched_at": "2026-10-28T22:13:31.761Z",
+  "count": 410,
+  "scrape_duration_seconds": 2.6,
   "stats": {
-    "total_fetched": 411,
-    "total_valid": 411,
+    "total_fetched": 410,
+    "total_valid": 410,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 88,
+      "Op=Op kaart": 87,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Hazy Weekend",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend/3647985",
+      "image_url": "https://labels.untappd.com/3647985",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 20,
+      "rating": 3.61,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Ter Dolen Blond",
       "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
@@ -125,20 +139,6 @@
       "abv": 6.9,
       "ibu": null,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Nickelbock",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-nickelbock/6920590",
-      "image_url": "https://labels.untappd.com/6920590",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -254,6 +254,36 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Chapeau Abricot",
+      "beer_url": "https://untappd.com/b/brouwerij-de-troch-chapeau-abricot/17897",
+      "image_url": "https://labels.untappd.com/17897",
+      "style": "Lambic - Fruit",
+      "brewery": "Brouwerij De Troch",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-troch/3497",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 3.5,
+      "ibu": null,
+      "rating": 3.06,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Chapeau Fraises",
+      "beer_url": "https://untappd.com/b/brouwerij-de-troch-chapeau-fraises/2924",
+      "image_url": "https://labels.untappd.com/2924",
+      "style": "Lambic - Fruit",
+      "brewery": "Brouwerij De Troch",
+      "brewery_url": "https://untappd.com/w/brouwerij-de-troch/3497",
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 3.5,
+      "ibu": null,
+      "rating": 2.9,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Sansho Showdown",
@@ -1098,20 +1128,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Barrel Collab Series #2 - Flanders Style Red Ale",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-barrel-collab-series-2-flanders-style-red-ale/6482954",
-      "image_url": "https://labels.untappd.com/6482954",
-      "style": "Sour - Flanders Red Ale",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8.8,
-      "ibu": 29,
-      "rating": 3.41,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Chest Candy",
       "beer_url": "https://untappd.com/b/vandestreek-bier-chest-candy/6776186",
       "image_url": "https://labels.untappd.com/6776186",
@@ -1150,20 +1166,6 @@
       "abv": 7.2,
       "ibu": 31,
       "rating": 3.54,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Playlist",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-playlist/6472881",
-      "image_url": "https://labels.untappd.com/6472881",
-      "style": "Sour - Fruited",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 10,
-      "rating": 3.25,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1262,20 +1264,6 @@
       "abv": 4.8,
       "ibu": null,
       "rating": 3.87,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Cuvée Freddy",
-      "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-freddy/7700",
-      "image_url": "https://labels.untappd.com/7700",
-      "style": "Sour - Flanders Oud Bruin",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 5,
-      "rating": 3.9,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
