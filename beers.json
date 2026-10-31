@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-31T17:01:09.762Z",
+  "fetched_at": "2026-10-31T21:01:18.482Z",
   "count": 405,
-  "scrape_duration_seconds": 2.76,
+  "scrape_duration_seconds": 2.44,
   "stats": {
     "total_fetched": 405,
     "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 82,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Jopen 4-granen Bok",
+      "beer_url": "https://untappd.com/b/jopen-jopen-4-granen-bok/7616215",
+      "image_url": "https://labels.untappd.com/7616215",
+      "style": "Bock - Doppelbock",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Surréaliste",
       "beer_url": "https://untappd.com/b/brasserie-surrealiste-surrealiste/3156034",
@@ -195,20 +209,6 @@
       "abv": 8.5,
       "ibu": 36,
       "rating": 3.59,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Jutters Bock",
-      "beer_url": "https://untappd.com/b/texelse-bierbrouwerij-jutters-bock/8288",
-      "image_url": "https://labels.untappd.com/8288",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 22,
-      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
