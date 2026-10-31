@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-31T11:43:55.231Z",
-  "count": 410,
-  "scrape_duration_seconds": 2.42,
+  "fetched_at": "2026-10-31T17:01:09.762Z",
+  "count": 405,
+  "scrape_duration_seconds": 2.76,
   "stats": {
-    "total_fetched": 410,
-    "total_valid": 410,
+    "total_fetched": 405,
+    "total_valid": 405,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 87,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 82,
       "Bierbijbel": 295
     }
   },
@@ -124,7 +124,7 @@
       "subcategory": null,
       "abv": 8.5,
       "ibu": null,
-      "rating": 3.62,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -478,7 +478,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.8,
+      "rating": 3.79,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -563,20 +563,6 @@
       "abv": 9,
       "ibu": 29,
       "rating": 3.56,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Piece of Cake: Tarte Tatin",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-piece-of-cake-tarte-tatin/6591746",
-      "image_url": "https://labels.untappd.com/6591746",
-      "style": "Barleywine - Other",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 15,
-      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -703,20 +689,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.62,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "CiaoCello - Birra Al Limoncello",
-      "beer_url": "https://untappd.com/b/gusto-del-sole-ciaocello-birra-al-limoncello/5847327",
-      "image_url": "https://labels.untappd.com/5847327",
-      "style": "Belgian Blonde",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 8,
-      "rating": 3.27,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -862,20 +834,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "10 Years: Recovery",
-      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-recovery/6728577",
-      "image_url": "https://labels.untappd.com/6728577",
-      "style": "Stout - Imperial / Double",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": null,
-      "rating": 4.32,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Blueprints: Camera",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
       "image_url": "https://labels.untappd.com/6440742",
@@ -955,7 +913,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": null,
-      "rating": 3.79,
+      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1165,7 +1123,7 @@
       "subcategory": null,
       "abv": 7.2,
       "ibu": 31,
-      "rating": 3.55,
+      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1292,20 +1250,6 @@
       "abv": 8,
       "ibu": null,
       "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Zwentibold Barrel Aged Cognac Martell",
-      "beer_url": "https://untappd.com/b/aspro-brews-zwentibold-barrel-aged-cognac-martell/6614353",
-      "image_url": "https://labels.untappd.com/6614353",
-      "style": "Belgian Quadrupel",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 9.8,
-      "ibu": 34,
-      "rating": 3.98,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1445,21 +1389,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 4.03,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "D'n Jerste",
-      "beer_url": "https://untappd.com/b/rex-beer-blending-and-bottling-d-n-jerste/6222033",
-      "image_url": "https://labels.untappd.com/6222033",
-      "style": "Farmhouse Ale - Saison",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 11.5,
-      "ibu": 37,
-      "rating": 4.22,
+      "rating": 4.02,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1473,7 +1403,7 @@
       "subcategory": null,
       "abv": 9.5,
       "ibu": 16,
-      "rating": 3.78,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2445,7 +2375,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8,
       "ibu": 10,
-      "rating": 3.59,
+      "rating": 3.58,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2657,7 +2587,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": 5,
-      "rating": 3.12,
+      "rating": 3.13,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
