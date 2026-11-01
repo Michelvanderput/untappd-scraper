@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-01T12:43:09.885Z",
-  "count": 404,
-  "scrape_duration_seconds": 2.2,
+  "fetched_at": "2026-11-01T17:46:03.576Z",
+  "count": 402,
+  "scrape_duration_seconds": 3.01,
   "stats": {
-    "total_fetched": 404,
-    "total_valid": 404,
+    "total_fetched": 402,
+    "total_valid": 402,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 81,
+      "Op=Op kaart": 79,
       "Bierbijbel": 295
     }
   },
@@ -82,7 +82,7 @@
       "subcategory": null,
       "abv": 14,
       "ibu": 54,
-      "rating": 4.13,
+      "rating": 4.11,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -314,20 +314,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "Curtius Black",
-      "beer_url": "https://untappd.com/b/brasserie-c-curtius-black/899746",
-      "image_url": "https://labels.untappd.com/899746",
-      "style": "Stout - Belgian",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 55,
-      "rating": 3.51,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "Double Trouble",
       "beer_url": "https://untappd.com/b/brasserie-surrealiste-double-trouble/4277039",
       "image_url": "https://labels.untappd.com/4277039",
@@ -455,20 +441,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
-      "name": "BAIA",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-baia/6560697",
-      "image_url": "https://labels.untappd.com/6560697",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 40,
-      "rating": 3.95,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
       "name": "NEPTUNE",
       "beer_url": "https://untappd.com/b/brouwerij-lost-neptune/6560683",
       "image_url": "https://labels.untappd.com/6560683",
@@ -478,7 +450,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 57,
-      "rating": 3.79,
+      "rating": 3.8,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -871,7 +843,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": null,
-      "rating": 3.7,
+      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1123,7 +1095,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 31,
-      "rating": 3.24,
+      "rating": 3.23,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1333,7 +1305,7 @@
       "subcategory": null,
       "abv": 11,
       "ibu": null,
-      "rating": 4.13,
+      "rating": 4.14,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2078,7 +2050,7 @@
       "subcategory": "Geuzes - Wild Ales - Sours",
       "abv": 6,
       "ibu": 15,
-      "rating": 3.97,
+      "rating": 3.96,
       "container": "37,5cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
