@@ -1,32 +1,32 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-10-31T21:01:18.482Z",
-  "count": 405,
-  "scrape_duration_seconds": 2.44,
+  "fetched_at": "2026-11-01T12:43:09.885Z",
+  "count": 404,
+  "scrape_duration_seconds": 2.2,
   "stats": {
-    "total_fetched": 405,
-    "total_valid": 405,
+    "total_fetched": 404,
+    "total_valid": 404,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 82,
+      "Op=Op kaart": 81,
       "Bierbijbel": 295
     }
   },
   "beers": [
     {
-      "name": "Jopen 4-granen Bok",
-      "beer_url": "https://untappd.com/b/jopen-jopen-4-granen-bok/7616215",
-      "image_url": "https://labels.untappd.com/7616215",
-      "style": "Bock - Doppelbock",
+      "name": "Bokbier",
+      "beer_url": "https://untappd.com/b/jopen-bokbier/824230",
+      "image_url": "https://labels.untappd.com/824230",
+      "style": "Bock - Single / Traditional",
       "brewery_url": null,
       "category": "Wisseltap bieren",
       "subcategory": null,
       "abv": 6.5,
-      "ibu": null,
-      "rating": 3.54,
+      "ibu": 30,
+      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -464,7 +464,7 @@
       "subcategory": null,
       "abv": 7,
       "ibu": 40,
-      "rating": 3.96,
+      "rating": 3.95,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -576,7 +576,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": null,
-      "rating": 3.95,
+      "rating": 3.94,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1040,20 +1040,6 @@
       "abv": 10,
       "ibu": 15,
       "rating": 3.86,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Whaka Nui",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-whaka-nui/6765474",
-      "image_url": "https://labels.untappd.com/6765474",
-      "style": "IPA - Triple New England / Hazy",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": null,
-      "rating": 4.09,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1725,7 +1711,7 @@
       "subcategory": "Limburgse Bieren",
       "abv": 8,
       "ibu": 15,
-      "rating": 3.67,
+      "rating": 3.68,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
