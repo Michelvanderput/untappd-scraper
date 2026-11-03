@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-03T19:15:56.986Z",
+  "fetched_at": "2026-11-03T22:55:58.963Z",
   "count": 396,
-  "scrape_duration_seconds": 2.58,
+  "scrape_duration_seconds": 2.24,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
       "Op=Op kaart": 73,
+      "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "XXX-Bitter",
+      "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
+      "image_url": "https://labels.untappd.com/463346",
+      "style": "IPA - Belgian",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 70,
+      "rating": 3.65,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Herfstbock",
       "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-herfstbock/12282",
@@ -125,20 +139,6 @@
       "abv": 7,
       "ibu": 37,
       "rating": 3.52,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Scuse Me While I Kiss This Guy",
-      "beer_url": "https://untappd.com/b/uiltje-brewing-company-scuse-me-while-i-kiss-this-guy/6843046",
-      "image_url": "https://labels.untappd.com/6843046",
-      "style": "IPA - Imperial / Double",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": null,
-      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
