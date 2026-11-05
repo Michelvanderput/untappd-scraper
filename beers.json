@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-05T14:01:26.778Z",
+  "fetched_at": "2026-11-05T19:41:49.728Z",
   "count": 396,
-  "scrape_duration_seconds": 2.54,
+  "scrape_duration_seconds": 4.96,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 73,
+      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Lemon Candy",
+      "beer_url": "https://untappd.com/b/frontaal-brewing-co-lemon-candy/6773491",
+      "image_url": "https://labels.untappd.com/6773491",
+      "style": "Sour - Other",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 5,
+      "ibu": 12,
+      "rating": 3.26,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "XXX-Bitter",
       "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
@@ -157,20 +171,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "La Trappe Blond",
-      "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
-      "image_url": "https://labels.untappd.com/17858",
-      "style": "Belgian Blonde",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 20,
-      "rating": 3.67,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Thai Thai",
       "beer_url": "https://untappd.com/b/oedipus-brewing-thai-thai/213365",
       "image_url": "https://labels.untappd.com/213365",
@@ -194,7 +194,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 26,
-      "rating": 3.42,
+      "rating": 3.45,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1669,7 +1669,7 @@
       "subcategory": "Wit - Weizen",
       "abv": 5,
       "ibu": 15,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": "25cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
