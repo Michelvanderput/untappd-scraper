@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-04T23:15:02.440Z",
+  "fetched_at": "2026-11-05T14:01:26.778Z",
   "count": 396,
-  "scrape_duration_seconds": 3.45,
+  "scrape_duration_seconds": 2.54,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
@@ -10,8 +10,8 @@
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
-      "Wisseltap bieren": 17,
       "Op=Op kaart": 73,
+      "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
@@ -605,7 +605,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.34,
+      "rating": 3.35,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -4182,8 +4182,8 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Kwaremont",
-      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont/26918",
+      "name": "Kwaremont Pittig Blond",
+      "beer_url": "https://untappd.com/b/brouwerij-de-brabandere-kwaremont-pittig-blond/26918",
       "image_url": "https://labels.untappd.com/26918",
       "style": "Belgian Blonde",
       "brewery_url": null,
