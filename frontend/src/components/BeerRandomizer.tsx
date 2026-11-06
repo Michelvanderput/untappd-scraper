@@ -1,5 +1,5 @@
 import { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import { Shuffle, Star, Flame, Feather, Zap, ExternalLink, Beer as BeerIcon, RotateCcw, SlidersHorizontal, Radio } from 'lucide-react';
+import { Shuffle, Star, Flame, Feather, Zap, ExternalLink, Beer as BeerIcon, RotateCcw, SlidersHorizontal, Radio, Cherry } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { gsap } from '../lib/gsap';
 import { useReducedMotion } from '../lib/useReducedMotion';
@@ -10,6 +10,7 @@ import type { SpinPlan } from '../utils/spinPlan';
 import type { BeerData, RandomizerMode } from '../types/beer';
 import { secureRandomIndex, shuffled } from '../utils/random';
 import { haptics } from '../utils/haptic';
+import { isFruitBeer } from '../utils/fruitBeer';
 import BottleCap from './BottleCap';
 import Sheet from './Sheet';
 import Bubbles from './Bubbles';
@@ -228,7 +229,8 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
   const finish = useCallback(
     (beer: BeerData) => {
       setPhase('result');
-      haptics.success();
+      if (isFruitBeer(beer)) haptics.warning();
+      else haptics.success();
       setHistory((prev) => (prev.some((b) => b.beer_url === beer.beer_url) ? prev : [beer, ...prev.slice(0, 9)]));
       onBeerSelect?.(beer);
       fetch(LIVE_REGISTER_URL, {
@@ -437,6 +439,24 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   {winner.brewery}
                 </p>
 
+                {isFruitBeer(winner) && (
+                  <div
+                    className="enter-pop w-full max-w-sm mb-6 rounded-2xl border-2 border-ember/50 bg-ember/10 p-4 text-left flex items-start gap-3"
+                    style={stagger(11)}
+                    role="alert"
+                  >
+                    <span className="grid place-items-center w-11 h-11 shrink-0 rounded-full bg-ember text-white">
+                      <Cherry className="w-6 h-6" aria-hidden />
+                    </span>
+                    <div>
+                      <p className="font-display italic font-extrabold text-2xl leading-none text-ember">Fruitbiertje!</p>
+                      <p className="mt-1 text-sm text-fg">
+                        Dat wordt een <strong>adtje</strong>. En helaas… daarna gewoon nog een keer draaien.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
                 <dl
                   className="enter-up grid grid-cols-3 w-full max-w-sm rounded-2xl border border-line/10 divide-x divide-line/10 bg-bg/40 mb-6"
                   style={stagger(9)}
@@ -461,8 +481,19 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
                   </div>
                 </dl>
 
-                <div className="enter-up w-full max-w-sm" style={stagger(13)}>
-                  <a href={winner.beer_url} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
+                <div className="enter-up w-full max-w-sm space-y-3" style={stagger(13)}>
+                  {isFruitBeer(winner) && (
+                    <button type="button" onClick={spin} className="btn-primary w-full">
+                      <RotateCcw className="w-4 h-4" aria-hidden />
+                      Adtje gedaan, draai opnieuw
+                    </button>
+                  )}
+                  <a
+                    href={winner.beer_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={isFruitBeer(winner) ? 'btn-ghost w-full' : 'btn-primary w-full'}
+                  >
                     Bekijk op Untappd
                     <ExternalLink className="w-4 h-4" aria-hidden />
                   </a>
@@ -488,7 +519,7 @@ export default function BeerRandomizer({ beers, onBeerSelect }: BeerRandomizerPr
             </span>
           </button>
           <p className="mt-2 text-sm font-medium text-muted">
-            {isSpinning ? 'Draaien…' : phase === 'result' ? 'Nog een keer' : 'Draai'}
+            {isSpinning ? 'Draaien…' : phase === 'result' ? (winner && isFruitBeer(winner) ? 'Adtje, dan opnieuw' : 'Nog een keer') : 'Draai'}
           </p>
         </div>
       </div>
