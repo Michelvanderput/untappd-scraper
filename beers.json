@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-05T23:17:25.074Z",
+  "fetched_at": "2026-11-06T13:46:40.725Z",
   "count": 396,
-  "scrape_duration_seconds": 2.57,
+  "scrape_duration_seconds": 2.82,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
@@ -16,6 +16,20 @@
     }
   },
   "beers": [
+    {
+      "name": "Quad 2024",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-quad/5873935",
+      "image_url": "https://labels.untappd.com/5873935",
+      "style": "Belgian Quadrupel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 11,
+      "ibu": 31,
+      "rating": 3.8,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Lemon Candy",
       "beer_url": "https://untappd.com/b/frontaal-brewing-co-lemon-candy/6773491",
@@ -195,20 +209,6 @@
       "abv": 6.5,
       "ibu": 26,
       "rating": 3.45,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "1125 Vlierbeek Grand Cru",
-      "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
-      "image_url": "https://labels.untappd.com/2595630",
-      "style": "Belgian Strong Golden Ale",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8.5,
-      "ibu": 36,
-      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -591,7 +591,7 @@
       "subcategory": null,
       "abv": 5.7,
       "ibu": 25,
-      "rating": 3.41,
+      "rating": 3.4,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -941,7 +941,7 @@
       "subcategory": null,
       "abv": 7.2,
       "ibu": 31,
-      "rating": 3.52,
+      "rating": 3.51,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -983,7 +983,7 @@
       "subcategory": null,
       "abv": 4,
       "ibu": 15,
-      "rating": 3.2,
+      "rating": 3.19,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
