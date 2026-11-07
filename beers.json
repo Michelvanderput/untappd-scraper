@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-06T22:44:41.525Z",
+  "fetched_at": "2026-11-07T12:30:32.776Z",
   "count": 396,
-  "scrape_duration_seconds": 2.78,
+  "scrape_duration_seconds": 2.15,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
       "Op=Op kaart": 73,
+      "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Saga 10",
+      "beer_url": "https://untappd.com/b/zuyd-craft-saga-10/4292161",
+      "image_url": "https://labels.untappd.com/4292161",
+      "style": "Belgian Quadrupel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 15,
+      "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Quad 2024",
       "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-quad/5873935",
@@ -153,20 +167,6 @@
       "abv": 6.5,
       "ibu": 25,
       "rating": 3.42,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Ouwen Duiker (Old Diver)",
-      "beer_url": "https://untappd.com/b/brouwerij-hedonis-ouwen-duiker-old-diver/1119008",
-      "image_url": "https://labels.untappd.com/1119008",
-      "style": "Pale Ale - American",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": 37,
-      "rating": 3.52,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -591,7 +591,7 @@
       "subcategory": null,
       "abv": 5.7,
       "ibu": 25,
-      "rating": 3.4,
+      "rating": 3.41,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -927,7 +927,7 @@
       "subcategory": null,
       "abv": 6.2,
       "ibu": 49,
-      "rating": 3.6,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -955,7 +955,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 29,
-      "rating": 3.35,
+      "rating": 3.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
