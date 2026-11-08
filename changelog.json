@@ -1,6 +1,192 @@
 {
   "changes": [
     {
+      "date": "2026-11-08T17:46:23.180Z",
+      "summary": {
+        "added": 3,
+        "removed": 2,
+        "updated": 12,
+        "total_beers": 397
+      },
+      "added": [
+        {
+          "name": "Hazy Weekend Fresh Hop - 2026",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend-fresh-hop-2026/6909884",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "style": "IPA - New England / Hazy",
+          "abv": 6.6,
+          "image_url": "https://labels.untappd.com/6909884"
+        },
+        {
+          "name": "Meestereske Kinky Tripel",
+          "beer_url": "https://untappd.com/b/brewery-de-meester-meestereske-kinky-tripel/5640944",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "style": "Belgian Tripel",
+          "abv": 9.5,
+          "image_url": "https://labels.untappd.com/5640944"
+        },
+        {
+          "name": "Blueprints: Jet Pack",
+          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-jet-pack/6568892",
+          "category": "Op=Op kaart",
+          "subcategory": null,
+          "style": "IPA - New England / Hazy",
+          "abv": 6.5,
+          "image_url": "https://labels.untappd.com/6568892"
+        }
+      ],
+      "removed": [
+        {
+          "name": "Hazy Weekend",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend/3647985",
+          "category": "Wisseltap bieren",
+          "subcategory": null
+        },
+        {
+          "name": "Ultrasphere",
+          "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
+          "category": "Op=Op kaart",
+          "subcategory": null
+        }
+      ],
+      "updated": [
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "So Fresh, So Clean",
+          "beer_url": "https://untappd.com/b/jopen-so-fresh-so-clean/7062818",
+          "changes": {
+            "rating": {
+              "old": 3.59,
+              "new": 3.58
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Bigfoot (Little Giants)",
+          "beer_url": "https://untappd.com/b/rock-city-brewing-bigfoot-little-giants/7095054",
+          "changes": {
+            "rating": {
+              "old": 4.35,
+              "new": 4.33
+            }
+          }
+        },
+        {
+          "name": "Ridgeback B.A. 2026",
+          "beer_url": "https://untappd.com/b/frontaal-brewing-co-ridgeback-b-a-2026/7614518",
+          "changes": {
+            "rating": {
+              "old": 4.12,
+              "new": 4.13
+            }
+          }
+        },
+        {
+          "name": "Delirium Red",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-delirium-red/33040",
+          "changes": {
+            "rating": {
+              "old": 3.58,
+              "new": 3.59
+            }
+          }
+        },
+        {
+          "name": "Floris Passion",
+          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-floris-passion/70362",
+          "changes": {
+            "rating": {
+              "old": 3.45,
+              "new": 3.46
+            }
+          }
+        },
+        {
+          "name": "Fram Bush",
+          "beer_url": "https://untappd.com/b/brasserie-dubuisson-fram-bush/4697132",
+          "changes": {
+            "rating": {
+              "old": 3.33,
+              "new": 3.32
+            }
+          }
+        },
+        {
+          "name": "Kasteel Tropical 0.0",
+          "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-tropical-0-0/6249320",
+          "changes": {
+            "rating": {
+              "old": 3.33,
+              "new": 3.34
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-11-08T12:48:30.179Z",
       "summary": {
         "added": 0,
@@ -3657,145 +3843,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-10-29T18:13:23.258Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 11,
-        "total_beers": 410
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Scuse Me While I Kiss This Guy",
-          "beer_url": "https://untappd.com/b/uiltje-brewing-company-scuse-me-while-i-kiss-this-guy/6843046",
-          "changes": {
-            "rating": {
-              "old": 3.63,
-              "new": 3.62
-            }
-          }
-        },
-        {
-          "name": "La Trappe Blond",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Blonde Ram (herfstbok)",
-          "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-blonde-ram-herfstbok/6942556",
-          "changes": {
-            "rating": {
-              "old": 3.39,
-              "new": 3.37
-            }
-          }
-        },
-        {
-          "name": "1125 Vlierbeek Grand Cru",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Triple",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Crazy Lines Series: Case Study",
-          "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-case-study/6809238",
-          "changes": {
-            "rating": {
-              "old": 3.8,
-              "new": 3.79
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Paulaner Hefe-Weißbier Alkoholfrei / Weissbier Non-Alcoholic",
-          "beer_url": "https://untappd.com/b/paulaner-brauerei-paulaner-hefe-weissbier-alkoholfrei-weissbier-non-alcoholic/87078",
-          "changes": {
-            "rating": {
-              "old": 2.82,
-              "new": 2.83
             }
           }
         }

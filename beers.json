@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-08T12:48:30.098Z",
-  "count": 396,
-  "scrape_duration_seconds": 2.31,
+  "fetched_at": "2026-11-08T17:46:23.060Z",
+  "count": 397,
+  "scrape_duration_seconds": 2.67,
   "stats": {
-    "total_fetched": 396,
-    "total_valid": 396,
+    "total_fetched": 397,
+    "total_valid": 397,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 73,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 74,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Hazy Weekend Fresh Hop - 2026",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend-fresh-hop-2026/6909884",
+      "image_url": "https://labels.untappd.com/6909884",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 15,
+      "rating": 3.83,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Saga 10",
       "beer_url": "https://untappd.com/b/zuyd-craft-saga-10/4292161",
@@ -111,20 +125,6 @@
       "abv": 5.6,
       "ibu": null,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Hazy Weekend",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend/3647985",
-      "image_url": "https://labels.untappd.com/3647985",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 20,
-      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -322,6 +322,20 @@
       "abv": 5.2,
       "ibu": 9,
       "rating": 3.31,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Meestereske Kinky Tripel",
+      "beer_url": "https://untappd.com/b/brewery-de-meester-meestereske-kinky-tripel/5640944",
+      "image_url": "https://labels.untappd.com/5640944",
+      "style": "Belgian Tripel",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 9.5,
+      "ibu": null,
+      "rating": 3.55,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -619,7 +633,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 30,
-      "rating": 3.59,
+      "rating": 3.58,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -676,6 +690,20 @@
       "abv": 6.5,
       "ibu": 40,
       "rating": 3.63,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "Blueprints: Jet Pack",
+      "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-jet-pack/6568892",
+      "image_url": "https://labels.untappd.com/6568892",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -830,20 +858,6 @@
       "abv": 6.1,
       "ibu": null,
       "rating": 3.91,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Ultrasphere",
-      "beer_url": "https://untappd.com/b/nepo-brewing-ultrasphere/6645540",
-      "image_url": "https://labels.untappd.com/6645540",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.1,
-      "ibu": null,
-      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1095,7 +1109,7 @@
       "subcategory": null,
       "abv": 16,
       "ibu": 10,
-      "rating": 4.35,
+      "rating": 4.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1109,7 +1123,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": null,
-      "rating": 4.12,
+      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2249,7 +2263,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8,
       "ibu": 10,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2306,7 +2320,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -2334,7 +2348,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8.5,
       "ibu": 16,
-      "rating": 3.33,
+      "rating": 3.32,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5463,7 +5477,7 @@
       "subcategory": "Alcoholvrij",
       "abv": null,
       "ibu": null,
-      "rating": 3.33,
+      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
