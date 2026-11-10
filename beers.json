@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-10T19:29:12.095Z",
+  "fetched_at": "2026-11-10T22:52:34.952Z",
   "count": 396,
-  "scrape_duration_seconds": 3.09,
+  "scrape_duration_seconds": 3.4,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Op=Op kaart": 73,
       "Vaste bieren van de tap": 11,
+      "Op=Op kaart": 73,
       "Wisseltap bieren": 17,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Abt 12",
+      "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
+      "image_url": "https://labels.untappd.com/6760",
+      "style": "Belgian Quadrupel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 20,
+      "rating": 3.99,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Calavera DDH",
       "beer_url": "https://untappd.com/b/brasserie-surrealiste-calavera-ddh/4261398",
@@ -31,20 +45,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Hazy Weekend Fresh Hop - 2026",
-      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend-fresh-hop-2026/6909884",
-      "image_url": "https://labels.untappd.com/6909884",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": 15,
-      "rating": 3.83,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Saga 10",
       "beer_url": "https://untappd.com/b/zuyd-craft-saga-10/4292161",
       "image_url": "https://labels.untappd.com/4292161",
@@ -55,6 +55,20 @@
       "abv": 10,
       "ibu": 15,
       "rating": 3.76,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Hazy Weekend Fresh Hop - 2026",
+      "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend-fresh-hop-2026/6909884",
+      "image_url": "https://labels.untappd.com/6909884",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.6,
+      "ibu": 15,
+      "rating": 3.83,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -153,20 +167,6 @@
       "abv": 14,
       "ibu": 54,
       "rating": 4.11,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Brugse Bok",
-      "beer_url": "https://untappd.com/b/brouwerij-de-halve-maan-brugse-bok/40277",
-      "image_url": "https://labels.untappd.com/40277",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 25,
-      "rating": 3.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
