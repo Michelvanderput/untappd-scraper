@@ -1,6 +1,95 @@
 {
   "changes": [
     {
+      "date": "2026-11-11T13:37:16.734Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 6,
+        "total_beers": 396
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Abt 12",
+          "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-11-10T22:52:35.044Z",
       "summary": {
         "added": 0,
@@ -3433,158 +3522,6 @@
             "rating": {
               "old": 3.97,
               "new": 3.96
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-01T12:43:09.984Z",
-      "summary": {
-        "added": 1,
-        "removed": 2,
-        "updated": 10,
-        "total_beers": 404
-      },
-      "added": [
-        {
-          "name": "Bokbier",
-          "beer_url": "https://untappd.com/b/jopen-bokbier/824230",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "style": "Bock - Single / Traditional",
-          "abv": 6.5,
-          "image_url": "https://labels.untappd.com/824230"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Jopen 4-granen Bok",
-          "beer_url": "https://untappd.com/b/jopen-jopen-4-granen-bok/7616215",
-          "category": "Wisseltap bieren",
-          "subcategory": null
-        },
-        {
-          "name": "Whaka Nui",
-          "beer_url": "https://untappd.com/b/rock-city-brewing-whaka-nui/6765474",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        }
-      ],
-      "updated": [
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Blond",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "1125 Vlierbeek Grand Cru",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Triple",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "BAIA",
-          "beer_url": "https://untappd.com/b/brouwerij-lost-baia/6560697",
-          "changes": {
-            "rating": {
-              "old": 3.96,
-              "new": 3.95
-            }
-          }
-        },
-        {
-          "name": "Smooth Criminals: Cosmic Blast",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-cosmic-blast/6728161",
-          "changes": {
-            "rating": {
-              "old": 3.95,
-              "new": 3.94
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Sainte Gertrude Tripel",
-          "beer_url": "https://untappd.com/b/biergilde-sainte-gertrude-sainte-gertrude-tripel/5010603",
-          "changes": {
-            "rating": {
-              "old": 3.67,
-              "new": 3.68
             }
           }
         }
