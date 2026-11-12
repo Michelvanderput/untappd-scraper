@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-11T19:23:52.052Z",
+  "fetched_at": "2026-11-12T00:05:29.876Z",
   "count": 395,
-  "scrape_duration_seconds": 2.4,
+  "scrape_duration_seconds": 2.97,
   "stats": {
     "total_fetched": 395,
     "total_valid": 395,
@@ -16,6 +16,34 @@
     }
   },
   "beers": [
+    {
+      "name": "Boomer Bock",
+      "beer_url": "https://untappd.com/b/rock-city-brewing-boomer-bock/6918767",
+      "image_url": "https://labels.untappd.com/6918767",
+      "style": "Bock - Single / Traditional",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 23,
+      "rating": 3.54,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Mannenliefde",
+      "beer_url": "https://untappd.com/b/oedipus-brewing-mannenliefde/223444",
+      "image_url": "https://labels.untappd.com/223444",
+      "style": "Farmhouse Ale - Saison",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6,
+      "ibu": 25,
+      "rating": 3.46,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Abt 12",
       "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
@@ -115,20 +143,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Herfstbock",
-      "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-herfstbock/12282",
-      "image_url": "https://labels.untappd.com/12282",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 3.3,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Bokbier",
       "beer_url": "https://untappd.com/b/jopen-bokbier/824230",
       "image_url": "https://labels.untappd.com/824230",
@@ -181,20 +195,6 @@
       "abv": 6.9,
       "ibu": null,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Thai Thai",
-      "beer_url": "https://untappd.com/b/oedipus-brewing-thai-thai/213365",
-      "image_url": "https://labels.untappd.com/213365",
-      "style": "Belgian Tripel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 20,
-      "rating": 3.49,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -619,7 +619,7 @@
       "subcategory": null,
       "abv": 6,
       "ibu": 30,
-      "rating": 3.6,
+      "rating": 3.61,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
