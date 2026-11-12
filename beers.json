@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-12T00:05:29.876Z",
-  "count": 395,
-  "scrape_duration_seconds": 2.97,
+  "fetched_at": "2026-11-12T14:40:48.177Z",
+  "count": 398,
+  "scrape_duration_seconds": 2.6,
   "stats": {
-    "total_fetched": 395,
-    "total_valid": 395,
+    "total_fetched": 398,
+    "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 72,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 75,
       "Bierbijbel": 295
     }
   },
@@ -96,7 +96,7 @@
       "subcategory": null,
       "abv": 6.6,
       "ibu": 15,
-      "rating": 3.82,
+      "rating": 3.81,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -208,7 +208,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 26,
-      "rating": 3.44,
+      "rating": 3.43,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -254,6 +254,48 @@
       "rating": 3.72,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "LOST+ 2026",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-lost-2026/7659414",
+      "image_url": "https://labels.untappd.com/7659414",
+      "style": "Stout - Imperial / Double",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 12,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "GOODBYE",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-goodbye/6560700",
+      "image_url": "https://labels.untappd.com/6560700",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.8,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
+    },
+    {
+      "name": "FAREWELL",
+      "beer_url": "https://untappd.com/b/brouwerij-lost-farewell/6560702",
+      "image_url": "https://labels.untappd.com/6560702",
+      "style": "IPA - New England / Hazy",
+      "brewery_url": null,
+      "category": "Op=Op kaart",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": null,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
     {
       "name": "Proemevlaai",
@@ -941,7 +983,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 29,
-      "rating": 3.3,
+      "rating": 3.31,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1081,7 +1123,7 @@
       "subcategory": null,
       "abv": 16,
       "ibu": 10,
-      "rating": 4.33,
+      "rating": 4.32,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1137,7 +1179,7 @@
       "subcategory": null,
       "abv": 9.8,
       "ibu": 34,
-      "rating": 4.08,
+      "rating": 4.09,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1165,7 +1207,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 55,
-      "rating": 4.07,
+      "rating": 4.08,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2235,7 +2277,7 @@
       "subcategory": "Fruitbieren",
       "abv": 8,
       "ibu": 10,
-      "rating": 3.58,
+      "rating": 3.59,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -4332,7 +4374,7 @@
       "subcategory": "Blond - Sterk Blond - Tripels",
       "abv": 10,
       "ibu": 40,
-      "rating": 3.65,
+      "rating": 3.66,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
