@@ -1,6 +1,95 @@
 {
   "changes": [
     {
+      "date": "2026-11-12T19:41:32.887Z",
+      "summary": {
+        "added": 0,
+        "removed": 0,
+        "updated": 6,
+        "total_beers": 398
+      },
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "name": "Abt 12",
+          "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-11-12T14:40:48.251Z",
       "summary": {
         "added": 3,
@@ -3262,219 +3351,6 @@
             "category": {
               "old": "Bierbijbel",
               "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-02T21:31:30.445Z",
-      "summary": {
-        "added": 4,
-        "removed": 11,
-        "updated": 8,
-        "total_beers": 396
-      },
-      "added": [
-        {
-          "name": "Herfstbock",
-          "beer_url": "https://untappd.com/b/gulpener-bierbrouwerij-herfstbock/12282",
-          "category": "Wisseltap bieren",
-          "subcategory": null,
-          "style": "Bock - Single / Traditional",
-          "abv": 6.5,
-          "image_url": "https://labels.untappd.com/12282"
-        },
-        {
-          "name": "Cauwe, Cauberg Weizen By Klinker",
-          "beer_url": "https://untappd.com/b/brouwerij-klinker-cauwe-cauberg-weizen-by-klinker/4279461",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "style": "Wheat Beer - Hefeweizen",
-          "abv": 6.5,
-          "image_url": "https://labels.untappd.com/4279461"
-        },
-        {
-          "name": "Kompel Nostalgia Collection \"Schietmeester\"",
-          "beer_url": "https://untappd.com/b/brouwerij-kompel-kompel-nostalgia-collection-schietmeester/6622825",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "style": "Belgian Blonde",
-          "abv": 7,
-          "image_url": "https://labels.untappd.com/6622825"
-        },
-        {
-          "name": "Hefeweissbier Naturtrüb (Tap 01)",
-          "beer_url": "https://untappd.com/b/schneider-weisse-g-schneider-and-sohn-hefeweissbier-naturtrub-tap-01/6232155",
-          "category": "Op=Op kaart",
-          "subcategory": null,
-          "style": "Wheat Beer - Hefeweizen",
-          "abv": 4.9,
-          "image_url": "https://labels.untappd.com/6232155"
-        }
-      ],
-      "removed": [
-        {
-          "name": "Kapittel Herfstbock",
-          "beer_url": "https://untappd.com/b/leroy-breweries-kapittel-herfstbock/6399527",
-          "category": "Wisseltap bieren",
-          "subcategory": null
-        },
-        {
-          "name": "Gouden Carolus Indulgence 2026 - Symposium",
-          "beer_url": "https://untappd.com/b/brouwerij-het-anker-gouden-carolus-indulgence-2026-symposium/6727923",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Flirt With the Bartender",
-          "beer_url": "https://untappd.com/b/brouwerij-the-musketeers-flirt-with-the-bartender/6602997",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Smooth Criminals: Tropic Swirl",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-smooth-criminals-tropic-swirl/6645586",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Sticky Business: Espresso Martini",
-          "beer_url": "https://untappd.com/b/frontaal-brewing-co-sticky-business-espresso-martini/6562566",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "10 Years: Ignition",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-10-years-ignition/6701073",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Blueprints: Camera",
-          "beer_url": "https://untappd.com/b/moersleutel-craft-brewery-blueprints-camera/6440742",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Fermenting Frank Mosaic New England Double IPA",
-          "beer_url": "https://untappd.com/b/two-chefs-brewing-fermenting-frank-mosaic-new-england-double-ipa/6621397",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Is That Spelt Ryeght?",
-          "beer_url": "https://untappd.com/b/jopen-is-that-spelt-ryeght/2459749",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Barrel Project 2025 Quadrupel Aged In Anker Barrels",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-quadrupel-aged-in-anker-barrels/6280870",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        },
-        {
-          "name": "Barrel Project 2025 Red Wine Aged In Red Wine Barrels. (Collab With Tartarus Brewing)",
-          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2025-red-wine-aged-in-red-wine-barrels-collab-with-tartarus-brewing/6479999",
-          "category": "Op=Op kaart",
-          "subcategory": null
-        }
-      ],
-      "updated": [
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Blond",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "1125 Vlierbeek Grand Cru",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Triple",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Sansho Showdown",
-          "beer_url": "https://untappd.com/b/baxbier-sansho-showdown/6735999",
-          "changes": {
-            "container": {
-              "old": "44cl",
-              "new": null
             }
           }
         },
