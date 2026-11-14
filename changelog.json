@@ -1,6 +1,152 @@
 {
   "changes": [
     {
+      "date": "2026-11-14T12:59:50.555Z",
+      "summary": {
+        "added": 1,
+        "removed": 1,
+        "updated": 10,
+        "total_beers": 398
+      },
+      "added": [
+        {
+          "name": "Caramel Fudge Stout",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-caramel-fudge-stout/1345611",
+          "category": "Wisseltap bieren",
+          "subcategory": null,
+          "style": "Stout - Imperial / Double Pastry",
+          "abv": 11.5,
+          "image_url": "https://labels.untappd.com/1345611"
+        }
+      ],
+      "removed": [
+        {
+          "name": "Bottle Brew 8",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-bottle-brew-8/6647364",
+          "category": "Wisseltap bieren",
+          "subcategory": null
+        }
+      ],
+      "updated": [
+        {
+          "name": "Abt 12",
+          "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-abt-12/6760",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Ter Dolen Blond",
+          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Val-Dieu Triple",
+          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Tripel LeFort",
+          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
+          "changes": {
+            "container": {
+              "old": "33cl Bottle",
+              "new": null
+            },
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Wisseltap bieren"
+            }
+          }
+        },
+        {
+          "name": "Sansho Showdown",
+          "beer_url": "https://untappd.com/b/baxbier-sansho-showdown/6735999",
+          "changes": {
+            "rating": {
+              "old": 3.47,
+              "new": 3.48
+            }
+          }
+        },
+        {
+          "name": "Fresh Hop Centennial IPA 2026",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-fresh-hop-centennial-ipa-2026/6905607",
+          "changes": {
+            "rating": {
+              "old": 3.6,
+              "new": 3.59
+            }
+          }
+        },
+        {
+          "name": "Klophop Fresh Hop Blond 2026",
+          "beer_url": "https://untappd.com/b/vandestreek-bier-klophop-fresh-hop-blond-2026/6905635",
+          "changes": {
+            "rating": {
+              "old": 3.31,
+              "new": 3.3
+            }
+          }
+        },
+        {
+          "name": "Cuvée Sofie",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Phi",
+          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
+          "changes": {
+            "category": {
+              "old": "Bierbijbel",
+              "new": "Op=Op kaart"
+            }
+          }
+        },
+        {
+          "name": "Barrel Project 2026 Imperial Stout Aged In Buffalo Trace Barrels For 11 Months",
+          "beer_url": "https://untappd.com/b/brouwerij-kees-barrel-project-2026-imperial-stout-aged-in-buffalo-trace-barrels-for-11-months/6711483",
+          "changes": {
+            "rating": {
+              "old": 4.08,
+              "new": 4.07
+            }
+          }
+        }
+      ]
+    },
+    {
       "date": "2026-11-13T23:16:35.637Z",
       "summary": {
         "added": 0,
@@ -3305,125 +3451,6 @@
             "rating": {
               "old": 4.13,
               "new": 4.11
-            }
-          }
-        }
-      ]
-    },
-    {
-      "date": "2026-11-04T13:49:16.653Z",
-      "summary": {
-        "added": 0,
-        "removed": 0,
-        "updated": 9,
-        "total_beers": 396
-      },
-      "added": [],
-      "removed": [],
-      "updated": [
-        {
-          "name": "Ter Dolen Blond",
-          "beer_url": "https://untappd.com/b/ter-dolen-ter-dolen-blond/55364",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "La Trappe Blond",
-          "beer_url": "https://untappd.com/b/bierbrouwerij-de-koningshoeven-la-trappe-blond/17858",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "1125 Vlierbeek Grand Cru",
-          "beer_url": "https://untappd.com/b/brouwerij-broeder-jacob-1125-vlierbeek-grand-cru/2595630",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Val-Dieu Triple",
-          "beer_url": "https://untappd.com/b/brasserie-de-l-abbaye-du-val-dieu-val-dieu-triple/442",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Tripel LeFort",
-          "beer_url": "https://untappd.com/b/omer-vander-ghinste-tripel-lefort/1533976",
-          "changes": {
-            "container": {
-              "old": "33cl Bottle",
-              "new": null
-            },
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Wisseltap bieren"
-            }
-          }
-        },
-        {
-          "name": "Klophop Fresh Hop Blond 2026",
-          "beer_url": "https://untappd.com/b/vandestreek-bier-klophop-fresh-hop-blond-2026/6905635",
-          "changes": {
-            "rating": {
-              "old": 3.36,
-              "new": 3.35
-            }
-          }
-        },
-        {
-          "name": "Cuvée Sofie",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-cuvee-sofie/662302",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Phi",
-          "beer_url": "https://untappd.com/b/brouwerij-alvinne-phi/558162",
-          "changes": {
-            "category": {
-              "old": "Bierbijbel",
-              "new": "Op=Op kaart"
-            }
-          }
-        },
-        {
-          "name": "Sainte Gertrude Tripel",
-          "beer_url": "https://untappd.com/b/biergilde-sainte-gertrude-sainte-gertrude-tripel/5010603",
-          "changes": {
-            "rating": {
-              "old": 3.68,
-              "new": 3.67
             }
           }
         }

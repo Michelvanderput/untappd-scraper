@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-13T23:16:35.570Z",
+  "fetched_at": "2026-11-14T12:59:50.481Z",
   "count": 398,
-  "scrape_duration_seconds": 3.18,
+  "scrape_duration_seconds": 3.77,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 75,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Caramel Fudge Stout",
+      "beer_url": "https://untappd.com/b/brouwerij-kees-caramel-fudge-stout/1345611",
+      "image_url": "https://labels.untappd.com/1345611",
+      "style": "Stout - Imperial / Double Pastry",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 11.5,
+      "ibu": 45,
+      "rating": 3.84,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Boomer Bock",
       "beer_url": "https://untappd.com/b/rock-city-brewing-boomer-bock/6918767",
@@ -171,20 +185,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Bottle Brew 8",
-      "beer_url": "https://untappd.com/b/brouwerij-kees-bottle-brew-8/6647364",
-      "image_url": "https://labels.untappd.com/6647364",
-      "style": "Stout - Imperial / Double Coffee",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 14,
-      "ibu": 54,
-      "rating": 4.11,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Corsendonk Grand Hops (2026)",
       "beer_url": "https://untappd.com/b/brouwerij-corsendonk-corsendonk-grand-hops-2026/6678573",
       "image_url": "https://labels.untappd.com/6678573",
@@ -321,7 +321,7 @@
       "subcategory": null,
       "abv": 6.9,
       "ibu": 20,
-      "rating": 3.47,
+      "rating": 3.48,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -955,7 +955,7 @@
       "subcategory": null,
       "abv": 6.2,
       "ibu": 49,
-      "rating": 3.6,
+      "rating": 3.59,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -983,7 +983,7 @@
       "subcategory": null,
       "abv": 5,
       "ibu": 29,
-      "rating": 3.31,
+      "rating": 3.3,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1207,7 +1207,7 @@
       "subcategory": null,
       "abv": 10,
       "ibu": 55,
-      "rating": 4.08,
+      "rating": 4.07,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
