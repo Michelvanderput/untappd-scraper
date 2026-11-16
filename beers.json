@@ -1,21 +1,49 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-16T14:53:05.665Z",
-  "count": 399,
-  "scrape_duration_seconds": 2.78,
+  "fetched_at": "2026-11-16T21:47:22.343Z",
+  "count": 398,
+  "scrape_duration_seconds": 6.02,
   "stats": {
-    "total_fetched": 399,
-    "total_valid": 399,
+    "total_fetched": 398,
+    "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
       "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
-      "Op=Op kaart": 76,
+      "Op=Op kaart": 75,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Chimay Grande Réserve (Blue)",
+      "beer_url": "https://untappd.com/b/bieres-de-chimay-chimay-grande-reserve-blue/34039",
+      "image_url": "https://labels.untappd.com/34039",
+      "style": "Belgian Strong Dark Ale",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 35,
+      "rating": 3.89,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Tongerlo Tripel",
+      "beer_url": "https://untappd.com/b/brouwerij-haacht-brasserie-tongerlo-tripel/27099",
+      "image_url": "https://labels.untappd.com/27099",
+      "style": "Belgian Tripel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 9,
+      "ibu": 35,
+      "rating": 3.64,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Prior 8",
       "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-prior-8/475",
@@ -125,34 +153,6 @@
       "abv": 11,
       "ibu": 31,
       "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Lemon Candy",
-      "beer_url": "https://untappd.com/b/frontaal-brewing-co-lemon-candy/6773491",
-      "image_url": "https://labels.untappd.com/6773491",
-      "style": "Sour - Other",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 5,
-      "ibu": 12,
-      "rating": 3.27,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "XXX-Bitter",
-      "beer_url": "https://untappd.com/b/brouwerij-de-ranke-xxx-bitter/463346",
-      "image_url": "https://labels.untappd.com/463346",
-      "style": "IPA - Belgian",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": 70,
-      "rating": 3.64,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -1054,20 +1054,6 @@
       "abv": 6.5,
       "ibu": 25,
       "rating": 3.77,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Dr. Juice",
-      "beer_url": "https://untappd.com/b/parish-brewing-co-dr-juice/3672327",
-      "image_url": "https://labels.untappd.com/3672327",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6,
-      "ibu": null,
-      "rating": 3.89,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
