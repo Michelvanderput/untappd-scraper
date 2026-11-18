@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-18T20:11:32.991Z",
+  "fetched_at": "2026-11-18T23:54:50.688Z",
   "count": 398,
-  "scrape_duration_seconds": 2.21,
+  "scrape_duration_seconds": 1.96,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
@@ -16,6 +16,20 @@
     }
   },
   "beers": [
+    {
+      "name": "Gouden Vorst",
+      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouden-vorst/7685254",
+      "image_url": "https://labels.untappd.com/7685254",
+      "style": "Blonde / Golden Ale - Other",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 6.5,
+      "ibu": 26,
+      "rating": 0,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Kasteel Cuvée Du Château (2025)",
       "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee-du-chateau-2025/7215263",
@@ -195,20 +209,6 @@
       "abv": 6.9,
       "ibu": null,
       "rating": 3.58,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Blonde Ram (herfstbok)",
-      "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-blonde-ram-herfstbok/6942556",
-      "image_url": "https://labels.untappd.com/6942556",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 26,
-      "rating": 3.42,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
