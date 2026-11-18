@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-18T15:09:29.678Z",
+  "fetched_at": "2026-11-18T20:11:32.991Z",
   "count": 398,
-  "scrape_duration_seconds": 2.75,
+  "scrape_duration_seconds": 2.21,
   "stats": {
     "total_fetched": 398,
     "total_valid": 398,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 75,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Kasteel Cuvée Du Château (2025)",
+      "beer_url": "https://untappd.com/b/kasteel-brouwerij-vanhonsebrouck-kasteel-cuvee-du-chateau-2025/7215263",
+      "image_url": "https://labels.untappd.com/7215263",
+      "style": "Belgian Quadrupel",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 11,
+      "ibu": null,
+      "rating": 3.92,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Chimay Grande Réserve (Blue)",
       "beer_url": "https://untappd.com/b/bieres-de-chimay-chimay-grande-reserve-blue/34039",
@@ -69,20 +83,6 @@
       "abv": 11.5,
       "ibu": 45,
       "rating": 3.84,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Boomer Bock",
-      "beer_url": "https://untappd.com/b/rock-city-brewing-boomer-bock/6918767",
-      "image_url": "https://labels.untappd.com/6918767",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 23,
-      "rating": 3.54,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
