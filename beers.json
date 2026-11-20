@@ -1,17 +1,17 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-20T19:47:07.180Z",
-  "count": 398,
-  "scrape_duration_seconds": 5.29,
+  "fetched_at": "2026-11-20T23:42:10.369Z",
+  "count": 397,
+  "scrape_duration_seconds": 2.08,
   "stats": {
-    "total_fetched": 398,
-    "total_valid": 398,
+    "total_fetched": 397,
+    "total_valid": 397,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 75,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 74,
       "Bierbijbel": 295
     }
   },
@@ -830,20 +830,6 @@
       "abv": 6.6,
       "ibu": null,
       "rating": 3.78,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "Crazy Lines Series: Psycho Juice",
-      "beer_url": "https://untappd.com/b/nepo-brewing-crazy-lines-series-psycho-juice/6730534",
-      "image_url": "https://labels.untappd.com/6730534",
-      "style": "IPA - Cold",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.6,
-      "ibu": null,
-      "rating": 3.69,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
