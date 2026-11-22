@@ -1,21 +1,49 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-21T22:48:07.816Z",
-  "count": 397,
-  "scrape_duration_seconds": 2.25,
+  "fetched_at": "2026-11-22T14:05:48.843Z",
+  "count": 396,
+  "scrape_duration_seconds": 1.78,
   "stats": {
-    "total_fetched": 397,
-    "total_valid": 397,
+    "total_fetched": 396,
+    "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
-      "Op=Op kaart": 74,
+      "Wisseltap bieren": 17,
+      "Op=Op kaart": 73,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Vicaris Winter",
+      "beer_url": "https://untappd.com/b/brouwerij-dilewyns-vicaris-winter/306055",
+      "image_url": "https://labels.untappd.com/306055",
+      "style": "Winter Ale",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 34,
+      "rating": 3.53,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
+    {
+      "name": "Gouverneur Exquise Whisky Infused Blond",
+      "beer_url": "https://untappd.com/b/lindeboom-gouverneur-exquise-whisky-infused-blond/6851885",
+      "image_url": "https://labels.untappd.com/6851885",
+      "style": "Belgian Blonde",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 7.1,
+      "ibu": 28,
+      "rating": 3.63,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Gouden Vorst",
       "beer_url": "https://untappd.com/b/delirium-huyghe-brewery-gouden-vorst/7685254",
@@ -129,20 +157,6 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
     {
-      "name": "Saga 10",
-      "beer_url": "https://untappd.com/b/zuyd-craft-saga-10/4292161",
-      "image_url": "https://labels.untappd.com/4292161",
-      "style": "Belgian Quadrupel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 10,
-      "ibu": 15,
-      "rating": 3.76,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
       "name": "Hazy Weekend Fresh Hop - 2026",
       "beer_url": "https://untappd.com/b/vandestreek-bier-hazy-weekend-fresh-hop-2026/6909884",
       "image_url": "https://labels.untappd.com/6909884",
@@ -167,20 +181,6 @@
       "abv": 11,
       "ibu": 31,
       "rating": 3.8,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Bokbier",
-      "beer_url": "https://untappd.com/b/jopen-bokbier/824230",
-      "image_url": "https://labels.untappd.com/824230",
-      "style": "Bock - Single / Traditional",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": 30,
-      "rating": 3.38,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -294,20 +294,6 @@
       "abv": 6.8,
       "ibu": null,
       "rating": 4.1,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
-    },
-    {
-      "name": "FAREWELL",
-      "beer_url": "https://untappd.com/b/brouwerij-lost-farewell/6560702",
-      "image_url": "https://labels.untappd.com/6560702",
-      "style": "IPA - New England / Hazy",
-      "brewery_url": null,
-      "category": "Op=Op kaart",
-      "subcategory": null,
-      "abv": 6.5,
-      "ibu": null,
-      "rating": 4.13,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -661,7 +647,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.34,
+      "rating": 3.35,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -955,7 +941,7 @@
       "subcategory": null,
       "abv": 6.2,
       "ibu": 49,
-      "rating": 3.58,
+      "rating": 3.56,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
