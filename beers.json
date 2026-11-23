@@ -1,8 +1,8 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-22T23:16:07.284Z",
+  "fetched_at": "2026-11-23T17:28:14.297Z",
   "count": 396,
-  "scrape_duration_seconds": 2.29,
+  "scrape_duration_seconds": 3.11,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
@@ -54,7 +54,7 @@
       "subcategory": null,
       "abv": 6.5,
       "ibu": 26,
-      "rating": 3.7,
+      "rating": 3.77,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
@@ -265,7 +265,7 @@
       "subcategory": null,
       "abv": 8.8,
       "ibu": 24,
-      "rating": 3.91,
+      "rating": 3.87,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -279,7 +279,7 @@
       "subcategory": null,
       "abv": 12,
       "ibu": null,
-      "rating": 4.34,
+      "rating": 4.33,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -647,7 +647,7 @@
       "subcategory": null,
       "abv": 4.2,
       "ibu": null,
-      "rating": 3.35,
+      "rating": 3.34,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -1109,7 +1109,7 @@
       "subcategory": null,
       "abv": 10.5,
       "ibu": null,
-      "rating": 4.11,
+      "rating": 4.12,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141692"
     },
@@ -2306,7 +2306,7 @@
       "subcategory": "Fruitbieren",
       "abv": 3.6,
       "ibu": null,
-      "rating": 3.45,
+      "rating": 3.46,
       "container": "33cl Bottle",
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
@@ -5482,7 +5482,7 @@
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141985"
     },
     {
-      "name": "Paulaner Hefe-Weißbier Alkoholfrei / Weissbier Non-Alcoholic",
+      "name": "Hefe-Weißbier Alkoholfrei / Weissbier Non-Alcoholic",
       "beer_url": "https://untappd.com/b/paulaner-brauerei-paulaner-hefe-weissbier-alkoholfrei-weissbier-non-alcoholic/87078",
       "image_url": "https://labels.untappd.com/87078",
       "style": "Wheat Beer - Hefeweizen",
