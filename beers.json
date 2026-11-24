@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-24T16:59:52.188Z",
+  "fetched_at": "2026-11-24T22:05:46.227Z",
   "count": 396,
-  "scrape_duration_seconds": 4.69,
+  "scrape_duration_seconds": 2.07,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Wisseltap bieren": 17,
       "Vaste bieren van de tap": 11,
+      "Wisseltap bieren": 17,
       "Op=Op kaart": 73,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Viva El Ryengoud",
+      "beer_url": "https://untappd.com/b/jopen-viva-el-ryengoud/6657462",
+      "image_url": "https://labels.untappd.com/6657462",
+      "style": "Rye Beer",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 4.3,
+      "ibu": null,
+      "rating": 3.45,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Vicaris Winter",
       "beer_url": "https://untappd.com/b/brouwerij-dilewyns-vicaris-winter/306055",
@@ -139,20 +153,6 @@
       "abv": 6,
       "ibu": 25,
       "rating": 3.46,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Calavera DDH",
-      "beer_url": "https://untappd.com/b/brasserie-surrealiste-calavera-ddh/4261398",
-      "image_url": "https://labels.untappd.com/4261398",
-      "style": "IPA - American",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 7,
-      "ibu": null,
-      "rating": 3.75,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
