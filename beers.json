@@ -1,21 +1,35 @@
 {
   "source": "https://untappd.com/v/biertaverne-de-gouverneur/1826909",
-  "fetched_at": "2026-11-25T21:21:54.406Z",
+  "fetched_at": "2026-11-26T01:36:22.297Z",
   "count": 396,
-  "scrape_duration_seconds": 2.29,
+  "scrape_duration_seconds": 1.99,
   "stats": {
     "total_fetched": 396,
     "total_valid": 396,
     "duplicates_removed": 0,
     "errors": 0,
     "by_category": {
-      "Vaste bieren van de tap": 11,
       "Wisseltap bieren": 17,
+      "Vaste bieren van de tap": 11,
       "Op=Op kaart": 73,
       "Bierbijbel": 295
     }
   },
   "beers": [
+    {
+      "name": "Karmeliet Grand Cru Brut",
+      "beer_url": "https://untappd.com/b/brouwerij-bosteels-karmeliet-grand-cru-brut/7230867",
+      "image_url": "https://labels.untappd.com/7230867",
+      "style": "Bière de Champagne / Bière Brut",
+      "brewery_url": null,
+      "category": "Wisseltap bieren",
+      "subcategory": null,
+      "abv": 10,
+      "ibu": 17,
+      "rating": 4.12,
+      "container": null,
+      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
+    },
     {
       "name": "Viva El Ryengoud",
       "beer_url": "https://untappd.com/b/jopen-viva-el-ryengoud/6657462",
@@ -111,20 +125,6 @@
       "abv": 9,
       "ibu": 35,
       "rating": 3.64,
-      "container": null,
-      "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
-    },
-    {
-      "name": "Prior 8",
-      "beer_url": "https://untappd.com/b/brouwerij-st-bernardus-prior-8/475",
-      "image_url": "https://labels.untappd.com/475",
-      "style": "Belgian Dubbel",
-      "brewery_url": null,
-      "category": "Wisseltap bieren",
-      "subcategory": null,
-      "abv": 8,
-      "ibu": 20,
-      "rating": 3.7,
       "container": null,
       "source_menu_url": "https://untappd.com/v/biertaverne-de-gouverneur/1826909?menu_id=141695"
     },
